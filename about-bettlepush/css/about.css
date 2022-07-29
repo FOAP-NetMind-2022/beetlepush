@@ -1,6 +1,6 @@
 /* css banner img */
 .banner-image {
-  background-image: url('/about-bettlepush/img/banner-img.jpg');
+  background-image: url('../img/2112.w026.n002.1268B.p0.1268.jpg');
   background-size: cover;
 }
 /******************/
@@ -24,7 +24,8 @@
 .ml6 .letter {
   display: inline-block;
   line-height: 1em;
-  color: white;
+  color: #562845;
+  text-shadow: 0px 0px 3px rgba(150, 150, 150, 1);
 }
 
 /******************/
@@ -38,7 +39,8 @@
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  background-color: rgb(124, 103, 76);
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(42,92,14,1) 0%, rgba(246,244,86,1) 100%);;
 }
 
 .cards {
@@ -48,6 +50,7 @@ body {
   margin: 4rem 5vw;
   padding: 0;
   list-style-type: none;
+  
 }
 
 .card {
@@ -58,6 +61,7 @@ body {
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
+  border: none !important;
 }
 
 .card__image {      
@@ -88,8 +92,7 @@ body {
   align-items: center;
   gap: 2em;
   padding: 2em;
-  border-radius: calc(var(--curve) * 1px) 0 0 0;
-  /*este background color da color al fondo del nombre de cada card*/    
+  border-radius: calc(var(--curve) * 1px) 0 0 0;   
   background-color: var(--surface-color);
   transform: translateY(-100%);
   transition: .2s ease-in-out;
@@ -105,10 +108,10 @@ body {
 }
 
 /*esto es la esquinita que hace curva a la derecha de cada card*/
-.card__arc path {
+/* .card__arc path {
   fill: var(--surface-color);
   d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-}       
+}        */
 
 .card:hover .card__header {
   transform: translateY(0);
@@ -125,7 +128,7 @@ body {
 .card__title {
   font-size: 1em;
   margin: 0 0 .3em;
-  color: #6A515E;
+  color: black;
 }
 
 .card__tagline {
@@ -153,9 +156,59 @@ body {
 }    
 /********************/
 
+/*beetlecards*/
 .beetlecards{
   width: 75%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.maincard{
+  display: flex;
   justify-content: center;
 }
+/************/
+
+
+/*carousel*/
+.carousel-inner > .item > img {
+  width:920px;
+  height:630px;
+}
+
+.carousel {
+  width:920px;
+  height:630px;
+}
+
+.maincarousel{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3.5rem;
+}
+/**********/
+
+/*mainhistory*/
+.mainhistory{
+  display: flex;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3.5rem;
+}
+.history{
+  width: 60%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+/*footer*/
+.mainfooter{
+  background-color: aquamarine;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/********/
