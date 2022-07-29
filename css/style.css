@@ -381,12 +381,15 @@ apple {
 }
 
 orange {
-  background: orange;
-  border-color: #bd6e07;
+  background-image: url(https://cdn.pixabay.com/photo/2021/05/14/06/27/ladybug-6252490_960_720.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
 }
 
 orange,apple,pickle {
-  box-shadow: 0px 5px 0px rgba(0,0,0,.2);
   display: inline-block;
   margin: 0 10px;
   height: 60px;
@@ -412,10 +415,6 @@ carrot {
 
 
 orange,apple {
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  border-style: solid;
-  border-width: 2px 4px 15px 4px;
   height: 60px;
   width: 60px;
   position: relative;
@@ -449,7 +448,6 @@ pickle.small {
 }
 
 orange:before,apple:before {
-  content: "";
   display: block;
   position: absolute;
   background: rgba(255,255,255,.3);
