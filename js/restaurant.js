@@ -390,7 +390,7 @@ function fireArray(text) {
     setTimeout(function () {
        currentLevel++;
       loadLevel();
-    }, 2000);
+    }, 4000);
 
     return;
     //refrescamos el tableon

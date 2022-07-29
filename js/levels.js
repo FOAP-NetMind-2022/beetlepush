@@ -25,7 +25,7 @@ var levels = [
     helpTitle: "Select elements by their type",
     selectorName: "Type Selector",
     doThis: "Select the fancy plate",
-    selector: "apple",
+    selector: "orange",
     syntax: "#id",
     help: 'Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.',
     examples: [
@@ -57,14 +57,17 @@ var levels = [
       '<strong>div</strong> selects all <tag>div</tag> elements.',
       '<strong>p</strong> selects all <tag>p</tag> elements.',
     ],
-    myGrass : ['pickle','orange','apple'],
-    myGrassSolution : ['apple', 'orange'],
+    myGrass : ['orange','pickle','pickle','apple'],
+    myGrassSolution : ['orange','pickle','pickle','apple'],
     boardMarkup: `
+    <plate> 
+    <orange/>    
+    </plate>
     <plate> 
     <pickle/>    
     </plate>
     <plate> 
-    <orange/>    
+    <pickle/>    
     </plate>
     <plate> 
     <apple/>    
