@@ -11,10 +11,10 @@
   ..to be continued!
 */
 
-var level;  // Holds current level info
+var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
-var finished = false;    // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
+var finished = false; // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
 
 var blankProgress = {
   totalCorrect: 0,
@@ -28,6 +28,10 @@ var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 
 $(document).ready(function () {
+
+  
+
+
 
   $(".share-menu").on("click", "a", function () {
 
@@ -309,63 +313,95 @@ function enterHit() {
 
 //Parses text from the input field
 function handleInput(text) {
-  if (parseInt(text, 10) > 0 && parseInt
-  (text, 10) < levels.length + 1) { 
+  if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
     currentLevel = parseInt(text, 10) - 1;
-    
-  
+
+
   }
- // fireRule(text);
- fireArray(text);
+  // fireRule(text);
+  fireArray(text);
 }
- /*le damos un formato al array para que su contenido empieze con ´<´ y termine con ´>´
-  function formatoArray(mytable) {
-    var mytable = mytable.split(",");
-    var mytable = [];
-    for (var i = 0; i < mytable.length; i++) {
-      mytable.push('<' + mytable[i] + '>');
-    }
-   
-    }*/
-  var mytable = ['<plate/>'];
+/*le damos un formato al array para que su contenido empieze con ´<´ y termine con ´>´
+ function formatoArray(mytable) {
+   var mytable = mytable.split(",");
+   var mytable = [];
+   for (var i = 0; i < mytable.length; i++) {
+     mytable.push('<' + mytable[i] + '>');
+   }
+  
+   }*/
 
-function fireArray(text){
+//var mytable = ['<plate/>'];
 
-
-  if(text=="mytable.push('orange')"){
-    //cargamos el array en el level.boardMarkup  
-    levels[currentLevel].boardMarkup =mytable[0] +','+ '<'+mytable[1]+'/>';
-  //  level.boardMarkup= '<plate/>  <plate> <orange/> </plate>';  
-
-    mytable.push("cosa: "+level.boardMarkup);
-    console.log(eval(text));
-    mytable.push('orange')
-    console.log(mytable);
- // formatoArray(text);
+function fireArray(text) {
+  const myGrass = levels[currentLevel].myGrass
+  //const myGrassSolution = ['apple', 'orange'];
 
 
-    $(".table").html(level.boardMarkup);
-    //esperamos unos segugundos y despues subimos al siguiente nivel y lo cargamos 
-    setTimeout(function(){
-     // currentLevel++;
-      loadLevel();
-    }
-    ,1000);
-
-   return;
-    //refrescamos el tableon
+  // evaluamos cualquier error que pueda existir en el array  
+  let aEvaluar;
+  try {
+    aEvaluar = eval(text);
+  } catch (e) {
+    console.log("noope");
   }
-  else{
+ // console.log(aEvaluar);
+
+
+  //la comparación del array con el array de solución funciona ok
+  function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+  };
+
+  //myGrass.push("orange") //texto solo para probar en el cliente
+
+  //console.log(levels[currentLevel].myGrassSolution);
+
+  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) {
+    //cargamos el array en el level.boardMarkup  
+
+    //levels[currentLevel].boardMarkup = mytable[0] + ',' + '<' + mytable[1] + '/>';
+
+
+    //mytable.push("cosa: "+level.boardMarkup);
+    //console.log(eval(text));
+    //mytable.push('orange')
+    //console.log(mytable);
+    // formatoArray(text);
+
+    let newboardMarkup = '';
+    myGrass.forEach(function (element) {
+      //$(".table").append(`<plate><p>${element}</p></plate>`);
+      newboardMarkup += `<plate><${element}/></plate>`;
+    });
+
+    //level.boardMarkup= '<plate/>  <plate> <orange/> </plate>';  
+    level.boardMarkup = `${newboardMarkup}`;
+
+
+
+    //$(".table").html(level.boardMarkup);
+    //esperamos unos segugundos y despues subimos al siguiente nivel y lo cargamos 
+    setTimeout(function () {
+       currentLevel++;
+      loadLevel();
+    }, 2000);
+
+    return;
+    //refrescamos el tableon
+  } else {
     console.log(text)
     //agregamos la clase shake al editor y luego lo quitamos para volver a activar en caso de segundo error
 
     $(".editor").addClass("shake");
     setTimeout(function () {
       $(".editor").removeClass("shake");
-    }
-    , 1000);
+    }, 1000);
 
-  } 
+  }
 
 }
 
@@ -426,17 +462,17 @@ function fireRule(rule) {
   });
 
   /*
-  * Sean Nessworthy <sean@nessworthy.me>
-  * On 03/17/14
-  *
-  * Allow [div][.table] to preceed the answer.
-  * Makes sense if div.table is going to be included in the HTML viewer
-  * and users want to try and use it in their selectors.
-  *
-  * However, if it is included as a specific match, filter it out.
-  * This resolves the  "Match all the things!" level from beheading the table too.
-  * Relatedly, watching that happen made me nearly spill my drink.
-  */
+   * Sean Nessworthy <sean@nessworthy.me>
+   * On 03/17/14
+   *
+   * Allow [div][.table] to preceed the answer.
+   * Makes sense if div.table is going to be included in the HTML viewer
+   * and users want to try and use it in their selectors.
+   *
+   * However, if it is included as a specific match, filter it out.
+   * This resolves the  "Match all the things!" level from beheading the table too.
+   * Relatedly, watching that happen made me nearly spill my drink.
+   */
 
   // var baseTable = $('.table-wrapper > .table, .table-wrapper > .nametags, .table-wrapper > .table-surface');
   var baseTable = $('.table');
@@ -445,12 +481,11 @@ function fireRule(rule) {
   // If it errors out, change the rule to null so the wrong-guess animation will work
   try {
     $(".table").find(rule).not(baseTable);
-  }
-  catch (err) {
+  } catch (err) {
     rule = null;
   }
 
-  var ruleSelected = $(".table").find(rule).not(baseTable);            // What the correct rule finds
+  var ruleSelected = $(".table").find(rule).not(baseTable); // What the correct rule finds
   var levelSelected = $(".table").find(level.selector).not(baseTable); // What the person finds
 
   console.log(ruleSelected);
@@ -561,9 +596,9 @@ function sendEvent(category, action, label) {
 
   ga('send', {
     hitType: "event",
-    eventCategory: category,  // guess or progress
-    eventAction: action,      // action (correct vs not..)
-    eventLabel: label         // level number
+    eventCategory: category, // guess or progress
+    eventAction: action, // action (correct vs not..)
+    eventLabel: label // level number
   });
 }
 
@@ -616,7 +651,7 @@ function getMarkup(el) {
 
 function loadBoard() {
 
-  var boardString = level.board;  // just a placeholder to iterate over...
+  var boardString = level.board; // just a placeholder to iterate over...
   boardMarkup = ""; // what is this
   var tableMarkup = ""; // what is this
   var editorMarkup = ""; // this is a string that represents the HTML
@@ -676,6 +711,10 @@ function loadLevel() {
   } else {
     $(".note-toggle").hide();
   }
+  //cargar el contendido del array myGrassSolution en el div con id myGrassHelp
+  let htmlHelp = "myGrass = ["+levels[currentLevel].myGrass.toString()+"];";
+  $("#myGrassHelp").html(htmlHelp);
+  
 
   $(".level-menu .current").removeClass("current");
   $(".level-menu div a").eq(currentLevel).addClass("current");
