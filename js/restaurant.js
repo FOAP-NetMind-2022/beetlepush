@@ -309,12 +309,64 @@ function enterHit() {
 
 //Parses text from the input field
 function handleInput(text) {
-  if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
+  if (parseInt(text, 10) > 0 && parseInt
+  (text, 10) < levels.length + 1) { 
     currentLevel = parseInt(text, 10) - 1;
-    loadLevel();
-    return;
+    
+  
   }
-  fireRule(text);
+ // fireRule(text);
+ fireArray(text);
+}
+ /*le damos un formato al array para que su contenido empieze con ´<´ y termine con ´>´
+  function formatoArray(mytable) {
+    var mytable = mytable.split(",");
+    var mytable = [];
+    for (var i = 0; i < mytable.length; i++) {
+      mytable.push('<' + mytable[i] + '>');
+    }
+   
+    }*/
+  var mytable = ['<plate/>'];
+
+function fireArray(text){
+
+
+  if(text=="mytable.push('orange')"){
+    //cargamos el array en el level.boardMarkup  
+    levels[currentLevel].boardMarkup =mytable[0] +','+ '<'+mytable[1]+'/>';
+  //  level.boardMarkup= '<plate/>  <plate> <orange/> </plate>';  
+
+    mytable.push("cosa: "+level.boardMarkup);
+    console.log(eval(text));
+    mytable.push('orange')
+    console.log(mytable);
+ // formatoArray(text);
+
+
+    $(".table").html(level.boardMarkup);
+    //esperamos unos segugundos y despues subimos al siguiente nivel y lo cargamos 
+    setTimeout(function(){
+     // currentLevel++;
+      loadLevel();
+    }
+    ,1000);
+
+   return;
+    //refrescamos el tableon
+  }
+  else{
+    console.log(text)
+    //agregamos la clase shake al editor y luego lo quitamos para volver a activar en caso de segundo error
+
+    $(".editor").addClass("shake");
+    setTimeout(function () {
+      $(".editor").removeClass("shake");
+    }
+    , 1000);
+
+  } 
+
 }
 
 // Loads up the help text & examples for each level
@@ -368,7 +420,6 @@ function fireRule(rule) {
   }
 
   $(".shake").removeClass("shake");
-
   $(".strobe,.clean,.shake").each(function () {
     $(this).width($(this).width());
     $(this).removeAttr("style");
@@ -560,6 +611,8 @@ function getMarkup(el) {
 }
 
 //new board loader...
+
+
 
 function loadBoard() {
 
