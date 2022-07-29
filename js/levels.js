@@ -32,14 +32,17 @@ var levels = [
       '<strong>#cool</strong> selects any element with <strong>id="cool"</strong>',
       '<strong>ul#long</strong> selects <tag>ul id="long"</tag>'
     ],
-    myGrass : ['orange', 'apple'],
-    myGrassSolution : ['orange'],
+    myGrass : ['pickle', 'apple', 'orange'],
+    myGrassSolution : ['pickle', 'apple'],
     boardMarkup: `
     <plate> 
-    <orange/>    
+    <pickle/>    
     </plate>
     <plate> 
     <apple/>    
+    </plate>
+    <plate> 
+    <orange/>    
     </plate>
     `
   },
@@ -54,6 +57,8 @@ var levels = [
       '<strong>div</strong> selects all <tag>div</tag> elements.',
       '<strong>p</strong> selects all <tag>p</tag> elements.',
     ],
+    myGrass : ['pickle','orange','apple'],
+    myGrassSolution : ['apple', 'orange'],
     boardMarkup: `
     <plate> 
     <pickle/>    

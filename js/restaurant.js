@@ -385,6 +385,8 @@ function fireArray(text) {
 
     //$(".table").html(level.boardMarkup);
     //esperamos unos segugundos y despues subimos al siguiente nivel y lo cargamos 
+    loadLevel();
+
     setTimeout(function () {
        currentLevel++;
       loadLevel();
@@ -393,7 +395,7 @@ function fireArray(text) {
     return;
     //refrescamos el tableon
   } else {
-    console.log(text)
+    //console.log(text)
     //agregamos la clase shake al editor y luego lo quitamos para volver a activar en caso de segundo error
 
     $(".editor").addClass("shake");
@@ -714,7 +716,7 @@ function loadLevel() {
   //cargar el contendido del array myGrassSolution en el div con id myGrassHelp
   let htmlHelp = "myGrass = ["+levels[currentLevel].myGrass.toString()+"];";
   $("#myGrassHelp").html(htmlHelp);
-  
+
 
   $(".level-menu .current").removeClass("current");
   $(".level-menu div a").eq(currentLevel).addClass("current");
