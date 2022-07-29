@@ -423,7 +423,7 @@ function fireRule(rule) {
     $("input").val("");
     $(".input-wrapper").css("opacity", .2);
     updateProgressUI(currentLevel, true);
-    currentLevel++;
+    currentLevel++; //aqui podemos hacer que se vea el boardmarkupsolution
 
     if (currentLevel >= levels.length) {
       winGame();

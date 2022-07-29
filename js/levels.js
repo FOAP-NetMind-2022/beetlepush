@@ -2,8 +2,8 @@ var levels = [
   {
     helpTitle: "Select elements by their type",
     selectorName: "Type Selector",
-    doThis: "Select the plates",
-    selector: "orange",
+    doThis: "Select the ladybugs",
+    selector: "ladybug",
     syntax: "A",
     help: "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.",
     examples: [
@@ -11,10 +11,30 @@ var levels = [
       '<strong>p</strong> selects all <tag>p</tag> elements.',
     ],
     boardMarkup: `
-    <orange/>
-    <orange/>
-    `
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    `,
+    boardMarkupSolution: ` 
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass> 
+    <grass>
+      <ladybug>
+    </grass>
+  `
   },
+  // restaurant.js
+  // eval(level.boardMarkup)
+  // grass.forEach() // Crear tanto elementos dentro del .grid como elementos en el array. Y sabeis que "bicho" hay que pintar porque es justamente el elemento del array 
+  // let elemento = document.createElement(...) // contenedorGrid.appendChild(elemento)
+
   {
     doThis: "Select the bento boxes",
     selector: "bento",
