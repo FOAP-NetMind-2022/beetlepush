@@ -133,6 +133,8 @@ body {
   font-size: 1em;
   margin: 0 0 .3em;
   color: black;
+  font-family: 'Lato';
+  font-weight: 700;
 }
 
 .card__tagline {
@@ -151,8 +153,10 @@ body {
 .card__description {
   padding: 0 2em 2em;
   margin: 0;
-  color: #D7BDCA;
-  font-family: "MockFlowFont";   
+  color: rgb(99, 98, 98);
+  font-family: "Lato";
+  font-size: 400;
+  font-style: italic;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -210,9 +214,13 @@ border-radius: 5px;
 }
 /*footer*/
 .mainfooter{
-  background-color: aquamarine;
+  background-color: rgb(31, 31, 31);
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+#infofooter{
+  color: white;
 }
 
 /********/
@@ -227,10 +235,18 @@ border-radius: 5px;
 
 
 }
-  
+
 #btn-social{
   margin:0.5rem;
 }
 
+/* title h2 nuestra historia**/
+.ourstory{
+  font-family: 'Mouse Memoirs';
+}
 
+.storydescription{
+  font-family: 'Fresca';
+  font-size: 22px;
+}
 
