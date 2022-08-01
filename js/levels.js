@@ -17,6 +17,15 @@ var levels = [
     <grass>
      <ladybug>
     </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
     `,
     boardMarkupSolution: ` 
     <grass>

@@ -117,12 +117,11 @@ header {
 
 .grass-wrapper {
   margin-top: 10px;
-  transform: rotateX(20deg);
   min-height: 142px;
   transform-origin: bottom;
   z-index: 9999;
   position: relative;
-  margin: 10px auto 0 auto;
+  margin: 0 4%;
   width: 250px;
 
 }
@@ -137,6 +136,20 @@ header {
   z-index: 999;
   position: relative;
   white-space: nowrap;
+
+
+  background-image: linear-gradient(black, black),
+    linear-gradient(red, red),
+    linear-gradient(black, black),
+    linear-gradient(red, red);
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: top left, top right, bottom left, bottom right;
+  border: solid black;
+  border-width: 0 10px;
+  display: inline-block;
+  margin: 20px; 
+  border-color: red red black black;
 }
 
 .table-surface {
@@ -238,11 +251,10 @@ grass {
 }
 
 grass {
-  border: 5px solid rgb(225, 235, 236);
-  
+  border: 3px solid #2a231d;
   border-radius: 4px;
-  background-image: url(https://media.istockphoto.com/vectors/seamless-texture-of-a-grass-vector-id119145145?k=20&m=119145145&s=612x612&w=0&h=qLkueloZQzOZxtDClZAifDZMs6yaFAfhJ2UNyukn1To=);
-  background-size: cover;
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/146/575/large/ulrick-wery-tileableset2-soil.jpg');
+  background-size: 125%;
 }
 
 bento {
@@ -284,7 +296,7 @@ bento:before {
   text-align: left;
   width: 90%;
   margin: 0 auto;
-  border: solid 10px rgba(0, 0, 0, .35);
+  border: solid 10px rgba(0, 0, 0, .75);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -295,8 +307,8 @@ bento:before {
 }
 
 .editor-pane:last-child {
-  border-right: solid 1px rgba(255, 255, 255, .03);
-  border-bottom: solid 1px rgba(255, 255, 255, .03);
+  border-right: solid 1px rgba(255, 255, 255, .75);
+  border-bottom: solid 1px rgba(255, 255, 255, .75);
 }
 
 .editor * {
@@ -411,7 +423,7 @@ apple {
 }
 
 ladybug {
-  background-image: url(https://cdn.pixabay.com/photo/2021/05/14/06/27/ladybug-6252490_960_720.png);
+  background-image: url('/butterfly.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
