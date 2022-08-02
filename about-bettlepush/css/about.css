@@ -1,0 +1,271 @@
+/* css banner img */
+.banner-image {
+  background-image: url('../img/skyland1.jpg');
+  background-size: cover;
+}
+
+.banner-image1{
+  background-image: url('../img/backland2.jpg');
+  background-size: cover;
+}
+/******************/
+
+/* title animation*/
+.ml6 {
+  position: relative;
+  font-weight: 900;
+  font-size: 3.3em;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+  color: #0a1242;
+  text-shadow: 0px 0px 3px rgba(150, 150, 150, 1);
+  font-size: 50px;
+}
+
+/******************/
+
+/* Beetle Cards*/
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  /* background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(42,92,14,1) 0%, rgba(246,244,86,1) 100%);; */
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+
+  
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%; 
+  /*este borderradius hace que tenga los bordes tan redondeados cada card*/
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  /* border: none !important; */
+
+}
+
+.card__image {      
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);
+  /*este background color hace que tenga color el fondo del texto lorem ipsum de cada card*/    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+
+
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;   
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+/*esto es la esquinita que hace curva a la derecha de cada card*/
+/* .card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}        */
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  /*este borderradius hace que las fotos de perfil sean redondas*/      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: black;
+  font-family: 'Lato';
+  font-weight: 700;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #D7BDCA;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #b6b6b6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card__description {
+  padding-left: 2em;
+  padding-bottom: 8px;
+  margin: 0;
+  color: rgb(99, 98, 98);
+  font-family: "Lato";
+  font-size: 400;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}    
+/********************/
+
+/*beetlecards*/
+.beetlecards{
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.maincard{
+  display: flex;
+  justify-content: center;
+}
+/************/
+
+
+/*carousel*/
+.carousel-inner > .item > img {
+  width:920px;
+  height:630px;
+}
+
+.carousel {
+  width:920px;
+  height:630px;
+}
+
+.maincarousel{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3.5rem;
+}
+/**********/
+
+/*mainhistory*/
+.mainhistory{
+  display: flex;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3.5rem;
+}
+.history{
+  width: 60%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+/*footer*/
+.mainfooter{
+  background-color: rgb(31, 31, 31);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+#infofooter{
+  color: white;
+}
+
+/********/
+
+/*boton social*/
+.container-social{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding-bottom: 0.5rem;
+margin-bottom: 8px;
+
+
+}
+
+#btn-social{
+  margin:0.5rem;
+}
+
+/* title h2 nuestra historia**/
+.ourstory{
+  font-family: 'Mouse Memoirs';
+}
+
+.storydescription{
+  font-family: 'Fresca';
+  font-size: 22px;
+}
+
+.logo{
+  max-width: 100px;
+  position: fixed;
+  bottom: 5rem;
+  left: 20px;
+}
+
+.navbar{
+  font-size: 18px;
+}
