@@ -40,7 +40,7 @@ h5 {
 
 header {
   padding: 12px 15px 11px 35px;
-  color: rgba(255, 255, 255, .3);
+  color: rgba(255, 255, 255, .8);
   text-align: left;
 }
 
@@ -59,7 +59,7 @@ header {
   float: right;
   margin-left: 5px;
   position: relative;
-  opacity: .5;
+  opacity: .8;
   top: -2px;
   transition: opacity .1s ease-out;
 }
@@ -194,6 +194,7 @@ header {
 }
 
 ladybug,
+butterfly,
 apple,
 pickle,
 bento,
@@ -277,7 +278,8 @@ grass bento {
 }
 
 grass bento apple,
-grass bento ladybug {
+grass bento ladybug,
+grass bento butterfly {
   top: -36px !important;
 }
 
@@ -374,7 +376,7 @@ bento:before {
 }
 
 .html-view .file-window {
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, .8);
 }
 
 .editor input {
@@ -422,8 +424,17 @@ apple {
   border-color: #ab1212;
 }
 
-ladybug {
-  background-image: url('/butterfly.png');
+ladybug{
+  background-image: url("/images/ladybug.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
+}
+
+butterfly{
+  background-image: url("/images/butterfly.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -432,6 +443,7 @@ ladybug {
 }
 
 ladybug,
+butterfly,
 apple,
 pickle {
   display: inline-block;
@@ -467,6 +479,7 @@ apple {
 }
 
 ladybug.small,
+butterfly.small,
 apple.small {
   height: 30px;
   width: 30px;
@@ -493,6 +506,7 @@ pickle.small {
 }
 
 ladybug:before,
+butterfly:before,
 apple:before {
   display: block;
   position: absolute;
@@ -507,8 +521,10 @@ apple:before {
 /*FRUITS ON A PLATTER*/
 
 bento ladybug,
+bento butterfly,
 bento apple,
 grass ladybug,
+grass butterfly,
 grass apple {
   left: calc(50% - 30px);
   margin: 0;
@@ -517,8 +533,10 @@ grass apple {
 
 grass>apple:last-child,
 grass>ladybug:last-child,
+grass>butterfly:last-child,
 bento>apple:last-child,
-bento>ladybug:last-child {
+bento>ladybug:last-child,
+bento>butterfly:last-child{
   top: calc(50% - 35px);
 }
 
@@ -721,7 +739,7 @@ grass:before {
   opacity: .4;
 }
 
-ladybug {
+ladybug, butterfly {
   z-index: 1000;
 }
 
@@ -834,29 +852,34 @@ board {
 /* Fancy orange stacking */
 
 grass apple,
-grass ladybug {
+grass ladybug,
+grass butterfly {
   position: absolute;
 }
 
 grass apple:last-child,
-grass ladybug:last-child {
+grass ladybug:last-child,
+grass butterfly:last-child {
   z-index: 300;
 }
 
 grass apple:nth-last-child(2),
-grass ladybug:nth-last-child(2) {
+grass ladybug:nth-last-child(2),
+grass butterfly:nth-last-child(2) {
   top: -25px;
   z-index: 400;
 }
 
 grass apple:nth-last-child(3),
-grass ladybug:nth-last-child(3) {
+grass ladybug:nth-last-child(3),
+grass butterfly:nth-last-child(3) {
   top: -65px;
   z-index: 500;
 }
 
 grass apple:nth-last-child(4),
-grass ladybug:nth-last-child(4) {
+grass ladybug:nth-last-child(4),
+grass butterfly:nth-last-child(4) {
   top: -105px;
   z-index: 600;
 }
@@ -944,7 +967,7 @@ grass ladybug:nth-last-child(4) {
 }
 
 .order {
-  color: rgba(255, 255, 255, .3);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 45px;
   margin: 0;
   font-weight: 400;
@@ -961,7 +984,7 @@ grass ladybug:nth-last-child(4) {
   margin-top: 35px;
   padding: 20px 0;
   width: 725px;
-  color: rgba(255, 255, 255, .3);
+  color: rgba(255, 255, 255, .8);
   font-size: 15px;
   margin: 0 auto;
   font-weight: 400;
@@ -975,12 +998,12 @@ grass ladybug:nth-last-child(4) {
 
 .what-is-this a {
   color: white;
-  opacity: .5;
+  opacity: .8;
   text-decoration: none;
 }
 
 .what-is-this a:hover {
-  opacity: .7;
+  opacity: .9;
 }
 
 .markup {
@@ -1204,8 +1227,8 @@ grass ladybug:nth-last-child(4) {
 }
 
 .note-toggle {
-  background: rgba(0, 0, 0, .2);
-  color: rgba(255, 255, 255, .3);
+  background: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.8);
   padding: 8px 15px 10px 15px;
   -webkit-border-radius: 20px;
   text-decoration: none;
