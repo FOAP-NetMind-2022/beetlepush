@@ -8,11 +8,13 @@ var levels = [
     //add link in the help page
     help: "Definition and Usage The push() method adds new items to the end of an array. It changes the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_push.asp'> more help </a>",
     examples: [
-      '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> table.push("plate"); <br> <strong>3</strong> console.log(fruits);',
-      '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "plate"] </div>',
+      '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
+      '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
     ],
     myGrass : ['apple'],
     myGrassSolution : ['apple', 'orange'],
+    completed: false,
+    userSolution: "",
     boardMarkup: `
     <orange/>
     <plate> 
@@ -35,6 +37,8 @@ var levels = [
     ],
     myGrass : ['pickle', 'apple', 'orange'],
     myGrassSolution : ['pickle', 'apple'],
+    completed: false,
+    userSolution: "",
     boardMarkup: `
     <plate> 
     <pickle/>    

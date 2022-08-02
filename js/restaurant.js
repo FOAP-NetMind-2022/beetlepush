@@ -319,23 +319,12 @@ function handleInput(text) {
 
   }
   // fireRule(text);
-  fireArray(text);
+  fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
-/*le damos un formato al array para que su contenido empieze con ´<´ y termine con ´>´
- function formatoArray(mytable) {
-   var mytable = mytable.split(",");
-   var mytable = [];
-   for (var i = 0; i < mytable.length; i++) {
-     mytable.push('<' + mytable[i] + '>');
-   }
-  
-   }*/
 
-//var mytable = ['<plate/>'];
 
 function fireArray(text) {
   const myGrass = levels[currentLevel].myGrass
-  //const myGrassSolution = ['apple', 'orange'];
 
 
   // evaluamos cualquier error que pueda existir en el array  
@@ -343,9 +332,8 @@ function fireArray(text) {
   try {
     aEvaluar = eval(text);
   } catch (e) {
-    console.log("noope");
+    console.log("Error: " + e); // mostramos el error en la consola
   }
- // console.log(aEvaluar);
 
 
   //la comparación del array con el array de solución funciona ok
@@ -356,35 +344,20 @@ function fireArray(text) {
       a.every((val, index) => val === b[index]);
   };
 
-  //myGrass.push("orange") //texto solo para probar en el cliente
 
-  //console.log(levels[currentLevel].myGrassSolution);
-
-  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) {
-    //cargamos el array en el level.boardMarkup  
-
-    //levels[currentLevel].boardMarkup = mytable[0] + ',' + '<' + mytable[1] + '/>';
-
-
-    //mytable.push("cosa: "+level.boardMarkup);
-    //console.log(eval(text));
-    //mytable.push('orange')
-    //console.log(mytable);
-    // formatoArray(text);
+  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
 
     let newboardMarkup = '';
     myGrass.forEach(function (element) {
-      //$(".table").append(`<plate><p>${element}</p></plate>`);
-      newboardMarkup += `<plate><${element}/></plate>`;
+    newboardMarkup += `<plate><${element}/></plate>`;
     });
 
-    //level.boardMarkup= '<plate/>  <plate> <orange/> </plate>';  
     level.boardMarkup = `${newboardMarkup}`;
+    level.completed = true;
+    level.userSolution = text;
+    console.log(level.completed);
 
 
-
-    //$(".table").html(level.boardMarkup);
-    //esperamos unos segugundos y despues subimos al siguiente nivel y lo cargamos 
     loadLevel();
 
     setTimeout(function () {
@@ -393,10 +366,8 @@ function fireArray(text) {
     }, 4000);
 
     return;
-    //refrescamos el tableon
   } else {
-    //console.log(text)
-    //agregamos la clase shake al editor y luego lo quitamos para volver a activar en caso de segundo error
+
 
     $(".editor").addClass("shake");
     setTimeout(function () {
@@ -738,6 +709,28 @@ function loadLevel() {
 
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
+
+
+//hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
+//ya habían otras validaciones, que deberíamos limpiar.
+  if (levels[currentLevel].completed) {
+    $(".enter-button").hide();
+    $("#input-solution").attr("placeholder", levels[currentLevel].userSolution);
+    $("#input-solution").removeClass("input-strobe");
+    $("#input-solution").attr("disabled", true);
+    $(".checkmark").addClass("completed");
+
+  }
+  else {
+    $(".enter-button").show();
+    $("#input-solution").attr("placeholder", "Type in an Array method");
+    $("#input-solution").addClass("input-strobe");
+    $("#input-solution").attr("disabled", false);
+    $(".checkmark").removeClass("completed");
+
+  }
+
+
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
