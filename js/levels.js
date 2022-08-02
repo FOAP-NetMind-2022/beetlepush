@@ -1,14 +1,15 @@
 var levels = [
   {
-    helpTitle: "Select elements by their type",
-    selectorName: "Type Selector",
-    doThis: "Select the orange",
-    selector: "orange",
-    syntax: "A",
-    help: "Agrega la naranja al final del array.",
+    helpTitle: "Add an element at the end of the array, ",
+    selectorName: "Push method",
+    doThis: "Insert the orange at the end of the array",
+    selector: "Push",
+    syntax: "push();",
+    //add link in the help page
+    help: "Definition and Usage The push() method adds new items to the end of an array. It changes the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_push.asp'> more help </a>",
     examples: [
-      'table.push("orange");',
-      '<strong>p</strong> selects all <tag>p</tag> elements.',
+      '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> table.push("plate"); <br> <strong>3</strong> console.log(fruits);',
+      '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "plate"] </div>',
     ],
     myGrass : ['apple'],
     myGrassSolution : ['apple', 'orange'],
@@ -22,15 +23,15 @@ var levels = [
   },
 
   {
-    helpTitle: "Select elements by their type",
-    selectorName: "Type Selector",
-    doThis: "Select the fancy plate",
-    selector: "orange",
-    syntax: "#id",
-    help: 'Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.',
+    helpTitle: "Remove the last of element in the array, ",
+    selectorName: "Pop method",
+    doThis: "Remove the orange in the end",
+    selector: "pop",
+    syntax: "pop();",
+    help: ' DThe pop() method removes (pops) the last element of an array, changing the length of the original array. <a href= "https://www.w3schools.com/jsref/jsref_pop.asp"> more help </a>',
     examples: [
-      '<strong>#cool</strong> selects any element with <strong>id="cool"</strong>',
-      '<strong>ul#long</strong> selects <tag>ul id="long"</tag>'
+      '<strong>1</strong> const fruits = ["Banana", "Orange", "Apple"]; <br><strong>2</strong> fruits.pop();<br> <strong>3</strong> console.log(fruits);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Banana", "Orange"]</div>',
     ],
     myGrass : ['pickle', 'apple', 'orange'],
     myGrassSolution : ['pickle', 'apple'],
@@ -45,33 +46,5 @@ var levels = [
     <orange/>    
     </plate>
     `
-  },
-  {
-    helpTitle: "Select elements by their type",
-    selectorName: "Type Selector",
-    doThis: "Select the bento boxes",
-    selector: ["pickle","orange"],
-    syntax: "A",
-    help: "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.",
-    examples: [
-      '<strong>div</strong> selects all <tag>div</tag> elements.',
-      '<strong>p</strong> selects all <tag>p</tag> elements.',
-    ],
-    myGrass : ['orange','pickle','pickle','apple'],
-    myGrassSolution : ['orange','pickle','pickle','apple'],
-    boardMarkup: `
-    <plate> 
-    <orange/>    
-    </plate>
-    <plate> 
-    <pickle/>    
-    </plate>
-    <plate> 
-    <pickle/>    
-    </plate>
-    <plate> 
-    <apple/>    
-    </plate>
-    `
-  }
+  } 
 ];
