@@ -1,6 +1,11 @@
 /* css banner img */
 .banner-image {
-  background-image: url('../img/2112.w026.n002.1268B.p0.1268.jpg');
+  background-image: url('../img/skyland1.jpg');
+  background-size: cover;
+}
+
+.banner-image1{
+  background-image: url('../img/backland2.jpg');
   background-size: cover;
 }
 /******************/
@@ -24,8 +29,9 @@
 .ml6 .letter {
   display: inline-block;
   line-height: 1em;
-  color: #562845;
+  color: #0a1242;
   text-shadow: 0px 0px 3px rgba(150, 150, 150, 1);
+  font-size: 50px;
 }
 
 /******************/
@@ -39,8 +45,8 @@
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  background: rgb(2,0,36);
-  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(42,92,14,1) 0%, rgba(246,244,86,1) 100%);;
+  /* background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(42,92,14,1) 0%, rgba(246,244,86,1) 100%);; */
 }
 
 .cards {
@@ -62,7 +68,8 @@ body {
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
-  border: none !important;
+  /* border: none !important; */
+
 }
 
 .card__image {      
@@ -147,11 +154,13 @@ body {
 
 .card__status {
   font-size: .8em;
-  color: #D7BDCA;
+  color: #b6b6b6;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .card__description {
-  padding: 0 2em 2em;
+  padding-left: 2em;
+  padding-bottom: 8px;
   margin: 0;
   color: rgb(99, 98, 98);
   font-family: "Lato";
@@ -231,7 +240,7 @@ border-radius: 5px;
  align-items:center;
  justify-content:center;
  padding-bottom: 0.5rem;
-
+margin-bottom: 8px;
 
 
 }
@@ -250,3 +259,13 @@ border-radius: 5px;
   font-size: 22px;
 }
 
+.logo{
+  max-width: 100px;
+  position: fixed;
+  bottom: 5rem;
+  left: 20px;
+}
+
+.navbar{
+  font-size: 18px;
+}

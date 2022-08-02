@@ -8,9 +8,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <!-------------->
+
     <!--H1 moving-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <!------------->
+
     <link rel="icon" href="./img/pngwing.com.png">
     <link rel="stylesheet" href="./css/about.css">
     <!--fontawesome-->
@@ -25,122 +27,110 @@
     <title>About Beetle Push</title>
 
 </head>
+
+
 <body>
+  <div class="fixed-bottom">
+    <a href="../index.html"><img class="logo" src="./img/Logo (1).png" alt="logo"></a>
+  </div>
     <!-- Navbar  -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
       <div class="container">
-        <a href="../index.html"><img src="./img/pngwing.com.png" alt="ladybug" height="35px" width="30px"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mx-auto"></div>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="../index.html">Juega ahora</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Historia</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Sobre nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Evolución</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">FAQ</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="../index.html">Juega ahora</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#storyus">Historia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#membercard">Sobre nosotros</a>
+              </li>
+            </ul>
         </div>
       </div>
     </nav>
     <!-------------------->
-
     <!-- Banner Image with H1 title -->
-    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-        <h1 class="ml6">
-            <span class="text-wrapper">
-                <span class="letters">Beetle Push</span>
-            </span>
-        </h1>
+    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center flex-column">
+      <h1 class="ml6">
+        <span class="text-wrapper">
+          <span class="letters">Beetle Push</span>
+        </span>
+      </h1>
+      <img src="./img/Logo (1).png" alt="mariquita" style="max-width: 80px;">
     </div>
     <!-------------------------------->
 
     <!--HISTORY-->
-    <div class="mainhistory">
-    <div class="history">
-        <h2 class="ourstory">Nuestra historia</h2>
-        <p class="storydescription">Somos un grupo de estudiantes de un curso de desarrollo de aplicaciones con tecnología web que como proyecto de fin de curso, nos surgió la idea de la creación de un juego para aprender a programar con métodos de array en javascript.</p>
-    </div>
-    </div>
+    <div class="banner-image1">
+      <div class="mainhistory" id="storyus">
+        <div class="history">
+            <h2 class="ourstory">Nuestra historia</h2>
+              <p class="storydescription">Somos un grupo de estudiantes de un curso de desarrollo de aplicaciones con tecnología web, como proyecto de final de curso, después de valorar diferentes ideas de proyecto, surgió como idea implementar un juego para ayudar a la gente a aprender a programar. Debido a que nos estábamos formando en programación, vimos conveniente plasmar nuestro aprendizaje con una temática relacionada. A continuación, os presentamos a Beetle Push, la idea es ayudar a la comunidad con estos simpáticos bichitos a ir resolviendo los siguientes niveles con métodos de array del lenguaje Javascript. 
+            </p>
+        </div>
+      </div>
     <!----------->
-    <div class="maincard">
-    
-        <!--Beetle cards-->
-        <div class="beetlecards">
-            <ul class="cards">
-                <!--member1-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
-                      <div class="card__overlay">        
-                        <div class="card__header">
-                          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/bee.jpg" alt="" />
-                          <div class="card__header-text">
-                            <h3 class="card__title">Fran</h3>
-                            <!-- <span class="card__status">3 hours ago</span> -->
-                          </div>
-                        </div>
-                        <p class="card__description">Siempre es bueno intentar hacer las cosas bien.</p>
-                        <div class="container-social">
-                          <a class="btn btn-dark"id="btn-social" href="http://github.com/Francesc1980"><i class="fa-brands fa-github"></i></a>
-                          <a class="btn btn-dark" id="btn-social" href="https://www.linkedin.com/in/francesc-duran-granado-4134871a1"><i class="fa-brands fa-linkedin"></i></a>
-                        </div>
-                      </div>
-                  </li>
-                <!---------->
 
-                <!--member2-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
-                      <div class="card__overlay">
-                        <div class="card__header">
-                          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/patricio.jpg" alt="" />
-                          <div class="card__header-text">
-                            <h3 class="card__title">Sara</h3>
-                            <!-- <span class="card__status">3 hours ago</span> -->
-                            </div>          
-                          </div>
-                          <p class="card__description">Empezando en programación. Me encanta la Biología, los videojuegos y el café.</p>
-                          <div class="container-social">
-                            <a class="btn btn-dark"id="btn-social" href="https://github.com/SaraaLee"><i class="fa-brands fa-github"></i></a>
-                            <a class="btn btn-dark"id="btn-social" href="https:/www.linkedin.com/in/srodriguezsan"><i class="fa-brands fa-linkedin"></i></a>  
-                          </div> 
-                      </div>
-                  </li>
-                <!---------->
+    <!--Beetle cards-->
+    <div class="maincard" id="membercard">
+      <div class="beetlecards">
+        <ul class="cards">
+          <!--member1-->
+          <li class="card border-0">
+            <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
+            <div class="card__overlay">        
+              <div class="card__header">
+                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                <img class="card__thumb" src="./img/fran.jpg" alt="" />
+                <div class="card__header-text">
+                  <h3 class="card__title">Fran</h3>
+                  <span class="card__status">Full stack junior developer.</span>
+                </div>
+              </div>
+              <p class="card__description">Siempre es bueno intentar hacer las cosas bien.</p>
+              <div class="container-social">
+                <a class="btn btn-dark"id="btn-social" href="http://github.com/Francesc1980"><i class="fa-brands fa-github"></i></a>
+                <a class="btn btn-dark" id="btn-social" href="https://www.linkedin.com/in/francesc-duran-granado-4134871a1"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+          </li>
+          <!---------->
+
+          <!--member2-->
+          <li class="card border-0">
+            <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+              <div class="card__header">
+                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                <img class="card__thumb" src="./img/sara.jpg" alt="" />
+                <div class="card__header-text">
+                  <h3 class="card__title">Sara</h3>
+                  <span class="card__status">Full stack jr developer & Environmentalist.</span>
+                </div>          
+              </div>
+              <p class="card__description">Empezando en programación. Me encanta la Biología, los videojuegos y el café.</p>
+              <div class="container-social">
+                <a class="btn btn-dark"id="btn-social" href="https://github.com/SaraaLee"><i class="fa-brands fa-github"></i></a>
+                <a class="btn btn-dark"id="btn-social" href="https:/www.linkedin.com/in/srodriguezsan"><i class="fa-brands fa-linkedin"></i></a>  
+              </div> 
+            </div>
+          </li>
+          <!---------->
 
                 <!--member3-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
+                  <li class="card border-0">
+                    <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                       <div class="card__overlay">        
                         <div class="card__header">
                           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/patricio.jpg" alt="" />
+                          <img class="card__thumb" src="./img/fabian.jpg" alt="" />
                           <div class="card__header-text">
                             <h3 class="card__title">Fabian</h3>
-                            <!-- <span class="card__status">3 hours ago</span> -->
+                            <span class="card__status">Full stack developer & Designer.</span>
                           </div>
                         </div>
                         <p class="card__description">La belleza de las cosas tal cual son.</p>
@@ -153,15 +143,15 @@
                 <!---------->
 
                 <!--member4-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
+                  <li class="card border-0">
+                    <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                       <div class="card__overlay">
                         <div class="card__header">
                           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
                           <img class="card__thumb" src="./img/patricio.jpg" alt="" />
                           <div class="card__header-text">
                               <h3 class="card__title">Javi</h3>
-                              <!-- <span class="card__status">3 hours ago</span> -->
+                              <span class="card__status">Full stack junior developer.</span>
                           </div>          
                         </div>
                         <p class="card__description">Es genial trabajar con ordenadores. No discuten, lo recuerdan todo y no se beben tu cerveza.</p>
@@ -174,18 +164,18 @@
                 <!---------->
 
                 <!--member5-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
+                  <li class="card border-0">
+                    <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                       <div class="card__overlay">
                         <div class="card__header">
                           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/patricio.jpg" alt="" />
+                          <img class="card__thumb" src="./img/stefano.jpg" alt="" />
                           <div class="card__header-text">
                             <h3 class="card__title">Stefano</h3>
-                            <!-- <span class="card__status">3 hours ago</span> -->
+                            <span class="card__status">Full stack junior developer & Chef.</span>
                           </div>          
                         </div>
-                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                        <p class="card__description">Chef y Developer junior. No saber algo ya es un comienzo para alcanzar el objetivo.</p>
                         <div class="container-social">
                           <a class="btn btn-dark"id="btn-social" href="https://github.com/Ste2812"><i class="fa-brands fa-github"></i></a>
                           <a class="btn btn-dark"id="btn-social" href="https://www.linkedin.com/in/stefano-gallone-5843b8b9/"><i class="fa-brands fa-linkedin"></i></a>
@@ -195,15 +185,15 @@
                 <!---------->
 
                 <!--member6-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
+                  <li class="card border-0">
+                    <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                       <div class="card__overlay">
                         <div class="card__header">
                           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/patricio.jpg" alt="" />
+                          <img class="card__thumb" src="./img/carol.jpg" alt="" />
                           <div class="card__header-text">
                             <h3 class="card__title">Carol</h3>
-                              <!-- <span class="card__status">3 hours ago</span> -->
+                              <span class="card__status">Full stack junior developer & Designer.</span>
                           </div>          
                         </div>
                         <p class="card__description">Design and develop easy-to-use solutions.</p>
@@ -216,18 +206,18 @@
                 <!---------->
 
                 <!--member7-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
+                  <li class="card border-0">
+                    <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                       <div class="card__overlay">        
                         <div class="card__header">
                           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/patricio.jpg" alt="" />
+                          <img class="card__thumb" src="./img/victoria.jpeg" alt="" />
                           <div class="card__header-text">
                             <h3 class="card__title">Victoria</h3>
-                              <!-- <span class="card__status">3 hours ago</span> -->
+                              <span class="card__status">Full stack jr developer & future designer.</span>
                           </div>
                         </div>
-                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                        <p class="card__description">Aprendiendo programación y próximamente diseño. Disfruto mucho de ver series y pelis.</p>
                         <div class="container-social">
                           <a class="btn btn-dark"id="btn-social" href="https://github.com/victoriageeks"><i class="fa-brands fa-github"></i></a>
                           <a class="btn btn-dark"id="btn-social" href="https://www.linkedin.com/in/victoria-lavega-mart%C3%ADnez-9266201b0/"><i class="fa-brands fa-linkedin"></i></a>  
@@ -237,15 +227,15 @@
                 <!---------->
 
                 <!--member8-->
-                  <li class="card">
-                    <img src="./img/87205.jpg" class="card__image" alt="" />
+                  <li class="card border-0">
+                    <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                       <div class="card__overlay">        
                         <div class="card__header">
                           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                          <img class="card__thumb" src="./img/patricio.jpg" alt="" />
+                          <img class="card__thumb" src="./img/andreu.jpg" alt="" />
                           <div class="card__header-text">
                             <h3 class="card__title">Andreu</h3>
-                            <!-- <span class="card__status">3 hours ago</span> -->
+                            <span class="card__status">Full stack junior developer & Designer.</span>
                           </div>
                         </div>
                         <p class="card__description">Los errores son la prueba de que lo estás intentando.</p>
@@ -258,15 +248,15 @@
                 <!----------->
 
                 <!--member9-->
-                <li class="card">
-                  <img src="./img/87205.jpg" class="card__image" alt="" />
+                <li class="card border-0">
+                  <img src="./img/forestladyboom.jpg" class="card__image" alt="" />
                     <div class="card__overlay">        
                       <div class="card__header">
                         <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
                         <img class="card__thumb" src="./img/oscarphoto.png" alt="" />
                         <div class="card__header-text">
                           <h3 class="card__title">Oscar</h3>
-                          <!-- <span class="card__status">3 hours ago</span> -->
+                          <span class="card__status">Software engineer developer.</span>
                         </div>
                       </div>
                       <p class="card__description">Primero resuelve el problema, después escribe el código.</p>
@@ -278,58 +268,14 @@
                 </li>
                 <!------------>
             </ul>
+          </div>
+        </div>
         <!------------------>
-        </div>
     </div>
-
-    <div class="maincarousel">
-    <!--carrousel gallery-->
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" id="carouselbts">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./img/87205.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./img/87205.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./img/87205.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    <!--------------------->
-    </div>
-    <!---------------->
-
 
     <footer>
         <div class="mainfooter">
-            <p class="text-center m-0" id="infofooter">FOAP copyright</p>
+            <p class="text-center m-0" id="infofooter">Humble project by programming students.</p>
         </div>
     </footer>
     <script src="./js/about.js"></script>

@@ -18,12 +18,12 @@ anime.timeline({loop: true})
     targets: '.ml6 .letter',
     translateY: ["1.1em", 0],
     translateZ: 0,
-    duration: 750,
+    duration: 1000,
     delay: (el, i) => 50 * i
   }).add({
     targets: '.ml6',
     opacity: 0,
-    duration: Infinity,
-    easing: "easeOutExpo"
-    // ,delay: 200
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 3000
   });
