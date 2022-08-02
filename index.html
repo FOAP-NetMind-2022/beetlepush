@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Beetlepush - Have fun learning array methods!</title>
+  <title>  Beetlepush - Have fun learning array methods! &#128030;</title>
   <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/levels.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/restaurant.js" type="text/javascript" charset="utf-8"></script>
@@ -45,22 +45,32 @@
     <div class="note">
       <h3>No worries, you've got this!</h3>
       <p>
-        You're about to learn CSS Selectors!
-        Selectors are how you pick which element to apply styles to.
+        don't worry, you are about to learn to handle arrays, relax and enjoy.
       </p>
 
-      <h4>Exhibit 1 - A CSS Rule</h4>
-
-      <pre>
-p {
-   margin-bottom: 12px;
-}</pre>
+      <h4>Array definition </h4>
 
       <p>
-        Here, the "p" is the selector (selects all &lt;p&gt; elements) and applies the margin-bottom style.
+        Arrays in JavaScript as in most programming languages, are special variables that can hold more than one value. Even though you can have different variables to store the same values, the goal of arrays is that one can loop through them finding a specific one, specially when you have not 3 but 300 elements.
+        </p>
+
+      <p>
+        To declare an array, define the variable type with square brackets      </p>
+      <p>
+        <pre>
+var myArray = [1, 2, 3, 4, 5];
+myArray[0]; // returns 1
+myArray[1]; // returns 2           
+        </pre>
       </p>
+      <h4>Array methods</h4>
       <p>
-        To play, type in a CSS selector in the editor below to select the correct items on the table.If you get it
+        With array methods is possible not only find elements but add, remove, filter and create copies applying different operations.</p>
+      <p>
+   
+
+        To play, type in a Array method and see how it works. You can also try out your own methods.
+  to select the correct items on the table.If you get it
         right, you'll advance to the next level.
       </p>
       <p>
@@ -78,7 +88,7 @@ p {
       <div class="table-wrapper">
         <div class="table-surface"></div>
         <div class="nametags"></div>
-        <div class="table"></div>
+        <div id="grass" class="table"></div>
       </div>
       <div class="table-edge">
         <div class="table-leg"></div>
@@ -90,31 +100,28 @@ p {
 
       <div class="editor-pane">
         <div class="input-header">
-          <div class="file-name">style.css</div> CSS Editor
+          <div class="file-name">grass.js</div> JavaScript Editor
         </div>
         <div class="file-window css-view">
           <div class="line-numbers">
             1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
           </div>
-          <input class="input-strobe" type="text" placeholder="Type in a CSS selector" /><span class="plus">+</span>
+          <input id="input-solution" class="input-strobe" type="text" placeholder="Type in an Array method" /><span class="plus">+</span>
           <div class="enter-button">enter</div>
           <div>
             {<br />
-            /* Styles would go here. */<br />
+            /* javascript would go here. */<br />
             }
           </div>
-          <div class="help">
-            <br />
-            /* <br />
-            Type a number to skip to a level.<br />
-            Ex &rarr; "5" for level 5 <br />*/
+          <div id="myGrassHelp"class="help">
+            
           </div>
         </div>
       </div>
 
       <div class="editor-pane html-view">
         <div class="input-header">
-          <div class="file-name">table.html</div>
+          <div class="file-name">grass.html</div>
           HTML Viewer
         </div>
         <div class="file-window">
@@ -138,6 +145,7 @@ p {
 
     <div class="helper">
       <!-- This is the popup that floats over table elements -->
+      asdfiojasdfopasijd
     </div>
 
   </div><!-- /left-col -->
@@ -148,7 +156,7 @@ p {
 
       <h1 class="level-header">
         <span class="level-text"></span>
-        <span class="checkmark"></span>
+        <span id="checkmark" class="checkmark"></span>
       </h1>
 
       <div class="level-nav">
@@ -165,7 +173,7 @@ p {
         <h2 class="title"></h2>
         <h3 class="syntax"></h3>
         <div class="hint"></div>
-        <h4 class="examples-title">Examples</h4>
+        <h4 class="examples-title">Example</h4>
         <div class="examples"></div>
       </div>
     </div>
