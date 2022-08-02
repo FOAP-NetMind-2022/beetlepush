@@ -139,9 +139,9 @@ header {
 
 
   background-image: linear-gradient(black, black),
-    linear-gradient(red, red),
     linear-gradient(black, black),
-    linear-gradient(red, red);
+    linear-gradient(black, black),
+    linear-gradient(black, black);
   background-repeat: no-repeat;
   background-size: 10px 10px;
   background-position: top left, top right, bottom left, bottom right;
@@ -149,7 +149,7 @@ header {
   border-width: 0 10px;
   display: inline-block;
   margin: 20px; 
-  border-color: red red black black;
+  border-color: black black black black;
 }
 
 .table-surface {
