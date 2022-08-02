@@ -12,7 +12,7 @@ body {
 }
 
 body {
-  background: #2e2a23;
+  /* background: #2e2a23; */
   background-image: -webkit-radial-gradient(20% 40%, cover circle, #3e392f, #221e17);
   background-image: -moz-radial-gradient(20% 40%, contain circle, #3e392f, #221e17);
 
@@ -27,10 +27,12 @@ body {
 }
 
 .bg{
-  background-image: url(/images/texturasfondo2s.png);
-  background-repeat: no-repeat;
-  background-position: center 40%;
-  background-size:  cover;
+ background-image: url(/images/texturasfondo2s.png);
+  background-repeat: no-repeat center;
+ 
+  background-size:  30vw 100vh; 
+
+
 }
 
 body * {
