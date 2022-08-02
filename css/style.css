@@ -138,18 +138,18 @@ header {
   white-space: nowrap;
 
 
-  background-image: linear-gradient(black, black),
-    linear-gradient(black, black),
-    linear-gradient(black, black),
-    linear-gradient(black, black);
+  background-image: linear-gradient(rgb(0,0,0, 0.8), rgb(0,0,0, 0.8)),
+    linear-gradient(rgb(0,0,0, 0.8), rgb(0,0,0, 0.8)),
+    linear-gradient(rgb(0,0,0, 0.8), rgb(0,0,0, 0.8)),
+    linear-gradient(rgb(0,0,0, 0.8), rgb(0,0,0, 0.8));
   background-repeat: no-repeat;
   background-size: 10px 10px;
   background-position: top left, top right, bottom left, bottom right;
-  border: solid black;
+  border: solid rgb(0,0,0, 0.8);
   border-width: 0 10px;
   display: inline-block;
   margin: 20px; 
-  border-color: black black black black;
+  border-color: rgb(0,0,0, 0.8), rgb(0,0,0, 0.8), rgb(0,0,0, 0.8), rgb(0,0,0, 0.8);
 }
 
 .table-surface {
@@ -298,8 +298,7 @@ bento:before {
   text-align: left;
   width: 90%;
   margin: 0 auto;
-  border: solid 10px rgba(0, 0, 0, .75);
-  border-radius: 4px;
+
   overflow: hidden;
 }
 
@@ -308,10 +307,7 @@ bento:before {
   width: 50%;
 }
 
-.editor-pane:last-child {
-  border-right: solid 1px rgba(255, 255, 255, .75);
-  border-bottom: solid 1px rgba(255, 255, 255, .75);
-}
+
 
 .editor * {
   font-family: menlo, monospace;
@@ -324,11 +320,11 @@ bento:before {
 .editor .input-header {
   text-align: left;
   padding: 10px 15px;
-  background: rgba(0, 0, 0, .15);
-  border-top: solid 1px rgba(255, 255, 255, .05);
-  border-bottom: solid 1px rgba(255, 255, 255, .05);
+  background: rgba(0, 0, 0, .8);
+  border-top: solid 1px rgba(30, 30, 30, .8);
+  border-bottom: solid 1px rgba(30, 30, 30, .8);
   border-radius: 2px 2px 0 0;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, .8);
 }
 
 .markup {
@@ -351,7 +347,7 @@ bento:before {
 
 .editor .file-name {
   float: right;
-  opacity: .5;
+  opacity: .8;
 }
 
 .editor .line-numbers {
@@ -419,9 +415,18 @@ bento:before {
   font-size: 30px;
 }
 
-apple {
-  background: #e41919;
-  border-color: #ab1212;
+.title_logo{
+ display: inline-block;
+ vertical-align: super;
+ padding-left: 0.7rem;
+}
+
+
+.beetlepush {
+  width: 3.5vw;
+  
+ 
+ 
 }
 
 ladybug{
