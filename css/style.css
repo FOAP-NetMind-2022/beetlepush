@@ -26,6 +26,13 @@ body {
 
 }
 
+.bg{
+  background-image: url(/images/texturasfondo2s.png);
+  background-repeat: no-repeat;
+  background-position: center 40%;
+  background-size:  cover;
+}
+
 body * {
   font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
 }
