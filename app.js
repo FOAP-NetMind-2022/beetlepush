@@ -1,5 +1,5 @@
 
-
+const mongoose = require('mongoose');
 const express = require('express');
 
 const app = express();
@@ -20,8 +20,7 @@ app.listen(3001, ()=>{
     console.log('server operativo')
 });
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://beetlepush:Muydific1l@cluster0.5w1sd.mongodb.net/?retryWrites=true&w=majority');
+
 
 const {Schema} = mongoose;
 
@@ -30,7 +29,24 @@ const stats = new Schema({
     correct: Boolean,
   });
 
+  const connectDB = async () => {
+    try {
+        await mongoose.connect('mongodb+srv://beetlepush:Muydific1l@cluster0.5w1sd.mongodb.net/?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+            useCreateIndex: true
+        });
+
+        console.log('MongoDB connected!!');
+    } catch (err) {
+        console.log('Failed to connect to MongoDB', err);
+    }
+};
+
 
   const StatsData = mongoose.model("stats", stats);
+
+
 
 
