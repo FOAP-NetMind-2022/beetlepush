@@ -1,13 +1,17 @@
 
+
 const mongoose = require('mongoose');
 const express = require('express');
 
 const app = express();
 const path = require('path');
+const { application } = require('express');
 
 
 app.use(express.static(path.join(__dirname, 'css')));
 app.use(express.static(path.join(__dirname, 'js')));
+
+app.use(express.urlencoded({ extended: false }));
 
 
 app.get('/', function(req, res){
@@ -31,11 +35,9 @@ const stats = new Schema({
 
   const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://beetlepush:Muydific1l@cluster0.5w1sd.mongodb.net/?retryWrites=true&w=majority', {
+        await mongoose.connect('mongodb+srv://beetlepush:Muydific1l@cluster0.5w1sd.mongodb.net/stats', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: false,
-            useCreateIndex: true
         });
 
         console.log('MongoDB connected!!');
@@ -47,6 +49,17 @@ const stats = new Schema({
 
   const StatsData = mongoose.model("stats", stats);
 
+app.post('/statistics', async (req, res)=>{
 
+    const data = new StatsData({
+        numExercise: req.body.label,
+        correct: req.body.action});
+
+        await data.save();
+        res.send('ok');
+    console.log(req.body);
+});
+
+connectDB();
 
 

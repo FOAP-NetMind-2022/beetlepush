@@ -42,7 +42,7 @@ $(document).ready(function () {
     }
 
     PopupCenter(url, "title", 600, 450);
-    sendEvent("share", type, "");
+    //sendEvent("share", type, "");
     return false;
   });
 
@@ -486,7 +486,7 @@ function trackProgress(levelNumber, type) {
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
       levelStats.gaSent = true;
-      sendEvent("guess", "correct", levelNumber + 1); // Send event
+      sendEvent("guess", true, levelNumber + 1); // Send event
     }
   }
 
@@ -494,7 +494,7 @@ function trackProgress(levelNumber, type) {
   var increment = .1;
   if (progress.percentComplete >= progress.lastPercentEvent + increment) {
     progress.lastPercentEvent = progress.lastPercentEvent + increment;
-    sendEvent("progress", "percent", Math.round(progress.lastPercentEvent * 100));
+    //sendEvent("progress", "percent", Math.round(progress.lastPercentEvent * 100));
   }
 
   localStorage.setItem("progress", JSON.stringify(progress));
@@ -504,6 +504,11 @@ function trackProgress(levelNumber, type) {
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
 function sendEvent(category, action, label) {
+  
+  $.post("/statistics", {action, label}, function(result){
+   console.log(result);
+  });
+  console.log(category, action, label);
   if (!ga) {
     return;
   }
