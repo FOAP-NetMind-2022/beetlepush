@@ -349,7 +349,7 @@ function fireArray(text) {
 
     let newboardMarkup = '';
     myGrass.forEach(function (element) {
-    newboardMarkup += `<plate><${element}/></plate>`;
+    newboardMarkup += `<grass><${element}/></grass>`;
     });
 
     level.boardMarkup = `${newboardMarkup}`;
