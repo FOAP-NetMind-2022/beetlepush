@@ -866,10 +866,10 @@ worm {
   font-family: menlo, monospace;
   font-weight: normal;
 }
-
+/*
 .display-help .example strong:first-of-type {
   margin-left: 0px;
-}
+}*/
 
 .display-help .selector-wrapper {
   color: #777;
@@ -948,6 +948,20 @@ grass butterfly:nth-last-child(4) {
   top: -105px;
   z-index: 600;
 }
+.console-wrapper::before {
+  margin-right: 3px;
+   content: "> ";
+  
+  
+}
+.console-wrapper {
+ 
+  background: #222;
+  color: rgb(0, 255, 17);
+  padding: 10px;
+
+  
+}
 
 
 .teach-wrapper {
@@ -992,6 +1006,15 @@ grass butterfly:nth-last-child(4) {
   border: solid 3px #4cbb4a;
   border-width: 0 4px 4px 0;
 }
+
+//hemos agregado esta clase para indicar que el nivel esta completado
+//queda limpiar lo que estaba hecho previamente
+.completed {
+  opacity: .9 !important;
+  border: solid 3px #4cbb4a !important;
+  border-width: 0 4px 4px 0 !important;
+}
+
 
 .level-header .checkmark {
   position: relative;
@@ -1174,6 +1197,8 @@ grass butterfly:nth-last-child(4) {
   border: solid 3px #4cbb4a;
   border-width: 0 3px 3px 0;
 }
+
+
 
 .level-menu .levels a .checkmark {
   position: relative;
