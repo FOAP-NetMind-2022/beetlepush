@@ -349,7 +349,7 @@ function fireArray(text) {
 
     let newboardMarkup = '';
     myGrass.forEach(function (element) {
-    newboardMarkup += `<plate><${element}/></plate>`;
+    newboardMarkup += `<grass><${element}/></grass>`;
     });
 
     level.boardMarkup = `${newboardMarkup}`;
@@ -482,7 +482,7 @@ function fireRule(rule) {
     $("input").val("");
     $(".input-wrapper").css("opacity", .2);
     updateProgressUI(currentLevel, true);
-    currentLevel++;
+    currentLevel++; //aqui podemos hacer que se vea el boardmarkupsolution
 
     if (currentLevel >= levels.length) {
       winGame();
