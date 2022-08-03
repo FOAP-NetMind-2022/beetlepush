@@ -11,10 +11,10 @@
   ..to be continued!
 */
 
-var level;  // Holds current level info
+var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
-var finished = false;    // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
+var finished = false; // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
 
 var blankProgress = {
   totalCorrect: 0,
@@ -28,6 +28,10 @@ var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 
 $(document).ready(function () {
+
+  
+
+
 
   $(".share-menu").on("click", "a", function () {
 
@@ -311,10 +315,67 @@ function enterHit() {
 function handleInput(text) {
   if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
     currentLevel = parseInt(text, 10) - 1;
-    loadLevel();
-    return;
+
+
   }
-  fireRule(text);
+  // fireRule(text);
+  fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
+}
+
+
+function fireArray(text) {
+  const myGrass = levels[currentLevel].myGrass
+
+
+  // evaluamos cualquier error que pueda existir en el array  
+  let aEvaluar;
+  try {
+    aEvaluar = eval(text);
+  } catch (e) {
+    console.log("Error: " + e); // mostramos el error en la consola
+  }
+
+
+  //la comparación del array con el array de solución funciona ok
+  function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+  };
+
+
+  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+
+    let newboardMarkup = '';
+    myGrass.forEach(function (element) {
+    newboardMarkup += `<grass><${element}/></grass>`;
+    });
+
+    level.boardMarkup = `${newboardMarkup}`;
+    level.completed = true;
+    level.userSolution = text;
+    console.log(level.completed);
+
+
+    loadLevel();
+
+    setTimeout(function () {
+       currentLevel++;
+      loadLevel();
+    }, 4000);
+
+    return;
+  } else {
+
+
+    $(".editor").addClass("shake");
+    setTimeout(function () {
+      $(".editor").removeClass("shake");
+    }, 1000);
+
+  }
+
 }
 
 // Loads up the help text & examples for each level
@@ -368,24 +429,23 @@ function fireRule(rule) {
   }
 
   $(".shake").removeClass("shake");
-
   $(".strobe,.clean,.shake").each(function () {
     $(this).width($(this).width());
     $(this).removeAttr("style");
   });
 
   /*
-  * Sean Nessworthy <sean@nessworthy.me>
-  * On 03/17/14
-  *
-  * Allow [div][.table] to preceed the answer.
-  * Makes sense if div.table is going to be included in the HTML viewer
-  * and users want to try and use it in their selectors.
-  *
-  * However, if it is included as a specific match, filter it out.
-  * This resolves the  "Match all the things!" level from beheading the table too.
-  * Relatedly, watching that happen made me nearly spill my drink.
-  */
+   * Sean Nessworthy <sean@nessworthy.me>
+   * On 03/17/14
+   *
+   * Allow [div][.table] to preceed the answer.
+   * Makes sense if div.table is going to be included in the HTML viewer
+   * and users want to try and use it in their selectors.
+   *
+   * However, if it is included as a specific match, filter it out.
+   * This resolves the  "Match all the things!" level from beheading the table too.
+   * Relatedly, watching that happen made me nearly spill my drink.
+   */
 
   // var baseTable = $('.table-wrapper > .table, .table-wrapper > .nametags, .table-wrapper > .table-surface');
   var baseTable = $('.table');
@@ -394,12 +454,11 @@ function fireRule(rule) {
   // If it errors out, change the rule to null so the wrong-guess animation will work
   try {
     $(".table").find(rule).not(baseTable);
-  }
-  catch (err) {
+  } catch (err) {
     rule = null;
   }
 
-  var ruleSelected = $(".table").find(rule).not(baseTable);            // What the correct rule finds
+  var ruleSelected = $(".table").find(rule).not(baseTable); // What the correct rule finds
   var levelSelected = $(".table").find(level.selector).not(baseTable); // What the person finds
 
   console.log(ruleSelected);
@@ -423,7 +482,7 @@ function fireRule(rule) {
     $("input").val("");
     $(".input-wrapper").css("opacity", .2);
     updateProgressUI(currentLevel, true);
-    currentLevel++;
+    currentLevel++; //aqui podemos hacer que se vea el boardmarkupsolution
 
     if (currentLevel >= levels.length) {
       winGame();
@@ -515,9 +574,9 @@ function sendEvent(category, action, label) {
 
   ga('send', {
     hitType: "event",
-    eventCategory: category,  // guess or progress
-    eventAction: action,      // action (correct vs not..)
-    eventLabel: label         // level number
+    eventCategory: category, // guess or progress
+    eventAction: action, // action (correct vs not..)
+    eventLabel: label // level number
   });
 }
 
@@ -566,9 +625,11 @@ function getMarkup(el) {
 
 //new board loader...
 
+
+
 function loadBoard() {
 
-  var boardString = level.board;  // just a placeholder to iterate over...
+  var boardString = level.board; // just a placeholder to iterate over...
   boardMarkup = ""; // what is this
   var tableMarkup = ""; // what is this
   var editorMarkup = ""; // this is a string that represents the HTML
@@ -628,6 +689,10 @@ function loadLevel() {
   } else {
     $(".note-toggle").hide();
   }
+  //cargar el contendido del array myGrassSolution en el div con id myGrassHelp
+  let htmlHelp = "myGrass = ["+levels[currentLevel].myGrass.toString()+"];";
+  $("#myGrassHelp").html(htmlHelp);
+
 
   $(".level-menu .current").removeClass("current");
   $(".level-menu div a").eq(currentLevel).addClass("current");
@@ -649,6 +714,28 @@ function loadLevel() {
 
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
+
+
+//hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
+//ya habían otras validaciones, que deberíamos limpiar.
+  if (levels[currentLevel].completed) {
+    $(".enter-button").hide();
+    $("#input-solution").attr("placeholder", levels[currentLevel].userSolution);
+    $("#input-solution").removeClass("input-strobe");
+    $("#input-solution").attr("disabled", true);
+    $(".checkmark").addClass("completed");
+
+  }
+  else {
+    $(".enter-button").show();
+    $("#input-solution").attr("placeholder", "Type in an Array method");
+    $("#input-solution").addClass("input-strobe");
+    $("#input-solution").attr("disabled", false);
+    $(".checkmark").removeClass("completed");
+
+  }
+
+
 
   //Strobe what's supposed to be selected
   setTimeout(function () {

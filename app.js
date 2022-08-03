@@ -10,6 +10,8 @@ const { application } = require('express');
 
 app.use(express.static(path.join(__dirname, 'css')));
 app.use(express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname, 'images')));
+
 
 app.use(express.urlencoded({ extended: false }));
 
