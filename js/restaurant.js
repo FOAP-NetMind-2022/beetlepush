@@ -357,6 +357,8 @@ function fireArray(text) {
     level.userSolution = text;
     console.log(level.completed);
 
+    trackProgress(currentLevel, "correct");
+
 
     loadLevel();
 
