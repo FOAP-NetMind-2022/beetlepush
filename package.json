@@ -3,6 +3,9 @@
   "description": "",
   "version": "1.0.0",
   "main": "app.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js"
