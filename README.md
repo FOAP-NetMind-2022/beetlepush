@@ -1,1 +1,3 @@
 # beetlepush
+
+`npm run dev`
