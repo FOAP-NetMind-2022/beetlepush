@@ -27,7 +27,7 @@ body {
 }
 
 .bg {
-  background-image: url("texturasfondo2s.png");
+  background-image: url("/images/background.png");
   background-repeat: no-repeat center;
 
   background-size: 30vw 100vh;
@@ -82,15 +82,15 @@ header {
 }
 
 .share-menu .share-twitter {
-  background-image: url(icon-twitter.svg);
+  background-image: url('/images/misc/icon-twitter.svg');
 }
 
 .share-menu .share-facebook {
-  background-image: url(icon-facebook.svg);
+  background-image: url('/images/misc/icon-facebook.svg');
 }
 
 .share-menu .share-email {
-  background-image: url(icon-email.svg);
+  background-image: url('/images/misc/icon-email.svg');
 }
 
 .share-menu a:hover {
@@ -448,7 +448,7 @@ bento:before {
 }
 
 ladybug {
-  background-image: url("ladybug.png");
+  background-image: url("/images/insects/ladybug.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -457,7 +457,7 @@ ladybug {
 }
 
 butterfly {
-  background-image: url("butterfly.png");
+  background-image: url("/images/insects/butterfly.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -466,7 +466,7 @@ butterfly {
 }
 
 bee {
-  background-image: url("bee.png");
+  background-image: url("/images/insects/bee.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -474,7 +474,7 @@ bee {
   height: 100px;
 }
 worm {
-  background-image: url("worm.png");
+  background-image: url("/images/insects/worm.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -1460,7 +1460,7 @@ tag:after {
   color: #09699b;
   font-size: 22px;
   box-shadow: -3px 4px 0 rgba(0, 0, 0, .1);
-  background-image: url(line.gif);
+  background-image: url('/images/line.gif');
   z-index: 9999;
   padding: 30px 0 2px 0;
   background-color: #c5d6dd;
