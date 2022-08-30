@@ -691,8 +691,10 @@ function loadLevel() {
   } else {
     $(".note-toggle").hide();
   }
-  //cargar el contendido del array myGrassSolution en el div con id myGrassHelp
-  let htmlHelp = "myGrass = ["+levels[currentLevel].myGrass.toString()+"];";
+
+
+  
+  let htmlHelp = "myGrass = [" + '"' +levels[currentLevel].myGrass.join('","').toString()+'"];';
   $("#myGrassHelp").html(htmlHelp);
 
 
