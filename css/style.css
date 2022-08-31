@@ -134,6 +134,22 @@ header {
   width: 250px;
 
 }
+bracket{
+  background-image: linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
+  linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
+  linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
+  linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8));
+  border-color: rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8);
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: top left, top right, bottom left, bottom right;
+  border: solid rgb(0, 0, 0, 0.8);
+  border-width: 0 10px;
+  display: inline-block;
+  margin: 20px;
+  padding: 40px;
+
+}
 
 .table {
   transform-style: preserve-3d;
@@ -146,19 +162,9 @@ header {
   position: relative;
   white-space: nowrap;
 
-
-  background-image: linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
-    linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
-    linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
-    linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8));
-  background-repeat: no-repeat;
-  background-size: 10px 10px;
-  background-position: top left, top right, bottom left, bottom right;
-  border: solid rgb(0, 0, 0, 0.8);
-  border-width: 0 10px;
-  display: inline-block;
-  margin: 20px;
-  border-color: rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8);
+  
+  
+ 
 }
 
 .table-surface {
@@ -481,13 +487,22 @@ worm {
   width: 100px;
   height: 100px;
 }
+dragonFly {
+  background-image: url("dragonFly.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
+}
 
 ladybug,
 butterfly,
 bee,
 worm,
 apple,
-pickle {
+pickle,
+dragonFly {
   display: inline-block;
   margin: 0 10px;
   height: 60px;
@@ -524,7 +539,8 @@ ladybug.small,
 butterfly.small,
 bee.small,
 worm.small,
-apple.small {
+apple.small,
+dragonFly.small {
   height: 30px;
   width: 30px;
   border-width: 2px 4px 8px 4px;
@@ -553,7 +569,8 @@ ladybug:before,
 bee:before,
 worm:before,
 butterfly:before,
-apple:before {
+apple:before,
+dragonFly:before {
   display: block;
   position: absolute;
   background: rgba(255, 255, 255, .3);
@@ -575,7 +592,8 @@ grass ladybug,
 grass bee,
 grass worm,
 grass butterfly,
-grass apple {
+grass apple,
+grass dragonFly {
   left: calc(50% - 30px);
   margin: 0;
   position: absolute;
@@ -590,7 +608,8 @@ bento>apple:last-child,
 bento>ladybug:last-child,
 bento>bee:last-child,
 bento>worm:last-child,
-bento>butterfly:last-child {
+bento>butterfly:last-child,
+bento>dragonFly:last-child  {
   top: calc(50% - 35px);
 }
 
@@ -796,7 +815,8 @@ grass:before {
 ladybug,
 butterfly,
 bee,
-worm {
+worm,
+dragonFly {
   z-index: 1000;
 }
 
@@ -912,14 +932,16 @@ grass apple,
 grass ladybug,
 grass bee,
 grass worm,
-grass butterfly {
+grass butterfly,
+grass dragonFly {
   position: absolute;
 }
 
 grass apple:last-child,
 grass ladybug:last-child,
 grass bee:last-child,
-grass worm:last-child {
+grass worm:last-child,
+grass dragonFly:last-child {
   z-index: 300;
 }
 
@@ -936,7 +958,8 @@ grass apple:nth-last-child(3),
 grass ladybug:nth-last-child(3),
 grass bee:nth-last-child(3),
 grass worm:nth-last-child(3),
-grass butterfly:nth-last-child(3) {
+grass butterfly:nth-last-child(3),
+grass dragonFly:nth-last-child(3) {
   top: -65px;
   z-index: 500;
 }
@@ -945,7 +968,8 @@ grass apple:nth-last-child(4),
 grass ladybug:nth-last-child(4),
 grass bee:nth-last-child(4),
 grass worm:nth-last-child(4),
-grass butterfly:nth-last-child(4) {
+grass butterfly:nth-last-child(4),
+grass dragonFly:nth-last-child(4)  {
   top: -105px;
   z-index: 600;
 }

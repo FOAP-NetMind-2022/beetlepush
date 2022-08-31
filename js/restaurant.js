@@ -324,7 +324,7 @@ function handleInput(text) {
 
 
 function fireArray(text) {
-  const myGrass = levels[currentLevel].myGrass
+  let myGrass = levels[currentLevel].myGrass
 
 
   // evaluamos cualquier error que pueda existir en el array  
@@ -352,7 +352,8 @@ function fireArray(text) {
     newboardMarkup += `<grass><${element}/></grass>`;
     });
 
-    level.boardMarkup = `${newboardMarkup}`;
+    /* level.boardMarkup = `${newboardMarkup}`; */
+    level.boardMarkup = level.boardMarkupSolution
     level.completed = true;
     level.userSolution = text;
     console.log(level.completed);
