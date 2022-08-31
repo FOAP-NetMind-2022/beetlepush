@@ -107,11 +107,28 @@ $(document).ready(function () {
   })
 
   //Handle inputs from the input box on enter
-  $("input").on("keypress", function (e) {
+  /*$("input").on("keypress", function (e) {
     e.stopPropagation();
     if (e.keyCode == 13) {
       enterHit();
       return false;
+    }
+  });*/
+
+  //si el usuario presiona enter en el input, se ejecuta la funcion hacemos un salto de linea en el valor del string
+ 
+ 
+  $("input").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+      //hacemos un salto de linea en la vista del input
+
+      //$(this).val($(this).val().toString() +  '\n'  );
+      /*
+      $(this).val($(this).val().toString() + '</br>');*/
+
+      return false;
+          
+       
     }
   });
 

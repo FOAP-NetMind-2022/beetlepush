@@ -689,8 +689,14 @@ bento>pickle.small:only-child {
     transform: skew(4deg, 0deg) scaleX(1);
   }
 }
+/* editor*/
+#editor {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+}
 
-
+/*boton de verificacion*/
 .enter-button {
   background: #ddd;
   display: block;
