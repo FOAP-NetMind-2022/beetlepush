@@ -334,7 +334,8 @@ function fireArray(text) {
   } catch (e) {
     console.log("Error: " + e); // mostramos el error en la consola
   }
-
+  //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
+  //console.log("myGrass", myGrass); // mostramos el array en la consola
 
   //la comparación del array con el array de solución funciona ok
   function arrayEquals(a, b) {
@@ -366,7 +367,7 @@ function fireArray(text) {
     setTimeout(function () {
        currentLevel++;
       loadLevel();
-    }, 4000);
+    }, 6000);
 
     return;
   } else {

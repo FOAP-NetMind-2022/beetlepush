@@ -1,4 +1,11 @@
 var levels = [
+
+  /***  ******************
+ * 
+ * LEVEL 1 
+ * 
+ * *********************/ 
+
   {
     helpTitle: "Add an element at the end of the array, ",
     selectorName: "Push method",
@@ -60,6 +67,13 @@ var levels = [
   // grass.forEach() // Crear tanto elementos dentro del .grid como elementos en el array. Y sabeis que "bicho" hay que pintar porque es justamente el elemento del array 
   // let elemento = document.createElement(...) // contenedorGrid.appendChild(elemento)
 
+  /***  ******************
+ * 
+ * LEVEL 2 
+ * 
+ * *********************/ 
+
+
 
   {
     helpTitle: "Remove the last of element in the array, ",
@@ -102,6 +116,14 @@ var levels = [
    </bracket>
     `
   },
+
+  /***  ******************
+ * 
+ * LEVEL 3 
+ * 
+ * *********************/ 
+
+
   {
     helpTitle: "Remove the first element in the array ",
     selectorName: "Shift method",
@@ -155,6 +177,13 @@ var levels = [
    </bracket>
     `
   },
+
+  /***  ******************
+ * 
+ * LEVEL 4 
+ * 
+ * *********************/ 
+
   {
     helpTitle: "Add element at the beginning of an array ",
     selectorName: "Unshift method",
@@ -211,6 +240,14 @@ var levels = [
    </bracket>
     `
   },
+
+  /***  ******************
+ * 
+ * LEVEL 5 
+ * 
+ * *********************/ 
+
+
   {
     helpTitle: "Creates a new array from selected elements",
     selectorName: "Slice method",
@@ -260,6 +297,186 @@ var levels = [
    </grass>
    </bracket>
     `
+  },
+
+
+  /***  ******************
+ * 
+ * LEVEL 6 
+ * 
+ * *********************/ 
+
+  {
+    helpTitle: "Modifies the content of an array, adding new elements and / or removing old elements",
+    selectorName: "Splice method",
+    doThis: "Replace the repeated bugs with the new ones",
+    selector: "dragonFly, antQueen, .dance",
+    syntax: "splice();",
+    help: ' The splice() method adds/removes items to/from an array, and returns the removed item(s). <a href= "https://www.w3schools.com/jsref/jsref_splice.asp"> more help </a>',
+    examples: [
+      '<strong>1</strong> const office = ["pencil", "pen", "orange", "salad", "notebook", "marker"]; <br><strong>2</strong> office.splice(2,2, "folder", "scissors");<br> <strong>3</strong> console.log(office);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["pencil", "pen", "folder", "scissors", "notebook", "marker"]</div>',
+    ],
+    myGrass : ['bee','ant','ant','worm','butterfly','worm'],
+    myGrassSolution : ['bee','ant','dragonFly','antQueen','butterfly','worm'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+   <grass>
+    <bee>
+   </grass>
+   <grass>
+    <ant>
+   </grass>
+   <grass>
+    <ant class= "dance">
+   </grass>
+   <grass>
+    <worm class= "dance">
+   </grass>
+   <grass>
+    <butterfly>
+   </grass>
+   <grass>
+    <worm>
+   </grass>
+   </bracket>
+   <grass>
+   <dragonFly>
+    </grass>
+    <grass>
+    <antQueen>
+    </grass>
+   
+   
+    `,
+    boardMarkupSolution: `
+    <bracket>
+   <grass>
+    <bee>
+   </grass>
+   <grass>
+    <ant>
+   </grass>
+   <grass>
+    <dragonFly>
+   </grass>
+   <grass>
+    <antQueen>
+   </grass>
+   <grass>
+    <butterfly>
+   </grass>
+   <grass>
+    <worm>
+   </grass>
+   </bracket>
+    `
+  },
+
+  /***  ******************
+ * 
+ * LEVEL 7 
+ * 
+ * *********************/ 
+
+  {
+    helpTitle: "Reverse the order of the elements in an array",
+    selectorName: "Reverse method",
+    doThis: "Reverse the elements of the array to restore the natural order",
+    selector: "dragonFly, antQueen",
+    syntax: "reverse();",
+    help: ' The reverse() method reverses the order of the elements in an array.This method overwrites the original array. <a href= "https://www.w3schools.com/jsref/jsref_reverse.asp"> more help </a>',
+    examples: [
+      //example with reverse method using cars array
+      '<strong>1</strong> const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br><strong>2</strong> cars.reverse();<br> <strong>3</strong> console.log(cars);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Ford", "Saab", "Volvo", "BMW"]</div>',
+    ],
+    myGrass : ['butterfly','worm','worm'],
+    myGrassSolution : ['worm','worm','butterfly'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+   <grass>
+    <butterfly>
+   </grass>
+   <grass>
+    <worm>
+   </grass>
+   <grass>
+    <worm>
+   </grass>
+   </bracket>
+   
+   
+    `,
+    boardMarkupSolution: `
+    <bracket>
+    <grass>
+    <worm>
+    </grass>
+    <grass>
+    <worm>
+    </grass>
+    <grass>
+    <butterfly>
+    </grass>
+    </bracket>
+    `
+  },
+/***  ******************
+ * 
+ * LEVEL 8 
+ * 
+ * *********************/ 
+
+
+  {
+    helpTitle: "Reverse the order of the elements in an array",
+    selectorName: "Reverse method",
+    doThis: "Reverse the elements of the array to restore the natural order",
+    selector: "dragonFly, antQueen",
+    syntax: "reverse();",
+    help: ' The reverse() method reverses the order of the elements in an array.This method overwrites the original array. <a href= "https://www.w3schools.com/jsref/jsref_reverse.asp"> more help </a>',
+    examples: [
+      //example with reverse method using cars array
+      '<strong>1</strong> const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br><strong>2</strong> cars.reverse();<br> <strong>3</strong> console.log(cars);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Ford", "Saab", "Volvo", "BMW"]</div>',
+    ],
+    myGrass : ['butterfly','worm','worm'],
+    myGrassSolution : ['worm','worm','butterfly'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+   <grass>
+    <butterfly>
+   </grass>
+   <grass>
+    <worm>
+   </grass>
+   <grass>
+    <worm>
+   </grass>
+   </bracket>
+   
+   
+    `,
+    boardMarkupSolution: `
+    <bracket>
+    <grass>
+    <worm>
+    </grass>
+    <grass>
+    <worm>
+    </grass>
+    <grass>
+    <butterfly>
+    </grass>
+    </bracket>
+    `
   }
-  
+
 ];
