@@ -714,6 +714,7 @@ bento>pickle.small:only-child {
   top: 7px;
   right: 7px;
   z-index: 999999;
+  margin-top: 45px;
 }
 
 .enterhit {

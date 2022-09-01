@@ -10,6 +10,7 @@
 
   ..to be continued!
 */
+const monaco = require.config({ paths: { "vs": "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/" }});
 
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
@@ -25,6 +26,44 @@ var blankProgress = {
 
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
+
+const js = document.querySelector('#input-solution');
+//const jsWorker = require('monaco-editor/esm/vs/basic-languages/javascript');
+
+window.MonacoEnvironment = {
+  getWorkerUrl: function(workerId, label) {
+      return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+          self.MonacoEnvironment = { baseUrl: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.29.1/min/" };
+          importScripts("https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.29.1/min/vs/base/worker/workerMain.min.js");`
+      )}`;
+  }
+};
+
+require(["vs/editor/editor.main"], function () {
+  // Create the editor with some sample JavaScript code
+  var editor = monaco.editor.create(js, {
+      value: "// code goes here\n",
+      language: "javascript"
+  });
+
+  window.addEventListener("resize", () => editor.layout({
+    width: js.offsetWidth,
+    height: js.offsetHeight
+}));
+
+});
+
+//js.addEventListener('input', update);
+
+// const monacoEditor = monaco.editor.create(js, {
+//   value: "// code goes here\n",
+//   language: 'javascript'
+// });
+
+
+
+
+
 
 
 $(document).ready(function () {

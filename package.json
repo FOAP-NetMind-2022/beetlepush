@@ -23,7 +23,6 @@
   "dependencies": {
     "express": "^4.18.1",
     "froala-editor": "^4.0.14",
-    "monaco-editor": "^0.34.0",
     "mongoose": "^6.5.0",
     "moongoose": "^0.0.5"
   },
