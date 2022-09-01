@@ -159,33 +159,33 @@ var levels = [
     helpTitle: "Add element at the beginning of an array ",
     selectorName: "Unshift method",
     doThis: "Add the queen Ant at the beginning of the array",
-    selector: "worm",
+    selector: "antQueen",
     syntax: "unshift();",
     help: ' The unshift() method adds a new element at the beginning of an array . <a href= "https://www.w3schools.com/jsref/jsref_unshift.asp"> more help </a>',
     examples: [
       '<strong>1</strong> const names = ["Maria", "Jesus", "Frank"]; <br><strong>2</strong> names.unshift("Laura");<br> <strong>3</strong> console.log(names);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Laura","Maria", "Jesus", "Frank"]</div>',
     ],
-    myGrass : ['butterfly','butterfly','butterfly','butterfly'],
-    myGrassSolution : ['butterfly','butterfly','butterfly','butterfly','butterfly'],
+    myGrass : ['ant','ant','ant','ant'],
+    myGrassSolution : ['antQueen','ant','ant','ant','ant'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     <grass>
-    <butterfly>
+    <antQueen>
    </grass>
     <bracket>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    </bracket>
    
@@ -194,19 +194,19 @@ var levels = [
     boardMarkupSolution: `
     <bracket>
     <grass>
-    <butterfly>
+    <antQueen>
    </grass>
     <grass>
-    <butterfly>
+    <ant>
    </grass>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    <grass>
-    <butterfly>
+    <ant>
    </grass>
    </bracket>
     `
