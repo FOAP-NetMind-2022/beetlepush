@@ -27,6 +27,7 @@ var blankProgress = {
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 
+
 $(document).ready(function () {
 
   
@@ -370,6 +371,8 @@ function fireArray(text) {
     return;
   } else {
 
+    //Para guardar en localStorage el número de veces que el usuario ha fallado
+    trackProgress(currentLevel, "incorrect");
 
     $(".editor").addClass("shake");
     setTimeout(function () {

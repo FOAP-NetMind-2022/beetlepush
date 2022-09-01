@@ -199,7 +199,35 @@ myArray[1]; // returns 2
       var ga = false;
     }
   </script>
-  
+  <script>
+
+    //Guardar en localStorage lo que el usuario escribe en el textInput
+
+    var textInput = document.getElementById("input-solution");
+    var result; 
+
+    textInput.addEventListener("change",() => {
+
+      result = textInput.value;
+
+      localStorage.setItem("userCode", result);
+    });
+  </script>
+    
+
+  <script>
+    //Mostrar el userCode
+    window.onload = LoadUserCode();
+
+    function LoadUserCode (){
+      var code = localStorage.getItem("userCode");
+
+      console.log(code);
+      
+      document.getElementById("input-solution").value = code;  
+    };
+
+  </script>
 
 </body>
 
