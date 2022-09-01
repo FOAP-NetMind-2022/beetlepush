@@ -432,9 +432,8 @@ var levels = [
  * 
  * *********************/ 
 
-
   {
-    helpTitle: "Reverse the order of the elements in an array",
+    helpTitle: "Concatenates two or more arrays",
     selectorName: "Reverse method",
     doThis: "Reverse the elements of the array to restore the natural order",
     selector: "dragonFly, antQueen",
