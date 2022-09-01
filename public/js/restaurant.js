@@ -529,12 +529,54 @@ function updateProgressUI(levelNumber, completed) {
   }
 }
 
+//-------------------------------
+var userCode;
+var textInput;
+var resultUser;
+
+window.onload = function() {
+//codigo implementad el 1-09 (current)
+  localStorageParseado = JSON.parse(localStorage.progress);
+
+  //1. Cogemos el localStorage entero
+  // let tempLocalStorageCurrentLevel = localStorage.currentLevel;
+  // let tempLocalStorageProgress = localStorage.progress;
+
+  //2. Pasar a objeto localStorage.progress
+  // JSON.parse(tempLocalStorageProgress);
+
+  //3. Modificamos el localstorage.progress.guessHistory[currentLevel].userCode con el input del user
+  // tempLocalStorageProgress.guessHistory[currentLevel].userCode = textInput;
+
+  //4. Eliminamos el localStorage entero
+
+  //5. Guardamos la variable nueva del localStoage
+
+  localStorageParseado.guessHistory[currentLevel];
+
+  console.log(JSON.parse(localStorage.guessHistory));
+
+  textInput = document.getElementById('input-solution');
+
+  textInput.addEventListener("change",() => {
+
+    resultUser = textInput.value;
+    console.log(resultUser)
+    // console.log("esto es el text"+textInput.value)
+  });
+
+}
+
+
+
+
 function trackProgress(levelNumber, type) {
   if (!progress.guessHistory[levelNumber]) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
-      gaSent: false
+      gaSent: false,
+      userCode: resultUser
     };
   }
 
