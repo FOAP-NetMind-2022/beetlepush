@@ -26,8 +26,6 @@ var blankProgress = {
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
-
-
 $(document).ready(function () {
 
   
@@ -529,56 +527,17 @@ function updateProgressUI(levelNumber, completed) {
   }
 }
 
-//-------------------------------
-var userCode;
-var textInput;
-var resultUser;
-
-window.onload = function() {
-//codigo implementad el 1-09 (current)
-  localStorageParseado = JSON.parse(localStorage.progress);
-
-  //1. Cogemos el localStorage entero
-  // let tempLocalStorageCurrentLevel = localStorage.currentLevel;
-  // let tempLocalStorageProgress = localStorage.progress;
-
-  //2. Pasar a objeto localStorage.progress
-  // JSON.parse(tempLocalStorageProgress);
-
-  //3. Modificamos el localstorage.progress.guessHistory[currentLevel].userCode con el input del user
-  // tempLocalStorageProgress.guessHistory[currentLevel].userCode = textInput;
-
-  //4. Eliminamos el localStorage entero
-
-  //5. Guardamos la variable nueva del localStoage
-
-  localStorageParseado.guessHistory[currentLevel];
-
-  console.log(JSON.parse(localStorage.guessHistory));
-
-  textInput = document.getElementById('input-solution');
-
-  textInput.addEventListener("change",() => {
-
-    resultUser = textInput.value;
-    console.log(resultUser)
-    // console.log("esto es el text"+textInput.value)
-  });
-
-}
-
-
-
-
 function trackProgress(levelNumber, type) {
   if (!progress.guessHistory[levelNumber]) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
       gaSent: false,
-      userCode: resultUser
+      userCode: $("input").val()
     };
   }
+  
+  progress.guessHistory[levelNumber].userCode = $("input").val();
 
   var levelStats = progress.guessHistory[levelNumber];
 
@@ -755,13 +714,21 @@ function loadLevel() {
   $(".level-header .level-text").html("Level " + (currentLevel + 1) + " of " + levels.length);
 
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
-
   $(".order").text(level.doThis);
-  $("input").val("").focus();
-
+  $("input").focus();
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
 
+  let local = JSON.parse(localStorage.progress);
+
+  if (local.guessHistory[currentLevel])
+  {
+    $("input").val(`${local.guessHistory[currentLevel].userCode}`);
+  } else {
+    $("input").val("");
+  }
+
+  
 
 //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
 //ya habían otras validaciones, que deberíamos limpiar.
@@ -781,8 +748,6 @@ function loadLevel() {
     $(".checkmark").removeClass("completed");
 
   }
-
-
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
