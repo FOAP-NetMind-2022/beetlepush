@@ -784,7 +784,7 @@ var levels = [
     helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
     selectorName: "Every method",
     doThis: "",
-    selector: "ladybug",
+    selector: "spider",
     syntax: "every();",
     help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements <a href= 'https://www.w3schools.com/jsref/jsref_every.asp'> more help </a>",
     examples: [
@@ -793,17 +793,17 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> false</div>',
       
     ],
-    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrass : ['spider','spider','ladybug','ladybug'],
     myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     <bracket>
     <grass>
-     <ladybug>
+     <spider>
     </grass>
     <grass>
-     <ladybug>
+     <spider>
     </grass>
     <grass>
      <ladybug>
