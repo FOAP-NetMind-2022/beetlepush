@@ -447,7 +447,7 @@ var levels = [
 
     ],
     myGrass : ['ladybug','butterfly','ant','worm','caterpillar','bee'],
-    myGrassSolution : ['ladybug','butterfly','ant','worm','caterpillar','bee'],
+    myGrassSolution : true,
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -474,26 +474,11 @@ var levels = [
    
     `,
     boardMarkupSolution: `
-    <bracket>
+    
     <grass>
-     <ladybug>
+     <butterfly>
     </grass>
-    <grass>
-     <ladybug>
-    </grass>
-    <grass>
-     <ladybug>
-    </grass>
-    <grass>
-     <ladybug class="small">
-    </grass>
-    <grass>
-     <ladybug class="small">
-    </grass>
-    <grass>
-     <ladybug class="small">
-    </grass>
-    </bracket>
+  
     `
   },
   /***  ******************
@@ -573,8 +558,8 @@ var levels = [
    {
     helpTitle: "Fills an array with a value",
     selectorName: "Fill method",
-    doThis: "",
-    selector: "g",
+    doThis: "Cause the metamorphosis in all cocoon",
+    selector: "cocoon",
     syntax: "fill();",
     help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. <a href= 'https://www.w3schools.com/jsref/jsref_fill.asp'> more help </a>",
     examples: [
@@ -583,19 +568,41 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["engineer", "engineer", "engineer"]</div>',
 
     ],
-    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrass : ['cocoon','cocoon','cocoon','cocoon'],
+    myGrassSolution : ['butterfly','butterfly','butterfly','butterfly'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     <bracket>
-  
+    <grass>
+      <cocoon>
+    </grass>
+    <grass>
+      <cocoon>
+    </grass>
+    <grass>
+      <cocoon>
+    </grass>
+    <grass>
+      <cocoon>
+    </grass>
     </bracket>
     
     `,
     boardMarkupSolution: ` 
     <bracket>
-    
+    <grass>
+      <butterfly>
+    </grass>
+    <grass>
+      <butterfly>
+    </grass>
+    <grass>
+      <butterfly>
+    </grass>
+    <grass>
+      <butterfly>
+    </grass>
     </bracket>
   `
   },

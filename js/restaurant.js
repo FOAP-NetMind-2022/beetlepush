@@ -337,14 +337,19 @@ function fireArray(text) {
   //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
   //console.log("myGrass", myGrass); // mostramos el array en la consola
 
+  //iscorrect 
+
   //la comparación del array con el array de solución funciona ok
   function arrayEquals(a, b) {
     return Array.isArray(a) &&
       Array.isArray(b) &&
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
-  };
 
+      // 
+  };
+  console.log(myGrass, levels[currentLevel].myGrassSolution);
+  
 
   if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
 
