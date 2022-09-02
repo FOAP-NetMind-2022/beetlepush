@@ -571,6 +571,39 @@ var levels = [
    * LEVEL 10
    * *********************/
    {
+    helpTitle: "Fills an array with a value",
+    selectorName: "Fill method",
+    doThis: "",
+    selector: "g",
+    syntax: "fill();",
+    help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. <a href= 'https://www.w3schools.com/jsref/jsref_fill.asp'> more help </a>",
+    examples: [
+      //example with fill method using jobs array
+      '<strong>1</strong> const jobs = ["teacher", "programmer", "designer"]; <br><strong>2</strong> jobs.fill("engineer"); <br><strong>3</strong> console.log(jobs);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["engineer", "engineer", "engineer"]</div>',
+
+    ],
+    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+  
+    </bracket>
+    
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    
+    </bracket>
+  `
+  },
+
+  /***  ******************
+   * LEVEL 11
+   * *********************/
+   {
     helpTitle: "Returns the value of the first element in an array that pass a test",
     selectorName: "Find method",
     doThis: "",
@@ -627,7 +660,7 @@ var levels = [
   `
   },
   /***  ******************
-   * LEVEL 11
+   * LEVEL 12
    * *********************/
    {
     helpTitle: "Returns the index of the first element in an array that pass a test",
@@ -686,7 +719,7 @@ var levels = [
   `
   },
   /***  ******************
-   * LEVEL 12
+   * LEVEL 13
    * *********************/
    {
     helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
@@ -743,6 +776,69 @@ var levels = [
     </grass>
     </bracket>
   `
-  }
+  },
+  /***  ******************
+   * LEVEL 14
+   *  *********************/
+   {
+    helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
+    selectorName: "Every method",
+    doThis: "",
+    selector: "ladybug",
+    syntax: "every();",
+    help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements <a href= 'https://www.w3schools.com/jsref/jsref_every.asp'> more help </a>",
+    examples: [
+      //example with every method using names array
+      '<strong>1</strong> const names = ["John", "Mary", "Joe"]; <br><strong>2</strong> const allNames = names.every(name => name.length > 3);<br> <strong>3</strong> console.log(allNames);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> false</div>',
+      
+    ],
+    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    </bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass> 
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    </bracket>
+  `
+  },
+  /***  ******************
+   * LEVEL 15
+   * *********************/
+  
 
 ];
