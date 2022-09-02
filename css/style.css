@@ -461,6 +461,22 @@ ladybug {
   width: 100px;
   height: 100px;
 }
+caterpillar {
+  background-image: url("caterpillar.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
+}
+cocoon {
+  background-image: url("cocoon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
+}
 
 butterfly {
   background-image: url("butterfly.png");
@@ -520,7 +536,9 @@ apple,
 pickle,
 dragonFly,
 ant,
-antQueen {
+antQueen,
+caterpillar,
+cocoon {
   display: inline-block;
   margin: 0 10px;
   height: 60px;
@@ -546,7 +564,16 @@ carrot {
 
 
 ladybug,
-apple {
+butterfly,
+bee,
+worm,
+apple,
+pickle,
+dragonFly,
+ant,
+antQueen,
+caterpillar,
+cocoon {
   height: 60px;
   width: 60px;
   position: relative;
@@ -560,7 +587,9 @@ worm.small,
 apple.small,
 dragonFly.small,
 ant.small,
-antQueen.small  {
+antQueen.small,
+caterpillar.small,
+cocoon.small   {
   height: 30px;
   width: 30px;
   border-width: 2px 4px 8px 4px;
@@ -589,7 +618,8 @@ ladybug:before,
 bee:before,
 worm:before,
 butterfly:before,
-apple:before,
+caterpillar:before,
+cocoon:before,
 dragonFly:before,
 ant:before,
 antQueen:before {
@@ -610,6 +640,8 @@ bento butterfly,
 bento bee,
 bento worm,
 bento apple,
+bento caterpillar,
+bento cocoon ,
 grass ladybug,
 grass bee,
 grass worm,
@@ -617,7 +649,9 @@ grass butterfly,
 grass apple,
 grass dragonFly,
 grass ant,
-grass antQueen {
+grass antQueen,
+grass caterpillar,
+grass cocoon  {
   left: calc(50% - 30px);
   margin: 0;
   position: absolute;
@@ -630,7 +664,9 @@ grass>bee:last-child,
 grass>worm:last-child,
 grass>dragonFly:last-child,
 grass>ant:last-child,
-grass>antQueen:last-child, 
+grass>antQueen:last-child,
+grass>caterpillar:last-child,
+grass>cocoon:last-child, 
 bento>apple:last-child,
 bento>ladybug:last-child,
 bento>bee:last-child,
@@ -638,7 +674,9 @@ bento>worm:last-child,
 bento>butterfly:last-child,
 bento>dragonFly:last-child,
 bento>ant:last-child,
-bento>antQueen:last-child   {
+bento>antQueen:last-child,
+bento>caterpillar:last-child,
+bento>cocoon:last-child   {
   top: calc(50% - 35px);
 }
 
@@ -847,7 +885,9 @@ bee,
 worm,
 dragonFly,
 ant,
-antQueen {
+antQueen,
+caterpillar,
+cocoon {
   z-index: 1000;
 }
 
@@ -966,7 +1006,9 @@ grass worm,
 grass butterfly,
 grass dragonFly,
 grass ant,
-grass antQueen {
+grass antQueen,
+grass caterpillar,
+grass cocoon {
   position: absolute;
 }
 
@@ -976,7 +1018,9 @@ grass bee:last-child,
 grass worm:last-child,
 grass dragonFly:last-child,
 grass ant:last-child,
-grass antQueen:last-child {
+grass antQueen:last-child,
+grass caterpillar:last-child,
+grass cocoon:last-child {
   z-index: 300;
 }
 
@@ -986,7 +1030,9 @@ grass bee:nth-last-child(2),
 grass worm:nth-last-child(2),
 grass butterfly:nth-last-child(2),
 grass ant:nth-last-child(2),
-grass antQueen:nth-last-child(2) {
+grass antQueen:nth-last-child(2),
+grass caterpillar:nth-last-child(2),
+grass cocoon:nth-last-child(2) {
   top: -25px;
   z-index: 400;
 }
@@ -998,7 +1044,9 @@ grass worm:nth-last-child(3),
 grass butterfly:nth-last-child(3),
 grass dragonFly:nth-last-child(3),
 grass ant:nth-last-child(3),
-grass antQueen:nth-last-child(3) {
+grass antQueen:nth-last-child(3),
+grass cocoon:nth-last-child(3),
+grass caterpillar:nth-last-child(3) {
   top: -65px;
   z-index: 500;
 }
@@ -1010,7 +1058,9 @@ grass worm:nth-last-child(4),
 grass butterfly:nth-last-child(4),
 grass dragonFly:nth-last-child(4),
 grass ant:nth-last-child(4),
-grass antQueen:nth-last-child(4)   {
+grass antQueen:nth-last-child(4),
+grass cocoon:nth-last-child(4),
+grass caterpillar:nth-last-child(4)   {
   top: -105px;
   z-index: 600;
 }

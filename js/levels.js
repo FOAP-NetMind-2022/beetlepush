@@ -385,7 +385,7 @@ var levels = [
     helpTitle: "Reverse the order of the elements in an array",
     selectorName: "Reverse method",
     doThis: "Reverse the elements of the array to restore the natural order",
-    selector: "dragonFly, antQueen",
+    selector: "butterfly, cocoon, caterpillar",
     syntax: "reverse();",
     help: ' The reverse() method reverses the order of the elements in an array.This method overwrites the original array. <a href= "https://www.w3schools.com/jsref/jsref_reverse.asp"> more help </a>',
     examples: [
@@ -393,8 +393,8 @@ var levels = [
       '<strong>1</strong> const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br><strong>2</strong> cars.reverse();<br> <strong>3</strong> console.log(cars);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Ford", "Saab", "Volvo", "BMW"]</div>',
     ],
-    myGrass : ['butterfly','worm','worm'],
-    myGrassSolution : ['worm','worm','butterfly'],
+    myGrass : ['butterfly','cocoon','caterpillar'],
+    myGrassSolution : ['caterpillar','cocoon','butterfly'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -403,10 +403,10 @@ var levels = [
     <butterfly>
    </grass>
    <grass>
-    <worm>
+    <cocoon>
    </grass>
    <grass>
-    <worm>
+    <caterpillar>
    </grass>
    </bracket>
    
@@ -415,10 +415,10 @@ var levels = [
     boardMarkupSolution: `
     <bracket>
     <grass>
-    <worm>
+    <caterpillar>
     </grass>
     <grass>
-    <worm>
+    <cocoon>
     </grass>
     <grass>
     <butterfly>
@@ -433,49 +433,316 @@ var levels = [
  * *********************/ 
 
   {
-    helpTitle: "Concatenates two or more arrays",
-    selectorName: "Reverse method",
-    doThis: "Reverse the elements of the array to restore the natural order",
-    selector: "dragonFly, antQueen",
-    syntax: "reverse();",
-    help: ' The reverse() method reverses the order of the elements in an array.This method overwrites the original array. <a href= "https://www.w3schools.com/jsref/jsref_reverse.asp"> more help </a>',
+    helpTitle: "Includes returns a boolean if an array contains a specified value",
+    selectorName: "Includes method",
+    doThis: "Check if the array contains the bug 'butterfly'",
+    selector: "butterfly",
+    syntax: "includes();",
+    help: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. <a href= "https://www.w3schools.com/jsref/jsref_includes.asp"> more help </a>',
     examples: [
-      //example with reverse method using cars array
-      '<strong>1</strong> const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br><strong>2</strong> cars.reverse();<br> <strong>3</strong> console.log(cars);',
-      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Ford", "Saab", "Volvo", "BMW"]</div>',
+      //example with includes method using vegetables array
+      '<strong>1</strong> const vegetables = ["Cabbage", "Turnip", "Radish", "Carrot"]; <br><strong>2</strong> console.log(vegetables.includes("Turnip"));',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
+
+
     ],
-    myGrass : ['butterfly','worm','worm'],
-    myGrassSolution : ['worm','worm','butterfly'],
+    myGrass : ['ladybug','butterfly','ant','worm','caterpillar','bee'],
+    myGrassSolution : ['ladybug','butterfly','ant','worm','caterpillar','bee'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     <bracket>
    <grass>
+    <ladybug>
+   </grass>
+   <grass>
     <butterfly>
    </grass>
    <grass>
-    <worm>
+    <ant>
    </grass>
    <grass>
     <worm>
    </grass>
+   <grass>
+    <caterpillar>
+   </grass>
+   <grass>
+    <bee>
+   </grass>
    </bracket>
-   
    
     `,
     boardMarkupSolution: `
     <bracket>
     <grass>
-    <worm>
+     <ladybug>
     </grass>
     <grass>
-    <worm>
+     <ladybug>
     </grass>
     <grass>
-    <butterfly>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug class="small">
+    </grass>
+    <grass>
+     <ladybug class="small">
+    </grass>
+    <grass>
+     <ladybug class="small">
     </grass>
     </bracket>
     `
+  },
+  /***  ******************
+ * 
+ * LEVEL 9
+ * 
+ * *********************/ 
+   {
+    helpTitle: "Concatenates two or more arrays",
+    selectorName: "Concat method",
+    doThis: "Concat the array with small ladybugs to the first array",
+    selector: ".small",
+    syntax: "concat();",
+    help: ' The concat() method concatenates (joins) two or more arrays.This method returns a new array, containing the joined arrays. <a href= "https://www.w3schools.com/jsref/jsref_concat_array.asp"> more help </a>',
+    examples: [
+      //example with concat method using flowers array
+      '<strong>1</strong> const flowers = ["rose", "tulip", "daisy"]; <br><strong>2</strong> const flowers2 = ["orchid", "lily"]; <br><strong>3</strong> const flowers3 = flowers.concat(flowers2);<br> <strong>4</strong> console.log(flowers3);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["rose", "tulip", "daisy", "orchid", "lily"]</div>',
+
+    ],
+    myGrass : ['ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+   <grass>
+    <ladybug>
+   </grass>
+   <grass>
+    <ladybug>
+   </grass>
+   <grass>
+    <ladybug>
+   </grass>
+   </bracket>
+
+   <bracket>
+   <grass>
+    <ladybug class="small">
+   </grass>
+   <grass>
+    <ladybug class="small">
+   </grass>
+   <grass>
+    <ladybug class="small">
+   </grass>
+   </bracket>
+   
+    `,
+    boardMarkupSolution: `
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug class="small">
+    </grass>
+    <grass>
+     <ladybug class="small">
+    </grass>
+    <grass>
+     <ladybug class="small">
+    </grass>
+    </bracket>
+    `
+  },
+  /***  ******************
+   * LEVEL 10
+   * *********************/
+   {
+    helpTitle: "Returns the value of the first element in an array that pass a test",
+    selectorName: "Find method",
+    doThis: "",
+    selector: "g",
+    syntax: "find();",
+    help: "The find() method returns the value of the first element in an array that pass a test (provided as a function), find method returns undefined if no elements are found. <a href= 'https://www.w3schools.com/jsref/jsref_find.asp'> more help </a>",
+    examples: [
+      //example with find method using animals array
+      '<strong>1</strong> const animals = ["dog", "cat", "bird", "fish"]; <br><strong>2</strong> const firstFish = animals.find(animal => animal === "fish");<br> <strong>3</strong> console.log(firstFish);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> fish</div>',
+    ],
+    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    </bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass> 
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    </bracket>
+  `
+  },
+  /***  ******************
+   * LEVEL 11
+   * *********************/
+   {
+    helpTitle: "Returns the index of the first element in an array that pass a test",
+    selectorName: "FindIndex method",
+    doThis: "",
+    selector: "ladybug",
+    syntax: "findIndex();",
+    help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. <a href= 'https://www.w3schools.com/jsref/jsref_findindex.asp'> more help </a>",
+    examples: [
+      //example with findIndex method using numbers array
+      '<strong>1</strong> const numbers = [1, 2, 3, 4, 5]; <br><strong>2</strong> const firstEven = numbers.findIndex(number => number % 2 === 0);<br> <strong>3</strong> console.log(firstEven);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 1</div>',
+      
+    ],
+    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    </bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass> 
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    </bracket>
+  `
+  },
+  /***  ******************
+   * LEVEL 12
+   * *********************/
+   {
+    helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
+    selectorName: "Some method",
+    doThis: "",
+    selector: "ladybug",
+    syntax: "some();",
+    help: "The some() method checks if any of the elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for one of the array elements <a href= 'https://www.w3schools.com/jsref/jsref_some.asp'> more help </a>",
+    examples: [
+      //example with some method using foods array
+      '<strong>1</strong> const foods = ["apple", "banana", "cherry", "mango"]; <br><strong>2</strong> const hasMango = foods.some(food => food === "mango");<br> <strong>3</strong> console.log(hasMango);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
+      
+    ],
+    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    </bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    <grass>
+     <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass> 
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    <grass>
+      <ladybug>
+    </grass>
+    </bracket>
+  `
   }
 
 ];
