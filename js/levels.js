@@ -60,7 +60,8 @@ var levels = [
       <ladybug>
     </grass>
     </bracket>
-  `
+  `,
+  instructions: "Use the push() method to add an element at the end of the array."
   },
   // restaurant.js
   // eval(level.boardMarkup)

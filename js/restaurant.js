@@ -325,6 +325,9 @@ function handleInput(text) {
 
 function fireArray(text) {
   let myGrass = levels[currentLevel].myGrass
+  //hagu un deep copy de myGrass para no modificar el original
+  let myGrass2 = JSON.parse(JSON.stringify(myGrass))
+
 
 
   // evaluamos cualquier error que pueda existir en el array  
@@ -351,8 +354,11 @@ function fireArray(text) {
   console.log(myGrass, levels[currentLevel].myGrassSolution);
   
 
-  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-
+  //if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+  //let solucion = eval(levels[currentLevel].myGrassSolution)
+  //console.log("solucion", solucion);
+  //if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) {
     let newboardMarkup = '';
     myGrass.forEach(function (element) {
     newboardMarkup += `<grass><${element}/></grass>`;
@@ -657,8 +663,8 @@ function loadBoard() {
   addNametags();
   $(".table *").addClass("pop");
 
-
-  $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>');
+//comentamos para eliminar el código html del html viewer
+  /* $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>'); */
 }
 
 // Adds nametags to the items on the table
