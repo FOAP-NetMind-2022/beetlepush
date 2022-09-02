@@ -359,9 +359,11 @@ bento:before {
 }
 
 .markup {
+  color: #888888;
   line-height: 150%;
   font-family: menlo;
   z-index: 1;
+  font-size: 0.8rem;
 }
 
 .editor .file-window {

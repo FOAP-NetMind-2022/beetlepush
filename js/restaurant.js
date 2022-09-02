@@ -665,6 +665,7 @@ function loadBoard() {
 
 //comentamos para eliminar el código html del html viewer
   /* $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>'); */
+  $(".markup").html(level.instructions);
 }
 
 // Adds nametags to the items on the table

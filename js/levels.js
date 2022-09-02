@@ -61,7 +61,7 @@ var levels = [
     </grass>
     </bracket>
   `,
-  instructions: "Use the push() method to add an element at the end of the array."
+  instructions: "<div style='font-size:20px'>Welcome to Beetle Push, the game of arrays where you help Ladybug and friends by writing code to learn array methods in JavaScript !</div><br><br> <div style='font-size:16px'>To pass this level you need to use push() method to add a new ladybug at the end array myGrass.<br><br>For example in this level the solution is:<br><br><b>myGrass.push('ladybug');</b></div>"
   },
   // restaurant.js
   // eval(level.boardMarkup)
