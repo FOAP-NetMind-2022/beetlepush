@@ -9,9 +9,9 @@
   showHelp() - Loads help text & examples for each level
 
   ..to be continued!
-*/
+*//*
 const monaco = require.config({ paths: { "vs": "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/" }});
-
+*/
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -28,6 +28,7 @@ var blankProgress = {
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 const js = document.querySelector('#input-solution');
+/*
 //const jsWorker = require('monaco-editor/esm/vs/basic-languages/javascript');
 
 window.MonacoEnvironment = {
@@ -53,6 +54,8 @@ require(["vs/editor/editor.main"], function () {
 
 });
 
+*/
+
 //js.addEventListener('input', update);
 
 // const monacoEditor = monaco.editor.create(js, {
@@ -60,11 +63,9 @@ require(["vs/editor/editor.main"], function () {
 //   language: 'javascript'
 // });
 
+//experimentacion javi
 
-
-
-
-
+//fin de experimentacion javi
 
 $(document).ready(function () {
 
@@ -154,21 +155,13 @@ $(document).ready(function () {
     }
   });*/
 
-  //si el usuario presiona enter en el input, se ejecuta la funcion hacemos un salto de linea en el valor del string
- 
- 
+  
+ //function presionar enter
   $("input").on("keypress", function (e) {
-    if (e.keyCode == 13) {
-      //hacemos un salto de linea en la vista del input
+    
+      window.alert("Bienvenido a nuestro sitio web");
 
-      //$(this).val($(this).val().toString() +  '\n'  );
-      /*
-      $(this).val($(this).val().toString() + '</br>');*/
-
-      return false;
-          
-       
-    }
+    
   });
 
   $("input").on("keyup", function (e) {
@@ -212,7 +205,13 @@ $(document).ready(function () {
   });
 
   $(".enter-button").on("click", function () {
-    enterHit();
+    //enterHit();
+        const code = flask.getCode();
+
+    window.alert("Bienvenido este es tu codigo: " + code);
+
+
+
   })
 
   $(".table-wrapper,.table-edge").css("opacity", 0);
@@ -384,7 +383,8 @@ function fireArray(text) {
 
 
   // evaluamos cualquier error que pueda existir en el array  
-  let aEvaluar;
+  const aEvaluar = flask.getCode();
+ 
   try {
     aEvaluar = eval(text);
   } catch (e) {

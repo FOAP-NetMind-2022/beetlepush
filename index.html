@@ -2,11 +2,12 @@
 <html>
 
 <head>
-  <title>Beetlepush - Have fun learning array methods!</title>
+  <title>Beetlepush - Have fun learning array methods!</title> <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
   <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="levels.js" type="text/javascript" charset="utf-8"></script>
   <script src="restaurant.js" type="text/javascript" charset="utf-8"></script>
   <script src="jquery.mCustomScrollbar.min.js"></script>
+ 
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
@@ -106,20 +107,12 @@ myArray[1]; // returns 2
         <div class="input-header">
           <div class="file-name">grass.js</div> JavaScript Editor
         </div>
-        <div id="input-solution" class="input-strobe">
-          <div class="file-window css-view">
-           
-          </div>
-          <div class="enter-button">enter</div>
-          <div>
-            {<br />
-            /* javascript would go here. */<br />
-            }
-          </div>
-          <div id="myGrassHelp"class="help">
-            
-          </div>
-        </div>
+        
+        <div id="input-solution"    > 
+          
+         
+        </div> <div class="enter-button">ejecutar</div>
+
       </div>
 
      
@@ -183,8 +176,13 @@ myArray[1]; // returns 2
     </div>
 
   </div><!-- /right-col -->
+ <script> const flask = new CodeFlask('#input-solution', { language: 'js',lineNumbers: true });
+
+ flask.updateCode(' //your code here');
  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/loader.min.js"></script>
+
+</script>
+ 
   <script>
     if (location.hostname != "localhost") {
       (function (i, s, o, g, r, a, m) {

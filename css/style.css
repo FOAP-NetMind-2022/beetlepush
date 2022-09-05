@@ -318,10 +318,10 @@ bento:before {
 }
 
 
-
+/**/
 .editor * {
   font-family: menlo, monospace;
-  font-size: 14px;
+  size: 25%;
   line-height: 150%;
   padding: 0;
   margin: 0;
@@ -694,8 +694,7 @@ bento>pickle.small:only-child {
   position: absolute;
   width: 500px;
   height: 400px;
-}
-
+} 
 /*boton de verificacion*/
 .enter-button {
   background: #ddd;
@@ -714,7 +713,6 @@ bento>pickle.small:only-child {
   top: 7px;
   right: 7px;
   z-index: 999999;
-  margin-top: 45px;
 }
 
 .enterhit {
