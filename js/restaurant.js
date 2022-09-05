@@ -308,30 +308,38 @@ function enterHit() {
   $(".enter-button").addClass("enterhit");
   var value = $("input").val();
   handleInput(value);
+  //fireArray(value);
 }
+
 
 
 //Parses text from the input field
 function handleInput(text) {
+  console.log("text", parseInt(text, 10));
   if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
     currentLevel = parseInt(text, 10) - 1;
 
+    console.log("currentLevel", currentLevel)
 
   }
   // fireRule(text);
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
-}
+} 
+
 
 
 function fireArray(text) {
+
   let myGrass = levels[currentLevel].myGrass
+
+
  
   //hagu un deep copy de myGrass para no modificar el original
-  let myGrass2 = JSON.parse(JSON.stringify(myGrass))
+  //let myGrass2 = JSON.parse(JSON.stringify(myGrass))
 
 
 
-  // evaluamos cualquier error que pueda existir en el array  
+  // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
   let aEvaluar;
   try {
     aEvaluar = eval(text);
@@ -343,19 +351,21 @@ function fireArray(text) {
 //SWITCH 
 
   function checkLevelCorrect(currentLevel, inputUser) {
+    //console.log("currentLevel", currentLevel);
    // a partir del nivel 7, case 6, no pasa al siguiente nivel!
    // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
   /*   let levelMethod = levels[currentLevel].myMethod
     let levelElements = levels[currentLevel].myElements
     let levelSolution = levels[currentLevel].mySolution */
     let isCorrect = false
+    var expresion, expresion2
 
     switch(currentLevel) {
       case 0:
 
         //OPCION 1
-       let expresion = /^myGrass.push\('ladybug'\)$;?/g
-        let expresion2 = /^myGrass.push\("ladybug"\)$;?/g
+        expresion = /^myGrass.push\('ladybug'\)(;)?$/g
+        expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
         isCorrect = expresion.test(inputUser) || expresion2.test(inputUser) 
         //OPCION 2
         //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
@@ -366,46 +376,88 @@ function fireArray(text) {
         break;
 
       case 1:
-        isCorrect= inputUser.includes("myGrass.pop()")
-        console.log("has resuelto el ejercicio 2")
+        expresion = /^myGrass.pop\(\)(;)?$/g
+        //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
+        isCorrect = expresion.test(inputUser); 
+
+        //isCorrect= inputUser.includes("myGrass.pop()")
+        //console.log("has resuelto el ejercicio 2")
         break;
 
       case 2:
-        isCorrect= inputUser.includes("myGrass.shift()")
-        console.log("has resuelto el ejercicio 3")
+        expresion = /^myGrass.shift\(\)(;)?$/g
+        isCorrect = expresion.test(inputUser);
+        //console.log("has resuelto el ejercicio 3")
         break;
 
       case 3:
-        isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.includes('myGrass.unshift("antQueen")')
+        expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g
+        expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g
+        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+
+        //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
           break;
           
       case 4:
-        isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
+        expresion = /^myGrass.splice\(1,4\)(;)?$/g
+        isCorrect = expresion.test(inputUser);
+
+        //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
           break;
       
       case 5:
-        isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','antQueen')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","antQueen")')
+        expresion = /^myGrass.splice\(2,2,'dragonFly','antQueen'\)(;)?$/g
+        expresion2 = /^myGrass.splice\(2,2,"dragonFly","antQueen"\)(;)?$/g
+        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+
+        //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','antQueen')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","antQueen")')
           break;
 
       case 6:
-        isCorrect= inputUser.includes("myGrass.reverse()")
+        //isCorrect= inputUser.includes("myGrass.reverse()")
+        expresion = /^myGrass.reverse\(\)(;)?$/g
+        isCorrect = expresion.test(inputUser);
           break;
 
       case 7:
-        isCorrect= inputUser.includes("myGrass.includes('butterfly')")||inputUser.includes('myGrass.includes("butterfly")')
+        //isCorrect= inputUser.includes("myGrass.includes('butterfly')")||inputUser.includes('myGrass.includes("butterfly")')
+
+        expresion = /^myGrass.includes\('butterfly'\)(;)?$/g
+        expresion2 = /^myGrass.includes\("butterfly"\)(;)?$/g
+        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+
           break;
 
       case 8:
         //necesitariamos asignarle un nombre al array 2 del ejercicio.
        /*  isCorrect= inputUser.includes("myGrass.concat(myGrassTwo)")||inputUser.includes('myGrass.concat(myGrassTwo)') */
+
+       // IMPORTANTE: indicar en la vista que el usuario tiene que utilizar el nombre myGrassBaby para el segundo array
+
+        expresion = /^myGrass.concat\(myGrassBaby\)(;)?$/g
+        isCorrect = expresion.test(inputUser);
+
           break;
 
       case 9:
         //fill con butterfly 
-        isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
-          break;
-      
+        //isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
 
+        expresion = /^myGrass.fill\('butterfly'\)(;)?$/g
+        expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g
+        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+          break;
+
+      case 10:
+        // find "antQueen"
+        let method = "find";
+        let element = "spider";
+
+        //myGrass.find(element => element === "antQueen")
+        //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
+        //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
+      
+        //return isCorrect //load next level
 
   }
 
