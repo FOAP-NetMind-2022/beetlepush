@@ -325,6 +325,7 @@ function handleInput(text) {
 
 function fireArray(text) {
   let myGrass = levels[currentLevel].myGrass
+ 
   //hagu un deep copy de myGrass para no modificar el original
   let myGrass2 = JSON.parse(JSON.stringify(myGrass))
 
@@ -339,26 +340,76 @@ function fireArray(text) {
   }
   //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
   //console.log("myGrass", myGrass); // mostramos el array en la consola
+//SWITCH 
 
-  //iscorrect 
+  function checkLevelCorrect(currentLevel, inputUser) {
+   // a partir del nivel 7, case 6, no pasa al siguiente nivel!
+   // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+  /*   let levelMethod = levels[currentLevel].myMethod
+    let levelElements = levels[currentLevel].myElements
+    let levelSolution = levels[currentLevel].mySolution */
+    let isCorrect = false
 
-  //la comparación del array con el array de solución funciona ok
-  function arrayEquals(a, b) {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
+    switch(currentLevel) {
+      case 0:
 
-      // 
-  };
-  console.log(myGrass, levels[currentLevel].myGrassSolution);
-  
+        //OPCION 1
+       let expresion = /^myGrass.push\('ladybug'\)$;?/g
+        let expresion2 = /^myGrass.push\("ladybug"\)$;?/g
+        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser) 
+        //OPCION 2
+        //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
+       /*  if(inputUser.includes(levelMethod)){
+          console.log("has usado el metodo push")
+        } */
+        
+        break;
 
-  //if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-  //let solucion = eval(levels[currentLevel].myGrassSolution)
-  //console.log("solucion", solucion);
-  //if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) {
+      case 1:
+        isCorrect= inputUser.includes("myGrass.pop()")
+        console.log("has resuelto el ejercicio 2")
+        break;
+
+      case 2:
+        isCorrect= inputUser.includes("myGrass.shift()")
+        console.log("has resuelto el ejercicio 3")
+        break;
+
+      case 3:
+        isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.includes('myGrass.unshift("antQueen")')
+          break;
+          
+      case 4:
+        isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
+          break;
+      
+      case 5:
+        isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','antQueen')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","antQueen")')
+          break;
+
+      case 6:
+        isCorrect= inputUser.includes("myGrass.reverse()")
+          break;
+
+      case 7:
+        isCorrect= inputUser.includes("myGrass.includes('butterfly')")||inputUser.includes('myGrass.includes("butterfly")')
+          break;
+
+      case 8:
+        //necesitariamos asignarle un nombre al array 2 del ejercicio.
+       /*  isCorrect= inputUser.includes("myGrass.concat(myGrassTwo)")||inputUser.includes('myGrass.concat(myGrassTwo)') */
+          break;
+
+      case 9:
+        //fill con butterfly 
+        isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
+          break;
+      
+
+
+  }
+
+  if (isCorrect) {
     let newboardMarkup = '';
     myGrass.forEach(function (element) {
     newboardMarkup += `<grass><${element}/></grass>`;
@@ -368,7 +419,7 @@ function fireArray(text) {
     level.boardMarkup = level.boardMarkupSolution
     level.completed = true;
     level.userSolution = text;
-    console.log(level.completed);
+    //console.log(level.completed);
 
     trackProgress(currentLevel, "correct");
 
@@ -389,7 +440,26 @@ function fireArray(text) {
       $(".editor").removeClass("shake");
     }, 1000);
 
-  }
+  }}
+  checkLevelCorrect(currentLevel, text);
+
+  //la comparación del array con el array de solución funciona ok
+  function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+
+      // 
+  };
+  //console.log(myGrass, currentLevel);
+  
+
+  //if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+  //let solucion = eval(levels[currentLevel].myGrassSolution)
+  //console.log("solucion", solucion);
+  //if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+  
 
 }
 

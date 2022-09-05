@@ -6,7 +6,7 @@ var levels = [
  * 
  * *********************/ 
 
-  {
+  { 
     helpTitle: "Add an element at the end of the array, ",
     selectorName: "Push method",
     doThis: "Insert the 'ladybug' at the end of the array",
@@ -18,8 +18,11 @@ var levels = [
       '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
     ],
+    myMethod: "push",
+    myElements: ["ladybug"],
+    mySolution: "myGrass.push('ladybug');",
     myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution :['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -847,6 +850,6 @@ var levels = [
   /***  ******************
    * LEVEL 15
    * *********************/
-  
+   
 
 ];
