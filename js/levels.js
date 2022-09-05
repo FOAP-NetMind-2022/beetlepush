@@ -6,7 +6,7 @@ var levels = [
     selector: "ladybug",
     syntax: "push();",
     //add link in the help page
-    help: "Definition and Usage The push() method adds new items to the end of an array. It changes the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_push.asp'> more help </a>",
+    help: "Definition and Usage The push() method adds new items to the end of an array. It changes the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_push.asp' target='_blank'> more help </a>",
     examples: [
       '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
@@ -59,7 +59,7 @@ var levels = [
     doThis: "Remove the bee in the end",
     selector: "bee",
     syntax: "pop();",
-    help: ' DThe pop() method removes (pops) the last element of an array, changing the length of the original array. <a href= "https://www.w3schools.com/jsref/jsref_pop.asp"> more help </a>',
+    help: " The pop() method removes (pops) the last element of an array, changing the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_pop.asp' target='_blank'> more help </a>",
     examples: [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Apple"]; <br><strong>2</strong> fruits.pop();<br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Banana", "Orange"]</div>',

@@ -28,44 +28,7 @@ var blankProgress = {
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 const js = document.querySelector('#input-solution');
-/*
-//const jsWorker = require('monaco-editor/esm/vs/basic-languages/javascript');
-
-window.MonacoEnvironment = {
-  getWorkerUrl: function(workerId, label) {
-      return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
-          self.MonacoEnvironment = { baseUrl: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.29.1/min/" };
-          importScripts("https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.29.1/min/vs/base/worker/workerMain.min.js");`
-      )}`;
-  }
-};
-
-require(["vs/editor/editor.main"], function () {
-  // Create the editor with some sample JavaScript code
-  var editor = monaco.editor.create(js, {
-      value: "// code goes here\n",
-      language: "javascript"
-  });
-
-  window.addEventListener("resize", () => editor.layout({
-    width: js.offsetWidth,
-    height: js.offsetHeight
-}));
-
-});
-
-*/
-
-//js.addEventListener('input', update);
-
-// const monacoEditor = monaco.editor.create(js, {
-//   value: "// code goes here\n",
-//   language: 'javascript'
-// });
-
-//experimentacion javi
-
-//fin de experimentacion javi
+ 
 
 $(document).ready(function () {
 
@@ -159,10 +122,20 @@ $(document).ready(function () {
  //function presionar enter
   $("input").on("keypress", function (e) {
     
-      window.alert("Bienvenido a nuestro sitio web");
-
+    if (e.keyCode == 13) {
+      enterHit();
+      return false;
+    }
     
   });
+  //si presiona el las teclas ctrl + enter se ejecuta el codigo de la solucion 
+  $("input").on("keydown", function (e) {
+    if (e.keyCode == 13 && e.ctrlKey) {
+     console.log("ctrl + enter");
+      return false;
+    }
+  });
+  
 
   $("input").on("keyup", function (e) {
     e.stopPropagation();
@@ -206,11 +179,10 @@ $(document).ready(function () {
 
   $(".enter-button").on("click", function () {
     //enterHit();
-        const code = flask.getCode();
+        const text = flask.getCode();
+       //  window.alert(" dentro la funcion Bienvenido este es tu codigo: " + code);
 
-    window.alert("Bienvenido este es tu codigo: " + code);
-
-
+        fireArray(text); 
 
   })
 
@@ -364,7 +336,7 @@ function enterHit() {
   var value = $("input").val();
   handleInput(value);
 }
-
+//myGrass.push("ladybug");
 
 //Parses text from the input field
 function handleInput(text) {
@@ -377,14 +349,17 @@ function handleInput(text) {
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
-
+ 
 function fireArray(text) {
   const myGrass = levels[currentLevel].myGrass
+  // const code = flask.getCode();
+console.log("este es el codigo: " + text);
+  window.alert(" dentro la funcion Bienvenido este es tu codigo: " + text);
+  
 
 
-  // evaluamos cualquier error que pueda existir en el array  
-  const aEvaluar = flask.getCode();
- 
+  // evaluamos cualquier error que pueda existir en el array
+  
   try {
     aEvaluar = eval(text);
   } catch (e) {
