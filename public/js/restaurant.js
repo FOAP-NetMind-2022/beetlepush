@@ -536,7 +536,7 @@ function trackProgress(levelNumber, type) {
       userCode: $("input").val()
     };
   }
-  
+
   progress.guessHistory[levelNumber].userCode = $("input").val();
 
   var levelStats = progress.guessHistory[levelNumber];
