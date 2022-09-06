@@ -82,7 +82,7 @@ var levels = [
   {
     helpTitle: "Remove the last of element in the array, ",
     selectorName: "Pop method",
-    doThis: "Remove the bee in the end",
+    doThis: "Remove the intrusive bug in the end",
     selector: "bee",
     syntax: "pop();",
     help: ' DThe pop() method removes (pops) the last element of an array, changing the length of the original array. <a href= "https://www.w3schools.com/jsref/jsref_pop.asp"> more help </a>',
@@ -118,7 +118,9 @@ var levels = [
     <worm>
    </grass>
    </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Some bugs live most of their lives underground, like worms. However, others are always flying, like bees.</div><br><br> <div style='font-size:16px'>In this level we have 3 bugs, two worms and one bee. Remove the bee at the end of the array myGrass, using the pop() method.</b></div> " 
+  
   },
 
   /***  ******************
@@ -131,22 +133,22 @@ var levels = [
   {
     helpTitle: "Remove the first element in the array ",
     selectorName: "Shift method",
-    doThis: "Remove the worm at the beginning",
-    selector: "worm",
+    doThis: "Remove the dragonfly at the beginning",
+    selector: "dragonFly",
     syntax: "shift();",
     help: ' The shift() method removes the first array element. <a href= "https://www.w3schools.com/jsref/jsref_shift.asp"> more help </a>',
     examples: [
       '<strong>1</strong> const colors = ["Red", "Orange", "Black", "Yellow"]; <br><strong>2</strong> colors.shift();<br> <strong>3</strong> console.log(colors);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Orange", "Black", "Yellow"]</div>',
     ],
-    myGrass : ['worm','butterfly','butterfly','butterfly','butterfly'],
+    myGrass : ['dragonFly','butterfly','butterfly','butterfly','butterfly'],
     myGrassSolution : ['butterfly','butterfly','butterfly','butterfly'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     <bracket>
     <grass>
-    <worm>
+    <dragonFly>
    </grass>
    <grass>
     <butterfly>
@@ -179,7 +181,8 @@ var levels = [
     <butterfly>
    </grass>
    </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> In the world of bugs there are several ways to feed. Some, like butterflies, feed on the nectar of flowers, others like dragonflies feed on other small bugs.</div><br><br> <div style='font-size:16px'>In this level myGrass has mostly butterfly but one intrusive dragonfly. Remove the 'dragonFly' at the beginning of the array myGrass, using the shift() method.</b></div> " 
   },
 
   /***  ******************
@@ -242,8 +245,10 @@ var levels = [
     <ant>
    </grass>
    </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Some bugs are known for their social nature, they form colonies in which each one has a role or responsibility. Ants are insects that live and form large colonies and always need the presence of a queen ant. </div><br><br> <div style='font-size:16px'>In this level the queen ant is not inside the array. Help the ants to change this using unshift method(). Remember that you need to inform the name of the element, 'antQueen',  to the method you are going to use. </b></div> " 
   },
+
 
   /***  ******************
  * 
@@ -263,7 +268,7 @@ var levels = [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]; <br><strong>2</strong> const citrus = fruits.slice(1,3);<br> <strong>3</strong> console.log(citrus);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Orange", "Lemon"]</div>',
     ],
-    myGrass : ['worm','butterfly','bee','dragonFly','worm'],
+    myGrass : ['worm','butterfly','bee','dragonFly','spider'],
     myGrassSolution : ['butterfly','bee','dragonFly'],
     completed: false,
     userSolution: "",
@@ -282,7 +287,7 @@ var levels = [
     <dragonFly>
    </grass>
    <grass>
-    <worm>
+    <spider>
    </grass>
    </bracket>
    
@@ -300,7 +305,8 @@ var levels = [
     <dragonFly>
    </grass>
    </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> The way they move is another characteristic that differentiates groups of bugs. Some are terrestrial, others are aquatic, and others have the ability to fly. The wings can be very different in their size, color and number. </div><br><br> <div style='font-size:16px'>To pass this level you will create a new array, using slice() method. This new array has to contain only winged bugs.  </b></div> " 
   },
 
 
@@ -314,7 +320,7 @@ var levels = [
     helpTitle: "Modifies the content of an array, adding new elements and / or removing old elements",
     selectorName: "Splice method",
     doThis: "Replace the repeated bugs with the new ones",
-    selector: "dragonFly, antQueen, .dance",
+    selector: "dragonFly, spider, .dance",
     syntax: "splice();",
     help: ' The splice() method adds/removes items to/from an array, and returns the removed item(s). <a href= "https://www.w3schools.com/jsref/jsref_splice.asp"> more help </a>',
     examples: [
@@ -322,7 +328,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["pencil", "pen", "folder", "scissors", "notebook", "marker"]</div>',
     ],
     myGrass : ['bee','ant','ant','worm','butterfly','worm'],
-    myGrassSolution : ['bee','ant','dragonFly','antQueen','butterfly','worm'],
+    myGrassSolution : ['bee','ant','dragonFly','spider','butterfly','worm'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -350,7 +356,7 @@ var levels = [
    <dragonFly>
     </grass>
     <grass>
-    <antQueen>
+    <spider>
     </grass>
    
    
@@ -367,7 +373,7 @@ var levels = [
     <dragonFly>
    </grass>
    <grass>
-    <antQueen>
+    <spider>
    </grass>
    <grass>
     <butterfly>
@@ -376,7 +382,8 @@ var levels = [
     <worm>
    </grass>
    </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Bugs are known for their great diversity. In addition to its wide distribution throughout the planet and its thousands of thousands of species. There are so many that more than half of the world's animal species are bugs. </div><br><br> <div style='font-size:16px'>It this level we want to represent that diversity, replace the repeated bugs with the bugs 'dragonFly' and 'spider'. To pass the level use splice() method correctly.</b></div> " 
   },
 
   /***  ******************
@@ -428,7 +435,8 @@ var levels = [
     <butterfly>
     </grass>
     </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> The life cycle of some bugs can be very interesting. Some simply grow in size, others change from terrestrial to aquatic life, and others are able to changing completely their appearance, such as butterflies. </div><br><br> <div style='font-size:16px'>At this level the order of the butterfly's life cycle is wrong. The correct path follows this order: 'caterpillar', 'cocoon', 'butterfly'. Use the reverse() method to restore the natural life cycle.</b></div> " 
   },
 /***  ******************
  * 
@@ -439,8 +447,8 @@ var levels = [
   {
     helpTitle: "Includes returns a boolean if an array contains a specified value",
     selectorName: "Includes method",
-    doThis: "Check if the array contains the bug 'butterfly'",
-    selector: "butterfly",
+    doThis: "Check if the array contains the bug 'bee'",
+    selector: "bee",
     syntax: "includes();",
     help: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. <a href= "https://www.w3schools.com/jsref/jsref_includes.asp"> more help </a>',
     examples: [
@@ -480,10 +488,11 @@ var levels = [
     boardMarkupSolution: `
     
     <grass>
-     <butterfly>
+     <bee>
     </grass>
   
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Most probably bees are one of the most important bugs for our ecosystems and our planet. They pollinate flowers and produce sweet honey. That is why it is important to know and protect them. <br><br> <i>If the bee disappears from the surface of the Earth, man would have no more than four years left to live</i> <b>Albert Einstein</b></div><br><br> <div style='font-size:16px'>It this level use includes() method to know if there is a bee in the array myGrass.</b></div> " 
   },
   /***  ******************
  * 
@@ -554,7 +563,8 @@ var levels = [
      <ladybug class="small">
     </grass>
     </bracket>
-    `
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Since we are born, our family takes care of us and protects us. In some bugs it is the same, the parents watch over, feed and protect their children until they grow up enough. <br> As a curious fact, did you know that a group of ladybugs went to space in 1999?</div><br><br> <div style='font-size:16px'>It this level use concat() method to join two arrays. Use myGrass and myGrassBaby so that the small ladybugs are in the same array as their parents.</b></div> " 
   },
   /***  ******************
    * LEVEL 10
@@ -608,7 +618,8 @@ var levels = [
       <butterfly>
     </grass>
     </bracket>
-  `
+  `,
+  instructions: "<div style='font-size:20px'>Hello again ! <br><br> As you already know some bugs change their shape completely when they become adults. Some bugs do what is known as metamorphosis. This process is different depending on the bug, in the case of butterflies its transformation is total, first it is a caterpillar, then a cocoon and finally a beautiful butterfly.</div><br><br> <div style='font-size:16px'>Use the fill() method to transform this cocoon array in a butterfly array, and see the power of metamorphosis.</b></div>" 
   },
 
   /***  ******************
@@ -617,58 +628,46 @@ var levels = [
    {
     helpTitle: "Returns the value of the first element in an array that pass a test",
     selectorName: "Find method",
-    doThis: "",
-    selector: "g",
+    doThis: "Find the first bug which has no legs",
+    selector: "caterpillar",
     syntax: "find();",
-    help: "The find() method returns the value of the first element in an array that pass a test (provided as a function), find method returns undefined if no elements are found. <a href= 'https://www.w3schools.com/jsref/jsref_find.asp'> more help </a>",
+    help: "The find() method returns the value of the first element in an array that pass a test (provided as a function), find method returns undefined if no elements are found.<a href= 'https://www.w3schools.com/jsref/jsref_find.asp'> more help </a>" ,
     examples: [
       //example with find method using animals array
       '<strong>1</strong> const animals = ["dog", "cat", "bird", "fish"]; <br><strong>2</strong> const firstFish = animals.find(animal => animal === "fish");<br> <strong>3</strong> console.log(firstFish);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> fish</div>',
     ],
-    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrass : [8,0,6,6],
+    myGrassSolution : ['spider','caterpillar','ant','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     
     <bracket>
     <grass>
-     <ladybug>
+     <spider>
     </grass>
     <grass>
-     <ladybug>
+     <caterpillar>
     </grass>
     <grass>
-     <ladybug>
+     <ant>
     </grass>
     <grass>
      <ladybug>
     </grass>
     </bracket>
-    <grass>
-     <ladybug>
-    </grass>
+    
     `,
     boardMarkupSolution: ` 
-    <bracket>
+    
     <grass>
-     <ladybug>
+     <caterpillar>
     </grass>
-    <grass>
-      <ladybug>
-    </grass> 
-    <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass>
-    </bracket>
-  `
+  
+   
+  `,
+  instructions: "<div style='font-size:20px'>Hello again ! <br><br> </div><br><br> <div style='font-size:16px'> For example in this case, the spider has 8 legs, the ant has 6, the caterpillar has no legs and the ladybug has 6. Use find() method to find the bug which has no legs. </b></div>" 
   },
   /***  ******************
    * LEVEL 12
@@ -676,8 +675,8 @@ var levels = [
    {
     helpTitle: "Returns the index of the first element in an array that pass a test",
     selectorName: "FindIndex method",
-    doThis: "",
-    selector: "ladybug",
+    doThis: "Find Index of the dragonfly",
+    selector: "dragonFly",
     syntax: "findIndex();",
     help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. <a href= 'https://www.w3schools.com/jsref/jsref_findindex.asp'> more help </a>",
     examples: [
@@ -686,7 +685,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 1</div>',
       
     ],
-    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrass : ['red','pink','black','turquoise','yellow'],
     myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
@@ -696,38 +695,26 @@ var levels = [
      <ladybug>
     </grass>
     <grass>
-     <ladybug>
+     <worm>
     </grass>
     <grass>
-     <ladybug>
+     <antQueen>
     </grass>
     <grass>
-     <ladybug>
+     <dragonFly>
     </grass>
-    </bracket>
     <grass>
-     <ladybug>
-    </grass>
+    <bee>
+   </grass>
+   </bracket>
     `,
     boardMarkupSolution: ` 
-    <bracket>
     <grass>
-     <ladybug>
+     <dragonFly>
     </grass>
-    <grass>
-      <ladybug>
-    </grass> 
-    <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass>
-    </bracket>
-  `
+    
+  `,
+  instructions: "<div style='font-size:20px'>Hello again ! <br><br> Find the position of turquoise bug in the array using findIndex() method.</b></div>" 
   },
   /***  ******************
    * LEVEL 13
@@ -735,8 +722,8 @@ var levels = [
    {
     helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
     selectorName: "Some method",
-    doThis: "",
-    selector: "ladybug",
+    doThis: "Which one is poisonous ?",
+    selector: "spider",
     syntax: "some();",
     help: "The some() method checks if any of the elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for one of the array elements <a href= 'https://www.w3schools.com/jsref/jsref_some.asp'> more help </a>",
     examples: [
@@ -745,7 +732,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
       
     ],
-    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
+    myGrass : ['non-poisonous','poisonous','non-poisonous','poisonous'],
     myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
@@ -755,38 +742,22 @@ var levels = [
      <ladybug>
     </grass>
     <grass>
-     <ladybug>
+     <spider>
     </grass>
     <grass>
-     <ladybug>
+     <antQueen>
     </grass>
     <grass>
-     <ladybug>
+     <bee>
     </grass>
     </bracket>
-    <grass>
-     <ladybug>
-    </grass>
     `,
     boardMarkupSolution: ` 
-    <bracket>
     <grass>
-     <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass> 
-    <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
-    </grass>
-    </bracket>
-  `
+    <spider>
+   </grass>
+  `,
+  instructions: "<div style='font-size:20px'>Hello again ! <br><br>Use the some() method to find the first bug in the array that is 'poisonous' .</b></div>" 
   },
   /***  ******************
    * LEVEL 14
@@ -794,8 +765,8 @@ var levels = [
    {
     helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
     selectorName: "Every method",
-    doThis: "",
-    selector: "spider",
+    doThis: "What do they have in common ?",
+    selector: ".dance",
     syntax: "every();",
     help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements <a href= 'https://www.w3schools.com/jsref/jsref_every.asp'> more help </a>",
     examples: [
@@ -804,48 +775,39 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> false</div>',
       
     ],
-    myGrass : ['spider','spider','ladybug','ladybug'],
+    myGrass : [{name:'ladybug',fly:true, poisonous: false, color: 'red'},{name:'bee',fly:true, poisonous: true, color:'yellow'},{name:'dragonFly',fly:true, poisonous: false, color:'turquoise'}],
     myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `
     <bracket>
     <grass>
-     <spider>
-    </grass>
-    <grass>
-     <spider>
-    </grass>
-    <grass>
      <ladybug>
     </grass>
     <grass>
-     <ladybug>
+     <bee>
+    </grass>
+    <grass>
+     <dragonFly>
     </grass>
     </bracket>
-    <grass>
-     <ladybug>
-    </grass>
+    
     `,
     boardMarkupSolution: ` 
     <bracket>
     <grass>
-     <ladybug>
+     <ladybug class= "dance">
     </grass>
     <grass>
-      <ladybug>
-    </grass> 
-    <grass>
-      <ladybug>
+     <bee class= "dance">
     </grass>
     <grass>
-      <ladybug>
-    </grass>
-    <grass>
-      <ladybug>
+     <dragonFly class= "dance">
     </grass>
     </bracket>
-  `
+  `,
+  instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+  
   },
   /***  ******************
    * LEVEL 15

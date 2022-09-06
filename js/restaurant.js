@@ -29,7 +29,7 @@ var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 $(document).ready(function () {
 
-  
+
 
 
 
@@ -324,7 +324,7 @@ function handleInput(text) {
   }
   // fireRule(text);
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
-} 
+}
 
 
 
@@ -333,7 +333,7 @@ function fireArray(text) {
   let myGrass = levels[currentLevel].myGrass
 
 
- 
+
   //hagu un deep copy de myGrass para no modificar el original
   //let myGrass2 = JSON.parse(JSON.stringify(myGrass))
 
@@ -348,37 +348,38 @@ function fireArray(text) {
   }
   //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
   //console.log("myGrass", myGrass); // mostramos el array en la consola
-//SWITCH 
+  //SWITCH 
 
   function checkLevelCorrect(currentLevel, inputUser) {
     //console.log("currentLevel", currentLevel);
-   // a partir del nivel 7, case 6, no pasa al siguiente nivel!
-   // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
-  /*   let levelMethod = levels[currentLevel].myMethod
-    let levelElements = levels[currentLevel].myElements
-    let levelSolution = levels[currentLevel].mySolution */
+    // a partir del nivel 7, case 6, no pasa al siguiente nivel!
+    // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+    /*   let levelMethod = levels[currentLevel].myMethod
+      let levelElements = levels[currentLevel].myElements
+      let levelSolution = levels[currentLevel].mySolution */
     let isCorrect = false
     var expresion, expresion2
+    var method, element
 
-    switch(currentLevel) {
+    switch (currentLevel) {
       case 0:
 
         //OPCION 1
         expresion = /^myGrass.push\('ladybug'\)(;)?$/g
         expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
-        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser) 
+        isCorrect = expresion.test(inputUser) || expresion2.test(inputUser)
         //OPCION 2
         //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
-       /*  if(inputUser.includes(levelMethod)){
-          console.log("has usado el metodo push")
-        } */
-        
+        /*  if(inputUser.includes(levelMethod)){
+           console.log("has usado el metodo push")
+         } */
+
         break;
 
       case 1:
         expresion = /^myGrass.pop\(\)(;)?$/g
         //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
-        isCorrect = expresion.test(inputUser); 
+        isCorrect = expresion.test(inputUser);
 
         //isCorrect= inputUser.includes("myGrass.pop()")
         //console.log("has resuelto el ejercicio 2")
@@ -396,48 +397,48 @@ function fireArray(text) {
         isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
         //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
-          break;
-          
+        break;
+
       case 4:
         expresion = /^myGrass.splice\(1,4\)(;)?$/g
         isCorrect = expresion.test(inputUser);
 
         //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
-          break;
-      
+        break;
+
       case 5:
-        expresion = /^myGrass.splice\(2,2,'dragonFly','antQueen'\)(;)?$/g
-        expresion2 = /^myGrass.splice\(2,2,"dragonFly","antQueen"\)(;)?$/g
+        expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g
+        expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g
         isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
-        //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','antQueen')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","antQueen")')
-          break;
+        //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','spider')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","spider")')
+        break;
 
       case 6:
         //isCorrect= inputUser.includes("myGrass.reverse()")
         expresion = /^myGrass.reverse\(\)(;)?$/g
         isCorrect = expresion.test(inputUser);
-          break;
+        break;
 
       case 7:
-        //isCorrect= inputUser.includes("myGrass.includes('butterfly')")||inputUser.includes('myGrass.includes("butterfly")')
+        //isCorrect= inputUser.includes("myGrass.includes('bee')")||inputUser.includes('myGrass.includes("bee")')
 
-        expresion = /^myGrass.includes\('butterfly'\)(;)?$/g
-        expresion2 = /^myGrass.includes\("butterfly"\)(;)?$/g
+        expresion = /^myGrass.includes\('bee'\)(;)?$/g
+        expresion2 = /^myGrass.includes\("bee"\)(;)?$/g
         isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
-          break;
+        break;
 
       case 8:
         //necesitariamos asignarle un nombre al array 2 del ejercicio.
-       /*  isCorrect= inputUser.includes("myGrass.concat(myGrassTwo)")||inputUser.includes('myGrass.concat(myGrassTwo)') */
+        /*  isCorrect= inputUser.includes("myGrass.concat(myGrassTwo)")||inputUser.includes('myGrass.concat(myGrassTwo)') */
 
-       // IMPORTANTE: indicar en la vista que el usuario tiene que utilizar el nombre myGrassBaby para el segundo array
+        // IMPORTANTE: indicar en la vista que el usuario tiene que utilizar el nombre myGrassBaby para el segundo array
 
         expresion = /^myGrass.concat\(myGrassBaby\)(;)?$/g
         isCorrect = expresion.test(inputUser);
 
-          break;
+        break;
 
       case 9:
         //fill con butterfly 
@@ -446,53 +447,113 @@ function fireArray(text) {
         expresion = /^myGrass.fill\('butterfly'\)(;)?$/g
         expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g
         isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-          break;
+        break;
 
       case 10:
-        // find "antQueen"
-        let method = "find";
-        let element = "spider";
+        // find "ant"
+        method = "find";
 
-        //myGrass.find(element => element === "antQueen")
-        //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
-        //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
-      
-        //return isCorrect //load next level
+        //primero busco si inputUser contiene el metodo find
+        if (inputUser.includes(method)) {
+          // aqui comparamos los evals
+          isCorrect = (eval(inputUser) == "0")
 
-  }
+        }
 
-  if (isCorrect) {
-    let newboardMarkup = '';
-    myGrass.forEach(function (element) {
-    newboardMarkup += `<grass><${element}/></grass>`;
-    });
+        break;
+      case 11:
 
-    /* level.boardMarkup = `${newboardMarkup}`; */
-    level.boardMarkup = level.boardMarkupSolution
-    level.completed = true;
-    level.userSolution = text;
-    //console.log(level.completed);
+        method = "findIndex";
 
-    trackProgress(currentLevel, "correct");
+        //primero busco si inputUser contiene el metodo find
+        if (inputUser.includes(method)) {
+          // aqui comparamos los evals
+          isCorrect = (eval(inputUser) == 3)
+
+        }
+
+        break;
+      case 12:
+        
+     
+        method = "some";
+        element = "poisonous"
+
+        //primero busco si inputUser contiene el metodo find
+        if (inputUser.includes(method)) {
+          if (inputUser.includes('"poisonous"')|| inputUser.includes("'poisonous'")){
+            // aqui comparamos los evals
+            isCorrect = (eval(inputUser) == true)
+          }
+
+          }
+        
+        break;
+        case 13:
+       
+     
+        method = "every";
+        element = "fly"
+
+        //primero busco si inputUser contiene el metodo find
+        if (inputUser.includes(method)) {
+          if (inputUser.includes(element)){
+            // aqui comparamos los evals
+            isCorrect = (eval(inputUser) == true)
+          }
+
+          }
+        
+        break;
 
 
-    loadLevel();
 
-    setTimeout(function () {
-       currentLevel++;
+
+
+
+      //myGrass.find(element => element === "antQueen")
+      //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
+      //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
+
+      //return isCorrect //load next level
+
+    }
+
+
+
+    if (isCorrect) {
+      /*  let newboardMarkup = '';
+       myGrass.forEach(function (element) {
+       newboardMarkup += `<grass><${element}/></grass>`;
+       }); */
+
+      /* level.boardMarkup = `${newboardMarkup}`; */
+      level.boardMarkup = level.boardMarkupSolution
+      level.completed = true;
+      level.userSolution = text;
+      //console.log(level.completed);
+
+      trackProgress(currentLevel, "correct");
+
+
       loadLevel();
-    }, 6000);
 
-    return;
-  } else {
+      setTimeout(function () {
+        currentLevel++;
+        loadLevel();
+      }, 6000);
+
+      return;
+    } else {
 
 
-    $(".editor").addClass("shake");
-    setTimeout(function () {
-      $(".editor").removeClass("shake");
-    }, 1000);
+      $(".editor").addClass("shake");
+      setTimeout(function () {
+        $(".editor").removeClass("shake");
+      }, 1000);
 
-  }}
+    }
+  }
   checkLevelCorrect(currentLevel, text);
 
   //la comparación del array con el array de solución funciona ok
@@ -502,16 +563,16 @@ function fireArray(text) {
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
 
-      // 
+    // 
   };
   //console.log(myGrass, currentLevel);
-  
+
 
   //if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
   //let solucion = eval(levels[currentLevel].myGrassSolution)
   //console.log("solucion", solucion);
   //if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-  
+
 
 }
 
@@ -700,9 +761,9 @@ function trackProgress(levelNumber, type) {
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
 function sendEvent(category, action, label) {
-  
-  $.post("/statistics", {action, label}, function(result){
-   console.log(result);
+
+  $.post("/statistics", { action, label }, function (result) {
+    console.log(result);
   });
   console.log(category, action, label);
   if (!ga) {
@@ -785,7 +846,7 @@ function loadBoard() {
   addNametags();
   $(".table *").addClass("pop");
 
-//comentamos para eliminar el código html del html viewer
+  //comentamos para eliminar el código html del html viewer
   /* $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>'); */
   $(".markup").html(level.instructions);
 }
@@ -829,8 +890,8 @@ function loadLevel() {
   }
 
 
-  
-  let htmlHelp = "myGrass = [" + '"' +levels[currentLevel].myGrass.join('","').toString()+'"];';
+
+  let htmlHelp = "myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];';
   $("#myGrassHelp").html(htmlHelp);
 
 
@@ -856,8 +917,8 @@ function loadLevel() {
   $(".result").text("");
 
 
-//hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
-//ya habían otras validaciones, que deberíamos limpiar.
+  //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
+  //ya habían otras validaciones, que deberíamos limpiar.
   if (levels[currentLevel].completed) {
     $(".enter-button").hide();
     $("#input-solution").attr("placeholder", levels[currentLevel].userSolution);
