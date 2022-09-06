@@ -453,6 +453,32 @@ function fireArray(text) {
         let method = "find";
         let element = "spider";
 
+        //primero busco si inputUser contiene el metodo find
+        if(inputUser.includes(method)){
+          // si contiene el metodo find, busco si contiene el elemento spider
+          if(inputUser.includes(element)){
+            // si contiene el metodo find y el elemento spider, es correcto
+
+            
+            // aquí hay que llamar a arrayEquals para comprobar que el resultado es correcto
+
+
+            break;
+          } else {
+            // si contiene el metodo find pero no el elemento spider, es incorrecto
+            isCorrect = false
+            console.log("no has utilizado el elemento spider");
+            break;
+          }
+        } else {
+          // si no contiene el metodo find, no es correcto
+          isCorrect = false
+          console.log("no has usado el metodo find")
+        }
+        break;
+
+
+
         //myGrass.find(element => element === "antQueen")
         //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
         //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
