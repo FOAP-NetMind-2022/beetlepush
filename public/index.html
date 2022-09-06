@@ -20,6 +20,9 @@
   <meta property="og:title" content="CSS Diner" />
   <meta property="og:description" content="A fun game to help you learn and practice CSS selectors." />
   <meta property="og:image" content="https://flukeout.github.io/images/fb-share.jpg" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+
 </head>
 
 <body class="bg">
@@ -32,14 +35,14 @@
       </div>
 
       <span class="share-menu">
-        Share
+        <div data-i18n="header.share" style="display: inline-block">Share</div>
         <a class="share-twitter" type="twitter" href="#"></a>
         <a class="share-facebook" type="facebook" href="#"></a>
         <a class="share-email" type="email" href="#"></a>
       </span>
     </header>
 
-    <h2 class="order"></h2>
+    <h2 data-i18n="main.top.instructions" class="order"></h2>
 
     <div class="note">
       <h3>No worries, you've got this!</h3>
@@ -92,8 +95,8 @@ myArray[1]; // returns 2
     <div class="editor">
       <div class="editor-pane html-view">
         <div class="input-header">
-          <div class="file-name">table.html</div>
-          HTML Viewer
+          <div data-i18n="main.script.viewer.filename" class="file-name">table.html</div>
+          <div data-i18n="main.script.viewer.name" stlyle="display: inline-block">HTML Viewer</div>
         </div>
         <div class="file-window">
           <div class="line-numbers">
@@ -104,17 +107,18 @@ myArray[1]; // returns 2
       </div>
       <div class="editor-pane">
         <div class="input-header">
-          <div class="file-name">grass.js</div> JavaScript Editor
+          <div data-i18n="main.script.editor.top.filename" class="file-name">grass.js</div>
+          <div data-i18n="main.script.editor.top.name" style="display: inline-block">JavaScript Editor</div>
         </div>
         <div class="file-window css-view">
           <div class="line-numbers">
             1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
           </div>
           <input id="input-solution" class="input-strobe" type="text" placeholder="Type in an Array method" /><span class="plus">+</span>
-          <div class="enter-button">enter</div>
+          <div data-i18n="main.script.editor.content.enter" class="enter-button">enter</div>
           <div>
-            {<br />
-            /* javascript would go here. */<br />
+            {<br/>
+            <div style="display: inline-block" data-i18n="main.script.editor.content.preview">/* javascript would go here. */</div><br/>
             }
           </div>
           <div id="myGrassHelp"class="help">
@@ -200,6 +204,81 @@ myArray[1]; // returns 2
     }
   </script>
   
+  <script>
+    
+    const myTimeout = setTimeout(Translate, 250);
+
+    function Translate() {
+
+      var resources = {
+            dev: { translation: { 'key': 'value' } },
+            'en-US':
+            {
+              translation:
+              {
+                'header':
+                {
+                  'share': 'Share'
+                },
+                'main':
+                {
+                  'top':
+                  {
+                    'instructions': `Insert the 'ladybug' at the end of the array`,
+                    'help':
+                    {
+
+                    }
+                  },
+                  'array':
+                  {
+                    // Empty
+                  },
+                  'script':
+                  {
+                    'viewer':
+                    {
+                      'name': 'HTML Viewer',
+                      'filename': 'table.html'
+                    },
+                    'editor':
+                    {
+                      'top':
+                      {
+                        'name': 'JavaScript Editor',
+                        'filename': 'grass.js'
+                      },
+                      'content':
+                      {
+                          'preview': '/* javascript would go here. */',
+                          'input': 'Type in an Array method',
+                          'enter': 'enter'
+                      },
+                    }
+                  }
+                },
+                'footer': {
+              },
+              'nav': {
+              }
+              }
+            }
+          }
+
+      i18n.init({ 
+        resStore: resources,
+        lng: 'en-US'
+        //lng: 'en-US'
+        //lng: 'ja-JP'   
+      });
+      $(document).i18n();
+
+      //Código para traducir placeholders
+      $('input').attr('placeholder', resources['en-US'].translation.main.script.editor.content.input);
+    };
+  </script>
+
+
 
 </body>
 
