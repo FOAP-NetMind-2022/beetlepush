@@ -246,7 +246,7 @@ var levels = [
    </grass>
    </bracket>
     `,
-    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Some bugs are known for their social nature, they form colonies in which each one has a role or responsibility. Ants are insects that live and form large colonies and always need the presence of a queen ant. </div><br><br> <div style='font-size:16px'>In this level the queen ant is not inside the array. Help the ants to change this using unshift method(). Remember that you need to inform the name of the element, 'antQueen',  to the method you are going to use. </b></div> " 
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br> Some bugs are known for their social nature, they form colonies in which each one has a role or responsibility. Ants are insects that live and form large colonies and always need the presence of a queen ant. </div><br><br> <div style='font-size:16px'>In this level the queen ant is not inside the array. Help the ants to change this using unshift() method. Remember that you need to inform the name of the element, 'antQueen',  to the method you are going to use. </b></div> " 
   },
 
 
@@ -502,7 +502,7 @@ var levels = [
    {
     helpTitle: "Concatenates two or more arrays",
     selectorName: "Concat method",
-    doThis: "Concat the array with small ladybugs to the first array",
+    doThis: "Concatenate the array with small ladybugs after the first array",
     selector: ".small",
     syntax: "concat();",
     help: ' The concat() method concatenates (joins) two or more arrays.This method returns a new array, containing the joined arrays. <a href= "https://www.w3schools.com/jsref/jsref_concat_array.asp"> more help </a>',
@@ -573,7 +573,7 @@ var levels = [
     helpTitle: "Fills an array with a value",
     selectorName: "Fill method",
     doThis: "Cause the metamorphosis in all cocoon",
-    selector: "cocoon",
+    selector: "cocoon, butterfly",
     syntax: "fill();",
     help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. <a href= 'https://www.w3schools.com/jsref/jsref_fill.asp'> more help </a>",
     examples: [
@@ -675,7 +675,7 @@ var levels = [
    {
     helpTitle: "Returns the index of the first element in an array that pass a test",
     selectorName: "FindIndex method",
-    doThis: "Find Index of the dragonfly",
+    doThis: "Find Index of the turquoise dragonfly",
     selector: "dragonFly",
     syntax: "findIndex();",
     help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. <a href= 'https://www.w3schools.com/jsref/jsref_findindex.asp'> more help </a>",
@@ -722,8 +722,8 @@ var levels = [
    {
     helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
     selectorName: "Some method",
-    doThis: "Which one is poisonous ?",
-    selector: "spider",
+    doThis: "Check if there is any poisonous bug ",
+    selector: ".dance",
     syntax: "some();",
     help: "The some() method checks if any of the elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for one of the array elements <a href= 'https://www.w3schools.com/jsref/jsref_some.asp'> more help </a>",
     examples: [
@@ -753,11 +753,22 @@ var levels = [
     </bracket>
     `,
     boardMarkupSolution: ` 
+    <bracket>
     <grass>
-    <spider>
-   </grass>
+     <ladybug>
+    </grass>
+    <grass>
+     <spider class="dance">
+    </grass>
+    <grass>
+     <antQueen>
+    </grass>
+    <grass>
+     <bee class="dance">
+    </grass>
+    </bracket>
   `,
-  instructions: "<div style='font-size:20px'>Hello again !<br><br> You probably know someone who has been stung by a wasp or even yourself. Not all bugs are poisonous but some of these poisonous bugs can be deadly to humans.<br><br>Use the some() method to find the first bug in the array that is 'poisonous' .</b></div>" 
+  instructions: "<div style='font-size:20px'>Hello again !<br><br> You probably know someone who has been stung by a wasp or even yourself. Not all bugs are poisonous but some of these poisonous bugs can be deadly to humans.<br><br>Use the some() method to find if there is any 'poisonous' bug in the array.</b></div>" 
   },
   /***  ******************
    * LEVEL 14

@@ -400,7 +400,7 @@ function fireArray(text) {
         break;
 
       case 4:
-        expresion = /^myGrass.splice\(1,4\)(;)?$/g
+        expresion = /^myGrass.slice\(1,4\)(;)?$/g
         isCorrect = expresion.test(inputUser);
 
         //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
@@ -891,8 +891,17 @@ function loadLevel() {
 
 
 
-  let htmlHelp = "myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];';
-  $("#myGrassHelp").html(htmlHelp);
+  let htmlHelp = "myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];';// ARREGLAR ESTO 
+
+
+
+
+
+
+
+
+  
+  $("#myGrassHelp").html(htmlHelp); 
 
 
   $(".level-menu .current").removeClass("current");
