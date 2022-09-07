@@ -156,8 +156,12 @@ $(document).ready(function () {
   });
 
   $(".enter-button").on("click", function () {
-    enterHit();
+    //enterHit();
+    const text = flask.getCode();
+    fireArray(text);
   })
+
+
 
   $(".table-wrapper,.table-edge").css("opacity", 0);
 
@@ -541,6 +545,7 @@ function fireArray(text) {
       setTimeout(function () {
         currentLevel++;
         loadLevel();
+        flask.updateCode('myGrass;' );
       }, 6000);
 
       return;
