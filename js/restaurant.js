@@ -354,7 +354,7 @@ function fireArray(text) {
   const myGrass = levels[currentLevel].myGrass
   // const code = flask.getCode();
 console.log("este es el codigo: " + text);
-  window.alert(" dentro la funcion Bienvenido este es tu codigo: " + text);
+ // window.alert(" dentro la funcion Bienvenido este es tu codigo: " + text);
   
 
 
@@ -396,6 +396,8 @@ console.log("este es el codigo: " + text);
     setTimeout(function () {
        currentLevel++;
       loadLevel();
+      flask.updateCode('myGrass;' );
+
     }, 4000);
 
     return;
@@ -707,9 +709,11 @@ function addNametags() {
 
 
 function loadLevel() {
+
   // Make sure we don't load a level we don't have
   if (currentLevel < 0 || currentLevel >= levels.length) {
     currentLevel = 0;
+
   }
 
   hideTooltip();
