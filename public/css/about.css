@@ -1,11 +1,11 @@
 /* css banner img */
 .banner-image {
-  background-image: url('../img/skyland1.jpg');
+  background-image: url('/images/about/skyland1.jpg');
   background-size: cover;
 }
 
 .banner-image1{
-  background-image: url('../img/backland2.jpg');
+  background-image: url('/images/about/backland2.jpg');
   background-size: cover;
 }
 /******************/

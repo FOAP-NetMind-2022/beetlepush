@@ -9,8 +9,6 @@
   showHelp() - Loads help text & examples for each level
 
   ..to be continued!
-*//*
-const monaco = require.config({ paths: { "vs": "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/" }});
 */
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
@@ -26,9 +24,6 @@ var blankProgress = {
 
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
-
-const js = document.querySelector('#input-solution');
- 
 
 $(document).ready(function () {
 
@@ -403,6 +398,8 @@ console.log("este es el codigo: " + text);
     return;
   } else {
 
+    //Para guardar en localStorage el número de veces que el usuario ha fallado
+    trackProgress(currentLevel, "incorrect");
 
     $(".editor").addClass("shake");
     setTimeout(function () {
@@ -564,9 +561,12 @@ function trackProgress(levelNumber, type) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
-      gaSent: false
+      gaSent: false,
+      userCode: $("input").val()
     };
   }
+
+  progress.guessHistory[levelNumber].userCode = $("input").val();
 
   var levelStats = progress.guessHistory[levelNumber];
 
@@ -745,13 +745,21 @@ function loadLevel() {
   $(".level-header .level-text").html("Level " + (currentLevel + 1) + " of " + levels.length);
 
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
-
   $(".order").text(level.doThis);
-  $("input").val("").focus();
-
+  $("input").focus();
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
 
+  let local = JSON.parse(localStorage.progress);
+
+  if (local.guessHistory[currentLevel])
+  {
+    $("input").val(`${local.guessHistory[currentLevel].userCode}`);
+  } else {
+    $("input").val("");
+  }
+
+  
 
 //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
 //ya habían otras validaciones, que deberíamos limpiar.
@@ -771,8 +779,6 @@ function loadLevel() {
     $(".checkmark").removeClass("completed");
 
   }
-
-
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
