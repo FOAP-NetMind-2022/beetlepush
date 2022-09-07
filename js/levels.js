@@ -667,7 +667,7 @@ var levels = [
   
    
   `,
-  instructions: "<div style='font-size:20px'>Hello again ! <br><br> </div><br><br> <div style='font-size:16px'> For example in this case, the spider has 8 legs, the ant has 6, the caterpillar has no legs and the ladybug has 6. Use find() method to find the bug which has no legs. </b></div>" 
+  instructions: "<div style='font-size:20px'>Hello again ! <br><br> Another of the great differences that exist between bugs is their number of legs. Some bugs can have many legs, like centipedes, and others have no legs, like caterpillars or worms.The function of the legs is to move but they are also crucial for hunting, for reproducing and even grasshoppers have an ear on their legs!!</div><br><br> <div style='font-size:16px'> For example in this case, the spider has 8 legs, the ant has 6, the caterpillar has no legs and the ladybug has 6. Use find() method to find the bug which has no legs. </b></div>" 
   },
   /***  ******************
    * LEVEL 12
@@ -714,7 +714,7 @@ var levels = [
     </grass>
     
   `,
-  instructions: "<div style='font-size:20px'>Hello again ! <br><br> Find the position of turquoise bug in the array using findIndex() method.</b></div>" 
+  instructions: "<div style='font-size:20px'>Hello again !<br><br>Colors are another differential characteristic in bugs. Some of the patterns are used and copied by humans. Colors can warn us of their danger, serve for reproductive success or camouflage. There are also some colorless bugs. <br><br> Find the position of turquoise bug in the array using findIndex() method.</b></div>" 
   },
   /***  ******************
    * LEVEL 13
@@ -757,7 +757,7 @@ var levels = [
     <spider>
    </grass>
   `,
-  instructions: "<div style='font-size:20px'>Hello again ! <br><br>Use the some() method to find the first bug in the array that is 'poisonous' .</b></div>" 
+  instructions: "<div style='font-size:20px'>Hello again !<br><br> You probably know someone who has been stung by a wasp or even yourself. Not all bugs are poisonous but some of these poisonous bugs can be deadly to humans.<br><br>Use the some() method to find the first bug in the array that is 'poisonous' .</b></div>" 
   },
   /***  ******************
    * LEVEL 14
