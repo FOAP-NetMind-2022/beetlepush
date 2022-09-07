@@ -32,14 +32,11 @@
 
       <div><img class="beetlepush" src="/images/Logo.png" alt="">
         <div class="title_logo">Beetle <span class="pushtitle">Push!</span></div>
+        <select name="" id="languageSelector">
+          <option value="es">es-ES</option>
+          <option value="en">en-US</option>
+        </select>
       </div>
-
-      <span class="share-menu">
-        <div data-i18n="header.share" style="display: inline-block">Share</div>
-        <a class="share-twitter" type="twitter" href="#"></a>
-        <a class="share-facebook" type="facebook" href="#"></a>
-        <a class="share-email" type="email" href="#"></a>
-      </span>
     </header>
 
     <h2 data-i18n="main.top.instructions" class="order"></h2>
@@ -84,7 +81,7 @@ myArray[1]; // returns 2
       <a class="note-toggle" href="#">Ok, got it!</a>
     </div>
 
-    <a class="note-toggle" href="#">Help, I'm stuck!</a>
+    <a data-i18n="main.top.help.title" class="note-toggle" href="#">Help, I'm stuck!</a>
 
     <div class="game-wrapper">
       <div class="grass-wrapper">
@@ -130,12 +127,22 @@ myArray[1]; // returns 2
      
     </div>
 
-    <div class="what-is-this">
+    <div class="what-is-this" >
       <p>
-        Made by <a href="/about.html">Mooners</a> &mdash; come say hi!
+        <div data-i18n="footer.madeby" style="display: inline-block">
+          Made by
+        </div>
+  
+          <a style="display: inline-block" href="/about.html">Mooners</a> &mdash;
+      
+        <div data-i18n="footer.hi" style="display: inline-block">come say hi!</div>
+         
       </p>
       <p>
-        Have feedback or questions? Please file an issue on <a href="https://github.com/FOAP-NetMind-2022/beetlepush">the
+        <div data-i18n="footer.feedback" style="display: inline-block">
+          Have feedback or questions? Please file an issue on 
+        </div>
+        <a data-i18n="footer.github" style="display: inline-block" href="https://github.com/FOAP-NetMind-2022/beetlepush">the
           Github repo</a>.
       </p>
     </div>
@@ -150,7 +157,7 @@ myArray[1]; // returns 2
 
     <div class="help-wrapper">
 
-      <h1 class="level-header">
+      <h1 style="display: inline-block"  class="level-header">
         <span class="level-text"></span>
         <span id="checkmark" class="checkmark"></span>
       </h1>
@@ -164,13 +171,14 @@ myArray[1]; // returns 2
         <div class="progress"></div>
       </div>
 
-      <div class="display-help">
-        <h3 class="selector-name"></h3>
-        <h2 class="title"></h2>
-        <h3 class="syntax"></h3>
-        <div class="hint"></div>
-        <h4 class="examples-title">Example</h4>
-        <div class="examples"></div>
+      <div class="display-help"  style="display: inline-block" >
+        <h3  style="display: inline-block" class="selector-name"></h3>
+        <h2  style="display: inline-block" class="title"></h2>
+        <h3 style="display: inline-block" class="syntax"></h3>
+        <div  style="display: inline-block" class="hint"></div>
+
+        <h4  style="display: inline-block" class="examples-title">Example</h4>
+        <div style="display: inline-block"  class="examples"></div>
       </div>
     </div>
 
@@ -206,7 +214,7 @@ myArray[1]; // returns 2
   
   <script>
     
-    const myTimeout = setTimeout(Translate, 250);
+    const myTimeout = setTimeout(Translate, 1000);
 
     function Translate() {
 
@@ -222,14 +230,11 @@ myArray[1]; // returns 2
                 },
                 'main':
                 {
-                  'top':
-                  {
+                  'top': {
                     'instructions': `Insert the 'ladybug' at the end of the array`,
-                    'help':
-                    {
-
-                    }
-                  },
+                    'help': {
+                      'title': `Help, I'm stuck!`,
+                  }},
                   'array':
                   {
                     // Empty
@@ -258,8 +263,87 @@ myArray[1]; // returns 2
                   }
                 },
                 'footer': {
+                  'madeby': 'Made by',
+                  'linkabout': 'about us',
+                  'hi': 'come by and say hi!',
+                  'feedback' : 'Have feedback or questions? Please file an issue on ',
+                  'github': 'Github repo'
+
+
               },
               'nav': {
+                'level': '',
+                'top': '',
+                'top1': '',
+                'top2': '',
+                'top3': '',
+                'top4': '',
+                'middle' : 'Example',
+                'middle2': '',
+                'bottom': ''
+              }
+              }
+            },
+            'es-ES':
+            {
+              translation:
+              {
+                'header':
+                {
+                  'share': 'Compartir'
+                },
+                'main':
+                {
+                  'top': {
+                    'instructions': `Inserta la 'mariquita' al final de "array"`,
+                    'help': {
+                      'title': `Ayuda, Estoy atascado!`,
+                  }},
+                  'array':
+                  {
+                    // Empty
+                  },
+                  'script':
+                  {
+                    'viewer':
+                    {
+                      'name': 'Visor de HTML',
+                      'filename': 'tabla.html'
+                    },
+                    'editor':
+                    {
+                      'top':
+                      {
+                        'name': 'Editor de JavaScript',
+                        'filename': 'hierba.js'
+                      },
+                      'content':
+                      {
+                          'preview': '/* Tu código javascript iría aquí. */',
+                          'input': 'Escribe un método de "array"',
+                          'enter': 'Enviar'
+                      },
+                    }
+                  }
+                },
+                'footer': {
+                  'madeby': 'Hecho por',
+                  'hi': 'Salúdanos!',
+                  'feedback' : 'Tienes alguna sugerencia o pregunta? Déjanos un comentario en ',
+                  'github': 'nuestro repositorio de Github'
+
+
+              },
+              'nav': {
+                'level': '',
+                'top': '',
+                'top1': '',
+                'top2': '',
+                'top3': '',
+                'top4': '',
+                'middle' : 'Ejemplo',
+                'middle2': '',
+                'bottom': ''
               }
               }
             }
@@ -267,14 +351,15 @@ myArray[1]; // returns 2
 
       i18n.init({ 
         resStore: resources,
-        lng: 'en-US'
+        //lng: 'en-US',
+        lng: 'es-ES'
         //lng: 'en-US'
         //lng: 'ja-JP'   
       });
       $(document).i18n();
 
       //Código para traducir placeholders
-      $('input').attr('placeholder', resources['en-US'].translation.main.script.editor.content.input);
+      $('input').attr('placeholder', resources['es-ES'].translation.main.script.editor.content.input);
     };
   </script>
 

@@ -53,48 +53,9 @@ header {
   text-align: left;
 }
 
-.share-menu {
+#languageSelector {
   float: right;
-  padding-right: 8px;
-}
-
-.share-menu a {
-  text-decoration: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 12px;
-  display: block;
-  float: right;
-  margin-left: 5px;
-  position: relative;
-  opacity: .8;
-  top: -2px;
-  transition: opacity .1s ease-out;
-}
-
-.share-menu a:last-child {
-  margin-left: 8px;
-}
-
-.share-menu a:hover {
-  opacity: .75;
-}
-
-.share-menu .share-twitter {
-  background-image: url('/images/misc/icon-twitter.svg');
-}
-
-.share-menu .share-facebook {
-  background-image: url('/images/misc/icon-facebook.svg');
-}
-
-.share-menu .share-email {
-  background-image: url('/images/misc/icon-email.svg');
-}
-
-.share-menu a:hover {
-  color: rgba(255, 255, 255, .5);
+  padding: 4px;
 }
 
 .logo {
