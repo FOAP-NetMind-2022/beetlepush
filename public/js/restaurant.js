@@ -740,9 +740,12 @@ function trackProgress(levelNumber, type) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
-      gaSent: false
+      gaSent: false,
+      userCode: flask.getCode()
     };
   }
+
+  progress.guessHistory[levelNumber].userCode = flask.getCode();
 
   var levelStats = progress.guessHistory[levelNumber];
 
@@ -938,11 +941,19 @@ function loadLevel() {
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
 
   $(".order").text(level.doThis);
-  $("input").val("").focus();
+  //$("input").val("").focus();
 
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
 
+  let local = JSON.parse(localStorage.progress);
+
+  if (local.guessHistory[currentLevel])
+  {
+    flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
+  } else {
+    flask.updateCode("myGrass;");
+  }
 
   //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
   //ya habían otras validaciones, que deberíamos limpiar.
