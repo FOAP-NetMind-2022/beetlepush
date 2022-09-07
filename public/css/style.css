@@ -27,7 +27,7 @@ body {
 }
 
 .bg {
-  background-image: url("/images/background.png");
+  background-image: url("/images/insects/background.png");
   background-repeat: no-repeat center;
 
   background-size: 30vw 100vh;
@@ -470,7 +470,7 @@ bento:before {
 
 }
 spider {
-  background-image: url("spider.png");
+  background-image: url("/images/insects/spider.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -487,7 +487,7 @@ ladybug {
   height: 100px;
 }
 caterpillar {
-  background-image: url("caterpillar.png");
+  background-image: url("/images/insects/caterpillar.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -495,7 +495,7 @@ caterpillar {
   height: 100px;
 }
 cocoon {
-  background-image: url("cocoon.png");
+  background-image: url("/images/insects/cocoon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -529,7 +529,7 @@ worm {
   height: 100px;
 }
 dragonFly {
-  background-image: url("dragonfly.png");
+  background-image: url("/images/insects/dragonfly.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -537,7 +537,7 @@ dragonFly {
   height: 100px;
 }
 ant {
-  background-image: url("ant.png");
+  background-image: url("/images/insects/ant.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -545,7 +545,7 @@ ant {
   height: 100px;
 }
 antQueen {
-  background-image: url("antqueen.png");
+  background-image: url("/images/insects/antqueen.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -826,13 +826,13 @@ bento>pickle.small:only-child {
   border: solid 3px #999;
   border-width: 1px 1px 6px 1px;
   position: absolute;
-  right: 13px;
-  font-size: 9px;
+  right: 8px;
+  font-size: 10px;
   position: absolute;
   cursor: pointer;
-  top: 7px;
-  right: 7px;
+  top: 54px;
   z-index: 999999;
+  width: 65px;
 }
 
 .enterhit {
@@ -1172,7 +1172,7 @@ grass spider:nth-last-child(4)   {
 queda limpiar lo que estaba hecho previamente */
 .completed {
   opacity: .9 !important;
-  border: solid 3px #4cbb4a !important;
+  //border: solid 3px #4cbb4a !important;
   border-width: 0 4px 4px 0 !important;
 }
 
