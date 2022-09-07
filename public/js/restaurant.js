@@ -10,7 +10,6 @@
 
   ..to be continued!
 */
-
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -106,13 +105,32 @@ $(document).ready(function () {
   })
 
   //Handle inputs from the input box on enter
-  $("input").on("keypress", function (e) {
+  /*$("input").on("keypress", function (e) {
     e.stopPropagation();
     if (e.keyCode == 13) {
       enterHit();
       return false;
     }
+  });*/
+
+  
+ //function presionar enter
+  $("input").on("keypress", function (e) {
+    
+    if (e.keyCode == 13) {
+      enterHit();
+      return false;
+    }
+    
   });
+  //si presiona el las teclas ctrl + enter se ejecuta el codigo de la solucion 
+  $("input").on("keydown", function (e) {
+    if (e.keyCode == 13 && e.ctrlKey) {
+     console.log("ctrl + enter");
+      return false;
+    }
+  });
+  
 
   $("input").on("keyup", function (e) {
     e.stopPropagation();
@@ -155,7 +173,12 @@ $(document).ready(function () {
   });
 
   $(".enter-button").on("click", function () {
-    enterHit();
+    //enterHit();
+        const text = flask.getCode();
+       //  window.alert(" dentro la funcion Bienvenido este es tu codigo: " + code);
+
+        fireArray(text); 
+
   })
 
   $(".table-wrapper,.table-edge").css("opacity", 0);
@@ -308,7 +331,7 @@ function enterHit() {
   var value = $("input").val();
   handleInput(value);
 }
-
+//myGrass.push("ladybug");
 
 //Parses text from the input field
 function handleInput(text) {
@@ -321,13 +344,17 @@ function handleInput(text) {
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
-
+ 
 function fireArray(text) {
   const myGrass = levels[currentLevel].myGrass
+  // const code = flask.getCode();
+console.log("este es el codigo: " + text);
+ // window.alert(" dentro la funcion Bienvenido este es tu codigo: " + text);
+  
 
 
-  // evaluamos cualquier error que pueda existir en el array  
-  let aEvaluar;
+  // evaluamos cualquier error que pueda existir en el array
+  
   try {
     aEvaluar = eval(text);
   } catch (e) {
@@ -364,6 +391,8 @@ function fireArray(text) {
     setTimeout(function () {
        currentLevel++;
       loadLevel();
+      flask.updateCode('myGrass;' );
+
     }, 4000);
 
     return;
@@ -680,9 +709,11 @@ function addNametags() {
 
 
 function loadLevel() {
+
   // Make sure we don't load a level we don't have
   if (currentLevel < 0 || currentLevel >= levels.length) {
     currentLevel = 0;
+
   }
 
   hideTooltip();

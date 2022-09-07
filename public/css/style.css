@@ -318,10 +318,10 @@ bento:before {
 }
 
 
-
+/**/
 .editor * {
   font-family: menlo, monospace;
-  font-size: 14px;
+  size: 25%;
   line-height: 150%;
   padding: 0;
   margin: 0;
@@ -689,8 +689,13 @@ bento>pickle.small:only-child {
     transform: skew(4deg, 0deg) scaleX(1);
   }
 }
-
-
+/* editor*/
+#editor {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+} 
+/*boton de verificacion*/
 .enter-button {
   background: #ddd;
   display: block;
