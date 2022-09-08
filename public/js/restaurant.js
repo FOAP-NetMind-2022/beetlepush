@@ -20,11 +20,13 @@ var blankProgress = {
   totalCorrect: 0,
   percentComplete: 0,
   lastPercentEvent: 0,
+  progress: '',
   guessHistory: {}
 }
 
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
+localStorage.setItem("progress", JSON.stringify(progress));
 
 
 $(document).ready(function () {
@@ -978,6 +980,7 @@ function loadLevel() {
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
+    console.log("level.selector", level.selector);
     $(".table " + level.selector).addClass("strobe");
     $(".pop").removeClass("pop");
   }, 200);
