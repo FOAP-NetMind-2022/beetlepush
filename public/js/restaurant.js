@@ -382,6 +382,7 @@ function fireArray(text) {
     return;
   } else {
 
+    trackProgress(currentLevel, 'incorrect');
 
     $(".editor").addClass("shake");
     setTimeout(function () {
