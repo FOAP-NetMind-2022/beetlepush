@@ -529,7 +529,7 @@ worm {
   height: 100px;
 }
 dragonFly {
-  background-image: url("/images/insects/dragonfly.png");
+  background-image: url("/images/insects/dragonFly.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
