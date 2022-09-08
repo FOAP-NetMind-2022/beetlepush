@@ -10,6 +10,7 @@
 
   ..to be continued!
 */
+
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -25,9 +26,10 @@ var blankProgress = {
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
+
 $(document).ready(function () {
 
-  
+
 
 
 
@@ -105,32 +107,13 @@ $(document).ready(function () {
   })
 
   //Handle inputs from the input box on enter
-  /*$("input").on("keypress", function (e) {
+  $("input").on("keypress", function (e) {
     e.stopPropagation();
     if (e.keyCode == 13) {
       enterHit();
       return false;
     }
-  });*/
-
-  
- //function presionar enter
-  $("input").on("keypress", function (e) {
-    
-    if (e.keyCode == 13) {
-      enterHit();
-      return false;
-    }
-    
   });
-  //si presiona el las teclas ctrl + enter se ejecuta el codigo de la solucion 
-  $("input").on("keydown", function (e) {
-    if (e.keyCode == 13 && e.ctrlKey) {
-     console.log("ctrl + enter");
-      return false;
-    }
-  });
-  
 
   $("input").on("keyup", function (e) {
     e.stopPropagation();
@@ -174,12 +157,11 @@ $(document).ready(function () {
 
   $(".enter-button").on("click", function () {
     //enterHit();
-        const text = flask.getCode();
-       //  window.alert(" dentro la funcion Bienvenido este es tu codigo: " + code);
-
-        fireArray(text); 
-
+    const text = flask.getCode();
+    fireArray(text);
   })
+
+
 
   $(".table-wrapper,.table-edge").css("opacity", 0);
 
@@ -330,58 +312,61 @@ function enterHit() {
   $(".enter-button").addClass("enterhit");
   var value = $("input").val();
   handleInput(value);
+  //fireArray(value);
 }
-//myGrass.push("ladybug");
+
+
 
 //Parses text from the input field
 function handleInput(text) {
+  console.log("text", parseInt(text, 10));
   if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
     currentLevel = parseInt(text, 10) - 1;
 
+    console.log("currentLevel", currentLevel)
 
   }
   // fireRule(text);
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
- 
+
+
 function fireArray(text) {
-  const myGrass = levels[currentLevel].myGrass
-  // const code = flask.getCode();
-console.log("este es el codigo: " + text);
- // window.alert(" dentro la funcion Bienvenido este es tu codigo: " + text);
-  
+
+  let myGrass = levels[currentLevel].myGrass
+
+  //hagu un deep copy de myGrass para no modificar el original
+  //let myGrass2 = JSON.parse(JSON.stringify(myGrass))
 
 
-  // evaluamos cualquier error que pueda existir en el array
-  
+
+  // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
+  let aEvaluar;
   try {
     aEvaluar = eval(text);
   } catch (e) {
     console.log("Error: " + e); // mostramos el error en la consola
   }
+  //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
+  //console.log("myGrass", myGrass); // mostramos el array en la consola
+  //SWITCH 
+
+  const isCorrect = checkLevelCorrect(currentLevel, text);
 
 
-  //la comparación del array con el array de solución funciona ok
-  function arrayEquals(a, b) {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
-  };
 
+  if (isCorrect) {
+    /*  let newboardMarkup = '';
+     myGrass.forEach(function (element) {
+     newboardMarkup += `<grass><${element}/></grass>`;
+     }); */
 
-  if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-
-    let newboardMarkup = '';
-    myGrass.forEach(function (element) {
-    newboardMarkup += `<grass><${element}/></grass>`;
-    });
-
-    level.boardMarkup = `${newboardMarkup}`;
+    /* level.boardMarkup = `${newboardMarkup}`; */
+    level.boardMarkup = level.boardMarkupSolution
     level.completed = true;
     level.userSolution = text;
-    console.log(level.completed);
+    //console.log(level.completed);
 
     trackProgress(currentLevel, "correct");
 
@@ -389,17 +374,15 @@ console.log("este es el codigo: " + text);
     loadLevel();
 
     setTimeout(function () {
-       currentLevel++;
+      currentLevel++;
       loadLevel();
-      flask.updateCode('myGrass;' );
-
-    }, 4000);
+      flask.updateCode('myGrass;');
+    }, 6000);
 
     return;
   } else {
 
-    //Para guardar en localStorage el número de veces que el usuario ha fallado
-    trackProgress(currentLevel, "incorrect");
+    trackProgress(currentLevel, 'incorrect');
 
     $(".editor").addClass("shake");
     setTimeout(function () {
@@ -407,9 +390,206 @@ console.log("este es el codigo: " + text);
     }, 1000);
 
   }
-
 }
 
+
+
+
+
+
+
+
+
+//if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+//let solucion = eval(levels[currentLevel].myGrassSolution)
+//console.log("solucion", solucion);
+//if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
+
+
+
+
+function checkLevelCorrect(currentLevel, inputUser) {
+  //console.log("currentLevel", currentLevel);
+  // a partir del nivel 7, case 6, no pasa al siguiente nivel!
+  // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+  /*   let levelMethod = levels[currentLevel].myMethod
+    let levelElements = levels[currentLevel].myElements
+    let levelSolution = levels[currentLevel].mySolution */
+  let isCorrect = false
+  var expresion, expresion2
+  var method, element
+
+  switch (currentLevel) {
+    case 0:
+
+      //OPCION 1
+      expresion = /^myGrass.push\('ladybug'\)(;)?$/g
+      expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
+      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser)
+      //OPCION 2
+      //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
+      /*  if(inputUser.includes(levelMethod)){
+         console.log("has usado el metodo push")
+       } */
+
+      break;
+
+    case 1:
+      expresion = /^myGrass.pop\(\)(;)?$/g
+      //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
+      isCorrect = expresion.test(inputUser);
+
+      //isCorrect= inputUser.includes("myGrass.pop()")
+      //console.log("has resuelto el ejercicio 2")
+      break;
+
+    case 2:
+      expresion = /^myGrass.shift\(\)(;)?$/g
+      isCorrect = expresion.test(inputUser);
+      //console.log("has resuelto el ejercicio 3")
+      break;
+
+    case 3:
+      expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g
+      expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g
+      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+
+      //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
+      break;
+
+    case 4:
+      expresion = /^myGrass.slice\(1,4\)(;)?$/g
+      isCorrect = expresion.test(inputUser);
+
+      //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
+      break;
+
+    case 5:
+      expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g
+      expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g
+      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+
+      //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','spider')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","spider")')
+      break;
+
+    case 6:
+      //isCorrect= inputUser.includes("myGrass.reverse()")
+      expresion = /^myGrass.reverse\(\)(;)?$/g
+      isCorrect = expresion.test(inputUser);
+      break;
+
+    case 7:
+      //isCorrect= inputUser.includes("myGrass.includes('bee')")||inputUser.includes('myGrass.includes("bee")')
+
+      expresion = /^myGrass.includes\('bee'\)(;)?$/g
+      expresion2 = /^myGrass.includes\("bee"\)(;)?$/g
+      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+
+      break;
+
+    case 8:
+      //necesitariamos asignarle un nombre al array 2 del ejercicio.
+      /*  isCorrect= inputUser.includes("myGrass.concat(myGrassTwo)")||inputUser.includes('myGrass.concat(myGrassTwo)') */
+
+      // IMPORTANTE: indicar en la vista que el usuario tiene que utilizar el nombre myGrassBaby para el segundo array
+
+      expresion = /^myGrass.concat\(myGrassBaby\)(;)?$/g
+      isCorrect = expresion.test(inputUser);
+
+      break;
+
+    case 9:
+      //fill con butterfly 
+      //isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
+
+      expresion = /^myGrass.fill\('butterfly'\)(;)?$/g
+      expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g
+      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+      break;
+
+    case 10:
+      // find "ant"
+      method = "find";
+
+      //primero busco si inputUser contiene el metodo find
+      if (inputUser.includes(method)) {
+        // aqui comparamos los evals
+        isCorrect = (eval(inputUser) == "0")
+
+      }
+
+      break;
+    case 11:
+
+      method = "findIndex";
+
+      //primero busco si inputUser contiene el metodo find
+      if (inputUser.includes(method)) {
+        // aqui comparamos los evals
+        isCorrect = (eval(inputUser) == 3)
+
+      }
+
+      break;
+    case 12:
+
+
+      method = "some";
+      element = "poisonous"
+
+      //primero busco si inputUser contiene el metodo find
+      if (inputUser.includes(method)) {
+        if (inputUser.includes('"poisonous"') || inputUser.includes("'poisonous'")) {
+          // aqui comparamos los evals
+          isCorrect = (eval(inputUser) == true)
+        }
+
+      }
+
+      break;
+    case 13:
+
+
+      method = "every";
+      element = "fly"
+
+      //primero busco si inputUser contiene el metodo find
+      if (inputUser.includes(method)) {
+        if (inputUser.includes(element)) {
+          // aqui comparamos los evals
+          isCorrect = (eval(inputUser) == true)
+        }
+
+      }
+
+      break;
+
+
+
+
+
+
+      //myGrass.find(element => element === "antQueen")
+      //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
+      //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
+
+
+
+  }
+
+  return isCorrect //load next level
+}
+
+//la comparación del array con el array de solución funciona ok
+function arrayEquals(a, b) {
+  return Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index]);
+
+  // 
+};
+//console.log(myGrass, currentLevel);
 // Loads up the help text & examples for each level
 function showHelp() {
 
@@ -562,11 +742,11 @@ function trackProgress(levelNumber, type) {
       correct: false,
       incorrectCount: 0,
       gaSent: false,
-      userCode: $("input").val()
+      userCode: flask.getCode()
     };
   }
 
-  progress.guessHistory[levelNumber].userCode = $("input").val();
+  progress.guessHistory[levelNumber].userCode = flask.getCode();
 
   var levelStats = progress.guessHistory[levelNumber];
 
@@ -598,9 +778,12 @@ function trackProgress(levelNumber, type) {
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
 function sendEvent(category, action, label) {
-  
-  $.post("/statistics", {action, label}, function(result){
-   console.log(result);
+
+  $.post("/statistics", {
+    action,
+    label
+  }, function (result) {
+    console.log(result);
   });
   console.log(category, action, label);
   if (!ga) {
@@ -683,8 +866,9 @@ function loadBoard() {
   addNametags();
   $(".table *").addClass("pop");
 
-
-  $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>');
+  //comentamos para eliminar el código html del html viewer
+  /* $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>'); */
+  $(".markup").html(level.instructions);
 }
 
 // Adds nametags to the items on the table
@@ -709,16 +893,16 @@ function addNametags() {
 
 
 function loadLevel() {
-
   // Make sure we don't load a level we don't have
   if (currentLevel < 0 || currentLevel >= levels.length) {
     currentLevel = 0;
-
   }
 
   hideTooltip();
 
   level = levels[currentLevel];
+
+  console.log("currentLevel", currentLevel)
 
   // Show the help link only for the first three levels
   if (currentLevel < 3) {
@@ -726,8 +910,19 @@ function loadLevel() {
   } else {
     $(".note-toggle").hide();
   }
-  //cargar el contendido del array myGrassSolution en el div con id myGrassHelp
-  let htmlHelp = "myGrass = ["+levels[currentLevel].myGrass.toString()+"];";
+
+
+
+  let htmlHelp = "myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];'; // ARREGLAR ESTO 
+
+
+
+
+
+
+
+
+
   $("#myGrassHelp").html(htmlHelp);
 
 
@@ -745,8 +940,10 @@ function loadLevel() {
   $(".level-header .level-text").html("Level " + (currentLevel + 1) + " of " + levels.length);
 
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
+
   $(".order").text(level.doThis);
-  $("input").focus();
+  //$("input").val("").focus();
+
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
 
@@ -754,15 +951,13 @@ function loadLevel() {
 
   if (local.guessHistory[currentLevel])
   {
-    $("input").val(`${local.guessHistory[currentLevel].userCode}`);
+    flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
-    $("input").val("");
+    flask.updateCode("myGrass;");
   }
 
-  
-
-//hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
-//ya habían otras validaciones, que deberíamos limpiar.
+  //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
+  //ya habían otras validaciones, que deberíamos limpiar.
   if (levels[currentLevel].completed) {
     $(".enter-button").hide();
     $("#input-solution").attr("placeholder", levels[currentLevel].userSolution);
@@ -770,8 +965,7 @@ function loadLevel() {
     $("#input-solution").attr("disabled", true);
     $(".checkmark").addClass("completed");
 
-  }
-  else {
+  } else {
     $(".enter-button").show();
     $("#input-solution").attr("placeholder", "Type in an Array method");
     $("#input-solution").addClass("input-strobe");
@@ -779,6 +973,8 @@ function loadLevel() {
     $(".checkmark").removeClass("completed");
 
   }
+
+
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
