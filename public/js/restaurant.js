@@ -762,7 +762,8 @@ function trackProgress(levelNumber, type) {
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
       levelStats.gaSent = true;
-      sendEvent("guess", true, levelNumber + 1); // Send event
+      let wrongValue = JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount;
+      sendEvent("guess", true, levelNumber + 1, wrongValue); // Send event
     }
   }
 
@@ -776,18 +777,22 @@ function trackProgress(levelNumber, type) {
   localStorage.setItem("progress", JSON.stringify(progress));
 }
 
+//var wrongValue = JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount;
 
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
-function sendEvent(category, action, label) {
+function sendEvent(category, action, label, wrongCount) {
+  
 
   $.post("/statistics", {
     action,
-    label
+    label,
+    wrongCount
   }, function (result) {
     console.log(result);
   });
-  console.log(category, action, label);
+  console.log("parametros funcion sendEvent", category, action, label, wrongCount);
+  
   if (!ga) {
     return;
   }
@@ -798,6 +803,7 @@ function sendEvent(category, action, label) {
     eventAction: action, // action (correct vs not..)
     eventLabel: label // level number
   });
+  
 }
 
 function winGame() {
