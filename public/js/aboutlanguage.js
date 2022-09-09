@@ -83,6 +83,14 @@ var resources = {
   selectLanguage.addEventListener('change', (e)=>{
 
     console.log(e.target.value);
-    i18n.changeLanguage(e.target.value);
+    // i18n.changeLanguage(e.target.value);
+
+    var language= e.target.value;
+    if(language=='es'){
+      console.log("esta en español")
+      $(document).i18n({lng: 'es'});
+    } else if (language=='en'){
+      $(document).i18n({lng: 'en'});
+    }
   });
  
