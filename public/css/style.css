@@ -1172,7 +1172,7 @@ grass spider:nth-last-child(4)   {
 queda limpiar lo que estaba hecho previamente */
 .completed {
   opacity: .9 !important;
-  //border: solid 3px #4cbb4a !important;
+  /* border: solid 3px #4cbb4a !important; */
   border-width: 0 4px 4px 0 !important;
 }
 
