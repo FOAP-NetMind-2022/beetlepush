@@ -58,8 +58,10 @@ app.get("/getstats", async (req, res) => {
   for await (const doc of records) {
     averageAll.push(doc)
   }
-  res.send(averageAll)
+  //Hay que usar el .map para transformar los datos para que el plotly lo pueda interpretar. 
+  //res.send(averageAll)
   // console.log((await records).find())
+  res.render("stats.ejs")
 })
 
 const connectDB = async () => {

@@ -1,0 +1,22 @@
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+</head>
+
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+<script>
+
+    // Hay que avergiuar como pasarle a la vista la variable que almacene nuestras estadisticas, tipo la media calculada .
+    var data = [
+  {
+    x: ['giraffes', 'orangutans', 'monkeys'],
+    y: [20, 14, 23],
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('myDiv', data);
+
+</script>
+</body>
