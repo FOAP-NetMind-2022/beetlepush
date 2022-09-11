@@ -571,9 +571,9 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
 
 
-      //myGrass.find(element => element === "antQueen")
-      //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
-      //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
+    //myGrass.find(element => element === "antQueen")
+    //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
+    //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
 
 
 
@@ -762,8 +762,8 @@ function trackProgress(levelNumber, type) {
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
       levelStats.gaSent = true;
-      let wrongValue = JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount;
-      sendEvent("guess", true, levelNumber + 1, wrongValue); // Send event
+      let wrongValue = getIncorrectCount(levelNumber)
+      sendEvent("guess", true, levelNumber + 1, wrongValue); // Send event 
     }
   }
 
@@ -775,6 +775,24 @@ function trackProgress(levelNumber, type) {
   }
 
   localStorage.setItem("progress", JSON.stringify(progress));
+
+}
+
+//funcion para recuperar el numero de errores del usuario para un nivel determinado
+
+function getIncorrectCount(level) {
+
+  let wrongValue;
+  
+  try {
+    wrongValue = JSON.parse(localStorage.progress).guessHistory[level].incorrectCount
+  }
+  catch{
+    wrongValue = 0
+  }
+
+  return wrongValue
+ 
 }
 
 //var wrongValue = JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount;
@@ -782,7 +800,7 @@ function trackProgress(levelNumber, type) {
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
 function sendEvent(category, action, label, wrongCount) {
-  
+
 
   $.post("/statistics", {
     action,
@@ -792,7 +810,7 @@ function sendEvent(category, action, label, wrongCount) {
     console.log(result);
   });
   console.log("parametros funcion sendEvent", category, action, label, wrongCount);
-  
+
   if (!ga) {
     return;
   }
@@ -803,7 +821,7 @@ function sendEvent(category, action, label, wrongCount) {
     eventAction: action, // action (correct vs not..)
     eventLabel: label // level number
   });
-  
+
 }
 
 function winGame() {
@@ -957,8 +975,7 @@ function loadLevel() {
 
   let local = JSON.parse(localStorage.progress);
 
-  if (local.guessHistory[currentLevel])
-  {
+  if (local.guessHistory[currentLevel]) {
     flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
     flask.updateCode("myGrass;");

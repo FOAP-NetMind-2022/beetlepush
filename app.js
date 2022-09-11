@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const stats = new Schema({
-    numExercise: Number,
-    correct: Boolean,
-    incorrectCount: Number,
+  numExercise: Number,
+  correct: Boolean,
+  incorrectCount: Number,
 });
 
 const StatsData = mongoose.model("stats", stats);
@@ -28,8 +28,8 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.listen(process.env.PORT || 3000, () => {
-    console.log("Server is online.");
-  });
+  console.log("Server is online.");
+});
 
 
 app.get("/", function (req, res) {
@@ -37,24 +37,29 @@ app.get("/", function (req, res) {
 });
 
 app.post("/statistics", async (req, res) => {
-    const data = new StatsData({
-      numExercise: req.body.label,
-      correct: req.body.action,
-      incorrectCount: req.body.wrongCount
-    });
-    // JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount
-  
-    await data.save();
-    res.send("ok");
-    console.log(req.body);
-    
+  const data = new StatsData({
+    numExercise: req.body.label,
+    correct: req.body.action,
+    incorrectCount: req.body.wrongCount
   });
+  // JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount
 
-app.get("/getstats", async (req, res)=>{
+  await data.save();
+  res.send("ok");
+  console.log(req.body);
 
-  const records= await StatsData.find();
+});
 
-  res.send(records);
+app.get("/getstats", async (req, res) => {
+
+  let records = StatsData.aggregate([{ $group: { _id: "$numExercise", avg_val: { $avg: "$incorrectCount" } } }]);
+
+  let averageAll = []
+  for await (const doc of records) {
+    averageAll.push(doc)
+  }
+  res.send(averageAll)
+  // console.log((await records).find())
 })
 
 const connectDB = async () => {
@@ -72,6 +77,8 @@ const connectDB = async () => {
     console.log("Failed to connect to MongoDB", err);
   }
 };
+
+
 
 // get collection from database mongoDB
 
