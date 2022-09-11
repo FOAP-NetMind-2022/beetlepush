@@ -13,11 +13,11 @@ body {
 
 body {
   /* background: #2e2a23; */
-  background-image: -webkit-radial-gradient(20% 40%, cover circle, #3e392f, #221e17);
-  background-image: -moz-radial-gradient(20% 40%, contain circle, #3e392f, #221e17);
+  /* background-image: -webkit-radial-gradient(20% 40%, cover circle, #3e392f, #221e17);
+  background-image: -moz-radial-gradient(20% 40%, contain circle, #3e392f, #221e17); */
 
   position: relative;
-  background-image: url(https://img.freepik.com/vector-gratis/hierba-textura-fluida-patron-cesped-natural_172107-1308.jpg);
+  /* background-image: url(https://img.freepik.com/vector-gratis/hierba-textura-fluida-patron-cesped-natural_172107-1308.jpg); */
   /* url(https://i.pinimg.com/originals/b6/f7/97/b6f797a70b411b2d6c4481dac17a323a.jpg); */
   background-size: 250px;
   position: initial;
@@ -29,8 +29,9 @@ body {
 .bg {
   background-image: url("/images/insects/background.png");
   background-repeat: no-repeat center;
+  background-size: auto;
 
-  background-size: 30vw 100vh;
+  /* background-size: 30vw 100vh; */
 
 
 }
@@ -932,9 +933,9 @@ spider {
 }
 
 .display-help {
-  font-size: 15px;
+  /* font-size: 15px;
   margin: 30px auto 0 auto;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, .6); */
 }
 
 .display-help .selector-name {
@@ -1525,9 +1526,9 @@ queda limpiar lo que estaba hecho previamente */
 /* Previous and next level navigation */
 
 .level-nav {
-  position: absolute;
+  /* position: absolute;
   right: 60px;
-  top: 20px;
+  top: 20px; */
   line-height: 0;
 }
 
@@ -1550,7 +1551,7 @@ queda limpiar lo que estaba hecho previamente */
   height: 18px;
   width: 18px;
   position: absolute;
-  border: solid 2px white;
+  border: solid 2px grey;
   border-width: 2px 2px 0 0;
   transform-origin: center center;
   top: 6px;
