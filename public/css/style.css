@@ -8,7 +8,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 body {
@@ -1278,14 +1278,14 @@ queda limpiar lo que estaba hecho previamente */
 }
 
 .left-col {
-  width: calc(100% - 375px);
+  /* width: calc(100% - 375px); */
   text-align: center;
   overflow-x: visible;
   position: fixed;
-  top: 0;
+  top: 100px;
   bottom: 0;
-  left: 0;
-  z-index: 2;
+  left: 0; 
+  z-index: -1;
 }
 
 /**::-webkit-scrollbar { width: 0 !important }*/
@@ -1303,9 +1303,9 @@ queda limpiar lo que estaba hecho previamente */
 }
 
 .level-menu {
-  position: absolute;
+ /*  position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 0; */
   overflow-y: hidden;
   transition: all .15s ease-in-out;
   background: rgba(0, 0, 0, 1);
