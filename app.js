@@ -58,10 +58,18 @@ app.get("/getstats", async (req, res) => {
   for await (const doc of records) {
     averageAll.push(doc)
   }
+
+  let levelsArray = averageAll.map( level=> level._id)
+  let avgArray = averageAll.map(level => level.avg_val)
+  console.log("esto es el nivel",levelsArray, "esto es la media", avgArray)
   //Hay que usar el .map para transformar los datos para que el plotly lo pueda interpretar. 
   //res.send(averageAll)
   // console.log((await records).find())
-  res.render("stats.ejs")
+  res.render("stats.ejs", { 
+   levelsArray,
+   avgArray
+
+  })
 })
 
 const connectDB = async () => {
