@@ -1,16 +1,4 @@
-/*
-  Function Reference
-  ==================
-
-  loadLevel() - loads up the level
-  fireRule() - fires the css rule
-  updateProgressUI() - adds a checkmark to the level menu and header when a correct guess is made, removes it if incorrect
-  hideTooltip() - hides markup tooltip that hovers over the elements
-  showHelp() - Loads help text & examples for each level
-
-  ..to be continued!
-*/
-
+ 
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -30,34 +18,6 @@ localStorage.setItem("progress", JSON.stringify(progress));
 
 
 $(document).ready(function () {
-
-
-
-
-
-  $(".share-menu").on("click", "a", function () {
-
-    var type = $(this).attr("type");
-
-    if (type == "twitter") {
-      var url = "https://twitter.com/intent/tweet?text=Learning%20CSS?%20Try%20CSS%20Diner,%20the%20fun%20way%20to%20practice%20selectors%20%E2%86%92&hashtags=css,cssdiner,webdev&url=http%3A%2F%2Fcssdiner.com%2F&via=flukeout";
-    } else if (type == "facebook") {
-      var url = "https://www.facebook.com/sharer.php?src=sp&u=http%3A%2F%2Fcssdiner.com";
-    } else if (type == "email") {
-      var url = "mailto:?subject=Check+out+CSS+Diner&body=It's+a+fun+game+to+learn+%26+practice+CSS+selectors.%0D%0A%0D%0AYou+can+try+it+at+http://cssdiner.com";
-    }
-
-    PopupCenter(url, "title", 600, 450);
-    //sendEvent("share", type, "");
-    return false;
-  });
-
-  $(window).on("keydown", function (e) {
-    if (e.keyCode == 27) {
-      closeMenu();
-    }
-  });
-
   // Custom scrollbar plugin
   $(".left-col, .level-menu").mCustomScrollbar({
     scrollInertia: 0,
@@ -107,15 +67,7 @@ $(document).ready(function () {
     resetProgress();
     return false;
   })
-
-  //Handle inputs from the input box on enter
-  $("input").on("keypress", function (e) {
-    e.stopPropagation();
-    if (e.keyCode == 13) {
-      enterHit();
-      return false;
-    }
-  });
+ 
 
   $("input").on("keyup", function (e) {
     e.stopPropagation();
@@ -127,11 +79,7 @@ $(document).ready(function () {
     }
   });
 
-  $(".editor").on("click", function () {
-    $("input").focus();
-  });
-
-  //Add tooltips
+  //muestra los tags <bee></bee>
   $(".table").on("mouseover", "*", function (e) {
     e.stopPropagation();
     showTooltip($(this));
@@ -152,6 +100,7 @@ $(document).ready(function () {
     hideTooltip();
   });
 
+  //muestra siempre los tags
   $(".table").on("mouseout", "*", function (e) {
     hideTooltip();
     e.stopPropagation();
@@ -336,12 +285,7 @@ function handleInput(text) {
 
 function fireArray(text) {
 
-  let myGrass = levels[currentLevel].myGrass
-
-  //hagu un deep copy de myGrass para no modificar el original
-  //let myGrass2 = JSON.parse(JSON.stringify(myGrass))
-
-
+  //let myGrass = levels[currentLevel].myGrass
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
   let aEvaluar;
@@ -350,9 +294,8 @@ function fireArray(text) {
   } catch (e) {
     console.log("Error: " + e); // mostramos el error en la consola
   }
-  //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
-  //console.log("myGrass", myGrass); // mostramos el array en la consola
-  //SWITCH 
+  
+  //SWITCH
 
   const isCorrect = checkLevelCorrect(currentLevel, text);
 
@@ -395,28 +338,10 @@ function fireArray(text) {
 }
 
 
-
-
-
-
-
-
-
-//if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-//let solucion = eval(levels[currentLevel].myGrassSolution)
-//console.log("solucion", solucion);
-//if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-
-
-
-
 function checkLevelCorrect(currentLevel, inputUser) {
-  //console.log("currentLevel", currentLevel);
-  // a partir del nivel 7, case 6, no pasa al siguiente nivel!
-  // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
-  /*   let levelMethod = levels[currentLevel].myMethod
-    let levelElements = levels[currentLevel].myElements
-    let levelSolution = levels[currentLevel].mySolution */
+// a partir del nivel 7, case 6, no pasa al siguiente nivel!
+// seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+  
   let isCorrect = false
   var expresion, expresion2
   var method, element
@@ -566,17 +491,6 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       break;
 
-
-
-
-
-
-      //myGrass.find(element => element === "antQueen")
-      //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
-      //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
-
-
-
   }
 
   return isCorrect //load next level
@@ -627,8 +541,6 @@ function resetTable() {
   $("input").addClass("input-strobe");
   $(".table *").each(function () {
     $(this).width($(this).width());
-    // $(this).removeAttr("style");
-    // TODO - needed?? Probably not, everything gets removed anyway
   });
 
   var tableWidth = $(".table").outerWidth();
@@ -647,19 +559,6 @@ function fireRule(rule) {
     $(this).width($(this).width());
     $(this).removeAttr("style");
   });
-
-  /*
-   * Sean Nessworthy <sean@nessworthy.me>
-   * On 03/17/14
-   *
-   * Allow [div][.table] to preceed the answer.
-   * Makes sense if div.table is going to be included in the HTML viewer
-   * and users want to try and use it in their selectors.
-   *
-   * However, if it is included as a specific match, filter it out.
-   * This resolves the  "Match all the things!" level from beheading the table too.
-   * Relatedly, watching that happen made me nearly spill my drink.
-   */
 
   // var baseTable = $('.table-wrapper > .table, .table-wrapper > .nametags, .table-wrapper > .table-surface');
   var baseTable = $('.table');
@@ -743,7 +642,6 @@ function trackProgress(levelNumber, type) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
-      gaSent: false,
       userCode: flask.getCode()
     };
   }
@@ -761,7 +659,6 @@ function trackProgress(levelNumber, type) {
       levelStats.correct = true;
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
-      levelStats.gaSent = true;
       sendEvent("guess", true, levelNumber + 1); // Send event
     }
   }
@@ -774,30 +671,6 @@ function trackProgress(levelNumber, type) {
   }
 
   localStorage.setItem("progress", JSON.stringify(progress));
-}
-
-
-// Sends event to Google Analytics
-// Doesn't send events if we're on localhost, as the ga variable is set to false
-function sendEvent(category, action, label) {
-
-  $.post("/statistics", {
-    action,
-    label
-  }, function (result) {
-    console.log(result);
-  });
-  console.log(category, action, label);
-  if (!ga) {
-    return;
-  }
-
-  ga('send', {
-    hitType: "event",
-    eventCategory: category, // guess or progress
-    eventAction: action, // action (correct vs not..)
-    eventLabel: label // level number
-  });
 }
 
 function winGame() {
@@ -843,33 +716,16 @@ function getMarkup(el) {
   return wrapperEl;
 }
 
+
 //new board loader...
 
-
-
 function loadBoard() {
-
-  var boardString = level.board; // just a placeholder to iterate over...
   boardMarkup = ""; // what is this
-  var tableMarkup = ""; // what is this
-  var editorMarkup = ""; // this is a string that represents the HTML
   showHelp();
-
-  var markupHolder = $("<div/>")
-
-  $(level.boardMarkup).each(function (i, el) {
-    if (el.nodeType == 1) {
-      var result = getMarkup(el);
-      markupHolder.append(result);
-    }
-  });
 
   $(".table").html(level.boardMarkup);
   addNametags();
   $(".table *").addClass("pop");
-
-  //comentamos para eliminar el código html del html viewer
-  /* $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>'); */
   $(".markup").html(level.instructions);
 }
 
@@ -904,28 +760,12 @@ function loadLevel() {
 
   level = levels[currentLevel];
 
-  console.log("currentLevel", currentLevel)
-
   // Show the help link only for the first three levels
   if (currentLevel < 3) {
     $(".note-toggle").show();
   } else {
     $(".note-toggle").hide();
   }
-
-
-
-  let htmlHelp = "myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];'; // ARREGLAR ESTO 
-
-
-
-
-
-
-
-
-
-  $("#myGrassHelp").html(htmlHelp);
 
 
   $(".level-menu .current").removeClass("current");
@@ -944,10 +784,10 @@ function loadLevel() {
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
 
   $(".order").text(level.doThis);
-  //$("input").val("").focus();
 
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
+
 
   let local = JSON.parse(localStorage.progress);
 
@@ -980,30 +820,19 @@ function loadLevel() {
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
-    console.log("level.selector", level.selector);
     $(".table " + level.selector).addClass("strobe");
     $(".pop").removeClass("pop");
   }, 200);
 
 }
 
-// Popup positioning code from...
-// http://stackoverflow.com/questions/4068373/center-a-popup-window-on-screen
+function sendEvent(category, action, label) {
 
-function PopupCenter(url, title, w, h) {
-  // Fixes dual-screen position                         Most browsers      Firefox
-  var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
-  var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
-
-  var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-  var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-  var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-  var top = ((height / 2) - (h / 2)) + dualScreenTop;
-  var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-  // Puts focus on the newWindow
-  if (window.focus) {
-    newWindow.focus();
-  }
+  $.post("/statistics", {
+    action,
+    label
+  }, function (result) {
+    console.log(result);
+  });
+  console.log(category, action, label);
 }
