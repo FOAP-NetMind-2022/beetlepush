@@ -18,15 +18,6 @@ localStorage.setItem("progress", JSON.stringify(progress));
 
 
 $(document).ready(function () {
-
-
-
-
-
- 
-
-   
-
   // Custom scrollbar plugin
   $(".left-col, .level-menu").mCustomScrollbar({
     scrollInertia: 0,
@@ -88,9 +79,7 @@ $(document).ready(function () {
     }
   });
 
-  
-
-  //Add tooltips
+  //muestra los tags <bee></bee>
   $(".table").on("mouseover", "*", function (e) {
     e.stopPropagation();
     showTooltip($(this));
@@ -111,6 +100,7 @@ $(document).ready(function () {
     hideTooltip();
   });
 
+  //muestra siempre los tags
   $(".table").on("mouseout", "*", function (e) {
     hideTooltip();
     e.stopPropagation();
@@ -501,17 +491,6 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       break;
 
-
-
-
-
-
-      //myGrass.find(element => element === "antQueen")
-      //hacemos una expresion regular para que el usuario no pueda poner el nombre de la variable
-      //isCorrect= inputUser.includes("myGrass.find(element => element === 'antQueen')")||inputUser.includes('myGrass.find(element => element === "antQueen")')
-
-
-
   }
 
   return isCorrect //load next level
@@ -562,8 +541,6 @@ function resetTable() {
   $("input").addClass("input-strobe");
   $(".table *").each(function () {
     $(this).width($(this).width());
-    // $(this).removeAttr("style");
-    // TODO - needed?? Probably not, everything gets removed anyway
   });
 
   var tableWidth = $(".table").outerWidth();
@@ -582,19 +559,6 @@ function fireRule(rule) {
     $(this).width($(this).width());
     $(this).removeAttr("style");
   });
-
-  /*
-   * Sean Nessworthy <sean@nessworthy.me>
-   * On 03/17/14
-   *
-   * Allow [div][.table] to preceed the answer.
-   * Makes sense if div.table is going to be included in the HTML viewer
-   * and users want to try and use it in their selectors.
-   *
-   * However, if it is included as a specific match, filter it out.
-   * This resolves the  "Match all the things!" level from beheading the table too.
-   * Relatedly, watching that happen made me nearly spill my drink.
-   */
 
   // var baseTable = $('.table-wrapper > .table, .table-wrapper > .nametags, .table-wrapper > .table-surface');
   var baseTable = $('.table');
@@ -678,7 +642,6 @@ function trackProgress(levelNumber, type) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
-      gaSent: false,
       userCode: flask.getCode()
     };
   }
@@ -696,7 +659,6 @@ function trackProgress(levelNumber, type) {
       levelStats.correct = true;
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
-      levelStats.gaSent = true;
       sendEvent("guess", true, levelNumber + 1); // Send event
     }
   }
@@ -709,30 +671,6 @@ function trackProgress(levelNumber, type) {
   }
 
   localStorage.setItem("progress", JSON.stringify(progress));
-}
-
-
-// Sends event to Google Analytics
-// Doesn't send events if we're on localhost, as the ga variable is set to false
-function sendEvent(category, action, label) {
-
-  $.post("/statistics", {
-    action,
-    label
-  }, function (result) {
-    console.log(result);
-  });
-  console.log(category, action, label);
-  if (!ga) {
-    return;
-  }
-
-  ga('send', {
-    hitType: "event",
-    eventCategory: category, // guess or progress
-    eventAction: action, // action (correct vs not..)
-    eventLabel: label // level number
-  });
 }
 
 function winGame() {
@@ -778,33 +716,16 @@ function getMarkup(el) {
   return wrapperEl;
 }
 
+
 //new board loader...
 
-
-
 function loadBoard() {
-
-  var boardString = level.board; // just a placeholder to iterate over...
   boardMarkup = ""; // what is this
-  var tableMarkup = ""; // what is this
-  var editorMarkup = ""; // this is a string that represents the HTML
   showHelp();
-
-  var markupHolder = $("<div/>")
-
-  $(level.boardMarkup).each(function (i, el) {
-    if (el.nodeType == 1) {
-      var result = getMarkup(el);
-      markupHolder.append(result);
-    }
-  });
 
   $(".table").html(level.boardMarkup);
   addNametags();
   $(".table *").addClass("pop");
-
-  //comentamos para eliminar el código html del html viewer
-  /* $(".markup").html('<div>&ltdiv class="table"&gt' + markupHolder.html() + '&lt/div&gt</div>'); */
   $(".markup").html(level.instructions);
 }
 
@@ -839,28 +760,12 @@ function loadLevel() {
 
   level = levels[currentLevel];
 
-  console.log("currentLevel", currentLevel)
-
   // Show the help link only for the first three levels
   if (currentLevel < 3) {
     $(".note-toggle").show();
   } else {
     $(".note-toggle").hide();
   }
-
-
-
-  let htmlHelp = "myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];'; // ARREGLAR ESTO 
-
-
-
-
-
-
-
-
-
-  $("#myGrassHelp").html(htmlHelp);
 
 
   $(".level-menu .current").removeClass("current");
@@ -879,10 +784,10 @@ function loadLevel() {
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
 
   $(".order").text(level.doThis);
-  //$("input").val("").focus();
 
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
+
 
   let local = JSON.parse(localStorage.progress);
 
@@ -915,30 +820,19 @@ function loadLevel() {
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
-    console.log("level.selector", level.selector);
     $(".table " + level.selector).addClass("strobe");
     $(".pop").removeClass("pop");
   }, 200);
 
 }
 
-// Popup positioning code from...
-// http://stackoverflow.com/questions/4068373/center-a-popup-window-on-screen
+function sendEvent(category, action, label) {
 
-function PopupCenter(url, title, w, h) {
-  // Fixes dual-screen position                         Most browsers      Firefox
-  var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
-  var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
-
-  var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-  var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-  var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-  var top = ((height / 2) - (h / 2)) + dualScreenTop;
-  var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-  // Puts focus on the newWindow
-  if (window.focus) {
-    newWindow.focus();
-  }
+  $.post("/statistics", {
+    action,
+    label
+  }, function (result) {
+    console.log(result);
+  });
+  console.log(category, action, label);
 }
