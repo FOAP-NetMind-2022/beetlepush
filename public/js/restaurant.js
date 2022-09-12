@@ -1,16 +1,4 @@
-/*
-  Function Reference
-  ==================
-
-  loadLevel() - loads up the level
-  fireRule() - fires the css rule
-  updateProgressUI() - adds a checkmark to the level menu and header when a correct guess is made, removes it if incorrect
-  hideTooltip() - hides markup tooltip that hovers over the elements
-  showHelp() - Loads help text & examples for each level
-
-  ..to be continued!
-*/
-
+ 
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -35,28 +23,9 @@ $(document).ready(function () {
 
 
 
-  $(".share-menu").on("click", "a", function () {
+ 
 
-    var type = $(this).attr("type");
-
-    if (type == "twitter") {
-      var url = "https://twitter.com/intent/tweet?text=Learning%20CSS?%20Try%20CSS%20Diner,%20the%20fun%20way%20to%20practice%20selectors%20%E2%86%92&hashtags=css,cssdiner,webdev&url=http%3A%2F%2Fcssdiner.com%2F&via=flukeout";
-    } else if (type == "facebook") {
-      var url = "https://www.facebook.com/sharer.php?src=sp&u=http%3A%2F%2Fcssdiner.com";
-    } else if (type == "email") {
-      var url = "mailto:?subject=Check+out+CSS+Diner&body=It's+a+fun+game+to+learn+%26+practice+CSS+selectors.%0D%0A%0D%0AYou+can+try+it+at+http://cssdiner.com";
-    }
-
-    PopupCenter(url, "title", 600, 450);
-    //sendEvent("share", type, "");
-    return false;
-  });
-
-  $(window).on("keydown", function (e) {
-    if (e.keyCode == 27) {
-      closeMenu();
-    }
-  });
+   
 
   // Custom scrollbar plugin
   $(".left-col, .level-menu").mCustomScrollbar({
@@ -107,15 +76,7 @@ $(document).ready(function () {
     resetProgress();
     return false;
   })
-
-  //Handle inputs from the input box on enter
-  $("input").on("keypress", function (e) {
-    e.stopPropagation();
-    if (e.keyCode == 13) {
-      enterHit();
-      return false;
-    }
-  });
+ 
 
   $("input").on("keyup", function (e) {
     e.stopPropagation();
@@ -127,9 +88,7 @@ $(document).ready(function () {
     }
   });
 
-  $(".editor").on("click", function () {
-    $("input").focus();
-  });
+  
 
   //Add tooltips
   $(".table").on("mouseover", "*", function (e) {
@@ -336,12 +295,7 @@ function handleInput(text) {
 
 function fireArray(text) {
 
-  let myGrass = levels[currentLevel].myGrass
-
-  //hagu un deep copy de myGrass para no modificar el original
-  //let myGrass2 = JSON.parse(JSON.stringify(myGrass))
-
-
+  //let myGrass = levels[currentLevel].myGrass
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
   let aEvaluar;
@@ -350,9 +304,8 @@ function fireArray(text) {
   } catch (e) {
     console.log("Error: " + e); // mostramos el error en la consola
   }
-  //console.log("aEvaluar", aEvaluar); // mostramos el array en la consola
-  //console.log("myGrass", myGrass); // mostramos el array en la consola
-  //SWITCH 
+  
+  //SWITCH
 
   const isCorrect = checkLevelCorrect(currentLevel, text);
 
@@ -395,28 +348,10 @@ function fireArray(text) {
 }
 
 
-
-
-
-
-
-
-
-//if (arrayEquals(myGrass, levels[currentLevel].myGrassSolution)) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-//let solucion = eval(levels[currentLevel].myGrassSolution)
-//console.log("solucion", solucion);
-//if (aEvaluar == solucion) { //si el array de mi solución es igual al array de la solución correcta hacemos los cambios necesarios
-
-
-
-
 function checkLevelCorrect(currentLevel, inputUser) {
-  //console.log("currentLevel", currentLevel);
-  // a partir del nivel 7, case 6, no pasa al siguiente nivel!
-  // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
-  /*   let levelMethod = levels[currentLevel].myMethod
-    let levelElements = levels[currentLevel].myElements
-    let levelSolution = levels[currentLevel].mySolution */
+// a partir del nivel 7, case 6, no pasa al siguiente nivel!
+// seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+  
   let isCorrect = false
   var expresion, expresion2
   var method, element
