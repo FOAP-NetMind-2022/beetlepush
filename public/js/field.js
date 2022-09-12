@@ -345,8 +345,18 @@ function checkLevelCorrect(currentLevel, inputUser) {
   let isCorrect = false
   var expresion, expresion2
   var method, element
+  // let evalInputUser;
+
+  // try {
+  //   console.log(inputUser);
+  //   evalInputUser=eval(inputUser)
+  
+  // } catch (error) {
+  //   console.log(error);
+  // }
 
   switch (currentLevel) {
+
     case 0:
 
       //OPCION 1
@@ -490,7 +500,20 @@ function checkLevelCorrect(currentLevel, inputUser) {
       }
 
       break;
+    case 14:
+      let methodCorrect;
+      expresion = /myGrass.filter/g
+      methodCorrect = expresion.test(inputUser);
+      // let myGrassSolution=levels[currentLevel].myGrassSolution;
+      // console.log(myGrassSolution);
+      // let arrayAreEqual=arrayEquals(myGrassSolution,evalInputUser);
+      // console.log(evalInputUser);
+      isCorrect=methodCorrect
 
+      
+
+      break;
+  
   }
 
   return isCorrect //load next level

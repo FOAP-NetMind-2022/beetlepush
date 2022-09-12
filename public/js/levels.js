@@ -823,6 +823,158 @@ var levels = [
   /***  ******************
    * LEVEL 15
    * *********************/
-   
+   {
+    helpTitle: "Shows bugs with antennae",
+    selectorName: "Filter method",
+    doThis: "What bugs have antennae?",
+    selector: ".dance",
+    syntax: "filter();",
+    help: "The filter() method creates a new array filled with elements that pass a test provided by a function. <a href= 'https://www.w3schools.com/jsref/jsref_filter.asp'> More help. </a>",
+    examples: [
+      //example with every method using names array
+      '<strong>1</strong> const phones = ["iPhone 14", "nokia 1990", "Samsung Z Flip 4"]; <br><strong>2</strong> const newPhones = phones.filter(phone => phone.length > oldPhone);<br> <strong>3</strong> console.log (newPhones);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["iPhone 14", "Samsung Z Flip 4"]</div>',
+      
+    ],
+    myGrass : [[{name:'caterpillar'}]],
+    myGrassSolution : [2,2,2],
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+    <bracket>
+    <grass>
+     <ant class="dance">
+    </grass>
+    <grass>
+     <spider>
+    </grass>
+    <grass>
+     <caterpillar>
+    </grass>
+    <grass>
+     <butterfly class="dance">
+    </grass>
+    <grass>
+     <bee class="dance">
+    </grass>
+    </bracket>
+    
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    <grass>
+     <ant class= "dance">
+    </grass>
+    <grass>
+     <butterfly class= "dance">
+    </grass>
+    <grass>
+     <bee class= "dance">
+    </grass>
+    </bracket>
+  `,
+  instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+  
+  },
+    /***  ******************
+   * LEVEL 16
+   * *********************/
+     {
+      helpTitle: "Sort the bugs by evolution",
+      selectorName: "Sort method",
+      doThis: "Sort the bugs by evolution",
+      selector: ".dance",
+      syntax: "sort();",
+      help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
+      examples: [
+        //example with every method using names array
+        '<strong>1</strong> const whatWasBefore = ["egg", "chicken"]; <br><strong>2</strong> const firstWorld = whatWasBefore.sort();<br> <strong>3</strong> console.log (firstWorld);',
+        '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg"]</div>',
+        
+      ],
+      myGrass : [2,0,0,2,2],
+      myGrassSolution : [2,2,2],
+      completed: false,
+      userSolution: "",
+      boardMarkup: `
+      <bracket>
+      <grass>
+       <caterpillar>
+      </grass>
+      <grass>
+       <butterfly>
+      </grass>
+      <grass>
+       <cocoon>
+      </grass>
+      </bracket>
+      
+      `,
+      boardMarkupSolution: ` 
+      <bracket>
+      <grass>
+       <caterpillar class= "dance">
+      </grass>
+      <grass>
+       <cocoon class= "dance">
+      </grass>
+      <grass>
+       <butterfly class= "dance">
+      </grass>
+      </bracket>
+    `,
+    instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+    
+    },
+    /***  ******************
+   * LEVEL 17
+   * *********************/
+     {
+      helpTitle: "Sort the bugs by evolution",
+      selectorName: "Sort method",
+      doThis: "Sort the bugs by evolution",
+      selector: ".dance",
+      syntax: "sort();",
+      help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
+      examples: [
+        //example with every method using names array
+        '<strong>1</strong> const whatWasBefore = ["egg", "chicken"]; <br><strong>2</strong> const firstWorld = whatWasBefore.sort();<br> <strong>3</strong> console.log (firstWorld);',
+        '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg"]</div>',
+        
+      ],
+      myGrass : [2,0,0,2,2],
+      myGrassSolution : [2,2,2],
+      completed: false,
+      userSolution: "",
+      boardMarkup: `
+      <bracket>
+      <grass>
+       <caterpillar>
+      </grass>
+      <grass>
+       <butterfly>
+      </grass>
+      <grass>
+       <cocoon>
+      </grass>
+      </bracket>
+      
+      `,
+      boardMarkupSolution: ` 
+      <bracket>
+      <grass>
+       <caterpillar class= "dance">
+      </grass>
+      <grass>
+       <cocoon class= "dance">
+      </grass>
+      <grass>
+       <butterfly class= "dance">
+      </grass>
+      </bracket>
+    `,
+    instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+    
+    },
 
 ];
