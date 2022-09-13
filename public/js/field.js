@@ -285,15 +285,8 @@ function handleInput(text) {
 
 function fireArray(text) {
 
-  //let myGrass = levels[currentLevel].myGrass
-
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
-  let aEvaluar;
-  try {
-    aEvaluar = eval(text);
-  } catch (e) {
-    console.log("Error: " + e); // mostramos el error en la consola
-  }
+ 
   
   //SWITCH
 
@@ -345,15 +338,20 @@ function checkLevelCorrect(currentLevel, inputUser) {
   let isCorrect = false
   var expresion, expresion2
   var method, element
-  // let evalInputUser;
-
-  // try {
-  //   console.log(inputUser);
-  //   evalInputUser=eval(inputUser)
   
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  let myGrass = levels[currentLevel].myGrass;
+  let myGrassSolution=levels[currentLevel].myGrassSolution;
+
+
+  let evalInputUser;
+
+  try {
+    console.log(inputUser);
+    evalInputUser=eval(inputUser)
+  
+  } catch (error) {
+    console.log(error);
+  }
 
   switch (currentLevel) {
 
@@ -501,16 +499,12 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       break;
     case 14:
-      let methodCorrect;
-      expresion = /myGrass.filter/g
-      methodCorrect = expresion.test(inputUser);
-      // let myGrassSolution=levels[currentLevel].myGrassSolution;
-      // console.log(myGrassSolution);
-      // let arrayAreEqual=arrayEquals(myGrassSolution,evalInputUser);
-      // console.log(evalInputUser);
-      isCorrect=methodCorrect
 
-      
+      let methodCorrect;
+      expresion = /myGrass.filter/g;
+      methodCorrect = expresion.test(inputUser);
+      let arrayAreEqual=arrayEquals(myGrassSolution,evalInputUser);
+      isCorrect=methodCorrect && arrayAreEqual;
 
       break;
   

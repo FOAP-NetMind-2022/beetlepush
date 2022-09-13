@@ -836,7 +836,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["iPhone 14", "Samsung Z Flip 4"]</div>',
       
     ],
-    myGrass : [[{name:'caterpillar'}]],
+    myGrass : [2, 0, 0, 2, 2],
     myGrassSolution : [2,2,2],
     completed: false,
     userSolution: "",
