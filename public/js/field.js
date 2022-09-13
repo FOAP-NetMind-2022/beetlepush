@@ -502,8 +502,14 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       let methodCorrect;
       expresion = /myGrass.filter/g;
+
+      // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
       methodCorrect = expresion.test(inputUser);
+
+      // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
       let arrayAreEqual=arrayEquals(myGrassSolution,evalInputUser);
+
+      // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
       isCorrect=methodCorrect && arrayAreEqual;
 
       break;
