@@ -9,7 +9,7 @@ const stats = new Schema({
   numExercise: Number,
   correct: Boolean,
   incorrectCount: Number,
-});
+}, {timestamps: true});
 
 const StatsData = mongoose.model("stats", stats);
 
@@ -24,6 +24,7 @@ const app = express();
 
 //PATH
 const path = require("path");
+const { timeStamp } = require('console');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
@@ -52,16 +53,20 @@ app.post("/statistics", async (req, res) => {
 
 app.get("/getstats", async (req, res) => {
 
-  let records = StatsData.aggregate([{ $group: { _id: "$numExercise", avg_val: { $avg: "$incorrectCount" } } }]);
+  let records = StatsData.aggregate([{ $group: { _id: "$numExercise", avg_val: { $avg: "$incorrectCount" }, max_val: { $max: "$incorrectCount" }, } }]);
+  
+  
 
-  let averageAll = []
+  let averageAll = [];
   for await (const doc of records) {
-    averageAll.push(doc)
+    averageAll.push(doc);
   }
+  
 
-  let levelsArray = averageAll.map( level=> level._id)
-  let avgArray = averageAll.map(level => level.avg_val)
-  console.log("esto es el nivel",levelsArray, "esto es la media", avgArray)
+  let levelsArray = averageAll.map( level=> level._id);
+  let maxArrayValue = averageAll.map( level=> level.max_val);
+  let avgArray = averageAll.map(level => level.avg_val);
+  console.log("esto es el nivel",levelsArray, "esto es la media", avgArray, "el max: ", maxArrayValue );
   //Hay que usar el .map para transformar los datos para que el plotly lo pueda interpretar. 
   //res.send(averageAll)
   // console.log((await records).find())

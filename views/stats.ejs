@@ -5,7 +5,9 @@
 </head>
 
 <body>
+  <h1>Beetlepush stats</h1>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+
 
   
   <script>
@@ -25,15 +27,30 @@
 var data = [ trace1 ];
 
 var layout = { 
-  title: 'Responsive to window\'s size!',
-  font: {size: 18}
+  title: 'Average of mistakes per level',
+  font: {size: 18},
+  yaxis: {
+    title: 'Average',
+    
+   
+    
+    
+  },
+    
+  xaxis: {
+    title: 'Levels',
+    tickmode: "linear"
+  },
+    
+    
+  
 };
 
 var config = {responsive: true}
   
   
 
-Plotly.newPlot('myDiv', data, layout);
+Plotly.newPlot('myDiv', data, layout, {displayModeBar: false}, config);
   </script>
 
 </body>
