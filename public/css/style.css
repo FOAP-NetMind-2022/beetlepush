@@ -1,3 +1,13 @@
+
+:root {
+--primary-color: #0C1D31  ;
+--primary-background: rgba(15, 41, 68, 0.95);
+--textColor: rgba(255, 255, 255, .3);
+}
+
+
+
+
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -8,6 +18,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  color: var(--textColor);
   /* overflow-y: hidden; */
 }
 
@@ -27,9 +38,10 @@ body {
 }
 
 .bg {
-  background-image: url("/images/insects/background.png");
+  background: #2AA8D6;
+  /* background-image: url("/images/insects/background.png");
   background-repeat: no-repeat center;
-  background-size: auto;
+  background-size: auto; */
 
   /* background-size: 30vw 100vh; */
 
@@ -135,7 +147,7 @@ header {
   width: 250px;
 
 }
-bracket{
+/* bracket{
   background-image: linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
   linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
   linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
@@ -145,6 +157,23 @@ bracket{
   background-size: 10px 10px;
   background-position: top left, top right, bottom left, bottom right;
   border: solid rgb(0, 0, 0, 0.8);
+  border-width: 0 10px;
+  display: inline-block;
+  margin: 20px;
+  padding: 40px;
+
+} */
+
+bracket{
+  background-image: linear-gradient(var(--primary-color), var(--primary-color)),
+  linear-gradient(var(--primary-color), var(--primary-color)),
+  linear-gradient(var(--primary-color), var(--primary-color)),
+  linear-gradient(var(--primary-color), var(--primary-color));
+  border-color: var(--primary-color), var(--primary-color), var(--primary-color), var(--primary-color);
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: top left, top right, bottom left, bottom right;
+  border: solid var(--primary-color);
   border-width: 0 10px;
   display: inline-block;
   margin: 20px;
@@ -276,10 +305,11 @@ grass {
 }
 
 grass {
-  border: 3px solid #2a231d;
+  /* border: 3px solid var(--primary-color); */
   border-radius: 4px;
-  background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/146/575/large/ulrick-wery-tileableset2-soil.jpg');
-  background-size: 125%;
+  /* background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/146/575/large/ulrick-wery-tileableset2-soil.jpg');
+  background-size: 125%; */
+  background: rgba(33, 31, 95, .3);
 }
 
 bento {
@@ -352,10 +382,11 @@ bento:before {
 .editor .input-header {
   text-align: left;
   padding: 10px 15px;
-  background: rgba(0, 0, 0, .8);
+  /* background: rgba(0, 0, 0, .8); */
+  background-color: var(--primary-color);
   border-top: solid 1px rgba(30, 30, 30, .8);
   border-bottom: solid 1px rgba(30, 30, 30, .8);
-  border-radius: 2px 2px 0 0;
+  /* border-radius: 2px 0 0 0; */
   color: rgba(255, 255, 255, .8);
 }
 
@@ -370,7 +401,7 @@ bento:before {
 .editor .file-window {
   padding: 10px 10px 10px 46px;
   position: relative;
-  min-height: 432px;
+  min-height: 200px;
 }
 
 .editor .css-view {
@@ -406,8 +437,8 @@ bento:before {
 }
 
 .html-view .file-window {
-  background: rgba(0, 0, 0, .8);
-}
+  background-color: var(--primary-background);
+} 
 
 .editor input {
   font-family: menlo, monospace;
@@ -1152,15 +1183,13 @@ grass spider:nth-last-child(4)   {
   perspective: 400px;
   text-align: center;
   position: relative;
-  padding-top: 15px;
-  margin-bottom: 50px;
 }
 
 .level-header {
-  font-size: 25px;
+/*   font-size: 25px;
   margin: 0;
   padding: 0 0 10px 0;
-  color: #777;
+  color: #777; */
 }
 
 .level-header.completed .checkmark {
@@ -1219,11 +1248,11 @@ queda limpiar lo que estaba hecho previamente */
 .order {
   color: rgba(0, 0, 0, 0.75);
   font-weight: 900;
-  font-size: 45px;
+  font-size: 32px;
   margin: 0;
   font-weight: 400;
   text-align: center;
-  padding: 20px 30px;
+  padding: 10px 20px;
 }
 
 .info-wrapper {
@@ -1278,7 +1307,7 @@ queda limpiar lo que estaba hecho previamente */
 }
 
 .left-col {
-  /* width: calc(100% - 375px); */
+  width: 100%; 
   text-align: center;
   overflow-x: visible;
   position: fixed;
@@ -1538,23 +1567,23 @@ queda limpiar lo que estaba hecho previamente */
   height: 30px;
   width: 30px;
   display: inline-block;
-  opacity: .25;
+  opacity: .5;
   transition: opacity .2s ease-out;
 }
 
 .level-nav a:hover {
-  opacity: .4;
+  opacity: 1;
 }
 
 .level-nav a:after {
   content: "";
-  height: 18px;
-  width: 18px;
+  height: 11px;
+  width: 11px;
   position: absolute;
-  border: solid 2px grey;
+  border: solid 2px rgba(0,0,0,.55);
   border-width: 2px 2px 0 0;
   transform-origin: center center;
-  top: 6px;
+  top: 18px;
   box-sizing: border-box;
 }
 
@@ -1699,3 +1728,92 @@ tag:after {
 .reset-progress:hover {
   background: rgba(255, 255, 255, .05);
 }
+
+/* Clouds */
+
+.clouds {
+  position: fixed;
+  top: -350px;
+  left: 0;
+  width: 100%;
+  z-index: -10;
+  opacity: .5;
+  animation-name: clouds;
+  animation-duration: 12s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes clouds {
+  from {left: 0;}
+  to {left: 80px;}
+
+}
+
+.clouds2 {
+  position: fixed;
+  top: -250px;
+  left: 0;
+  width: 100%;
+  z-index: -8;
+  opacity: .5;
+  animation-name: clouds2;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes clouds2 {
+  from {left: 50px;}
+  to {left: 0;}
+
+}
+
+/* Navigation */
+.offcanvas {
+  background-color: var(--primary-background);
+}
+
+.accordion-button {
+  background-color: var(--primary-color);
+  color: var(--textColor);
+}
+
+.offcanvas-header {
+  background-color: var(--primary-color);
+}
+
+.offcanvas-header .level-text {
+  color: white;
+  opacity: .5;
+}
+
+.offcanvas-header .level-nav a:after {
+  border-color: white;
+  opacity: .5;
+  top: 10px;
+}
+
+.offcanvas-body {
+  padding: 0;
+}
+
+.contextInstructions {
+  padding: 20px;
+}
+
+ .accordion-button::after {
+  background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(255, 255, 255, .3)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/></svg>');
+} 
+
+.accordion-item {
+  border-color: #030B16;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: 0; 
+}
+
+/* .accordion-button::after {
+  color: var(--textColor);
+} */

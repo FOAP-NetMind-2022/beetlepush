@@ -64,8 +64,10 @@ var levels = [
     </grass>
     </bracket>
   `,
-  instructions: "<div style='font-size:20px'>Welcome to Beetle Push, the game of arrays where you help Ladybug and friends by writing code to learn array methods in JavaScript !</div><br><br> <div style='font-size:16px'>To pass this level you need to use push() method to add a new ladybug at the end array myGrass.<br><br>For example in this level the solution is:<br><br><b>myGrass.push('ladybug');</b></div>"
-  },
+  instructions: "<div>To pass this level you need to use push() method to add a new ladybug at the end array myGrass.<br><br>For example in this level the solution is:<br><br><b>myGrass.push('ladybug');</b></div>"
+  ,
+  contextInstructions: "<div>Welcome to Beetle Push, the game of arrays where you help Ladybug and friends by writing code to learn array methods in JavaScript !</div>"
+},
   // restaurant.js
   // eval(level.boardMarkup)
   // grass.forEach() // Crear tanto elementos dentro del .grid como elementos en el array. Y sabeis que "bicho" hay que pintar porque es justamente el elemento del array 
