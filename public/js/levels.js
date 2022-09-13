@@ -2,7 +2,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 1 
+ * LEVEL 0 
  * 
  * *********************/ 
 
@@ -73,7 +73,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 2 
+ * LEVEL 1 
  * 
  * *********************/ 
 
@@ -125,7 +125,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 3 
+ * LEVEL 2
  * 
  * *********************/ 
 
@@ -187,7 +187,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 4 
+ * LEVEL 3
  * 
  * *********************/ 
 
@@ -252,7 +252,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 5 
+ * LEVEL 4
  * 
  * *********************/ 
 
@@ -312,7 +312,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 6 
+ * LEVEL 5
  * 
  * *********************/ 
 
@@ -388,7 +388,7 @@ var levels = [
 
   /***  ******************
  * 
- * LEVEL 7 
+ * LEVEL 6
  * 
  * *********************/ 
 
@@ -440,7 +440,7 @@ var levels = [
   },
 /***  ******************
  * 
- * LEVEL 8 
+ * LEVEL 7
  * 
  * *********************/ 
 
@@ -496,7 +496,7 @@ var levels = [
   },
   /***  ******************
  * 
- * LEVEL 9
+ * LEVEL 8
  * 
  * *********************/ 
    {
@@ -567,7 +567,7 @@ var levels = [
     instructions: "<div style='font-size:20px'>Hello again ! <br><br> Since we are born, our family takes care of us and protects us. In some bugs it is the same, the parents watch over, feed and protect their children until they grow up enough. <br> As a curious fact, did you know that a group of ladybugs went to space in 1999?</div><br><br> <div style='font-size:16px'>It this level use concat() method to join two arrays. Use myGrass and myGrassBaby so that the small ladybugs are in the same array as their parents.</b></div> " 
   },
   /***  ******************
-   * LEVEL 10
+   * LEVEL 9
    * *********************/
    {
     helpTitle: "Fills an array with a value",
@@ -623,7 +623,7 @@ var levels = [
   },
 
   /***  ******************
-   * LEVEL 11
+   * LEVEL 10
    * *********************/
    {
     helpTitle: "Returns the value of the first element in an array that pass a test",
@@ -670,7 +670,7 @@ var levels = [
   instructions: "<div style='font-size:20px'>Hello again ! <br><br> Another of the great differences that exist between bugs is their number of legs. Some bugs can have many legs, like centipedes, and others have no legs, like caterpillars or worms.The function of the legs is to move but they are also crucial for hunting, for reproducing and even grasshoppers have an ear on their legs!!</div><br><br> <div style='font-size:16px'> For example in this case, the spider has 8 legs, the ant has 6, the caterpillar has no legs and the ladybug has 6. Use find() method to find the bug which has no legs. </b></div>" 
   },
   /***  ******************
-   * LEVEL 12
+   * LEVEL 11
    * *********************/
    {
     helpTitle: "Returns the index of the first element in an array that pass a test",
@@ -717,7 +717,7 @@ var levels = [
   instructions: "<div style='font-size:20px'>Hello again !<br><br>Colors are another differential characteristic in bugs. Some of the patterns are used and copied by humans. Colors can warn us of their danger, serve for reproductive success or camouflage. There are also some colorless bugs. <br><br> Find the position of turquoise bug in the array using findIndex() method.</b></div>" 
   },
   /***  ******************
-   * LEVEL 13
+   * LEVEL 12
    * *********************/
    {
     helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
@@ -771,7 +771,7 @@ var levels = [
   instructions: "<div style='font-size:20px'>Hello again !<br><br> You probably know someone who has been stung by a wasp or even yourself. Not all bugs are poisonous but some of these poisonous bugs can be deadly to humans.<br><br>Use the some() method to find if there is any 'poisonous' bug in the array.</b></div>" 
   },
   /***  ******************
-   * LEVEL 14
+   * LEVEL 13
    *  *********************/
    {
     helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
@@ -817,11 +817,11 @@ var levels = [
     </grass>
     </bracket>
   `,
-  instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+  instructions: "<div style='font-size:20px'>Hello again ! <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
   
   },
   /***  ******************
-   * LEVEL 15
+   * LEVEL 14
    * *********************/
    {
     helpTitle: "Shows bugs with antennae",
@@ -873,108 +873,207 @@ var levels = [
     </grass>
     </bracket>
   `,
-  instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+  instructions: "<div style='font-size:20px'> Hello again ! <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
   
   },
+    /***  ******************
+   * LEVEL 15
+   * *********************/
+     {
+      helpTitle: "Sort the bugs by evolution",
+      selectorName: "Sort method",
+      doThis: "Sort the bugs by evolution",
+      selector: ".dance",
+      syntax: "sort();",
+      help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
+      examples: [
+        //example with every method using names array
+      '<strong>1</strong> const evolution = [{name:"tadpole", eStage: "1"}, {name:"egg", eStage: "0"},{name:"frog", eStage: "2"}]; <br><strong>2</strong> evolution.sort((a, b) =>{return a.eStage - b.eStage;});<br> <strong>3</strong> console.log(evolution);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg", "tadpole", "frog"]</div>',
+      
+      ],
+      myGrass : [{name:'butterfly', eStage: '2'},{name:'caterpillar', eStage: '0'},{name:'cacoon', eStage: '1'}],
+      myGrassSolution : [{name:'caterpillar', eStage: '0'},{name:'cacoon', eStage: '1'},{name:'butterfly', eStage: '2'}],
+      completed: false,
+      userSolution: "",
+      boardMarkup: `
+      <bracket>
+      <grass>
+       <butterfly>
+      </grass>
+      <grass>
+       <caterpillar>
+      </grass>
+      <grass>
+       <cocoon>
+      </grass>
+      </bracket>
+      
+      `,
+      boardMarkupSolution: ` 
+      <bracket>
+      <grass>
+       <caterpillar class= "dance">
+      </grass>
+      <grass>
+       <cocoon class= "dance">
+      </grass>
+      <grass>
+       <butterfly class= "dance">
+      </grass>
+      </bracket>
+    `,
+    instructions: "<div style='font-size:20px'> Hello again ! <br><br>In this level you must order the insects by the order of their evolution.</b></div>" 
+    
+    },
     /***  ******************
    * LEVEL 16
    * *********************/
      {
-      helpTitle: "Sort the bugs by evolution",
-      selectorName: "Sort method",
-      doThis: "Sort the bugs by evolution",
+      helpTitle: "Reduce the ants ",
+      selectorName: "Reduce method",
+      doThis: "Turn ants into queen",
       selector: ".dance",
-      syntax: "sort();",
-      help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
+      syntax: "reduce();",
+      help: "The reduce() method returns a single value: the function's accumulated result.<a href= 'https://www.w3schools.com/jsref/jsref_reduce.asp'> More help. </a>",
       examples: [
         //example with every method using names array
-        '<strong>1</strong> const whatWasBefore = ["egg", "chicken"]; <br><strong>2</strong> const firstWorld = whatWasBefore.sort();<br> <strong>3</strong> console.log (firstWorld);',
-        '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg"]</div>',
+        '<strong>1</strong> const fruits = [🍉, 🍌,🍎,🍊]; <br><strong>2</strong> const macedonia = fruits.reduce((fruit1, fruit2) =>{return fruit1 + fruit2;}); <br><strong>3</strong> console.log (macedonia);',
+        '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> [🥗]</div>',
         
       ],
-      myGrass : [2,0,0,2,2],
-      myGrassSolution : [2,2,2],
+      myGrass : [1,1,1,1],
+      myGrassSolution : [4],
       completed: false,
       userSolution: "",
       boardMarkup: `
       <bracket>
       <grass>
-       <caterpillar>
+       <ant>
       </grass>
       <grass>
-       <butterfly>
+       <ant>
       </grass>
       <grass>
-       <cocoon>
+       <ant>
       </grass>
+      <grass>
+      <ant>
+     </grass>
       </bracket>
       
       `,
       boardMarkupSolution: ` 
       <bracket>
       <grass>
-       <caterpillar class= "dance">
-      </grass>
-      <grass>
-       <cocoon class= "dance">
-      </grass>
-      <grass>
-       <butterfly class= "dance">
+       <antqueen class= "dance">
       </grass>
       </bracket>
     `,
-    instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+    instructions: "<div style='font-size:20px'>Hello again! <br><br>In this exercise we have an array of ants, if we add each ant, we will get a queen ant.</b></div>" 
     
     },
-    /***  ******************
+     /***  ******************
    * LEVEL 17
    * *********************/
-     {
-      helpTitle: "Sort the bugs by evolution",
-      selectorName: "Sort method",
-      doThis: "Sort the bugs by evolution",
-      selector: ".dance",
-      syntax: "sort();",
-      help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
-      examples: [
-        //example with every method using names array
-        '<strong>1</strong> const whatWasBefore = ["egg", "chicken"]; <br><strong>2</strong> const firstWorld = whatWasBefore.sort();<br> <strong>3</strong> console.log (firstWorld);',
-        '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg"]</div>',
+      {
+        helpTitle: "map the dragonfly ",
+        selectorName: "map method",
+        doThis: "Add friends to dragonfly",
+        selector: ".dance",
+        syntax: "map();",
+        help: "map() creates a new array from calling a function for every array element.<a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> More help. </a>",
+        examples: [
+          //example with every method using names array
+          '<strong>1</strong> const list =  [1, 2, 3, 4, 5]; <br><strong>2</strong> const newlist = list.map(sum(actualElement) {return actualElement + 1; }); <br><strong>3</strong> console.log (newlist);',
+          '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> [2, 3, 4, 5, 6]</div>',
+          
+        ],
+        myGrass : [1],
+        myGrassSolution : [3],
+        completed: false,
+        userSolution: "",
+        boardMarkup: `
+        <bracket>
+        <grass>
+         <dragonfly>
+        </grass>
         
-      ],
-      myGrass : [2,0,0,2,2],
-      myGrassSolution : [2,2,2],
-      completed: false,
-      userSolution: "",
-      boardMarkup: `
-      <bracket>
-      <grass>
-       <caterpillar>
+        </bracket>
+        
+        `,
+        boardMarkupSolution: ` 
+        <bracket>
+        <grass>
+         <dragonfly class= "dance">
+        </grass>
+        <grass>
+        <dragonfly class= "dance">
+       </grass>
+       <grass>
+       <dragonfly class= "dance">
       </grass>
-      <grass>
-       <butterfly>
-      </grass>
-      <grass>
-       <cocoon>
-      </grass>
-      </bracket>
-      
+        </bracket>
       `,
-      boardMarkupSolution: ` 
-      <bracket>
-      <grass>
-       <caterpillar class= "dance">
-      </grass>
-      <grass>
-       <cocoon class= "dance">
-      </grass>
-      <grass>
-       <butterfly class= "dance">
-      </grass>
-      </bracket>
-    `,
-    instructions: "<div style='font-size:20px'> Congratulations you have reached the last level. <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
-    
-    },
+      instructions: "<div style='font-size:20px'>Hello again! <br><br>in this exercise we have a single dragonfly if we add TWO friends we will have a group of dragonflies to keep him company and be happy.</b></div>" 
+      },
+       /***  ******************
+   * LEVEL 18
+   * *********************/
+        {
+          helpTitle: "Join the ants ",
+          selectorName: "Join method",
+          doThis: "Create the ant colony",
+          selector: ".dance",
+          syntax: "join();",
+          help: "join() The join() method returns an array as a string.<a href= 'https://www.w3schools.com/jsref/jsref_join.asp'> More help. </a>",
+          examples: [
+            //example with every method using names array
+            '<strong>1</strong> const elements = ["Fire", "Air", "Water"]; <br><strong>2</strong> console.log(elements.join())',
+            '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
+            
+          ],
+          myGrass : ["ant","ant","ant"],
+          myGrassSolution : ["ant","ant","ant","ant","ant","ant"],
+          completed: false,
+          userSolution: "",
+          boardMarkup: `
+          <bracket>
+          <grass>
+           <ant>
+          </grass>
+          <grass>
+           <ant>
+          </grass>
+          <grass>
+           <ant>
+          </grass>
+          </bracket>
+                    
+          `,
+          boardMarkupSolution: ` 
+          <bracket>
+          <grass>
+           <ant class= "dance">
+          </grass>
+          <grass>
+          <ant class= "dance">
+         </grass>
+         <grass>
+         <ant class= "dance">
+        </grass>
+        <grass>
+           <ant class= "dance">
+          </grass>
+          <grass>
+          <ant class= "dance">
+         </grass>
+         <grass>
+         <ant class= "dance">
+        </grass>
+          </bracket>
+        `,
+        instructions: "<div style='font-size:20px'>Hello again! <br><br>in this exercise you have to transform this small group of ants into an anthill.</b></div>" 
+        },
 
 ];
