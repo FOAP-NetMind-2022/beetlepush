@@ -10,7 +10,7 @@
 
   ..to be continued!
 */
-
+var selectedLang;
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -209,6 +209,7 @@ function checkCompleted(levelNumber) {
 
 
 // Builds the slide-out level menu
+
 
 function buildLevelmenu() {
   for (var i = 0; i < levels.length; i++) {
@@ -711,10 +712,7 @@ function loadLevel() {
   loadBoard();
   resetTable();
 
-  $(".level-header .level-text").html("Level " + (currentLevel + 1) + " of " + levels.length);
-
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
-  $(".order").text(level.doThis);
   $("input").focus();
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
@@ -755,6 +753,8 @@ function loadLevel() {
     $(".pop").removeClass("pop");
   }, 200);
 
+  Translate(selectedLang, false);
+
 }
 
 // Popup positioning code from...
@@ -776,4 +776,33 @@ function PopupCenter(url, title, w, h) {
   if (window.focus) {
     newWindow.focus();
   }
+}
+
+
+function Translate(language, user)
+{
+
+  $('#instructions').removeAttr('data-i18n');
+  
+  //#endregion
+  var lang;
+
+  if (user)
+  {
+    lang = language;
+    localStorage.setItem('language', language);
+  } else {
+    lang = localStorage.getItem('language');
+  }
+
+  i18n.init({
+    resStore: resources,
+    lng: lang
+  });
+
+  $('#instructions').attr('data-i18n', `level_${currentLevel+1}.methodTitle`);
+
+  $(".level-header .level-text").html(i18n.t('level') + " " + (currentLevel + 1) + " " +  i18n.t('of')  + " " + levels.length);
+
+  $(document).i18n();
 }
