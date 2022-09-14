@@ -278,7 +278,7 @@ function handleInput(text) {
 }
 
 function fireArray(text) {
-  //let myGrass = levels[currentLevel].myGrass
+  
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
   let aEvaluar;
@@ -332,6 +332,7 @@ function checkLevelCorrect(currentLevel, inputUser) {
   let isCorrect = false;
   var expresion, expresion2;
   var method, element;
+  let myGrass = levels[currentLevel].myGrass;
 
   switch (currentLevel) {
     case 0:
@@ -637,7 +638,7 @@ function trackProgress(levelNumber, type) {
       levelStats.correct = true;
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
-      sendEvent("guess", true, levelNumber + 1); // Send event
+      sendEvent("guess", true, levelNumber + 1, getIncorrectCount(levelNumber)); // Send event
     }
   }
 
@@ -671,6 +672,15 @@ function getIncorrectCount(level) {
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
 function sendEvent(category, action, label, wrongCount) {
+
+  console.log(
+    "parametros funcion sendEvent",
+    category,
+    action,
+    label,
+    wrongCount
+  );
+
   $.post(
     "/statistics",
     {
@@ -682,13 +692,7 @@ function sendEvent(category, action, label, wrongCount) {
       console.log(result);
     }
   );
-  console.log(
-    "parametros funcion sendEvent",
-    category,
-    action,
-    label,
-    wrongCount
-  );
+  
 }
 
 function winGame() {
@@ -839,16 +843,3 @@ function loadLevel() {
   }, 200);
 }
 
-function sendEvent(category, action, label) {
-  $.post(
-    "/statistics",
-    {
-      action,
-      label,
-    },
-    function (result) {
-      console.log(result);
-    }
-  );
-  console.log(category, action, label);
-}
