@@ -508,10 +508,11 @@ function checkLevelCorrect(currentLevel, inputUser) {
       }
 
       break;
-    case 14:
-
-      expresion = /myGrass.filter/g;
-
+      //AQUI EMPEZAMOS NOSOTROS
+default:
+      let arrayName=levels[currentLevel].syntax.slice(0,-3);
+      expresion = new RegExp("myGrass."+arrayName, "g");
+    
       // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
       methodCorrect = expresion.test(inputUser);
 
@@ -522,49 +523,7 @@ function checkLevelCorrect(currentLevel, inputUser) {
       // isCorrect=methodCorrect && arrayAreEqual;
       isCorrect=arrayAreEqual && methodCorrect;
 
-      break;
-
-      case 15:
-        expresion = /myGrass.sort/g;
-  
-        // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.sort"
-        methodCorrect = expresion.test(inputUser);
-        // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
-    
-        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
-        isCorrect=methodCorrect && arrayAreEqual;
-  
-        break;
-        case 16:
-        expresion = /myGrass.reduce/g;
-  
-       
-        methodCorrect = expresion.test(inputUser);
-
-        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
-       console.log("arrayAreEqual esto ",arrayAreEqual)
-
-        isCorrect=methodCorrect && arrayAreEqual;
-  
-        break;
-        case 17:
-        expresion = /myGrass.map/g;
-        methodCorrect = expresion.test(inputUser);
-        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
-       console.log("arrayAreEqual esto ",arrayAreEqual)
-
-        isCorrect=methodCorrect && arrayAreEqual;
-        break;
-        case 18:
-        expresion = /myGrass.join/g;
-        methodCorrect = expresion.test(inputUser);
-        
-        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
-       console.log("arrayAreEqual esto ",arrayAreEqual)
-
-        isCorrect=methodCorrect && arrayAreEqual;
-        break;
-  
+      break;  
   }
 
   return isCorrect //load next level
