@@ -243,6 +243,13 @@ grass {
   background-size: 125%;
 }
 
+.grassNewMargin {
+  border: 3px solid #2a231d;
+  border-radius: 4px;
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/146/575/large/ulrick-wery-tileableset2-soil.jpg');
+  background-size: 125%;
+  margin-right: 50px;
+}
 
 
 
@@ -504,7 +511,7 @@ spider {
   position: relative;
   margin: 20px 10px;
 }
-/* no se
+
 ladybug.small,
 butterfly.small,
 bee.small,
@@ -523,7 +530,20 @@ spider.small   {
 }
 
  
+grass .small,
+bento .small {
+  left: calc(50% - 15px);
+  margin-left: 0;
+  margin-right: 0;
+}
 
+grass>.small:only-child,
+bento>.small:only-child {
+  position: absolute;
+  top: calc(50% - 15px);
+  margin: 0;
+}
+/*
 ladybug:before,
 bee:before,
 worm:before,

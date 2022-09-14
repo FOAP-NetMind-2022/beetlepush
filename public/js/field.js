@@ -4,6 +4,7 @@ var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track 
 var levelTimeout = 1000; // Delay between levels after completing
 var finished = false; // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
 
+
 var blankProgress = {
   totalCorrect: 0,
   percentComplete: 0,
@@ -11,6 +12,7 @@ var blankProgress = {
   progress: '',
   guessHistory: {}
 }
+
 
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
@@ -357,7 +359,9 @@ function checkLevelCorrect(currentLevel, inputUser) {
   } catch (error) {
     console.log(error);
   }
-
+  // const _ = require('lodash');
+  // import _ from 'lodash';
+  
   switch (currentLevel) {
 
 
@@ -512,82 +516,53 @@ function checkLevelCorrect(currentLevel, inputUser) {
       methodCorrect = expresion.test(inputUser);
 
       // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
-      arrayAreEqual=arrayEquals(myGrassSolution,evalInputUser);
+      arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
 
       // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
-      isCorrect=methodCorrect && arrayAreEqual;
+      // isCorrect=methodCorrect && arrayAreEqual;
+      isCorrect=arrayAreEqual && methodCorrect;
 
       break;
 
       case 15:
-
-        console.log()
         expresion = /myGrass.sort/g;
   
         // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.sort"
         methodCorrect = expresion.test(inputUser);
-        console.log("methodCorrect ",methodCorrect)
-        console.log("nivel  ",myGrass)
-
         // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
-        
-       arrayAreEqual=arrayEquals(myGrassSolution,myGrass);
-       console.log("arrayAreEqual esto ",arrayAreEqual)
-
-        // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
+    
+        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
         isCorrect=methodCorrect && arrayAreEqual;
   
         break;
         case 16:
-
-        console.log()
         expresion = /myGrass.reduce/g;
   
        
         methodCorrect = expresion.test(inputUser);
-        console.log("methodCorrect ",methodCorrect)
-        console.log("nivel  ",myGrass)
 
-        
-       arrayAreEqual=arrayEquals(myGrassSolution,myGrass);
+        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
        console.log("arrayAreEqual esto ",arrayAreEqual)
 
         isCorrect=methodCorrect && arrayAreEqual;
   
         break;
         case 17:
-
-        console.log()
         expresion = /myGrass.map/g;
-  
-       
         methodCorrect = expresion.test(inputUser);
-        console.log("methodCorrect ",methodCorrect)
-        console.log("nivel  ",myGrass)
-
-        
-       arrayAreEqual=arrayEquals(myGrassSolution,myGrass);
+        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
        console.log("arrayAreEqual esto ",arrayAreEqual)
 
         isCorrect=methodCorrect && arrayAreEqual;
-  
         break;
-        case 17:
-
-        console.log()
+        case 18:
         expresion = /myGrass.join/g;
-  
-       
         methodCorrect = expresion.test(inputUser);
-        console.log("methodCorrect ",methodCorrect)
-        console.log("nivel  ",myGrass)
-
         
-       arrayAreEqual=arrayEquals(myGrassSolution,myGrass);
+        arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
        console.log("arrayAreEqual esto ",arrayAreEqual)
 
         isCorrect=methodCorrect && arrayAreEqual;
-  
         break;
   
   }
