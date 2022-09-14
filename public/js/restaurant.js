@@ -958,7 +958,9 @@ function loadLevel() {
   {
     flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
-    flask.updateCode("let myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];');
+    flask.updateCode(`let myGrass = ["${levels[currentLevel].myGrass.join('","').toString()}"]; 
+    \n // Start coding here!
+    \n // Press the "Run" button to validate your code!`);
   }
 
   //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 

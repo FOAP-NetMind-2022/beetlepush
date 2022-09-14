@@ -849,7 +849,9 @@ bento>pickle.small:only-child {
 } 
 /*boton de verificacion*/
 .enter-button {
-  background: #ddd;
+  text-align: center;
+  letter-spacing: 1px;
+  background: #eee;
   display: block;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -859,12 +861,17 @@ bento>pickle.small:only-child {
   border-width: 1px 1px 6px 1px;
   position: absolute;
   right: 8px;
-  font-size: 10px;
+  font-size: 12px;
   position: absolute;
   cursor: pointer;
   top: 10px;
   z-index: 999999;
   width: 65px;
+}
+
+.enter-button:hover {
+  color: #000;
+  background: #ddd;
 }
 
 .enterhit {
@@ -1839,4 +1846,24 @@ tag:after {
 .accordion-button:hover, .accordion-button:not(.collapsed) {
   color: rgba(255, 255, 255, .8);
   background-color: rgba(3, 11, 22, 0.6);
+}
+
+.jsLevelNav {
+  padding-left: 250px;
+}
+
+.jsLevelNav .level-nav {
+  padding-left: 20px;
+}
+
+
+.jsLevelNav .level-nav a { 
+  height: 10px;
+  width: 10px;
+}
+
+.jsLevelNav .level-nav a:after {
+  border: solid 2px rgba(255,255,255,.7);
+  border-width: 2px 2px 0 0;
+  top: 0;
 }
