@@ -1016,8 +1016,8 @@ var levels = [
             '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
             
           ],
-          myGrass : [{name:'ladybug', weight: '10'},{name:'spider', weight: '30'},{name:'dragonfly', weight: '15'}, {name:'ant', weight: '2'}],
-          myGrassSolution : [{name:'ladybug', weight: '20'},{name:'spider', weight: '60'},{name:'dragonfly', weight: '30'}, {name:'ant', weight: '4'}],
+          myGrass : [{name:'ladybug', weight: 10},{name:'spider', weight: 30},{name:'dragonfly', weight: 15}, {name:'ant', weight: 2}],
+          myGrassSolution : [{name:'ladybug', weight: 20},{name:'spider', weight: 60},{name:'dragonfly', weight: 30}, {name:'ant', weight: 4}],
           completed: false,
           userSolution: "",
           boardMarkup: `
@@ -1068,8 +1068,8 @@ var levels = [
             '<strong>1</strong> const elements = ["Fire", "Air", "Water"]; <br><strong>2</strong> console.log(elements.join())',
             '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
           ],
-          myGrass : [{name:'butterfly', weight: '7'},{name:'worm', weight: '5'},{name:'spider', weight: '25'}, {name:'bee', weight: '10'}],
-          myGrassSolution : [{name:'worm', weight: '5'},{name:'butterfly', weight: '7'},{name:'bee', weight: '10'},{name:'spider', weight: '25'}],
+          myGrass : [{name:'butterfly', weight: 7},{name:'worm', weight: 5},{name:'spider', weight: 25}, {name:'bee', weight: 10}],
+          myGrassSolution : [{name:'worm', weight: 5},{name:'butterfly', weight: 7},{name:'bee', weight: 10},{name:'spider', weight: 25}],
           completed: false,
           userSolution: "",
           boardMarkup: `
