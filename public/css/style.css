@@ -1,7 +1,7 @@
 
 :root {
 --primary-color: #0C1D31  ;
---primary-background: rgba(15, 41, 68, 0.9);
+--primary-background: rgba(15, 41, 68, 0.95);
 --textColor: rgba(255, 255, 255, .3);
 }
 
@@ -64,6 +64,20 @@ header {
   padding: 12px 15px 11px 35px;
   color: rgba(255, 255, 255, .8);
   text-align: left;
+}
+
+strong {
+  color: #aaa !important;
+  background: rgba(255, 255, 255, .1);
+  padding: 3px 9px !important;
+}
+
+a {
+  color: rgba(255, 255, 255, .4);
+}
+
+a:hover {
+  color: rgba(255, 255, 255, .8);
 }
 
 .share-menu {
@@ -374,7 +388,7 @@ bento:before {
 .editor * {
   font-family: menlo, monospace;
   size: 25%;
-  line-height: 150%;
+  line-height: 180%;
   padding: 0;
   margin: 0;
 }
@@ -388,11 +402,12 @@ bento:before {
   border-bottom: solid 1px rgba(30, 30, 30, .8);
   /* border-radius: 2px 0 0 0; */
   color: rgba(255, 255, 255, .8);
+  min-height: 49px;
 }
 
 .markup {
-  color: #888888;
-  line-height: 150%;
+  color: var(--textColor);
+  line-height: 180%;
   font-family: menlo;
   z-index: 1;
   font-size: 0.8rem;
@@ -852,20 +867,19 @@ bento>pickle.small:only-child {
   text-align: center;
   letter-spacing: 1px;
   background: #eee;
-  display: block;
+  /* display: block; */
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  padding: 2px 7px 2px 7px;
+  padding: 3px 7px 0 7px;
   color: #666;
   border: solid 3px #999;
-  border-width: 1px 1px 6px 1px;
-  position: absolute;
-  right: 8px;
+  border-width: 1px 1px 4px 1px;
+  /* right: 8px; */
   font-size: 12px;
-  position: absolute;
+  /* position: absolute; */
   cursor: pointer;
-  top: 10px;
-  z-index: 999999;
+  /* top: 10px; */
+  /* z-index: 999999; */
   width: 65px;
 }
 
@@ -984,8 +998,8 @@ spider {
 .display-help .title {
   font-size: 18px;
   margin: 0 0 15px 0;
-  font-weight: 300;
-  opacity: .7;
+  font-weight: 500;
+  /* opacity: .7; */
 }
 
 .display-help .syntax {
@@ -993,7 +1007,7 @@ spider {
   margin: 0;
   padding: 0;
   font-weight: 200;
-  opacity: .8;
+  /* opacity: .8; */
   margin-bottom: 18px;
   background: rgba(255, 255, 255, .05);
   display: inline-block;
@@ -1013,7 +1027,7 @@ spider {
 
 .display-help .hint,
 .display-help .example {
-  color: #888;
+  /* color: #888; */
   font-size: 15px;
 }
 
@@ -1216,16 +1230,16 @@ queda limpiar lo que estaba hecho previamente */
 
 
 .level-header .checkmark {
-  position: relative;
+  /* position: relative; */
   display: inline-block;
   margin-left: 8px;
   width: 12px;
-  height: 20px;
+  height: 17px;
   opacity: 2;
   border: solid 3px white;
   border-width: 0 4px 4px 0;
   opacity: .2;
-  top: -3px;
+  /* top: -3px; */
   transform: rotate(40deg);
 }
 
@@ -1256,7 +1270,7 @@ queda limpiar lo que estaba hecho previamente */
 .order {
   color: rgba(255, 255, 255, 0.6);
   font-weight: 900;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
   font-weight: 400;
   /* text-align: center; */
@@ -1294,11 +1308,11 @@ queda limpiar lo que estaba hecho previamente */
 }
 
 .markup {
-  line-height: 150%;
+  line-height: 180%;
 }
 
 .markup * {
-  color: rgba(255, 255, 255, .3);
+  color: var(--textColor);
 }
 
 .markup .enhance {
@@ -1382,7 +1396,7 @@ queda limpiar lo que estaba hecho previamente */
   display: block;
   cursor: pointer;
   padding: 5px 12px 5px 22px;
-  color: #777;
+  color: var(--textColor);
 }
 
 .level-menu .level-syntax {
@@ -1742,7 +1756,7 @@ tag:after {
 
 .clouds {
   position: fixed;
-  top: -350px;
+  top: -317px;
   left: 0;
   width: 100%;
   z-index: -10;
@@ -1761,7 +1775,7 @@ tag:after {
 
 .clouds2 {
   position: fixed;
-  top: -250px;
+  top: -130px;
   left: 0;
   width: 100%;
   z-index: -8;
@@ -1829,6 +1843,10 @@ tag:after {
   background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(255, 255, 255, .3)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/></svg>');
 } 
 
+.accordion-button:not(.collapsed)::after {
+  background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(255, 255, 255, .3)" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 7.354a.5.5 0 0 1 .708 0L8 10.707l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/></svg>');
+}
+
 .accordion-item {
   border-color: #030B16;
   background-color: var(--primary-color);
@@ -1849,7 +1867,7 @@ tag:after {
 }
 
 .jsLevelNav {
-  padding-left: 250px;
+  /* padding-left: 250px; */
 }
 
 .jsLevelNav .level-nav {
@@ -1866,4 +1884,23 @@ tag:after {
   border: solid 2px rgba(255,255,255,.7);
   border-width: 2px 2px 0 0;
   top: 0;
+}
+
+.jsEditorHeader {
+  display: flex;
+  justify-content: space-between;
+  padding-left:5px !important;
+}
+
+.aboutIcons a {
+  color: rgba(255, 255, 255, .5);
+}
+
+.aboutIcons a:hover {
+  color: rgba(255, 255, 255, .8);
+}
+
+/* Language selector*/
+.langSelector {
+  min-width: 3rem;
 }

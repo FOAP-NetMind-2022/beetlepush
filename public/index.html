@@ -43,13 +43,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             ENG
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu langSelector" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">ESP</a></li>
                             <li><a class="dropdown-item" href="#">CAT</a></li>
                         </ul>
@@ -95,13 +95,13 @@
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseOne">
                             Choose a level
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
                         aria-labelledby="panelsStayOpen-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="level-menu">                              
@@ -187,24 +187,24 @@ myArray[1]; // returns 2
                             <p>
                                 With array methods is possible not only find elements but add, remove, filter and
                                 create copies applying different operations.
+                                You will find more information about them in the <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                                    target="_blank">MDN Array reference</a>
+                                    and
+                                    <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3Schools
+                                        Array reference</a>
                             </p>
-                            <p>
 
-
-                                To play, type in a Array method and see how it works. You can also try out your own
-                                methods.
-                                to select the correct items on the table.If you get it
-                                right, you'll advance to the next level.
-                            </p>
-                            <p>
-                                Hover over the items on the table to see their HTML markup.
-                            </p>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="text-center mt-3"><a href="https://github.com/FOAP-NetMind-2022/beetlepush" class="p-2" target="_blank"><i class="bi bi-github"></i></a>|<a href="http://localhost:3000/about.html" class="p-2" target="_blank"><i class="bi bi-people-fill"></i></a>|<a href="#" class="p-2" target="_blank"><i class="bi bi-bar-chart-line-fill"></i></a></div>
+            <div class="text-center mt-3 aboutIcons">
+            
+                <a href="https://github.com/FOAP-NetMind-2022/beetlepush" class="p-2" target="_blank" title="Github"><i class="bi bi-github"></i></a>|
+                <a href="http://localhost:3000/about.html" class="p-2" target="_blank" title="About us"><i class="bi bi-people-fill"></i></a>|
+                <a href="#" class="p-2" target="_blank" title="Statistics"><i class="bi bi-bar-chart-line-fill"></i></a></div>
         </div>
     </div>
 
@@ -225,7 +225,7 @@ myArray[1]; // returns 2
         <div class="editor">
             <div class="editor-pane html-view">
                 <div class="input-header">
-                    <div class="file-name"></div>
+                    
                     Instructions
                 </div>
                 <div class="file-window">
@@ -234,20 +234,21 @@ myArray[1]; // returns 2
                     <div class="markup"></div>
                 </div>
             </div>
-            <div class="editor-pane">
-                <div class="input-header">
-                    JavaScript Editor
-                    <span class="jsLevelNav">
+            <div class="editor-pane ">
+                <div class="input-header jsEditorHeader">
+                    <div>JavaScript Editor</div>
+                    <div class="jsLevelNav">
                         <span class="level-header">
                             <span class="level-text"></span>
                             <span id="checkmark" class="checkmark"></span>
+                            <span class="level-nav">
+                                <a class="previous" href="#"></a>
+                                <a class="next" href="#"></a>
+                              </span>
                         </span>
-                    
-                          <span class="level-nav">
-                            <a class="previous" href="#"></a>
-                            <a class="next" href="#"></a>
-                          </span>
-                    </span>
+                    </div>
+   
+                    <div class="enter-button">Run</div>
                 </div>
                 
 
@@ -256,7 +257,7 @@ myArray[1]; // returns 2
 
                 </div>
                 
-                <div class="enter-button">Run</div>
+                
 
             </div>
 
@@ -264,14 +265,7 @@ myArray[1]; // returns 2
         </div>
 
         <div class="what-is-this">
-            <p>
-                Made by <a href="/about.html">Mooners</a> &mdash; come say hi!
-            </p>
-            <p>
-                Have feedback or questions? Please file an issue on <a
-                    href="https://github.com/FOAP-NetMind-2022/beetlepush">the
-                    Github repo</a>.
-            </p>
+
         </div>
 
         <div class="helper">
