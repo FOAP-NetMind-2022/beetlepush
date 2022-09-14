@@ -472,6 +472,14 @@ antQueen {
   width: 100px;
   height: 100px;
 }
+antString {
+  background-image: url("/images/insects/antString2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
+}
 /* no se
 ladybug,
 butterfly,
@@ -505,7 +513,8 @@ ant,
 antQueen,
 caterpillar,
 cocoon,
-spider {
+spider,
+antString {
   height: 60px;
   width: 60px;
   position: relative;
@@ -522,7 +531,8 @@ ant.small,
 antQueen.small,
 caterpillar.small,
 cocoon.small,
-spider.small   {
+spider.small,
+antString.small   {
   height: 30px;
   width: 30px;
   border-width: 2px 4px 8px 4px;
@@ -576,6 +586,7 @@ bento antQueen,
 bento caterpillar,
 bento cocoon,
 bento spider,
+bento antString,
 grass ladybug,
 grass bee,
 grass worm,
@@ -585,7 +596,8 @@ grass ant,
 grass antQueen,
 grass caterpillar,
 grass cocoon,
-grass spider  {
+grass spider,
+grass antString  {
   left: calc(50% - 30px);
   margin: 0;
   position: absolute;
@@ -593,6 +605,7 @@ grass spider  {
 
 grass>apple:last-child,
 grass>ladybug:last-child,
+grass>antString:last-child,
 grass>butterfly:last-child,
 grass>bee:last-child,
 grass>worm:last-child,

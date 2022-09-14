@@ -871,9 +871,9 @@ var levels = [
       userSolution: "",
       boardMarkup: `
         <bracket>
-        <grass>
-        <ant>
-      </grass>
+          <grass>
+            <ant>
+          </grass>
           <grass>
             <ant>
           </grass>
@@ -981,6 +981,7 @@ var levels = [
               <grass>
                 <ant>
               </grass>
+              
             </bracket>
           `,
           //mirar de hacer abejitas y unirlos con flores a modo de coma o guion
@@ -991,6 +992,7 @@ var levels = [
               <grass>
                 <ant class= "dance">
               </grass>
+              <antString>
               <grass>
                 <ant class= "dance">
               </grass>
