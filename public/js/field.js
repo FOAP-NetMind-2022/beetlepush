@@ -1,4 +1,3 @@
- 
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -8,20 +7,19 @@ var blankProgress = {
   totalCorrect: 0,
   percentComplete: 0,
   lastPercentEvent: 0,
-  progress: '',
-  guessHistory: {}
-}
+  progress: "",
+  guessHistory: {},
+};
 
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 localStorage.setItem("progress", JSON.stringify(progress));
 
-
 $(document).ready(function () {
   // Custom scrollbar plugin
   $(".left-col, .level-menu").mCustomScrollbar({
     scrollInertia: 0,
-    autoHideScrollbar: true
+    autoHideScrollbar: true,
   });
 
   $(".note-toggle").on("click", function () {
@@ -38,7 +36,6 @@ $(document).ready(function () {
   });
 
   $(".level-nav").on("click", "a", function () {
-
     var direction;
     if ($(this).hasClass("next")) {
       direction = "next";
@@ -66,8 +63,7 @@ $(document).ready(function () {
   $(".reset-progress").on("click", function () {
     resetProgress();
     return false;
-  })
- 
+  });
 
   $("input").on("keyup", function (e) {
     e.stopPropagation();
@@ -110,9 +106,7 @@ $(document).ready(function () {
     //enterHit();
     const text = flask.getCode();
     fireArray(text);
-  })
-
-
+  });
 
   $(".table-wrapper,.table-edge").css("opacity", 0);
 
@@ -128,7 +122,7 @@ function addAnimation(el, className) {
   el.addClass("link-jiggle");
   el.one("animationend", function (e) {
     $(e.target).removeClass("link-jiggle");
-  })
+  });
 }
 
 // Reset all progress
@@ -148,7 +142,6 @@ function resetProgress() {
   $("#mCSB_2_container").css("top", 0); // Strange element to reset scroll due to scroll plugin
 }
 
-
 //Checks if the level is completed
 
 function checkCompleted(levelNumber) {
@@ -163,14 +156,18 @@ function checkCompleted(levelNumber) {
   }
 }
 
-
 // Builds the slide-out level menu
 
 function buildLevelmenu() {
   for (var i = 0; i < levels.length; i++) {
     var level = levels[i];
     var item = document.createElement("a");
-    $(item).html("<span class='checkmark'></span><span class='level-number'>" + (i + 1) + "</span>" + level.syntax);
+    $(item).html(
+      "<span class='checkmark'></span><span class='level-number'>" +
+        (i + 1) +
+        "</span>" +
+        level.syntax
+    );
     $(".level-menu .levels").append(item);
 
     if (checkCompleted(i)) {
@@ -194,7 +191,6 @@ function openMenu() {
   $(".right-col").addClass("menu-open");
 }
 
-
 // Hides & shows the tooltip that appears when an eleemnt
 // on the table or the editor is hovered over.
 
@@ -213,19 +209,23 @@ function showTooltip(el) {
   var tableElements = $(".table *");
   var index = tableElements.index(el);
   var that = el;
-  $(".markup > div *").eq(index).addClass("enhance").find("*").addClass("enhance");
+  $(".markup > div *")
+    .eq(index)
+    .addClass("enhance")
+    .find("*")
+    .addClass("enhance");
 
   var helper = $(".helper");
 
   var pos = el.offset();
   helper.css("top", pos.top - 65);
-  helper.css("left", pos.left + (el.width() / 2));
+  helper.css("left", pos.left + el.width() / 2);
 
   var helpertext;
 
   var elType = el.get(0).tagName;
   elType = elType.toLowerCase();
-  helpertext = '<' + elType;
+  helpertext = "<" + elType;
 
   var elClass = el.attr("class");
 
@@ -250,11 +250,10 @@ function showTooltip(el) {
     helpertext = helpertext + ' id="' + id + '"';
   }
 
-  helpertext = helpertext + '></' + elType + '>';
+  helpertext = helpertext + "></" + elType + ">";
   helper.show();
   helper.text(helpertext);
 }
-
 
 //Animate the enter button
 function enterHit() {
@@ -266,26 +265,20 @@ function enterHit() {
   //fireArray(value);
 }
 
-
-
 //Parses text from the input field
 function handleInput(text) {
   console.log("text", parseInt(text, 10));
   if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
     currentLevel = parseInt(text, 10) - 1;
 
-    console.log("currentLevel", currentLevel)
-
+    console.log("currentLevel", currentLevel);
   }
   // fireRule(text);
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
-
-
 function fireArray(text) {
-
-  //let myGrass = levels[currentLevel].myGrass
+  
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
   let aEvaluar;
@@ -294,12 +287,10 @@ function fireArray(text) {
   } catch (e) {
     console.log("Error: " + e); // mostramos el error en la consola
   }
-  
+
   //SWITCH
 
   const isCorrect = checkLevelCorrect(currentLevel, text);
-
-
 
   if (isCorrect) {
     /*  let newboardMarkup = '';
@@ -308,51 +299,47 @@ function fireArray(text) {
      }); */
 
     /* level.boardMarkup = `${newboardMarkup}`; */
-    level.boardMarkup = level.boardMarkupSolution
+    level.boardMarkup = level.boardMarkupSolution;
     level.completed = true;
     level.userSolution = text;
     //console.log(level.completed);
 
     trackProgress(currentLevel, "correct");
 
-
     loadLevel();
 
     setTimeout(function () {
       currentLevel++;
       loadLevel();
-      flask.updateCode('myGrass;');
+      flask.updateCode("myGrass;");
     }, 6000);
 
     return;
   } else {
-
-    trackProgress(currentLevel, 'incorrect');
+    trackProgress(currentLevel, "incorrect");
 
     $(".editor").addClass("shake");
     setTimeout(function () {
       $(".editor").removeClass("shake");
     }, 1000);
-
   }
 }
 
-
 function checkLevelCorrect(currentLevel, inputUser) {
-// a partir del nivel 7, case 6, no pasa al siguiente nivel!
-// seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
-  
-  let isCorrect = false
-  var expresion, expresion2
-  var method, element
+  // a partir del nivel 7, case 6, no pasa al siguiente nivel!
+  // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+
+  let isCorrect = false;
+  var expresion, expresion2;
+  var method, element;
+  let myGrass = levels[currentLevel].myGrass;
 
   switch (currentLevel) {
     case 0:
-
       //OPCION 1
-      expresion = /^myGrass.push\('ladybug'\)(;)?$/g
-      expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser)
+      expresion = /^myGrass.push\('ladybug'\)(;)?$/g;
+      expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g;
+      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
       //OPCION 2
       //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
       /*  if(inputUser.includes(levelMethod)){
@@ -362,7 +349,7 @@ function checkLevelCorrect(currentLevel, inputUser) {
       break;
 
     case 1:
-      expresion = /^myGrass.pop\(\)(;)?$/g
+      expresion = /^myGrass.pop\(\)(;)?$/g;
       //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
       isCorrect = expresion.test(inputUser);
 
@@ -371,29 +358,29 @@ function checkLevelCorrect(currentLevel, inputUser) {
       break;
 
     case 2:
-      expresion = /^myGrass.shift\(\)(;)?$/g
+      expresion = /^myGrass.shift\(\)(;)?$/g;
       isCorrect = expresion.test(inputUser);
       //console.log("has resuelto el ejercicio 3")
       break;
 
     case 3:
-      expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g
-      expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g
+      expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g;
+      expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g;
       isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
       //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
       break;
 
     case 4:
-      expresion = /^myGrass.slice\(1,4\)(;)?$/g
+      expresion = /^myGrass.slice\(1,4\)(;)?$/g;
       isCorrect = expresion.test(inputUser);
 
       //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
       break;
 
     case 5:
-      expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g
-      expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g
+      expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g;
+      expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g;
       isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
       //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','spider')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","spider")')
@@ -401,15 +388,15 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
     case 6:
       //isCorrect= inputUser.includes("myGrass.reverse()")
-      expresion = /^myGrass.reverse\(\)(;)?$/g
+      expresion = /^myGrass.reverse\(\)(;)?$/g;
       isCorrect = expresion.test(inputUser);
       break;
 
     case 7:
       //isCorrect= inputUser.includes("myGrass.includes('bee')")||inputUser.includes('myGrass.includes("bee")')
 
-      expresion = /^myGrass.includes\('bee'\)(;)?$/g
-      expresion2 = /^myGrass.includes\("bee"\)(;)?$/g
+      expresion = /^myGrass.includes\('bee'\)(;)?$/g;
+      expresion2 = /^myGrass.includes\("bee"\)(;)?$/g;
       isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
       break;
@@ -420,17 +407,17 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       // IMPORTANTE: indicar en la vista que el usuario tiene que utilizar el nombre myGrassBaby para el segundo array
 
-      expresion = /^myGrass.concat\(myGrassBaby\)(;)?$/g
+      expresion = /^myGrass.concat\(myGrassBaby\)(;)?$/g;
       isCorrect = expresion.test(inputUser);
 
       break;
 
     case 9:
-      //fill con butterfly 
+      //fill con butterfly
       //isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
 
-      expresion = /^myGrass.fill\('butterfly'\)(;)?$/g
-      expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g
+      expresion = /^myGrass.fill\('butterfly'\)(;)?$/g;
+      expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g;
       isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
       break;
 
@@ -441,74 +428,68 @@ function checkLevelCorrect(currentLevel, inputUser) {
       //primero busco si inputUser contiene el metodo find
       if (inputUser.includes(method)) {
         // aqui comparamos los evals
-        isCorrect = (eval(inputUser) == "0")
-
+        isCorrect = eval(inputUser) == "0";
       }
 
       break;
     case 11:
-
       method = "findIndex";
 
       //primero busco si inputUser contiene el metodo find
       if (inputUser.includes(method)) {
         // aqui comparamos los evals
-        isCorrect = (eval(inputUser) == 3)
-
+        isCorrect = eval(inputUser) == 3;
       }
 
       break;
     case 12:
-
-
       method = "some";
-      element = "poisonous"
+      element = "poisonous";
 
       //primero busco si inputUser contiene el metodo find
       if (inputUser.includes(method)) {
-        if (inputUser.includes('"poisonous"') || inputUser.includes("'poisonous'")) {
+        if (
+          inputUser.includes('"poisonous"') ||
+          inputUser.includes("'poisonous'")
+        ) {
           // aqui comparamos los evals
-          isCorrect = (eval(inputUser) == true)
+          isCorrect = eval(inputUser) == true;
         }
-
       }
 
       break;
     case 13:
-
-
       method = "every";
-      element = "fly"
+      element = "fly";
 
       //primero busco si inputUser contiene el metodo find
       if (inputUser.includes(method)) {
         if (inputUser.includes(element)) {
           // aqui comparamos los evals
-          isCorrect = (eval(inputUser) == true)
+          isCorrect = eval(inputUser) == true;
         }
-
       }
 
       break;
-
   }
 
-  return isCorrect //load next level
+  return isCorrect; //load next level
 }
 
 //la comparación del array con el array de solución funciona ok
 function arrayEquals(a, b) {
-  return Array.isArray(a) &&
+  return (
+    Array.isArray(a) &&
     Array.isArray(b) &&
     a.length === b.length &&
-    a.every((val, index) => val === b[index]);
+    a.every((val, index) => val === b[index])
+  );
 
-  // 
-};
+  //
+}
 //console.log(myGrass, currentLevel);
 // Loads up the help text & examples for each level
 function showHelp() {
-
   var helpTitle = level.helpTitle || "";
   var help = level.help || "";
   var examples = level.examples || [];
@@ -548,7 +529,6 @@ function resetTable() {
 }
 
 function fireRule(rule) {
-
   // prevent cheating
   if (rule === ".strobe") {
     rule = null;
@@ -561,7 +541,7 @@ function fireRule(rule) {
   });
 
   // var baseTable = $('.table-wrapper > .table, .table-wrapper > .nametags, .table-wrapper > .table-surface');
-  var baseTable = $('.table');
+  var baseTable = $(".table");
 
   // Check if jQuery will throw an error trying the mystery rule
   // If it errors out, change the rule to null so the wrong-guess animation will work
@@ -576,7 +556,6 @@ function fireRule(rule) {
 
   console.log(ruleSelected);
   console.log(levelSelected);
-
 
   var win = false;
 
@@ -593,7 +572,7 @@ function fireRule(rule) {
     ruleSelected.removeClass("strobe");
     ruleSelected.addClass("clean");
     $("input").val("");
-    $(".input-wrapper").css("opacity", .2);
+    $(".input-wrapper").css("opacity", 0.2);
     updateProgressUI(currentLevel, true);
     currentLevel++; //aqui podemos hacer que se vea el boardmarkupsolution
 
@@ -642,7 +621,7 @@ function trackProgress(levelNumber, type) {
     progress.guessHistory[levelNumber] = {
       correct: false,
       incorrectCount: 0,
-      userCode: flask.getCode()
+      userCode: flask.getCode(),
     };
   }
 
@@ -659,12 +638,12 @@ function trackProgress(levelNumber, type) {
       levelStats.correct = true;
       progress.totalCorrect++;
       progress.percentComplete = progress.totalCorrect / levels.length;
-      sendEvent("guess", true, levelNumber + 1); // Send event
+      sendEvent("guess", true, levelNumber + 1, getIncorrectCount(levelNumber)); // Send event
     }
   }
 
   // Increments the completion percentage by 10%, and sends an event every time
-  var increment = .1;
+  var increment = 0.1;
   if (progress.percentComplete >= progress.lastPercentEvent + increment) {
     progress.lastPercentEvent = progress.lastPercentEvent + increment;
     //sendEvent("progress", "percent", Math.round(progress.lastPercentEvent * 100));
@@ -673,8 +652,53 @@ function trackProgress(levelNumber, type) {
   localStorage.setItem("progress", JSON.stringify(progress));
 }
 
+//funcion para recuperar el numero de errores del usuario para un nivel determinado
+
+function getIncorrectCount(level) {
+  let wrongValue;
+
+  try {
+    wrongValue = JSON.parse(localStorage.progress).guessHistory[level]
+      .incorrectCount;
+  } catch {
+    wrongValue = 0;
+  }
+
+  return wrongValue;
+}
+
+//var wrongValue = JSON.parse(localStorage.progress).guessHistory[currentLevel].incorrectCount;
+
+// Sends event to Google Analytics
+// Doesn't send events if we're on localhost, as the ga variable is set to false
+function sendEvent(category, action, label, wrongCount) {
+
+  console.log(
+    "parametros funcion sendEvent",
+    category,
+    action,
+    label,
+    wrongCount
+  );
+
+  $.post(
+    "/statistics",
+    {
+      action,
+      label,
+      wrongCount,
+    },
+    function (result) {
+      console.log(result);
+    }
+  );
+  
+}
+
 function winGame() {
-  $(".table").html('<span class="winner"><strong>You did it!</strong><br>You rock at CSS.</span>');
+  $(".table").html(
+    '<span class="winner"><strong>You did it!</strong><br>You rock at CSS.</span>'
+  );
   addNametags();
   finished = true;
   resetTable();
@@ -685,7 +709,7 @@ function checkResults(ruleSelected, levelSelected, rule) {
   var ruleTable = $(".table").clone();
   ruleTable.find(".strobe").removeClass("strobe");
   ruleTable.find(rule).addClass("strobe");
-  return ($(".table").html() == ruleTable.html());
+  return $(".table").html() == ruleTable.html();
 }
 
 // Returns all formatted markup within an element...
@@ -697,7 +721,8 @@ function getMarkup(el) {
   var attributeString = "";
   $.each(el.attributes, function () {
     if (this.specified) {
-      attributeString = attributeString + ' ' + this.name + '="' + this.value + '"';
+      attributeString =
+        attributeString + " " + this.name + '="' + this.value + '"';
     }
   });
   var attributeSpace = "";
@@ -715,7 +740,6 @@ function getMarkup(el) {
   }
   return wrapperEl;
 }
-
 
 //new board loader...
 
@@ -741,14 +765,13 @@ function addNametags() {
       var width = $(this).width();
       var nameTag = $("<div class='nametag'>" + $(this).attr("for") + "</div>");
       $(".nametags").append(nameTag);
-      var tagPos = pos.left + (width / 2) - nameTag.width() / 2 + 12;
+      var tagPos = pos.left + width / 2 - nameTag.width() / 2 + 12;
       nameTag.css("left", tagPos);
     }
   });
 
   $(".table-wrapper").css("transform", "rotateX(20deg)");
 }
-
 
 function loadLevel() {
   // Make sure we don't load a level we don't have
@@ -767,11 +790,10 @@ function loadLevel() {
     $(".note-toggle").hide();
   }
 
-
   $(".level-menu .current").removeClass("current");
   $(".level-menu div a").eq(currentLevel).addClass("current");
 
-  var percent = (currentLevel + 1) / levels.length * 100;
+  var percent = ((currentLevel + 1) / levels.length) * 100;
   $(".progress").css("width", percent + "%");
 
   localStorage.setItem("currentLevel", currentLevel);
@@ -779,7 +801,9 @@ function loadLevel() {
   loadBoard();
   resetTable();
 
-  $(".level-header .level-text").html("Level " + (currentLevel + 1) + " of " + levels.length);
+  $(".level-header .level-text").html(
+    "Level " + (currentLevel + 1) + " of " + levels.length
+  );
 
   updateProgressUI(currentLevel, checkCompleted(currentLevel));
 
@@ -788,17 +812,15 @@ function loadLevel() {
   $(".input-wrapper").css("opacity", 1);
   $(".result").text("");
 
-
   let local = JSON.parse(localStorage.progress);
 
-  if (local.guessHistory[currentLevel])
-  {
+  if (local.guessHistory[currentLevel]) {
     flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
     flask.updateCode("myGrass;");
   }
 
-  //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
+  //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado.
   //ya habían otras validaciones, que deberíamos limpiar.
   if (levels[currentLevel].completed) {
     $(".enter-button").hide();
@@ -806,33 +828,18 @@ function loadLevel() {
     $("#input-solution").removeClass("input-strobe");
     $("#input-solution").attr("disabled", true);
     $(".checkmark").addClass("completed");
-
   } else {
     $(".enter-button").show();
     $("#input-solution").attr("placeholder", "Type in an Array method");
     $("#input-solution").addClass("input-strobe");
     $("#input-solution").attr("disabled", false);
     $(".checkmark").removeClass("completed");
-
   }
-
-
 
   //Strobe what's supposed to be selected
   setTimeout(function () {
     $(".table " + level.selector).addClass("strobe");
     $(".pop").removeClass("pop");
   }, 200);
-
 }
 
-function sendEvent(category, action, label) {
-
-  $.post("/statistics", {
-    action,
-    label
-  }, function (result) {
-    console.log(result);
-  });
-  console.log(category, action, label);
-}
