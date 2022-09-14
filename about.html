@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--traductor-->
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+  <!------------->
+
   <!--Bootstrap5-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
@@ -41,13 +46,20 @@
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-white" href="/">Juega ahora</a>
+            <a class="nav-link text-white" href="/" data-i18n="menu.navPlay">Play now</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#storyus">Historia</a>
+            <a class="nav-link text-white" href="#storyus" data-i18n="menu.navStory">History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#membercard">Sobre nosotros</a>
+            <a class="nav-link text-white" href="#membercard" data-i18n="menu.navAbout">About us</a>
+          </li>
+          <li class="nav-item">
+            <select name="" id="selector-language" class="form-select">
+
+              <option value="es">es-ES</option>
+              <option value="en" selected>en-US</option>
+            </select>
           </li>
         </ul>
       </div>
@@ -69,18 +81,18 @@
   <div class="banner-image1">
     <div class="mainhistory" id="storyus">
       <div class="history">
-        <h2 class="ourstory">Nuestra historia</h2>
-        <p class="storydescription">
-          Somos un grupo de estudiantes de un curso de desarrollo de
-          aplicaciones con tecnología web, como proyecto de final de curso,
-          después de valorar diferentes ideas de proyecto, surgió como idea
-          implementar un juego para ayudar a la gente a aprender a programar.
-          Debido a que nos estábamos formando en programación, vimos
-          conveniente plasmar nuestro aprendizaje con una temática
-          relacionada. A continuación, os presentamos Beetle Push, la idea
-          es ayudar a la comunidad con estos simpáticos bichitos a ir
-          resolviendo los siguientes niveles con métodos de array del lenguaje
-          Javascript.
+        <h2 class="ourstory" data-i18n="menu.ourstory">About us</h2>
+        <p class="storydescription" data-i18n="menu.storydescription">
+          We are a group of students of a development course of
+          applications with web technology, such as final project of course,
+          After evaluating different project ideas, it emerged as an idea
+          implement a game to help people learn programming.
+          Because we were training in programming, we saw
+          convenient to capture our learning with a theme
+          related. Next, we present Beetle Push, the idea
+          is to help the community with these cute little bugs to go
+          solving the following levels with array methods of the language
+          JavaScript.
         </p>
       </div>
     </div>
@@ -101,11 +113,11 @@
                 <img class="card__thumb" src="/images/about/fran.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Fran</h3>
-                  <span class="card__status">Full stack junior developer.</span>
+                  <span class="card__status" data-i18n="menu.franBio">Full stack junior developer.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Siempre es bueno intentar hacer las cosas bien.
+              <p class="card__description" data-i18n="menu.franDescription">
+                It's always good to try to do things right.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="http://github.com/Francesc1980"><i
@@ -129,12 +141,11 @@
                 <img class="card__thumb" src="/images/about/sara.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Sara</h3>
-                  <span class="card__status">Full stack jr developer & Environmentalist.</span>
+                  <span class="card__status" data-i18n="menu.saraBio">Full stack jr developer & Environmentalist.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Empezando en programación. Me encanta la Biología, los
-                videojuegos y el café.
+              <p class="card__description" data-i18n="menu.saraDescription">
+                Starting in programming. I love biology video games and coffee.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/SaraaLee"><i
@@ -157,11 +168,11 @@
                 <img class="card__thumb" src="/images/about/fabian.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Fabian</h3>
-                  <span class="card__status">Full stack developer & Designer.</span>
+                  <span class="card__status" data-i18n="menu.fabianBio">Full stack developer & Designer.</span>
                 </div>
               </div>
-              <p class="card__description">
-                La belleza de las cosas tal cual son.
+              <p class="card__description" data-i18n="menu.fabianDescription">
+                The beauty of things as they are.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/fataranto"><i
@@ -184,12 +195,12 @@
                 <img class="card__thumb" src="/images/about/patricio.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Javi</h3>
-                  <span class="card__status">Full stack junior developer.</span>
+                  <span class="card__status" data-i18n="menu.javiBio">Full stack junior developer.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Es genial trabajar con ordenadores. No discuten, lo recuerdan
-                todo y no se beben tu cerveza.
+              <p class="card__description" data-i18n="menu.javiDescription">
+                It's great to work with computers. They don't argue, they remember
+                everything and they don't drink your beer.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/thebadjavi"><i
@@ -213,12 +224,12 @@
                 <img class="card__thumb" src="/images/about/stefano.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Stefano</h3>
-                  <span class="card__status">Full stack junior developer & Chef.</span>
+                  <span class="card__status" data-i18n="menu.stefanoBio">Full stack developer junior & Chef.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Chef y Developer junior. No saber algo ya es un comienzo para
-                alcanzar el objetivo.
+              <p class="card__description" data-i18n="menu.stefanoDescription">
+                Chef and Junior Developer. Not knowing something is already a start for
+                achieve the objective.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/Ste2812"><i
@@ -241,10 +252,10 @@
                 <img class="card__thumb" src="/images/about/carol.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Carol</h3>
-                  <span class="card__status">Full stack junior developer & Designer.</span>
+                  <span class="card__status" data-i18n="menu.carolBio">Full stack junior developer & Designer.</span>
                 </div>
               </div>
-              <p class="card__description">
+              <p class="card__description" data-i18n="menu.carolDescription">
                 Design and develop easy-to-use solutions.
               </p>
               <div class="container-social">
@@ -268,12 +279,11 @@
                 <img class="card__thumb" src="/images/about/victoria.jpeg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Victoria</h3>
-                  <span class="card__status">Full stack jr developer & future designer.</span>
+                  <span class="card__status" data-i18n="menu.victoriaBio">Full stack junior developer.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Aprendiendo programación y próximamente diseño. Disfruto mucho
-                de ver series y pelis.
+              <p class="card__description" data-i18n="menu.victoriaDescription">
+                Learning programming and soon design. I really enjoy to watch series and movies.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/victoriageeks"><i
@@ -297,11 +307,11 @@
                 <img class="card__thumb" src="/images/about/andreu.jpg" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Andreu</h3>
-                  <span class="card__status">Full stack junior developer & Designer.</span>
+                  <span class="card__status" data-i18n="menu.andreuBio">Full stack junior developer & Designer.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Los errores son la prueba de que lo estás intentando.
+              <p class="card__description" data-i18n="menu.andreuDescription">
+                Mistakes are proof that you are trying.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/Andreu-G"><i
@@ -324,11 +334,11 @@
                 <img class="card__thumb" src="/images/about/oscarphoto.png" alt="" />
                 <div class="card__header-text">
                   <h3 class="card__title">Oscar</h3>
-                  <span class="card__status">Software engineer developer.</span>
+                  <span class="card__status" data-i18n="menu.oscarBio">Software engineer developer.</span>
                 </div>
               </div>
-              <p class="card__description">
-                Primero resuelve el problema, después escribe el código.
+              <p class="card__description" data-i18n="menu.oscarDescription">
+                Solve the problem first, then write the code. Cat lover and board gamer freak.
               </p>
               <div class="container-social">
                 <a class="btn btn-dark" id="btn-social" href="https://github.com/omiras"><i
@@ -347,12 +357,14 @@
 
   <footer>
     <div class="mainfooter">
-      <p class="text-center m-0" id="infofooter">
+      <p class="text-center m-0" id="infofooter" data-i18n="menu.footer">
         Humble project by programming students.
       </p>
     </div>
   </footer>
+  <script src="/js/aboutlanguage.js"></script>
   <script src="/js/about.js"></script>
+  
 </body>
 
 </html>

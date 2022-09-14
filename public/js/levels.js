@@ -18,11 +18,16 @@ var levels = [
       '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
     ],
+    myMethod: "push",
+    myElements: ["ladybug"],
+    mySolution: "myGrass.push('ladybug');",
     myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution :['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `
+    
+    <bracket>
     <grass>
      <ladybug>
     </grass>
@@ -32,11 +37,16 @@ var levels = [
     <grass>
      <ladybug>
     </grass>
+    <grass>
+     <ladybug>
+    </grass>
+    </bracket>
     <grass>
      <ladybug>
     </grass>
     `,
     boardMarkupSolution: ` 
+    <bracket>
     <grass>
      <ladybug>
     </grass>
@@ -83,6 +93,7 @@ var levels = [
     completed: false,
     userSolution: "",
     boardMarkup: `
+    <bracket>
     <grass>
     <worm>
    </grass>
@@ -91,7 +102,20 @@ var levels = [
    </grass>
    <grass>
     <bee>
+   </grass> 
+   </bracket>
+   
+   
+    `,
+    boardMarkupSolution: `
+    <bracket>
+    <grass>
+    <worm>
    </grass>
+   <grass>
+   <worm>
+  </grass>
+   </bracket>
     `,
     instructions: `<span data-i18n="level_2.lore"><div style='font-size:20px'>Hello again ! <br><br> Some bugs live most of their lives underground, like worms. However, others are always flying, like bees.</div><br><br> <div style='font-size:16px'>In this level we have 3 bugs, two worms and one bee. Remove the bee at the end of the array myGrass, using the pop() method.</b></div>`
   },
@@ -683,7 +707,6 @@ var levels = [
      <grass>
       <dragonFly>
      </grass>
-     
    `,
    instructions: `<span data-i18n="level_12.lore"><div style='font-size:20px'>Hello again !<br><br>Colors are another differential characteristic in bugs. Some of the patterns are used and copied by humans. Colors can warn us of their danger, serve for reproductive success or camouflage. There are also some colorless bugs. <br><br> Find the position of turquoise bug in the array using findIndex() method.</b></div>`
    },
