@@ -956,7 +956,7 @@ var levels = [
         {
           helpTitle: "Join the ants ",
           selectorName: "Join method",
-          doThis: "Create the ant colony",
+          doThis: "Join the ants with a chain",
           selector: ".dance",
           syntax: "join();",
           help: "The join() method returns an array as a string.<a href= 'https://www.w3schools.com/jsref/jsref_join.asp'> More help. </a>",
@@ -967,7 +967,7 @@ var levels = [
             
           ],
           myGrass : ["ant","ant","ant"],
-          myGrassSolution : "ant-ant-ant",
+          myGrassSolution : "ant_ant_ant",
           completed: false,
           userSolution: "",
           boardMarkup: `
@@ -989,15 +989,18 @@ var levels = [
               <grass>
                 <ant class= "dance">
               </grass>
+              <grass style='height:5px;width:30px'>
+              </grass>
               <grass>
                 <ant class= "dance">
               </grass>
-              <antString>
+              <grass style='height:5px;width:30px'>
+              </grass>
               <grass>
                 <ant class= "dance">
               </grass>
         `,
-        instructions: "<div style='font-size:20px'>Hello again! <br><br>in this exercise you have to transform this small group of ants into an anthill.</b></div>" 
+        instructions: "<div style='font-size:20px'>Hello again! <br><br>in this exercise you have to transform this small group of ants into an anthill.<br><br>We need you to join them with a underscore so that they are joined with a string</b></div>" 
         },
 
          /********************************
@@ -1012,8 +1015,8 @@ var levels = [
           help: "The map() calls a function once for each element in an array.<a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> More help. </a>",
           examples: [
             //falta pensar un ejemplo
-            '<strong>1</strong> const elements = ["Fire", "Air", "Water"]; <br><strong>2</strong> console.log(elements.join())',
-            '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
+            '<strong>1</strong> const list =  [1, 2, 3, 4, 5]; <br><strong>2</strong> const newlist = list.map(sum(actualElement) {return actualElement + 1; }); <br><strong>3</strong> console.log (newlist);',
+          '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> [2, 3, 4, 5, 6]</div>',
             
           ],
           myGrass : [{name:'ladybug', weight: 10},{name:'spider', weight: 30},{name:'dragonfly', weight: 15}, {name:'ant', weight: 2}],
@@ -1065,8 +1068,8 @@ var levels = [
           syntax: "sort();",
           help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
           examples: [
-            '<strong>1</strong> const elements = ["Fire", "Air", "Water"]; <br><strong>2</strong> console.log(elements.join())',
-            '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
+            '<strong>1</strong> const evolution = [{name:"tadpole", eStage: "1"}, {name:"egg", eStage: "0"},{name:"frog", eStage: "2"}]; <br><strong>2</strong> evolution.sort((a, b) =>{return a.eStage - b.eStage;});<br> <strong>3</strong> console.log(evolution);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg", "tadpole", "frog"]</div>',
           ],
           myGrass : [{name:'butterfly', weight: 7},{name:'worm', weight: 5},{name:'spider', weight: 25}, {name:'bee', weight: 10}],
           myGrassSolution : [{name:'worm', weight: 5},{name:'butterfly', weight: 7},{name:'bee', weight: 10},{name:'spider', weight: 25}],
@@ -1118,8 +1121,8 @@ var levels = [
           syntax: "filter();",
           help: "The filter() method creates a new array filled with elements that pass a test provided by a function. <a href= 'https://www.w3schools.com/jsref/jsref_filter.asp'> More help. </a>",
           examples: [
-            '<strong>1</strong> const elements = ["Fire", "Air", "Water"]; <br><strong>2</strong> console.log(elements.join())',
-            '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
+            '<strong>1</strong> const phones = ["iPhone 14", "nokia 1990", "Samsung Z Flip 4"]; <br><strong>2</strong> const newPhones = phones.filter(phone => phone.length > oldPhone);<br> <strong>3</strong> console.log (newPhones);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["iPhone 14", "Samsung Z Flip 4"]</div>',
           ],
           myGrass : [{name:'caterpillar', wings:false},{name:'butterfly', wings:true},{name:'bee', wings:true}, {name:'spider', wings:false},{name:'ladybug', wings:true}],
           myGrassSolution : [{name:'caterpillar', wings:false},{name:'spider', wings:false}],
