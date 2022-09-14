@@ -15,7 +15,7 @@ var levels = [
     ],
     mySolution: "",
     myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution :"['ladybug','ladybug','ladybug','ladybug','ladybug']",
+    myGrassSolution :['ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `

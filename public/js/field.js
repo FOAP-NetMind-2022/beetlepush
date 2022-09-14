@@ -364,7 +364,23 @@ function checkLevelCorrect(currentLevel, inputUser) {
   
   switch (currentLevel) {
 
+// case 0:
+//   let arrayName0=levels[currentLevel].syntax.slice(0,-3);
+//       expresion = new RegExp("myGrass."+arrayName0, "g");
+    
+//       // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
+//       methodCorrect = expresion.test(inputUser);
+//       console.log("methodCorrect:",methodCorrect);
 
+//       arrayAreEqual=_.isEqual(myGrassSolution,inputUser);
+//       console.log("arrayEqual:",arrayAreEqual);
+//       console.log("solutionmygrass",myGrassSolution);
+//       console.log("evalInputUser ",inputUser);
+
+//       // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
+//       // isCorrect=methodCorrect && arrayAreEqual;
+//       isCorrect=arrayAreEqual && methodCorrect;
+//   break;
     // case 0:
 
     //   //OPCION 1
