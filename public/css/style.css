@@ -45,6 +45,10 @@ header {
   text-align: left;
 }
 
+#languageSelector {
+  float: right;
+  padding: 4px;
+}
 
 .logo {
   cursor: default;

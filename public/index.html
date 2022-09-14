@@ -2,12 +2,19 @@
 <html>
 
 <head>
-  <title>Beetlepush - Have fun learning array methods!</title> <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
+
+
+
+  <title>Beetlepush - Have fun learning array methods!</title>
+
+  <script src="/js/translations.js"></script>
+  <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
   <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
   <script src="/js/levels.js" type="text/javascript" charset="utf-8"></script>
   <script src="/js/field.js" type="text/javascript" charset="utf-8"></script>
   <script src="/js/jquery.mCustomScrollbar.min.js"></script>
- 
+
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
@@ -21,6 +28,8 @@
   <meta property="og:title" content="CSS Diner" />
   <meta property="og:description" content="A fun game to help you learn and practice CSS selectors." />
   <meta property="og:image" content="https://flukeout.github.io/images/fb-share.jpg" />
+
+
 </head>
 
 <body class="bg">
@@ -30,17 +39,14 @@
 
       <div><img class="beetlepush" src="/images/Logo.png" alt="">
         <div class="title_logo">Beetle <span class="pushtitle">Push!</span></div>
+        <select id="languageSelector">
+          <option value="en-US">English</option>
+          <option value="es-ES">Español</option>
+        </select>
       </div>
-
-      <span class="share-menu">
-        Share
-        <a class="share-twitter" type="twitter" href="#"></a>
-        <a class="share-facebook" type="facebook" href="#"></a>
-        <a class="share-email" type="email" href="#"></a>
-      </span>
     </header>
 
-    <h2 class="order"></h2>
+    <h2 id="instructions" class="order"></h2>
 
     <div class="note">
       <h3>No worries, you've got this!</h3>
@@ -51,13 +57,15 @@
       <h4>Array definition </h4>
 
       <p>
-        Arrays in JavaScript as in most programming languages, are special variables that can hold more than one value. Even though you can have different variables to store the same values, the goal of arrays is that one can loop through them finding a specific one, specially when you have not 3 but 300 elements.
-        </p>
+        Arrays in JavaScript as in most programming languages, are special variables that can hold more than one value.
+        Even though you can have different variables to store the same values, the goal of arrays is that one can loop
+        through them finding a specific one, specially when you have not 3 but 300 elements.
+      </p>
 
       <p>
-        To declare an array, define the variable type with square brackets      </p>
+        To declare an array, define the variable type with square brackets </p>
       <p>
-        <pre>
+      <pre>
 var myArray = [1, 2, 3, 4, 5];
 myArray[0]; // returns 1
 myArray[1]; // returns 2           
@@ -65,12 +73,13 @@ myArray[1]; // returns 2
       </p>
       <h4>Array methods</h4>
       <p>
-        With array methods is possible not only find elements but add, remove, filter and create copies applying different operations.</p>
+        With array methods is possible not only find elements but add, remove, filter and create copies applying
+        different operations.</p>
       <p>
-   
+
 
         To play, type in a Array method and see how it works. You can also try out your own methods.
-  to select the correct items on the table.If you get it
+        to select the correct items on the table.If you get it
         right, you'll advance to the next level.
       </p>
       <p>
@@ -82,7 +91,7 @@ myArray[1]; // returns 2
       <a class="note-toggle" href="#">Ok, got it!</a>
     </div>
 
-    <a class="note-toggle" href="#">Help, I'm stuck!</a>
+    <a data-i18n="main.top.help.title" class="note-toggle" href="#">Help, I'm stuck!</a>
 
     <div class="game-wrapper">
       <div class="grass-wrapper">
@@ -93,39 +102,53 @@ myArray[1]; // returns 2
     <div class="editor">
       <div class="editor-pane html-view">
         <div class="input-header">
-          <div class="file-name"></div>
+          <div data-i18n="main.script.viewer.name" class="file-name"></div>
           Instructions
         </div>
-       <div class="file-window">
-        <div class="lore"> </div> <!-- comentamos los divs donde se renderizaba el html y creamos uno nuevo par el lore-->
+        <div class="file-window">
+          <div class="lore"> </div>
+          <!-- comentamos los divs donde se renderizaba el html y creamos uno nuevo par el lore-->
           <!-- <div class="line-numbers">
             1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
           </div> -->
-          <div class="markup"></div> 
-        </div> 
+          <div class="markup"></div>
+        </div>
       </div>
       <div class="editor-pane">
         <div class="input-header">
-          <div class="file-name">grass.js</div> JavaScript Editor
+          <div data-i18n="main.script.editor.top.filename" class="file-name">grass.js</div>
+          <div data-i18n="main.script.editor.top.name" style="display: inline-block">JavaScript Editor</div>
         </div>
-        
-        <div id="input-solution"    > 
-          
-         
-        </div> <div class="enter-button">ejecutar</div>
+
+        <div id="input-solution">
+
+
+        </div>
+        <div data-i18n="main.script.editor.content.enter" class="enter-button">ejecutar</div>
 
       </div>
 
-     
+
     </div>
 
     <div class="what-is-this">
       <p>
-        Made by <a href="/about.html">Mooners</a> &mdash; come say hi!
+      <div data-i18n="footer.madeby" style="display: inline-block">
+        Made by
+      </div>
+
+      <a style="display: inline-block" href="/about.html">Mooners</a> &mdash;
+
+      <div data-i18n="footer.hi" style="display: inline-block">come say hi!</div>
+
       </p>
       <p>
-        Have feedback or questions? Please file an issue on <a href="https://github.com/FOAP-NetMind-2022/beetlepush">the
-          Github repo</a>.
+      <div data-i18n="footer.feedback" style="display: inline-block">
+        Have feedback or questions? Please file an issue on
+      </div>
+      <a data-i18n="footer.github" style="display: inline-block"
+        href="https://github.com/FOAP-NetMind-2022/beetlepush">the
+        Github repo</a>.
       </p>
     </div>
 
@@ -139,7 +162,7 @@ myArray[1]; // returns 2
 
     <div class="help-wrapper">
 
-      <h1 class="level-header">
+      <h1 style="display: inline-block" class="level-header">
         <span class="level-text"></span>
         <span id="checkmark" class="checkmark"></span>
       </h1>
@@ -153,22 +176,23 @@ myArray[1]; // returns 2
         <div class="progress"></div>
       </div>
 
-      <div class="display-help">
-        <h3 class="selector-name"></h3>
-        <h2 class="title"></h2>
-        <h3 class="syntax"></h3>
-        <div class="hint"></div>
-        <h4 class="examples-title">Example</h4>
-        <div class="examples"></div>
+      <div class="display-help" style="display: inline-block">
+        <h3 style="display: inline-block" class="selector-name"></h3>
+        <h2 style="display: inline-block" class="title"></h2>
+        <h3 style="display: inline-block" class="syntax"></h3>
+        <div style="display: inline-block" class="hint"></div>
+
+        <h4 data-i18n="example" style="display: inline-block" class="examples-title">Example</h4>
+        <div style="display: inline-block" class="examples"></div>
       </div>
     </div>
 
     <div class="level-menu">
-      <h2>Choose a level</h2>
+      <h2 data-i18n="chooseLevel">Choose a level</h2>
       <div class="levels">
         <!-- level links are inserted here-->
       </div>
-      <a class="reset-progress" href="#">Reset Progress</a>
+      <a data-i18n="resetProgress" class="reset-progress" href="#">Reset Progress</a>
     </div>
 
     <div class="level-menu-toggle-wrapper">
@@ -176,19 +200,34 @@ myArray[1]; // returns 2
     </div>
 
   </div><!-- /right-col -->
- <script> 
- 
-   const flask = new CodeFlask('#input-solution', {
-   language: 'js',
-   lineNumbers: true });
+  <script>
 
- flask.updateCode('myGrass;' );
- 
+    const flask = new CodeFlask('#input-solution', {
+      language: 'js',
+      lineNumbers: true
+    });
 
-</script>
- 
-  
+    flask.updateCode('myGrass;');
 
+
+  </script>
+
+
+  <script>
+    $('#languageSelector').change(() => {
+      selectedLang = $('#languageSelector').val();
+      Translate(selectedLang, true);
+      console.log(selectedLang);
+    });
+  </script>
+
+  <script>
+    $(window).load(() => {
+      if (localStorage.getItem('language')) {
+        $(`#languageSelector`).val(localStorage.getItem('language')).change();
+      }
+    });
+  </script>
 </body>
 
 </html>

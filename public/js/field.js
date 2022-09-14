@@ -1,3 +1,4 @@
+var selectedLang;
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
 var levelTimeout = 1000; // Delay between levels after completing
@@ -157,6 +158,7 @@ function checkCompleted(levelNumber) {
 }
 
 // Builds the slide-out level menu
+
 
 function buildLevelmenu() {
   for (var i = 0; i < levels.length; i++) {
@@ -841,5 +843,58 @@ function loadLevel() {
     $(".table " + level.selector).addClass("strobe");
     $(".pop").removeClass("pop");
   }, 200);
+
+  Translate(selectedLang, false);
+
+}
+
+// Popup positioning code from...
+// http://stackoverflow.com/questions/4068373/center-a-popup-window-on-screen
+
+function PopupCenter(url, title, w, h) {
+  // Fixes dual-screen position                         Most browsers      Firefox
+  var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+  var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+  var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+  var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+  var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+  var top = ((height / 2) - (h / 2)) + dualScreenTop;
+  var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+  // Puts focus on the newWindow
+  if (window.focus) {
+    newWindow.focus();
+  }
+}
+
+
+function Translate(language, user)
+{
+
+  $('#instructions').removeAttr('data-i18n');
+  
+  //#endregion
+  var lang;
+
+  if (user)
+  {
+    lang = language;
+    localStorage.setItem('language', language);
+  } else {
+    lang = localStorage.getItem('language');
+  }
+
+  i18n.init({
+    resStore: resources,
+    lng: lang
+  });
+
+  $('#instructions').attr('data-i18n', `level_${currentLevel+1}.methodTitle`);
+
+  $(".level-header .level-text").html(i18n.t('level') + " " + (currentLevel + 1) + " " +  i18n.t('of')  + " " + levels.length);
+
+  $(document).i18n();
 }
 
