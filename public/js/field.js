@@ -365,72 +365,72 @@ function checkLevelCorrect(currentLevel, inputUser) {
   switch (currentLevel) {
 
 
-    case 0:
+    // case 0:
 
-      //OPCION 1
-      expresion = /^myGrass.push\('ladybug'\)(;)?$/g
-      expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser)
-      //OPCION 2
-      //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
-      /*  if(inputUser.includes(levelMethod)){
-         console.log("has usado el metodo push")
-       } */
+    //   //OPCION 1
+    //   expresion = /^myGrass.push\('ladybug'\)(;)?$/g
+    //   expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser) || expresion2.test(inputUser)
+    //   //OPCION 2
+    //   //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
+    //   /*  if(inputUser.includes(levelMethod)){
+    //      console.log("has usado el metodo push")
+    //    } */
 
-      break;
+    //   break;
 
-    case 1:
-      expresion = /^myGrass.pop\(\)(;)?$/g
-      //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
-      isCorrect = expresion.test(inputUser);
+    // case 1:
+    //   expresion = /^myGrass.pop\(\)(;)?$/g
+    //   //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser);
 
-      //isCorrect= inputUser.includes("myGrass.pop()")
-      //console.log("has resuelto el ejercicio 2")
-      break;
+    //   //isCorrect= inputUser.includes("myGrass.pop()")
+    //   //console.log("has resuelto el ejercicio 2")
+    //   break;
 
-    case 2:
-      expresion = /^myGrass.shift\(\)(;)?$/g
-      isCorrect = expresion.test(inputUser);
-      //console.log("has resuelto el ejercicio 3")
-      break;
+    // case 2:
+    //   expresion = /^myGrass.shift\(\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser);
+    //   //console.log("has resuelto el ejercicio 3")
+    //   break;
 
-    case 3:
-      expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g
-      expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+    // case 3:
+    //   expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g
+    //   expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
-      //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
-      break;
+    //   //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
+    //   break;
 
-    case 4:
-      expresion = /^myGrass.slice\(1,4\)(;)?$/g
-      isCorrect = expresion.test(inputUser);
+    // case 4:
+    //   expresion = /^myGrass.slice\(1,4\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser);
 
-      //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
-      break;
+    //   //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
+    //   break;
 
-    case 5:
-      expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g
-      expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+    // case 5:
+    //   expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g
+    //   expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
-      //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','spider')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","spider")')
-      break;
+    //   //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','spider')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","spider")')
+    //   break;
 
-    case 6:
-      //isCorrect= inputUser.includes("myGrass.reverse()")
-      expresion = /^myGrass.reverse\(\)(;)?$/g
-      isCorrect = expresion.test(inputUser);
-      break;
+    // case 6:
+    //   //isCorrect= inputUser.includes("myGrass.reverse()")
+    //   expresion = /^myGrass.reverse\(\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser);
+    //   break;
 
-    case 7:
-      //isCorrect= inputUser.includes("myGrass.includes('bee')")||inputUser.includes('myGrass.includes("bee")')
+    // case 7:
+    //   //isCorrect= inputUser.includes("myGrass.includes('bee')")||inputUser.includes('myGrass.includes("bee")')
 
-      expresion = /^myGrass.includes\('bee'\)(;)?$/g
-      expresion2 = /^myGrass.includes\("bee"\)(;)?$/g
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+    //   expresion = /^myGrass.includes\('bee'\)(;)?$/g
+    //   expresion2 = /^myGrass.includes\("bee"\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
 
-      break;
+    //   break;
 
     case 8:
       //necesitariamos asignarle un nombre al array 2 del ejercicio.
@@ -443,71 +443,71 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       break;
 
-    case 9:
-      //fill con butterfly 
-      //isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
+    // case 9:
+    //   //fill con butterfly 
+    //   //isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
 
-      expresion = /^myGrass.fill\('butterfly'\)(;)?$/g
-      expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-      break;
+    //   expresion = /^myGrass.fill\('butterfly'\)(;)?$/g
+    //   expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g
+    //   isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
+    //   break;
 
-    case 10:
-      // find "ant"
-      method = "find";
+    // case 10:
+    //   // find "ant"
+    //   method = "find";
 
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        // aqui comparamos los evals
-        isCorrect = (eval(inputUser) == "0")
+    //   //primero busco si inputUser contiene el metodo find
+    //   if (inputUser.includes(method)) {
+    //     // aqui comparamos los evals
+    //     isCorrect = (eval(inputUser) == "0")
 
-      }
+    //   }
 
-      break;
-    case 11:
+    //   break;
+    // case 11:
 
-      method = "findIndex";
+    //   method = "findIndex";
 
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        // aqui comparamos los evals
-        isCorrect = (eval(inputUser) == 3)
+    //   //primero busco si inputUser contiene el metodo find
+    //   if (inputUser.includes(method)) {
+    //     // aqui comparamos los evals
+    //     isCorrect = (eval(inputUser) == 3)
 
-      }
+    //   }
 
-      break;
-    case 12:
-
-
-      method = "some";
-      element = "poisonous"
-
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        if (inputUser.includes('"poisonous"') || inputUser.includes("'poisonous'")) {
-          // aqui comparamos los evals
-          isCorrect = (eval(inputUser) == true)
-        }
-
-      }
-
-      break;
-    case 13:
+    //   break;
+    // case 12:
 
 
-      method = "every";
-      element = "fly"
+    //   method = "some";
+    //   element = "poisonous"
 
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        if (inputUser.includes(element)) {
-          // aqui comparamos los evals
-          isCorrect = (eval(inputUser) == true)
-        }
+    //   //primero busco si inputUser contiene el metodo find
+    //   if (inputUser.includes(method)) {
+    //     if (inputUser.includes('"poisonous"') || inputUser.includes("'poisonous'")) {
+    //       // aqui comparamos los evals
+    //       isCorrect = (eval(inputUser) == true)
+    //     }
 
-      }
+    //   }
 
-      break;
+    //   break;
+    // case 13:
+
+
+    //   method = "every";
+    //   element = "fly"
+
+    //   //primero busco si inputUser contiene el metodo find
+    //   if (inputUser.includes(method)) {
+    //     if (inputUser.includes(element)) {
+    //       // aqui comparamos los evals
+    //       isCorrect = (eval(inputUser) == true)
+    //     }
+
+    //   }
+
+    //   break;
       //AQUI EMPEZAMOS NOSOTROS
 default:
       let arrayName=levels[currentLevel].syntax.slice(0,-3);
@@ -520,11 +520,13 @@ default:
       // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
       arrayAreEqual=_.isEqual(myGrassSolution,evalInputUser);
       console.log("arrayEqual:",arrayAreEqual);
+      console.log("solutionmygrass",myGrassSolution);
+      console.log("evalInputUser ",evalInputUser);
 
       // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
       // isCorrect=methodCorrect && arrayAreEqual;
       isCorrect=arrayAreEqual && methodCorrect;
-
+ 
       break;  
   }
 

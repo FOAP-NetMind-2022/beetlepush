@@ -13,11 +13,9 @@ var levels = [
       '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
     ],
-    myMethod: "push",
-    myElements: ["ladybug"],
-    mySolution: "myGrass.push('ladybug');",
+    mySolution: "",
     myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution :['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution :"['ladybug','ladybug','ladybug','ladybug','ladybug']",
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -76,8 +74,8 @@ var levels = [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Apple"]; <br><strong>2</strong> fruits.pop();<br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Banana", "Orange"]</div>',
     ],
-    myGrass : ['worm','worm','bee' ],
-    myGrassSolution : ['worm','worm'],
+    myGrass : ['worm','worm','bee'],
+    myGrassSolution : "bee",
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -121,7 +119,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Orange", "Black", "Yellow"]</div>',
     ],
     myGrass : ['dragonFly','butterfly','butterfly','butterfly','butterfly'],
-    myGrassSolution : ['butterfly','butterfly','butterfly','butterfly'],
+    myGrassSolution : 'dragonFly',
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -456,7 +454,8 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["rose", "tulip", "daisy", "orchid", "lily"]</div>',
     ],
     myGrass : ['ladybug','ladybug','ladybug'],
-    myGrassSolution : ['ladybug','ladybug','ladybug'],
+    myGrassBaby:['ladybug','ladybug','ladybug'],
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug','ladybug'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -576,7 +575,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> fish</div>',
     ],
     myGrass : [8,0,6,6],
-    myGrassSolution : ['spider','caterpillar','ant','ladybug'],
+    myGrassSolution : 0,
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -618,7 +617,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 1</div>',
     ],
     myGrass : ['red','pink','black','turquoise','yellow'],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : 3,
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -663,7 +662,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
     ],
     myGrass : ['non-poisonous','poisonous','non-poisonous','poisonous'],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : true,
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -716,7 +715,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> false</div>',
     ],
     myGrass : [{name:'ladybug',fly:true, poisonous: false, color: 'red'},{name:'bee',fly:true, poisonous: true, color:'yellow'},{name:'dragonFly',fly:true, poisonous: false, color:'turquoise'}],
-    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    myGrassSolution : true,
     completed: false,
     userSolution: "",
     boardMarkup: `
