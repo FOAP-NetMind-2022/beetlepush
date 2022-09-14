@@ -8,12 +8,12 @@ var levels = [
 
   { 
     helpTitle: "Add an element at the end of the array, ",
-    selectorName: "Push method",
+    selectorName: "Push() method",
     doThis: "Insert the 'ladybug' at the end of the array",
     selector: "ladybug",
     syntax: "push();",
     //add link in the help page
-    help: "Definition and Usage The push() method adds new items to the end of an array. It changes the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_push.asp' target='_blank'> more help </a>",
+    help: "Definition and Usage The push() method adds new items to the end of an array. It changes the length of the original array. ",
     examples: [
       '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
@@ -83,11 +83,11 @@ var levels = [
 
   {
     helpTitle: "Remove the last of element in the array, ",
-    selectorName: "Pop method",
+    selectorName: "Pop() method",
     doThis: "Remove the intrusive bug in the end",
     selector: "bee",
     syntax: "pop();",
-    help: " The pop() method removes (pops) the last element of an array, changing the length of the original array. <a href= 'https://www.w3schools.com/jsref/jsref_pop.asp' target='_blank'> more help </a>",
+    help: " The pop() method removes (pops) the last element of an array, changing the length of the original array.",
     examples: [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Apple"]; <br><strong>2</strong> fruits.pop();<br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Banana", "Orange"]</div>',
@@ -134,11 +134,11 @@ var levels = [
 
   {
     helpTitle: "Remove the first element in the array ",
-    selectorName: "Shift method",
+    selectorName: "Shift() method",
     doThis: "Remove the dragonfly at the beginning",
     selector: "dragonFly",
     syntax: "shift();",
-    help: ' The shift() method removes the first array element. <a href= "https://www.w3schools.com/jsref/jsref_shift.asp"> more help </a>',
+    help: ' The shift() method removes the first array element.',
     examples: [
       '<strong>1</strong> const colors = ["Red", "Orange", "Black", "Yellow"]; <br><strong>2</strong> colors.shift();<br> <strong>3</strong> console.log(colors);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Orange", "Black", "Yellow"]</div>',
@@ -195,11 +195,11 @@ var levels = [
 
   {
     helpTitle: "Add element at the beginning of an array ",
-    selectorName: "Unshift method",
+    selectorName: "Unshift() method",
     doThis: "Add the queen Ant at the beginning of the array",
     selector: "antQueen",
     syntax: "unshift();",
-    help: ' The unshift() method adds a new element at the beginning of an array . <a href= "https://www.w3schools.com/jsref/jsref_unshift.asp"> more help </a>',
+    help: ' The unshift() method adds a new element at the beginning of an array . ',
     examples: [
       '<strong>1</strong> const names = ["Maria", "Jesus", "Frank"]; <br><strong>2</strong> names.unshift("Laura");<br> <strong>3</strong> console.log(names);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Laura","Maria", "Jesus", "Frank"]</div>',
@@ -261,11 +261,11 @@ var levels = [
 
   {
     helpTitle: "Creates a new array from selected elements",
-    selectorName: "Slice method",
+    selectorName: "Slice() method",
     doThis: "Create a new array only with winged bugs",
     selector: "bee, butterfly, dragonFly",
     syntax: "slice();",
-    help: ' The slice() method creates a new array from selected elements, does not change the original array.This method selects has two parameters "start" and "end" (not inclusive).<a href= "https://www.w3schools.com/jsref/jsref_slice_array.asp"> more help </a>',
+    help: ' The slice() method creates a new array from selected elements, does not change the original array.This method selects has two parameters "start" and "end" (not inclusive).',
     examples: [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]; <br><strong>2</strong> const citrus = fruits.slice(1,3);<br> <strong>3</strong> console.log(citrus);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Orange", "Lemon"]</div>',
@@ -320,11 +320,11 @@ var levels = [
 
   {
     helpTitle: "Modifies the content of an array, adding new elements and / or removing old elements",
-    selectorName: "Splice method",
+    selectorName: "Splice() method",
     doThis: "Replace the repeated bugs with the new ones",
     selector: "dragonFly, spider, .dance",
     syntax: "splice();",
-    help: ' The splice() method adds/removes items to/from an array, and returns the removed item(s). <a href= "https://www.w3schools.com/jsref/jsref_splice.asp"> more help </a>',
+    help: ' The splice() method adds/removes items to/from an array, and returns the removed item(s). ',
     examples: [
       '<strong>1</strong> const office = ["pencil", "pen", "orange", "salad", "notebook", "marker"]; <br><strong>2</strong> office.splice(2,2, "folder", "scissors");<br> <strong>3</strong> console.log(office);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["pencil", "pen", "folder", "scissors", "notebook", "marker"]</div>',
@@ -396,11 +396,11 @@ var levels = [
 
   {
     helpTitle: "Reverse the order of the elements in an array",
-    selectorName: "Reverse method",
+    selectorName: "Reverse() method",
     doThis: "Reverse the elements of the array to restore the natural order",
     selector: "butterfly, cocoon, caterpillar",
     syntax: "reverse();",
-    help: ' The reverse() method reverses the order of the elements in an array.This method overwrites the original array. <a href= "https://www.w3schools.com/jsref/jsref_reverse.asp"> more help </a>',
+    help: ' The reverse() method reverses the order of the elements in an array.This method overwrites the original array.',
     examples: [
       //example with reverse method using cars array
       '<strong>1</strong> const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br><strong>2</strong> cars.reverse();<br> <strong>3</strong> console.log(cars);',
@@ -448,11 +448,11 @@ var levels = [
 
   {
     helpTitle: "Includes returns a boolean if an array contains a specified value",
-    selectorName: "Includes method",
+    selectorName: "Includes() method",
     doThis: "Check if the array contains the bug 'bee'",
     selector: "bee",
     syntax: "includes();",
-    help: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. <a href= "https://www.w3schools.com/jsref/jsref_includes.asp"> more help </a>',
+    help: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. ',
     examples: [
       //example with includes method using vegetables array
       '<strong>1</strong> const vegetables = ["Cabbage", "Turnip", "Radish", "Carrot"]; <br><strong>2</strong> console.log(vegetables.includes("Turnip"));',
@@ -503,11 +503,11 @@ var levels = [
  * *********************/ 
    {
     helpTitle: "Concatenates two or more arrays",
-    selectorName: "Concat method",
+    selectorName: "Concat() method",
     doThis: "Concatenate the array with small ladybugs after the first array",
     selector: ".small",
     syntax: "concat();",
-    help: ' The concat() method concatenates (joins) two or more arrays.This method returns a new array, containing the joined arrays. <a href= "https://www.w3schools.com/jsref/jsref_concat_array.asp"> more help </a>',
+    help: ' The concat() method concatenates (joins) two or more arrays.This method returns a new array, containing the joined arrays. ',
     examples: [
       //example with concat method using flowers array
       '<strong>1</strong> const flowers = ["rose", "tulip", "daisy"]; <br><strong>2</strong> const flowers2 = ["orchid", "lily"]; <br><strong>3</strong> const flowers3 = flowers.concat(flowers2);<br> <strong>4</strong> console.log(flowers3);',
@@ -573,11 +573,11 @@ var levels = [
    * *********************/
    {
     helpTitle: "Fills an array with a value",
-    selectorName: "Fill method",
+    selectorName: "Fill() method",
     doThis: "Cause the metamorphosis in all cocoon",
     selector: "cocoon, butterfly",
     syntax: "fill();",
-    help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. <a href= 'https://www.w3schools.com/jsref/jsref_fill.asp'> more help </a>",
+    help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. ",
     examples: [
       //example with fill method using jobs array
       '<strong>1</strong> const jobs = ["teacher", "programmer", "designer"]; <br><strong>2</strong> jobs.fill("engineer"); <br><strong>3</strong> console.log(jobs);',
@@ -629,11 +629,11 @@ var levels = [
    * *********************/
    {
     helpTitle: "Returns the value of the first element in an array that pass a test",
-    selectorName: "Find method",
+    selectorName: "Find() method",
     doThis: "Find the first bug which has no legs",
     selector: "caterpillar",
     syntax: "find();",
-    help: "The find() method returns the value of the first element in an array that pass a test (provided as a function), find method returns undefined if no elements are found.<a href= 'https://www.w3schools.com/jsref/jsref_find.asp'> more help </a>" ,
+    help: "The find() method returns the value of the first element in an array that pass a test (provided as a function), find method returns undefined if no elements are found." ,
     examples: [
       //example with find method using animals array
       '<strong>1</strong> const animals = ["dog", "cat", "bird", "fish"]; <br><strong>2</strong> const firstFish = animals.find(animal => animal === "fish");<br> <strong>3</strong> console.log(firstFish);',
@@ -676,11 +676,11 @@ var levels = [
    * *********************/
    {
     helpTitle: "Returns the index of the first element in an array that pass a test",
-    selectorName: "FindIndex method",
+    selectorName: "FindIndex() method",
     doThis: "Find Index of the turquoise dragonfly",
     selector: "dragonFly",
     syntax: "findIndex();",
-    help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. <a href= 'https://www.w3schools.com/jsref/jsref_findindex.asp'> more help </a>",
+    help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. ",
     examples: [
       //example with findIndex method using numbers array
       '<strong>1</strong> const numbers = [1, 2, 3, 4, 5]; <br><strong>2</strong> const firstEven = numbers.findIndex(number => number % 2 === 0);<br> <strong>3</strong> console.log(firstEven);',
@@ -723,11 +723,11 @@ var levels = [
    * *********************/
    {
     helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
-    selectorName: "Some method",
+    selectorName: "Some() method",
     doThis: "Check if there is any poisonous bug ",
     selector: ".dance",
     syntax: "some();",
-    help: "The some() method checks if any of the elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for one of the array elements <a href= 'https://www.w3schools.com/jsref/jsref_some.asp'> more help </a>",
+    help: "The some() method checks if any of the elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for one of the array elements ",
     examples: [
       //example with some method using foods array
       '<strong>1</strong> const foods = ["apple", "banana", "cherry", "mango"]; <br><strong>2</strong> const hasMango = foods.some(food => food === "mango");<br> <strong>3</strong> console.log(hasMango);',
@@ -777,11 +777,11 @@ var levels = [
    *  *********************/
    {
     helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
-    selectorName: "Every method",
+    selectorName: "Every() method",
     doThis: "What do they have in common ?",
     selector: ".dance",
     syntax: "every();",
-    help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements <a href= 'https://www.w3schools.com/jsref/jsref_every.asp'> more help </a>",
+    help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements ",
     examples: [
       //example with every method using names array
       '<strong>1</strong> const names = ["John", "Mary", "Joe"]; <br><strong>2</strong> const allNames = names.every(name => name.length > 3);<br> <strong>3</strong> console.log(allNames);',

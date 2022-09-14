@@ -62,7 +62,7 @@ $(document).ready(function () {
   $(".left-col, .level-menu").mCustomScrollbar({
     scrollInertia: 0,
     autoHideScrollbar: true
-  });
+  }); 
 
   $(".note-toggle").on("click", function () {
     $(this).hide();
@@ -378,7 +378,7 @@ function fireArray(text) {
     setTimeout(function () {
       currentLevel++;
       loadLevel();
-      flask.updateCode('myGrass;');
+      flask.updateCode("let myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];');
     }, 6000);
 
     return;
@@ -610,11 +610,13 @@ function showHelp() {
   $(".display-help .examples").html("");
   $(".display-help .examples-title").hide(); // Hide the "Examples" heading
 
-  for (var i = 0; i < examples.length; i++) {
+
+
+   for (var i = 0; i < examples.length; i++) {
     var example = $("<div class='example'>" + examples[i] + "</div>");
     $(".display-help .examples").append(example);
     $(".display-help .examples-title").show(); // Show it if there are examples
-  }
+  } 
 
   $(".display-help .hint").html(help);
   $(".display-help .selector").text(selector);
@@ -956,7 +958,7 @@ function loadLevel() {
   {
     flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
-    flask.updateCode("myGrass;");
+    flask.updateCode("let myGrass = [" + '"' + levels[currentLevel].myGrass.join('","').toString() + '"];');
   }
 
   //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado. 
