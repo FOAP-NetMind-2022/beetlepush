@@ -14,8 +14,9 @@ var levels = [
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
     ],
     mySolution: "",
-    myGrass : ['ladybug','ladybug','ladybug','ladybug'],
-    myGrassSolution :['ladybug','ladybug','ladybug','ladybug','ladybug'],
+    variableToCheck: "myGrass",
+    myGrass :"var myGrass = ['ladybug','ladybug','ladybug','ladybug'];",
+    myGrassSolution : "ladybug,ladybug,ladybug,ladybug,ladybug",
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -74,8 +75,9 @@ var levels = [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Apple"]; <br><strong>2</strong> fruits.pop();<br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Banana", "Orange"]</div>',
     ],
-    myGrass : ['worm','worm','bee'],
-    myGrassSolution : "bee",
+    variableToCheck: "myGrass",
+    myGrass : "var  myGrass= ['worm','worm','bee']",
+    myGrassSolution : "worm,worm",
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -864,7 +866,7 @@ var levels = [
         '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 10</div>',
         
       ],
-      myGrass : [1,1,1,1],
+      myGrass : "let myGrass = [1,1,1,1]; \n \n",
       myGrassSolution : 4,
       completed: false,
       userSolution: "",
