@@ -52,11 +52,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            en-EN
+                            en-US
                         </a>
                         <ul class="dropdown-menu langSelector" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a data-language="en-US" class="dropdown-item" href="#">en-US</a></li>
                             <li><a data-language="es-ES" class="dropdown-item" href="#">es-ES</a></li>
-                            <li><a data-language="en-EN" class="dropdown-item" href="#">en-EN</a></li>
                         </ul>
                     </li>
 
@@ -313,9 +313,10 @@ myArray[1]; // returns 2
   $(window).load(() => {
     if (localStorage.getItem('language')) {
       //$(`#languageSelector`).val(localStorage.getItem('language')).change();
-      Translate(localStorage.getItem('language'), true);
 
      $('#navbarDropdownMenuLink').text(localStorage.getItem('language'));
+     
+     Translate(localStorage.getItem('language'), true);
     }
   });
 </script>

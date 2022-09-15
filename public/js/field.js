@@ -818,13 +818,13 @@ function loadLevel() {
   $(".result").text("");
 
   let local = JSON.parse(localStorage.progress);
-
+  Translate(selectedLang, false);
   if (local.guessHistory[currentLevel]) {
     flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
-    flask.updateCode(`let myGrass = ["${levels[currentLevel].myGrass.join('","').toString()}"]; 
-    \n // Start coding here!
-    \n // Press the "Run" button to validate your code!`);
+    flask.updateCode(levels[currentLevel].myGrass);
+    // Start coding here!
+    // Press the "Run" button to validate your code!`);
   }
 
   //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado.
@@ -849,7 +849,7 @@ function loadLevel() {
     $(".pop").removeClass("pop");
   }, 200);
 
-  Translate(selectedLang, false);
+
 
 }
 
@@ -877,10 +877,11 @@ function PopupCenter(url, title, w, h) {
 
 function Translate(language, user)
 {
-
-  $('#instructions').removeAttr('data-i18n');
   
-  //#endregion
+  $('.order').html('');
+  $('.markup').removeAttr('data-i18n');
+  $('.contextInstructions').removeAttr('data-i18n');
+
   var lang;
 
   if (user)
@@ -896,7 +897,14 @@ function Translate(language, user)
     lng: lang
   });
 
-  $('#instructions').attr('data-i18n', `level_${currentLevel+1}.methodTitle`);
+  $('.order').html(i18n.t(`level_${currentLevel+1}.methodTitle`));
+  $('.markup').html(i18n.t(`level_${currentLevel+1}.instructions`));
+  $('.contextInstructions').html(i18n.t(`level_${currentLevel+1}.context`));
+
+  $('.display-help .selector-name').html(i18n.t(`level_${currentLevel+1}.methodName`));
+  $('.title').html(i18n.t(`level_${currentLevel+1}.methodHelp`));
+  $('.hint').html(i18n.t(`level_${currentLevel+1}.desc`));
+
 
   $(".level-header .level-text").html(i18n.t('level') + " " + (currentLevel + 1) + " " +  i18n.t('of')  + " " + levels.length);
 
