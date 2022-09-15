@@ -1,7 +1,7 @@
 var selectedLang;
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
-var levelTimeout = 1000; // Delay between levels after completing
+var levelTimeout = 2000; // Delay between levels after completing
 var finished = false; // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
 
 
@@ -352,12 +352,12 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
   
 
-  if (levels[currentLevel].solutionIsArray) {
+  // if (levels[currentLevel].solutionIsArray) {
 
-    // obtenemos un string de levels.js, que transformamos en array mediante el método split
-    myGrassSolution = myGrassSolution.split(',');
-    console.log("🚀 ~ file: field.js ~ line 368 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
-  }
+  //   // obtenemos un string de levels.js, que transformamos en array mediante el método split
+  //   myGrassSolution = myGrassSolution.split(',');
+  //   console.log("🚀 ~ file: field.js ~ line 368 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
+  // }
 
       //AQUI EMPEZAMOS NOSOTROS
       let regExpExercise = levels[currentLevel].regExp;

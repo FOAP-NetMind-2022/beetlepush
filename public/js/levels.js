@@ -8,7 +8,7 @@ var levels = [
     doThis: "Insert the 'ladybug' at the end of the array",
     selector: ".dance",
     syntax: "push();",
-    regExp: "myGrass\.push\(",
+    regExp: "myGrass\.push.*ladybug",
     //add link in the help page
     help: "The push() method adds new items to the end of an array. It changes the length of the original array. ",
     examples: [
@@ -18,7 +18,7 @@ var levels = [
     solutionIsArray: true, // indicar si la solución es un array
     variableToCheck: "myGrass", // la variable que vamos a evaluar y que debe llenar el usuario para saber si el ejercicio es correcto
     myGrass :"var myGrass = ['ladybug','ladybug','ladybug','ladybug'];\n\nmyGrass.push();",
-    myGrassSolution : "ladybug,ladybug,ladybug,ladybug,ladybug", // si es un array, colocal sus elementos separados por comas
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'], // si es un array, colocal sus elementos separados por comas
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -95,7 +95,7 @@ var levels = [
     solutionIsArray: true,
     variableToCheck: "myGrass",
     myGrass : "var myGrass= ['worm','worm','bee'];\n\n",
-    myGrassSolution : "worm,worm",
+    myGrassSolution : ['worm','worm'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -146,7 +146,7 @@ var levels = [
     myGrass : "var myGrass = ['dragonFly','butterfly','butterfly','butterfly','butterfly']; \n\n",
     solutionIsArray: true,
     variableToCheck: "myGrass",
-    myGrassSolution : "butterfly,butterfly,butterfly,butterfly",
+    myGrassSolution : ['butterfly','butterfly','butterfly','butterfly'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -203,10 +203,9 @@ var levels = [
       '<strong>1</strong> const names = ["Maria", "Jesus", "Frank"]; <br><strong>2</strong> names.unshift("Laura");<br> <strong>3</strong> console.log(names);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Laura","Maria", "Jesus", "Frank"]</div>',
     ],
-    solutionIsArray: true,
     variableToCheck: "myGrass",
     myGrass : "var myGrass = ['ant','ant','ant','ant'];\n\n",
-    myGrassSolution : 'antQueen,ant,ant,ant,ant',
+    myGrassSolution : ['antQueen','ant','ant','ant','ant'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -268,8 +267,7 @@ var levels = [
     ],
     variableToCheck: "wingedBugs",
     myGrass : "var myGrass = ['worm','butterfly','bee','dragonFly','spider'];\n\nvar wingedBugs;",
-    myGrassSolution : "butterfly,bee,dragonFly",
-    solutionIsArray: true,
+    myGrassSolution : ['butterfly','bee','dragonFly'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -323,9 +321,8 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["pencil", "pen", "folder", "scissors", "notebook", "marker"]</div>',
     ],
     myGrass : "var myGrass = ['bee','ant','ant','worm','butterfly','worm'];\n\nmyGrass;",
-    solutionIsArray: true,
     variableToCheck: "myGrass",
-    myGrassSolution : "bee,ant,dragonFly,spider,butterfly,worm",
+    myGrassSolution : ['bee','ant','dragonFly','spider','butterfly','worm'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -401,9 +398,8 @@ var levels = [
     ],
 
     myGrass : "var myGrass = ['butterfly','cocoon','caterpillar'];\n\n",
-    myGrassSolution : 'caterpillar,cocoon,butterfly',
+    myGrassSolution : ['caterpillar','cocoon','butterfly'],
     variableToCheck: "myGrass",
-    solutionIsArray: true,
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -504,9 +500,8 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["rose", "tulip", "daisy", "orchid", "lily"]</div>',
     ],
     myGrass : "var myGrass = ['ladybug','ladybug','ladybug'];\nvar myGrassBaby = ['ladybugbaby','ladybugbaby','ladybugbaby'];\n\nvar fullFamily;",
-    solutionIsArray: true,
     variableToCheck: "fullFamily",
-    myGrassSolution : "ladybug,ladybug,ladybug,ladybugbaby,ladybugbaby,ladybugbaby",
+    myGrassSolution : ['ladybug','ladybug','ladybug','ladybugbaby','ladybugbaby','ladybugbaby'],
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -576,7 +571,7 @@ var levels = [
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["engineer", "engineer", "engineer"]</div>',
     ],
     myGrass : "var myGrass = ['cocoon','cocoon','cocoon','cocoon'];\n\n",
-    myGrassSolution : 'butterfly,butterfly,butterfly,butterfly',
+    myGrassSolution : ['butterfly','butterfly','butterfly','butterfly'],
     solutionIsArray: true,
     variableToCheck: "myGrass",
     completed: false,
@@ -876,5 +871,205 @@ var levels = [
   // instructions:"<div>Use the <strong>filter()</strong> <i>method</i> to find out the common features.</div><br><br><div><i>Example:</i> <strong>{name: 'worm', fly: false, poisonous: false}</strong> taking into account these properties</div>"
   
   // },
+
+  {
+    helpTitle: "Sort the bugs by evolution",
+    selectorName: "Sort method",
+    doThis: "Sort the bugs by evolution",
+    selector: ".dance",
+    syntax: "sort();",
+    regExp: "myGrass\.sort(.*\.eStage)", // TODO: cambiar esto por regexp lookahead. Ahora simplemente mira si en algun sitio hemos usado la propiedad "eStage"
+    help: "The sort() method sorts the elements of an array. <a href= 'https://www.w3schools.com/jsref/jsref_sort.asp'> More help. </a>",
+    examples: [
+    '<strong>1</strong> const evolution = [{name:"tadpole", eStage: "1"}, {name:"egg", eStage: "0"},{name:"frog", eStage: "2"}]; <br><strong>2</strong> evolution.sort((a, b) =>{return a.eStage - b.eStage;});<br> <strong>3</strong> console.log(evolution);',
+    '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["egg", "tadpole", "frog"]</div>',
+    ],
+    myGrass : `var myGrass = [{name:'butterfly', eStage: '2'},
+    {name:'caterpillar', eStage: '0'},{name:'cocoon', eStage: '1'}];\n\nmyGrass;`,
+    myGrassSolution : [{name:'caterpillar', eStage: '0'},{name:'cocoon', eStage: '1'},{name:'butterfly', eStage: '2'}],
+    completed: false,
+    variableToCheck: "myGrass",
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <butterfly>
+        </grass>
+        <grass>
+          <caterpillar>
+        </grass>
+        <grass>
+          <cocoon>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: ` 
+      <bracket>
+        <grass>
+          <caterpillar class= "dance">
+        </grass>
+        <grass>
+          <cocoon class= "dance">
+        </grass>
+        <grass>
+          <butterfly class= "dance">
+        </grass>
+      </bracket>
+    `,
+    instructions: "<div style='font-size:20px'>In this level you must order the insects by the order of their evolution.<br>You should know that each bug has 2 properties, its name and its stage of evolution ('eStage'):<br>-->[{name:'butterfly', eStage: '2'}]</b></div>" 
+  },
+
+  {
+    helpTitle: "Reduce the ants ",
+    selectorName: "Reduce method",
+    doThis: "Turn ants into queen",
+    regExp: "myGrass\.reduce", 
+    selector: ".dance",
+    syntax: "reduce();",
+    help: "The reduce() method returns a single value: the function's accumulated result.<a href= 'https://www.w3schools.com/jsref/jsref_reduce.asp'> More help. </a>",
+    examples: [
+      '<strong>1</strong> const numbers = [1, 2, 3, 4]; <br><strong>2</strong> const sum = numbers.reduce((previousNum, actualNum) =>{return previousNum + actualNum;}); <br><strong>3</strong> console.log (sum);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 10</div>',
+      
+    ],
+    myGrass : "var myGrass = [1,1,1,1];\n\nvar total;",
+    myGrassSolution : 4,
+    variableToCheck: "total",
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <ant>
+        </grass>
+        <grass>
+          <ant>
+        </grass>
+        <grass>
+          <ant>
+        </grass>
+        <grass>
+          <ant>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: ` 
+    <!--mirar de quitar el braket-->
+    <grass style="height:130px">
+    <ant class="small dance" style="top:0">
+    <ant class="small dance" style="top:0">
+    <ant class="small dance" style="top:0">
+    <ant class="small dance" style="top:0">
+    </grass>
+    `,
+    instructions: "<div style='font-size:20px'>Hello again! <br><br>In this exercise we have an array of ants, if we add each ant, we will get 4 ants (a number). Assign the value of the method into <strong>total</strong></div>" 
+  },
+  {
+    helpTitle: "Join the ants ",
+    selectorName: "Join method",
+    doThis: "Join the ants with a chain",
+    regExp: "myGrass\.join.*_", 
+    selector: ".dance",
+    syntax: "join();",
+    help: "The join() method returns an array as a string.<a href= 'https://www.w3schools.com/jsref/jsref_join.asp'> More help. </a>",
+    examples: [
+      //example with every method using names array
+      '<strong>1</strong> const elements = ["Fire", "Air", "Water"]; <br><strong>2</strong> console.log(elements.join())',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
+      
+    ],
+    myGrass : 'var myGrass = ["ant","ant","ant"];\n\nvar strLinked;',
+    myGrassSolution : "ant_ant_ant",
+    variableToCheck: "strLinked",
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass class="grassNewMargin">
+          <ant>
+        </grass>
+        <grass class="grassNewMargin">
+          <ant>
+        </grass>
+        <grass>
+          <ant>
+        </grass>
+
+      </bracket>
+    `,
+    //mirar de hacer abejitas y unirlos con flores a modo de coma o guion
+    boardMarkupSolution: ` 
+        <grass>
+          <ant class= "dance">
+        </grass>
+        <grass style='height:5px;width:30px'>
+        </grass>
+        <grass>
+          <ant class= "dance">
+        </grass>
+        <grass style='height:5px;width:30px'>
+        </grass>
+        <grass>
+          <ant class= "dance">
+        </grass>
+  `,
+  instructions: "<div style='font-size:20px'>Hello again! <br><br>in this exercise you have to transform this small group of ants into an anthill.<br><br>We need you to join them with a underscore so that they are joined with a string. Assign the result into <strong>strLinked</strong></div>" 
+  },
+  {
+    helpTitle: "Map the bugs",
+    selectorName: "Map method",
+    doThis: "Doubles the weight of the bugs",
+    selector: ".dance",
+    regExp: "myGrass\.map.*", 
+
+    syntax: "map();",
+    help: "The map() calls a function once for each element in an array.<a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> More help. </a>",
+    examples: [
+      //falta pensar un ejemplo
+      '<strong>1</strong> const list =  [1, 2, 3, 4, 5]; <br><strong>2</strong> const newlist = list.map(sum(actualElement) {return actualElement + 1; }); <br><strong>3</strong> console.log (newlist);',
+    '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> [2, 3, 4, 5, 6]</div>',
+      
+    ],
+    myGrass : `var myGrass = [{name:'ladybug', weight: 10},{name:'spider', weight: 30},
+    {name:'dragonfly', weight: 15}, {name:'ant', weight: 2}];\n\nvar feededBugs;`,
+    myGrassSolution : [{name:'ladybug', weight: 20},{name:'spider', weight: 60},{name:'dragonfly', weight: 30}, {name:'ant', weight: 4}],
+    completed: false,
+    userSolution: "",
+    variableToCheck: "feededBugs",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <ladybug class="small">
+        </grass>
+        <grass>
+          <spider class="small">
+        </grass>
+        <grass>
+          <dragonfly class="small">
+        </grass>
+        <grass>
+          <ant class="small">
+        </grass>
+      </bracket>    
+    `,
+    boardMarkupSolution: ` 
+      <bracket>
+        <grass>
+          <ladybug class="dance">
+        </grass>
+        <grass>
+          <spider class="dance">
+        </grass>
+        <grass>
+          <dragonfly class="dance">
+        </grass>
+        <grass>
+          <ant class="dance">
+        </grass>
+      </bracket>
+  `,
+  instructions: "<div style='font-size:20px'>Hello again!<br><br>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong> <br><br>Each bug has 2 properties: name and weight.<br>--> [{name:'ladybug', weight: '10'}]</div>" 
+  },
+  
 
 ];

@@ -1590,6 +1590,7 @@ queda limpiar lo que estaba hecho previamente
 
 .jsLevelNav {
   /* padding-left: 250px; */
+  user-select: none;
 }
 
 .jsLevelNav .level-nav {
