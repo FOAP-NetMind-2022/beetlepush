@@ -563,56 +563,59 @@ var levels = [
  /********************************
  * LEVEL 10 (case 9) FILL METHOD
  * *********************************/ 
-  //  {
-  //   helpTitle: "Fills an array with a value",
-  //   selectorName: "Fill() method",
-  //   doThis: "Cause the metamorphosis in all 'cocoon'",
-  //   selector: "cocoon, butterfly",
-  //   syntax: "fill();",
-  //   help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. ",
-  //   examples: [
-  //     '<strong>1</strong> const jobs = ["teacher", "programmer", "designer"]; <br><strong>2</strong> jobs.fill("engineer"); <br><strong>3</strong> console.log(jobs);',
-  //     '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["engineer", "engineer", "engineer"]</div>',
-  //   ],
-  //   myGrass : ['cocoon','cocoon','cocoon','cocoon'],
-  //   myGrassSolution : ['butterfly','butterfly','butterfly','butterfly'],
-  //   completed: false,
-  //   userSolution: "",
-  //   boardMarkup: `
-  //     <bracket>
-  //       <grass>
-  //         <cocoon>
-  //       </grass>
-  //       <grass>
-  //         <cocoon>
-  //       </grass>
-  //       <grass>
-  //         <cocoon>
-  //       </grass>
-  //       <grass>
-  //         <cocoon>
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   boardMarkupSolution: ` 
-  //   <bracket>
-  //   <grass>
-  //     <butterfly>
-  //   </grass>
-  //   <grass>
-  //     <butterfly>
-  //   </grass>
-  //   <grass>
-  //     <butterfly>
-  //   </grass>
-  //   <grass>
-  //     <butterfly>
-  //   </grass>
-  //   </bracket>
-  // `,
-  // contextInstructions: "<div>As you already know some bugs change their shape completely when they become adults. Some bugs do what is known as metamorphosis. This process is different depending on the bug, in the case of butterflies its transformation is total, first it is a caterpillar, then a cocoon and finally a beautiful butterfly.</div>" ,
-  // instructions:"<div>Use the <strong>fill()</strong>  <i>method</i> to transform this <strong>'cocoon'</strong> <i>array</i>  in a <strong>'butterfly'</strong> <i>array</i>, and see the power of metamorphosis.</b></div>"
-  // },
+   {
+    helpTitle: "Fills an array with a value",
+    selectorName: "Fill() method",
+    doThis: "Cause the metamorphosis in all 'cocoon'",
+    regExp: "myGrass\.fill",
+    selector: "cocoon, butterfly",
+    syntax: "fill();",
+    help: "The fill() method fills all the elements of an array with a value. Fill method overwrites the original array. ",
+    examples: [
+      '<strong>1</strong> const jobs = ["teacher", "programmer", "designer"]; <br><strong>2</strong> jobs.fill("engineer"); <br><strong>3</strong> console.log(jobs);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["engineer", "engineer", "engineer"]</div>',
+    ],
+    myGrass : "var myGrass = ['cocoon','cocoon','cocoon','cocoon'];\n\n",
+    myGrassSolution : 'butterfly,butterfly,butterfly,butterfly',
+    solutionIsArray: true,
+    variableToCheck: "myGrass",
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <cocoon>
+        </grass>
+        <grass>
+          <cocoon>
+        </grass>
+        <grass>
+          <cocoon>
+        </grass>
+        <grass>
+          <cocoon>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: ` 
+    <bracket>
+    <grass>
+      <butterfly>
+    </grass>
+    <grass>
+      <butterfly>
+    </grass>
+    <grass>
+      <butterfly>
+    </grass>
+    <grass>
+      <butterfly>
+    </grass>
+    </bracket>
+  `,
+  contextInstructions: "<div>As you already know some bugs change their shape completely when they become adults. Some bugs do what is known as metamorphosis. This process is different depending on the bug, in the case of butterflies its transformation is total, first it is a caterpillar, then a cocoon and finally a beautiful butterfly.</div>" ,
+  instructions:"<div>Use the <strong>fill()</strong>  <i>method</i> to transform this <strong>'cocoon'</strong> <i>array</i>  in a <strong>'butterfly'</strong> <i>array</i>, and see the power of metamorphosis.</b></div>"
+  },
 
    /********************************
  * LEVEL 11 (case 10) FIND METHOD
