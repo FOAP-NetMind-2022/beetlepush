@@ -1,196 +1,325 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Beetlepush - Have fun learning array methods!</title> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+
+
+  <title>Beetlepush - Have fun learning array methods!</title>
+
+  <script src="/js/translations.js"></script>
   <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
   <script src="/js/levels.js" type="text/javascript" charset="utf-8"></script>
   <script src="/js/field.js" type="text/javascript" charset="utf-8"></script>
   <script src="/js/jquery.mCustomScrollbar.min.js"></script>
- 
 
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-  <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" type="text/css" media="screen" title="no title"
-    charset="utf-8">
-  <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" type="text/css" media="screen" title="no title"
+        charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-  <meta property="og:url" content="http://cssdiner.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="CSS Diner" />
-  <meta property="og:description" content="A fun game to help you learn and practice CSS selectors." />
-  <meta property="og:image" content="https://flukeout.github.io/images/fb-share.jpg" />
+
+
+    <title>Beetlepush - Have fun learning array methods!</title>
 </head>
 
 <body class="bg">
-  <div class="left-col">
+    <div class="clouds2"><img src="/images/clouds2.svg" alt=""></div>
+    <div class="clouds"><img src="/images/clouds.svg" alt=""></div>
 
-    <header>
 
-      <div><img class="beetlepush" src="/images/Logo.png" alt="">
-        <div class="title_logo">Beetle <span class="pushtitle">Push!</span></div>
-      </div>
+    <!-- navbar principal         -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BeetlePush</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            en-EN
+                        </a>
+                        <ul class="dropdown-menu langSelector" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a data-language="es-ES" class="dropdown-item" href="#">es-ES</a></li>
+                            <li><a data-language="en-EN" class="dropdown-item" href="#">en-EN</a></li>
+                        </ul>
+                    </li>
 
-      <span class="share-menu">
-        Share
-        <a class="share-twitter" type="twitter" href="#"></a>
-        <a class="share-facebook" type="facebook" href="#"></a>
-        <a class="share-email" type="email" href="#"></a>
-      </span>
-    </header>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                            aria-controls="offcanvasScrolling"><i class="bi bi-list" style="font-size: 20px"></i></a>
+                    </li>
 
-    <h2 class="order"></h2>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <div class="note">
-      <h3>No worries, you've got this!</h3>
-      <p>
-        don't worry, you are about to learn to handle arrays, relax and enjoy.
-      </p>
+    <!-- sidebar menu -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <!-- sidebar menu header -->
+        <div class="offcanvas-header">
 
-      <h4>Array definition </h4>
+            <a class="nav-link" aria-current="page" href="#">
+                <span class="level-header">
+                    <span class="level-text"></span>
+                    <span id="checkmark" class="checkmark"></span>
+                </span>
+            </a>
 
-      <p>
-        Arrays in JavaScript as in most programming languages, are special variables that can hold more than one value. Even though you can have different variables to store the same values, the goal of arrays is that one can loop through them finding a specific one, specially when you have not 3 but 300 elements.
-        </p>
 
-      <p>
-        To declare an array, define the variable type with square brackets      </p>
-      <p>
-        <pre>
+
+            <span class="level-nav">
+                <a class="previous" href="#"></a>
+                <a class="next" href="#"></a>
+            </span>
+
+
+            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="contextInstructions"></p>
+            <!-- sidebar menu accordion -->
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button data-i18n="chooseLevel" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Choose a level
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="level-menu">                              
+                                <div class="levels">
+                                    <!-- level links are inserted here-->
+                                </div>
+                                <a data-i18n="resetProgress" class="reset-progress" href="#">Reset Progress</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            <div class="display-help">
+                                <span class="selector-name"></span>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="display-help">
+                                <h2 class="title"></h2>
+                                <h3 class="syntax"></h3>
+                                <div class="hint"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button data-i18n="example" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                            Example
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="display-help">
+
+                                <div id="example" class="examples"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseFour">
+                            More about JavaScript Arrays
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingFour" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h4>Array definition </h4>
+
+                            <p>
+                                Arrays in JavaScript as in most programming languages, are special variables that
+                                can hold more than one value. Even though you can have different variables to store
+                                the same values, the goal of arrays is that one can loop through them finding a
+                                specific one, specially when you have not 3 but 300 elements.
+                            </p>
+
+                            <p>
+                                To declare an array, define the variable type with square brackets
+                            </p>
+                            <p>
+                                <pre>
 var myArray = [1, 2, 3, 4, 5];
 myArray[0]; // returns 1
 myArray[1]; // returns 2           
         </pre>
-      </p>
-      <h4>Array methods</h4>
-      <p>
-        With array methods is possible not only find elements but add, remove, filter and create copies applying different operations.</p>
-      <p>
-   
+                            </p>
+                            <h4>Array methods</h4>
+                            <p>
+                                With array methods is possible not only find elements but add, remove, filter and
+                                create copies applying different operations.
+                                You will find more information about them in the <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                                    target="_blank">MDN Array reference</a>
+                                    and
+                                    <a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3Schools
+                                        Array reference</a>
+                            </p>
 
-        To play, type in a Array method and see how it works. You can also try out your own methods.
-  to select the correct items on the table.If you get it
-        right, you'll advance to the next level.
-      </p>
-      <p>
-        Hover over the items on the table to see their HTML markup.
-      </p>
-      <p>
-        Get help with selectors on the right! &rarr;
-      </p>
-      <a class="note-toggle" href="#">Ok, got it!</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-3 aboutIcons">
+            
+                <a href="https://github.com/FOAP-NetMind-2022/beetlepush" class="p-2" target="_blank" title="Github"><i class="bi bi-github"></i></a>|
+                <a href="/about.html" class="p-2" target="_blank" title="About us"><i class="bi bi-people-fill"></i></a>|
+                <a href="/getstats" class="p-2" target="_blank" title="Statistics"><i class="bi bi-bar-chart-line-fill"></i></a></div>
+        </div>
     </div>
 
-    <a class="note-toggle" href="#">Help, I'm stuck!</a>
 
-    <div class="game-wrapper">
-      <div class="grass-wrapper">
-        <div class="table"></div>
-      </div>
-    </div>
+    <!-- main content -->
+    <div class="left-col">
 
-    <div class="editor">
-      <div class="editor-pane html-view">
-        <div class="input-header">
-          <div class="file-name"></div>
-          Instructions
-        </div>
-       <div class="file-window">
-        <div class="lore"> </div> <!-- comentamos los divs donde se renderizaba el html y creamos uno nuevo par el lore-->
-          <!-- <div class="line-numbers">
-            1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
-          </div> -->
-          <div class="markup"></div> 
-        </div> 
-      </div>
-      <div class="editor-pane">
-        <div class="input-header">
-          <div class="file-name">grass.js</div> JavaScript Editor
-        </div>
+
         
-        <div id="input-solution"    > 
-          
-         
-        </div> <div class="enter-button">ejecutar</div>
 
-      </div>
 
-     
+        <div class="game-wrapper">
+            <div class="grass-wrapper">
+                <div class="table"></div>
+            </div>
+        </div>
+
+        <div class="editor">
+            <div class="editor-pane html-view">
+                <div data-i18n="main.script.viewer.name" class="input-header">
+                    
+                    Instructions
+                </div>
+                <div class="file-window">
+                    <div class="lore"> </div>
+                    <h3 id="instructions" class="order"></h3>
+                    <div class="markup"></div>
+                </div>
+            </div>
+            <div class="editor-pane ">
+                <div class="input-header jsEditorHeader">
+                    <div data-i18n="main.script.editor.top.name">JavaScript Editor</div>
+                    <div class="jsLevelNav">
+                        <span class="level-header">
+                            <span class="level-text"></span>
+                            <span id="checkmark" class="checkmark"></span>
+                            <span class="level-nav">
+                                <a class="previous" href="#"></a>
+                                <a class="next" href="#"></a>
+                              </span>
+                        </span>
+                    </div>
+   
+                    <div data-i18n="main.script.editor.content.enter" class="enter-button">Run</div>
+                </div>
+                
+
+                <div id="input-solution">
+
+
+                </div>
+                
+                
+
+            </div>
+
+
+        </div>
+
+        <div class="what-is-this">
+
+        </div>
+
+        <div class="helper">
+            <!-- This is the popup that floats over table elements -->
+        </div>
+
     </div>
 
-    <div class="what-is-this">
-      <p>
-        Made by <a href="/about.html">Mooners</a> &mdash; come say hi!
-      </p>
-      <p>
-        Have feedback or questions? Please file an issue on <a href="https://github.com/FOAP-NetMind-2022/beetlepush">the
-          Github repo</a>.
-      </p>
-    </div>
+    <div class="bgGrass"></div>
 
-    <div class="helper">
-      <!-- This is the popup that floats over table elements -->
-    </div>
 
-  </div><!-- /left-col -->
 
-  <div class="right-col">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
-    <div class="help-wrapper">
+<script>
 
-      <h1 class="level-header">
-        <span class="level-text"></span>
-        <span id="checkmark" class="checkmark"></span>
-      </h1>
+  const flask = new CodeFlask('#input-solution', {
+    language: 'js',
+    lineNumbers: true
+  });
 
-      <div class="level-nav">
-        <a class="previous" href="#"></a>
-        <a class="next" href="#"></a>
-      </div>
+  flask.updateCode(levels[currentLevel].myGrass);
 
-      <div class="level-progress">
-        <div class="progress"></div>
-      </div>
-
-      <div class="display-help">
-        <h3 class="selector-name"></h3>
-        <h2 class="title"></h2>
-        <h3 class="syntax"></h3>
-        <div class="hint"></div>
-        <h4 class="examples-title">Example</h4>
-        <div class="examples"></div>
-      </div>
-    </div>
-
-    <div class="level-menu">
-      <h2>Choose a level</h2>
-      <div class="levels">
-        <!-- level links are inserted here-->
-      </div>
-      <a class="reset-progress" href="#">Reset Progress</a>
-    </div>
-
-    <div class="level-menu-toggle-wrapper">
-      <div class="level-menu-toggle"></div>
-    </div>
-
-  </div><!-- /right-col -->
- <script> 
- 
-   const flask = new CodeFlask('#input-solution', {
-   language: 'js',
-   lineNumbers: true });
-
- flask.updateCode('myGrass;' );
- 
 
 </script>
- 
-  
 
+
+<script>
+  $('a[data-language]').click((e) => {
+    const selectedLang = $(e.target).data('language');
+    Translate(selectedLang, true);
+    $('#navbarDropdownMenuLink').text(e.target.textContent);
+    //console.log(e.target.dataset.language);
+  });
+</script>
+
+ <script>
+  $(window).load(() => {
+    if (localStorage.getItem('language')) {
+      //$(`#languageSelector`).val(localStorage.getItem('language')).change();
+      Translate(localStorage.getItem('language'), true);
+
+     $('#navbarDropdownMenuLink').text(localStorage.getItem('language'));
+    }
+  });
+</script>
 </body>
 
 </html>
