@@ -439,125 +439,127 @@ var levels = [
    /********************************
  * LEVEL 8 (case 7) INCLUDES METHOD
  * *********************************/ 
-  // {
-  //   helpTitle: "Includes returns a boolean if an array contains a specified value",
-  //   selectorName: "Includes() method",
-  //   doThis: "Check if the array contains the bug 'bee'",
-  //   selector: "bee",
-  //   syntax: "includes();",
-  //   regExp: "myGrass.includes\('bee'\)(;)?",
-  //   help: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. ',
-  //   examples: [
-  //     '<strong>1</strong> const vegetables = ["Cabbage", "Turnip", "Radish", "Carrot"]; <br><strong>2</strong> console.log(vegetables.includes("Turnip"));',
-  //     '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
-  //   ],
-  //   variableToCheck: "beeIsPresent",
-  //   myGrass : "var myGrass = ['ladybug','butterfly','ant','worm','caterpillar','bee'];\n\nvar beeIsPresent;\n",
-  //   myGrassSolution : true,
-  //   completed: false,
-  //   userSolution: "",
-  //   boardMarkup: `
-  //     <bracket>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <butterfly>
-  //       </grass>
-  //       <grass>
-  //         <ant>
-  //       </grass>
-  //       <grass>
-  //         <worm>
-  //       </grass>
-  //       <grass>
-  //         <caterpillar>
-  //       </grass>
-  //       <grass>
-  //         <bee>
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   boardMarkupSolution: `
-  //   <grass>
-  //     <bee>
-  //   </grass>
-  //   `,
-  //   contextInstructions: "<div>Most probably bees are one of the most important bugs for our ecosystems and our planet. They pollinate flowers and produce sweet honey. That is why it is important to know and protect them. </div>",
+  {
+    helpTitle: "Includes returns a boolean if an array contains a specified value",
+    selectorName: "Includes() method",
+    doThis: "Check if the array contains the bug 'bee'",
+    selector: "bee",
+    syntax: "includes();",
+    regExp: "myGrass\.includes..bee",
+    help: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. ',
+    examples: [
+      '<strong>1</strong> const vegetables = ["Cabbage", "Turnip", "Radish", "Carrot"]; <br><strong>2</strong> console.log(vegetables.includes("Turnip"));',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
+    ],
+    variableToCheck: "beeIsPresent",
+    myGrass : "var myGrass = ['ladybug','butterfly','ant','worm','caterpillar','bee'];\n\nvar beeIsPresent;\n",
+    myGrassSolution : true,
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <butterfly>
+        </grass>
+        <grass>
+          <ant>
+        </grass>
+        <grass>
+          <worm>
+        </grass>
+        <grass>
+          <caterpillar>
+        </grass>
+        <grass>
+          <bee>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: `
+    <grass>
+      <bee>
+    </grass>
+    `,
+    contextInstructions: "<div>Most probably bees are one of the most important bugs for our ecosystems and our planet. They pollinate flowers and produce sweet honey. That is why it is important to know and protect them. </div>",
     
-  //   instructions:"<div>Use <strong>includes()</strong> <i>method</i>  to know if there is a <strong>'bee'</strong> in the <i>array</i> <strong>'myGrass'</strong>.</b></div>"
-  // },
+    instructions:"<div>Use <strong>includes()</strong> <i>method</i> to know if there is a <strong>'bee'</strong> in the <i>array</i> <strong>'myGrass'</strong>. Assign the value into <strong>beeIsPresent</strong></div>"
+  },
 
  /********************************
  * LEVEL 9 (case 8) CONCAT METHOD
  * *********************************/ 
-  //  {
-  //   helpTitle: "Concatenates two or more arrays",
-  //   selectorName: "Concat() method",
-  //   doThis: "Concatenate the array with small 'ladybugs' after the first array",
-  //   selector: ".small",
-  //   syntax: "concat();",
-  //   help: ' The concat() method concatenates (joins) two or more arrays.This method returns a new array, containing the joined arrays. ',
-  //   examples: [
-  //     '<strong>1</strong> const flowers = ["rose", "tulip", "daisy"]; <br><strong>2</strong> const flowers2 = ["orchid", "lily"]; <br><strong>3</strong> const flowers3 = flowers.concat(flowers2);<br> <strong>4</strong> console.log(flowers3);',
-  //     '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["rose", "tulip", "daisy", "orchid", "lily"]</div>',
-  //   ],
-  //   myGrass : ['ladybug','ladybug','ladybug'],
-  //   myGrassBaby:['ladybug','ladybug','ladybug'],
-  //   myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug','ladybug'],
-  //   completed: false,
-  //   userSolution: "",
-  //   boardMarkup: `
-  //     <bracket>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //     </bracket>
+   {
+    helpTitle: "Concatenates two or more arrays",
+    selectorName: "Concat() method",
+    doThis: "Concatenate the array with small 'ladybugs' after the first array",
+    selector: ".small",
+    regExp: "myGrass\.concat",
+    syntax: "concat();",
+    help: ' The concat() method concatenates (joins) two or more arrays.This method returns a new array, containing the joined arrays. ',
+    examples: [
+      '<strong>1</strong> const flowers = ["rose", "tulip", "daisy"]; <br><strong>2</strong> const flowers2 = ["orchid", "lily"]; <br><strong>3</strong> const flowers3 = flowers.concat(flowers2);<br> <strong>4</strong> console.log(flowers3);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["rose", "tulip", "daisy", "orchid", "lily"]</div>',
+    ],
+    myGrass : "var myGrass = ['ladybug','ladybug','ladybug'];\nvar myGrassBaby = ['ladybugbaby','ladybugbaby','ladybugbaby'];\n\nvar fullFamily;",
+    solutionIsArray: true,
+    variableToCheck: "fullFamily",
+    myGrassSolution : "ladybug,ladybug,ladybug,ladybugbaby,ladybugbaby,ladybugbaby",
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <ladybug>
+        </grass>
+      </bracket>
 
-  //     <bracket>
-  //       <grass>
-  //         <ladybug class="small">
-  //       </grass>
-  //       <grass>
-  //         <ladybug class="small">
-  //       </grass>
-  //       <grass>
-  //         <ladybug class="small">
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   boardMarkupSolution: `
-  //     <bracket>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <ladybug class="small">
-  //       </grass>
-  //       <grass>
-  //         <ladybug class="small">
-  //       </grass>
-  //       <grass>
-  //         <ladybug class="small">
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   contextInstructions: "<div>Since we are born, our family takes care of us and protects us. In some bugs it is the same, the parents watch over, feed and protect their children until they grow up enough. <br> As a curious fact, did you know that a group of ladybugs went to space in 1999?</div>" ,
+      <bracket>
+        <grass>
+          <ladybug class="small">
+        </grass>
+        <grass>
+          <ladybug class="small">
+        </grass>
+        <grass>
+          <ladybug class="small">
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: `
+      <bracket>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <ladybug class="small">
+        </grass>
+        <grass>
+          <ladybug class="small">
+        </grass>
+        <grass>
+          <ladybug class="small">
+        </grass>
+      </bracket>
+    `,
+    contextInstructions: "<div>Since we are born, our family takes care of us and protects us. In some bugs it is the same, the parents watch over, feed and protect their children until they grow up enough. <br> As a curious fact, did you know that a group of ladybugs went to space in 1999?</div>" ,
 
-  //   instructions:"<div>Use <strong>concat()</strong> <i>method</i> to join two <i>arrays</i> . Use <strong>'myGrass'</strong> and <strong>'myGrassBaby'</strong> so that the small <strong>'ladybugs'</strong> are in the same <i>array</i> as their parents.</b></div>"
-  // },
+    instructions:"<div>Use <strong>concat()</strong> <i>method</i> to join two <i>arrays</i> . Use <strong>'myGrass'</strong> and <strong>'myGrassBaby'</strong> so that the small <strong>'ladybugs'</strong> are in the same <i>array</i> as their parents.<br><br> Assign the result of the method into a new <i>variable</i> named <strong>'fullFamily'</strong></div>"
+  },
  /********************************
  * LEVEL 10 (case 9) FILL METHOD
  * *********************************/ 
