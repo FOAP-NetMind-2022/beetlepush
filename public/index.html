@@ -11,12 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 
-    <!-- scripts originales -->
-    <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
-    <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/levels.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/restaurant.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/jquery.mCustomScrollbar.min.js"></script>
+
+  <title>Beetlepush - Have fun learning array methods!</title>
+
+  <script src="/js/translations.js"></script>
+  <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
+  <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+  <script src="/js/levels.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/field.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/jquery.mCustomScrollbar.min.js"></script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
@@ -47,11 +52,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            ENG
+                            en-EN
                         </a>
                         <ul class="dropdown-menu langSelector" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">ESP</a></li>
-                            <li><a class="dropdown-item" href="#">CAT</a></li>
+                            <li><a data-language="es-ES" class="dropdown-item" href="#">es-ES</a></li>
+                            <li><a data-language="en-EN" class="dropdown-item" href="#">en-EN</a></li>
                         </ul>
                     </li>
 
@@ -95,7 +100,7 @@
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button data-i18n="chooseLevel" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseOne">
                             Choose a level
@@ -108,7 +113,7 @@
                                 <div class="levels">
                                     <!-- level links are inserted here-->
                                 </div>
-                                <a class="reset-progress" href="#">Reset Progress</a>
+                                <a data-i18n="resetProgress" class="reset-progress" href="#">Reset Progress</a>
                             </div>
                         </div>
                     </div>
@@ -137,7 +142,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button data-i18n="example" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseThree">
                             Example
@@ -203,8 +208,8 @@ myArray[1]; // returns 2
             <div class="text-center mt-3 aboutIcons">
             
                 <a href="https://github.com/FOAP-NetMind-2022/beetlepush" class="p-2" target="_blank" title="Github"><i class="bi bi-github"></i></a>|
-                <a href="http://localhost:3000/about.html" class="p-2" target="_blank" title="About us"><i class="bi bi-people-fill"></i></a>|
-                <a href="#" class="p-2" target="_blank" title="Statistics"><i class="bi bi-bar-chart-line-fill"></i></a></div>
+                <a href="/about.html" class="p-2" target="_blank" title="About us"><i class="bi bi-people-fill"></i></a>|
+                <a href="/getstats" class="p-2" target="_blank" title="Statistics"><i class="bi bi-bar-chart-line-fill"></i></a></div>
         </div>
     </div>
 
@@ -224,7 +229,7 @@ myArray[1]; // returns 2
 
         <div class="editor">
             <div class="editor-pane html-view">
-                <div class="input-header">
+                <div data-i18n="main.script.viewer.name" class="input-header">
                     
                     Instructions
                 </div>
@@ -236,7 +241,7 @@ myArray[1]; // returns 2
             </div>
             <div class="editor-pane ">
                 <div class="input-header jsEditorHeader">
-                    <div>JavaScript Editor</div>
+                    <div data-i18n="main.script.editor.top.name">JavaScript Editor</div>
                     <div class="jsLevelNav">
                         <span class="level-header">
                             <span class="level-text"></span>
@@ -248,7 +253,7 @@ myArray[1]; // returns 2
                         </span>
                     </div>
    
-                    <div class="enter-button">Run</div>
+                    <div data-i18n="main.script.editor.content.enter" class="enter-button">Run</div>
                 </div>
                 
 
@@ -276,21 +281,44 @@ myArray[1]; // returns 2
 
     <div class="bgGrass"></div>
 
-    <script>
-        const flask = new CodeFlask('#input-solution', {
-            language: 'js',
-            lineNumbers: true
-        });
-
-        //flask.updateCode('myGrass;');
-
-
-    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
+<script>
+
+  const flask = new CodeFlask('#input-solution', {
+    language: 'js',
+    lineNumbers: true
+  });
+
+  flask.updateCode('myGrass;');
+
+
+</script>
+
+
+<script>
+  $('a[data-language]').click((e) => {
+    const selectedLang = $(e.target).data('language');
+    Translate(selectedLang, true);
+    $('#navbarDropdownMenuLink').text(e.target.textContent);
+    //console.log(e.target.dataset.language);
+  });
+</script>
+
+ <script>
+  $(window).load(() => {
+    if (localStorage.getItem('language')) {
+      //$(`#languageSelector`).val(localStorage.getItem('language')).change();
+      Translate(localStorage.getItem('language'), true);
+
+     $('#navbarDropdownMenuLink').text(localStorage.getItem('language'));
+    }
+  });
+</script>
 </body>
 
 </html>

@@ -1,0 +1,43 @@
+<head>
+  <!-- Load plotly.js into the DOM -->
+  <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+</head>
+
+<body>
+  <h1>Beetlepush stats</h1>
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+  <script>
+
+      var trace1 = {
+      type: 'bar',
+      x: <%- JSON.stringify(levelsArray) %>,
+      y: <%- JSON.stringify(avgArray) %>,
+      marker: {
+          color: '#C8A2C8',
+          line: {
+              width: 2.5
+          }
+      }
+    };
+
+    var data = [ trace1 ];
+
+    var layout = {
+      title: 'Average of mistakes per level',
+      font: {size: 18},
+      yaxis: {
+        title: 'Average',
+      },
+
+      xaxis: {
+        title: 'Levels',
+        tickmode: "linear"
+      },
+    };
+
+    var config = {responsive: true};
+
+    Plotly.newPlot('myDiv', data, layout, {displayModeBar: false}, config);
+  </script>
+</body>
