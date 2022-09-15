@@ -625,6 +625,7 @@ var levels = [
   //   selectorName: "Find() method",
   //   doThis: "Find the first legless bug ",
   //   selector: "caterpillar",
+  //   regExp: "myGrass\.find",
   //   syntax: "find();",
   //   help: "The find() method returns the value of the first element in an array that pass a test (provided as a function), find method returns undefined if no elements are found." ,
   //   examples: [
@@ -660,58 +661,61 @@ var levels = [
    
   // `,
   // contextInstructions: "<div>Another of the great differences that exist between bugs is their number of legs. Some bugs can have many legs, like centipedes, and others have no legs, like caterpillars or worms.The function of the legs is to move but they are also crucial for hunting, for reproducing and even grasshoppers have an ear on their legs!!</div>" ,
-  // instructions:"<div>Use <strong>find()</strong> <i>method</i> to find the legless bug.</div>"
+  // instructions:"We have an array that represents the numbers of <i>legs</i> of each bug. <div>Use <strong>find()</strong> <i>method</i> to find the legless bug.</div>"
   // },
 
    /***********************************
  * LEVEL 12 (case 11) FINDINDEX METHOD
  * *********************************/ 
-  //  {
-  //   helpTitle: "Returns the index of the first element in an array that pass a test",
-  //   selectorName: "FindIndex() method",
-  //   doThis: "Find Index of the turquoise 'dragonfly'",
-  //   selector: "dragonFly",
-  //   syntax: "findIndex();",
-  //   help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. ",
-  //   examples: [
-  //     '<strong>1</strong> const numbers = [1, 2, 3, 4, 5]; <br><strong>2</strong> const firstEven = numbers.findIndex(number => number % 2 === 0);<br> <strong>3</strong> console.log(firstEven);',
-  //     '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 1</div>',
-  //   ],
-  //   myGrass : ['red','pink','black','turquoise','yellow'],
-  //   myGrassSolution : 3,
-  //   completed: false,
-  //   userSolution: "",
-  //   boardMarkup: `
-  //     <bracket>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <worm>
-  //       </grass>
-  //       <grass>
-  //         <antQueen>
-  //       </grass>
-  //       <grass>
-  //         <dragonFly>
-  //       </grass>
-  //       <grass>
-  //         <bee>
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   boardMarkupSolution: ` 
-  //   <grass>
-  //    <dragonFly>
-  //   </grass>
+   {
+    helpTitle: "Returns the index of the first element in an array that pass a test",
+    selectorName: "FindIndex() method",
+    doThis: "Find Index of the turquoise 'dragonfly'",
+    selector: "dragonFly",
+    regExp: "myGrass\.findIndex",
+    syntax: "findIndex();",
+    help: "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function), findIndex method returns -1 if no elements are found. ",
+    examples: [
+      '<strong>1</strong> const numbers = [1, 2, 3, 4, 5]; <br><strong>2</strong> const firstEven = numbers.findIndex(number => number % 2 === 0);<br> <strong>3</strong> console.log(firstEven);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> 1</div>',
+    ],
+    myGrass : "var myGrass = ['red','pink','black','turquoise','yellow'];\n\nvar indexTurquoise;",
+    myGrassSolution : 3,
+    variableToCheck: "indexTurquoise",
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <worm>
+        </grass>
+        <grass>
+          <antQueen>
+        </grass>
+        <grass>
+          <dragonFly>
+        </grass>
+        <grass>
+          <bee>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: ` 
+    <grass>
+     <dragonFly>
+    </grass>
     
-  // `,
-  // contextInstructions: "<div>Colors are another differential characteristic in bugs. Some of the patterns are used and copied by humans. Colors can warn us of their danger, serve for reproductive success or camouflage. There are also some colorless bugs.</div>" ,
-  // instructions:"<div>Find the position of turquoise bug in the <i>array</i> using <strong>findIndex()</strong> <i>method</i>.</div>"
-  // },
+  `,
+  contextInstructions: "<div>Colors are another differential characteristic in bugs. Some of the patterns are used and copied by humans. Colors can warn us of their danger, serve for reproductive success or camouflage. There are also some colorless bugs.</div>" ,
+  instructions:"<div>Find the position of turquoise bug in the <i>array</i> using <strong>findIndex()</strong> <i>method</i>. Assign that position to <i>varuable</i><strong>indexTurquoise</strong></div>"
+  },
   
    /********************************
- * LEVEL 13 (case 12) SOME METHOD
+ * LEVEL 13 (case 12) SOME METHOD.
+ * TODO: Metodo confuso tal y como se usa.
  * *********************************/ 
   //  {
   //   helpTitle: "Checks if any of the elements in an array pass a test (provided as a function)",
@@ -767,53 +771,58 @@ var levels = [
   /***  ******************
    * LEVEL 14
    *  *********************/
-  //  {
-  //   helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
-  //   selectorName: "Every() method",
-  //   doThis: "What do they have in common?",
-  //   selector: ".dance",
-  //   syntax: "every();",
-  //   help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements ",
-  //   examples: [
-  //     '<strong>1</strong> const names = ["John", "Mary", "Joe"]; <br><strong>2</strong> const allNames = names.every(name => name.length > 3);<br> <strong>3</strong> console.log(allNames);',
-  //     '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> false</div>',
-  //   ],
-  //   myGrass : [{name:'ladybug',fly:true, poisonous: false, color: 'red'},{name:'bee',fly:true, poisonous: true, color:'yellow'},{name:'dragonFly',fly:true, poisonous: false, color:'turquoise'}],
-  //   myGrassSolution : true,
-  //   completed: false,
-  //   userSolution: "",
-  //   boardMarkup: `
-  //     <bracket>
-  //       <grass>
-  //         <ladybug>
-  //       </grass>
-  //       <grass>
-  //         <bee>
-  //       </grass>
-  //       <grass>
-  //         <dragonFly>
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   boardMarkupSolution: ` 
-  //     <bracket>
-  //       <grass>
-  //         <ladybug class= "dance">
-  //       </grass>
-  //       <grass>
-  //         <bee class= "dance">
-  //       </grass>
-  //       <grass>
-  //         <dragonFly class= "dance">
-  //       </grass>
-  //     </bracket>
-  //   `,
-  //   instructions: "<div style='font-size:20px'>Hello again ! <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common .</b></div>" 
+   {
+    helpTitle: "Every method checks if all elements in an array pass a test (provided as a function)",
+    selectorName: "Every() method",
+    doThis: "What do they have in common?",
+    selector: ".dance",
+    regExp: "myGrass\.every(.*\.fly)", // TODO: cambiar esto por regexp lookahead. Ahora simplemente mira si en algun sitio hemos usado la propiedad "fly"
+    syntax: "every();",
+    help: "The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements ",
+    examples: [
+      '<strong>1</strong> const names = ["John", "Mary", "Joe"]; <br><strong>2</strong> const allNames = names.every(name => name.length > 3);<br> <strong>3</strong> console.log(allNames);',
+      '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> false</div>',
+    ],
+    myGrass : `var myGrass=[{name:'ladybug',fly:true, poisonous: false, color: 'red'},
+             {name:'bee',fly:true, poisonous: true, color:'yellow'},
+             {name:'dragonFly',fly:true, poisonous: false, color:'turquoise'}];\n\nvar canWeAllFly;`,
+    myGrassSolution : true,
+    variableToCheck: "canWeAllFly",
+    completed: false,
+    userSolution: "",
+    boardMarkup: `
+      <bracket>
+        <grass>
+          <ladybug>
+        </grass>
+        <grass>
+          <bee>
+        </grass>
+        <grass>
+          <dragonFly>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: ` 
+      <bracket>
+        <grass>
+          <ladybug class= "dance">
+        </grass>
+        <grass>
+          <bee class= "dance">
+        </grass>
+        <grass>
+          <dragonFly class= "dance">
+        </grass>
+      </bracket>
+    `,
+    instructions: "<div style='font-size:20px'>Hello again ! <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common. You should assign the result to <strong>canWeAllFly</strong></div>" 
   
-  // },
+  },
 
    /********************************
  * LEVEL 15 (case 14) FILTER METHOD
+ * TODO: Nope, sorry. No queda claro, porque es un array de números, pero es difícil relacionarlo con antenas.
  * *********************************/ 
   //  {
   //   helpTitle: "Shows bugs with antennae",
@@ -863,8 +872,8 @@ var levels = [
   //   </grass>
   //   </bracket>
   // `,
-  // contextInstructions: "<div> Congratulations you have reached the last level.</div>" ,
-  // instructions:"<div>Use the <strong>every()</strong> <i>method</i> to find out the common features.</div><br><br><div><i>Example:</i> <strong>{name: 'worm', fly: false, poisonous: false}</strong> taking into account these properties</div>"
+  // contextInstructions: "<div> Congratulations you have reached an important level. Now things will get harder!.</div>" ,
+  // instructions:"<div>Use the <strong>filter()</strong> <i>method</i> to find out the common features.</div><br><br><div><i>Example:</i> <strong>{name: 'worm', fly: false, poisonous: false}</strong> taking into account these properties</div>"
   
   // },
 
