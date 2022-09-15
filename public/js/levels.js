@@ -14,9 +14,10 @@ var levels = [
       '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
     ],
     mySolution: "",
+    solutionIsArray: true, // indicar si la solución es un array
     variableToCheck: "myGrass",
     myGrass :"var myGrass = ['ladybug','ladybug','ladybug','ladybug'];",
-    myGrassSolution : "ladybug,ladybug,ladybug,ladybug,ladybug",
+    myGrassSolution : "ladybug,ladybug,ladybug,ladybug,ladybug", // si es un array, colocal sus elementos separados por comas
     completed: false,
     userSolution: "",
     boardMarkup: `
@@ -75,8 +76,9 @@ var levels = [
       '<strong>1</strong> const fruits = ["Banana", "Orange", "Apple"]; <br><strong>2</strong> fruits.pop();<br> <strong>3</strong> console.log(fruits);',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["Banana", "Orange"]</div>',
     ],
+    solutionIsArray: true,
     variableToCheck: "myGrass",
-    myGrass : "var  myGrass= ['worm','worm','bee']",
+    myGrass : "var  myGrass= ['worm','worm','bee'];",
     myGrassSolution : "worm,worm",
     completed: false,
     userSolution: "",
@@ -407,7 +409,8 @@ var levels = [
       '<strong>1</strong> const vegetables = ["Cabbage", "Turnip", "Radish", "Carrot"]; <br><strong>2</strong> console.log(vegetables.includes("Turnip"));',
       '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> true</div>',
     ],
-    myGrass : ['ladybug','butterfly','ant','worm','caterpillar','bee'],
+    variableToCheck: "beeIsPresent",
+    myGrass : "var myGrass = ['ladybug','butterfly','ant','worm','caterpillar','bee'];\n\nvar beeIsPresent;\n",
     myGrassSolution : true,
     completed: false,
     userSolution: "",
@@ -967,7 +970,8 @@ var levels = [
             '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> "Fire,Air,Water"</div>',
             
           ],
-          myGrass : ["ant","ant","ant"],
+          variableToCheck: "strAnts",
+          myGrass : 'var myGrass = ["ant","ant","ant"];\n\nvar strAnts;\n\n',
           myGrassSolution : "ant_ant_ant",
           completed: false,
           userSolution: "",

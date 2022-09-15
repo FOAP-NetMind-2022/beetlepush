@@ -337,10 +337,8 @@ function checkLevelCorrect(currentLevel, inputUser) {
 // a partir del nivel 7, case 6, no pasa al siguiente nivel!
 // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
   
-let solutionIsArray = [0, 1];
   let isCorrect = false
-  var expresion, expresion2
-  var method, element
+  var expresion
   
   //let myGrass = levels[currentLevel].myGrass;
   let myGrassSolution=levels[currentLevel].myGrassSolution;
@@ -351,19 +349,19 @@ let solutionIsArray = [0, 1];
   console.log("🚀 ~ file: field.js ~ line 351 ~ checkLevelCorrect ~ variableToCheck", variableToCheck)
 
   let methodCorrect;
-  let arrayAreEqual;
+  let valuesAreEqual;
 
 
   try {
     evalInputUser=eval(inputUser);  
   
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 
   
 
-  if (solutionIsArray.includes(currentLevel)) {
+  if (levels[currentLevel].solutionIsArray) {
 
     // obtenemos un string de levels.js, que transformamos en array mediante el método split
     myGrassSolution = myGrassSolution.split(',');
@@ -372,21 +370,22 @@ let solutionIsArray = [0, 1];
 
       //AQUI EMPEZAMOS NOSOTROS
       let arrayName=levels[currentLevel].syntax.slice(0,-3);
+      console.log("🚀 ~ file: field.js ~ line 374 ~ checkLevelCorrect ~ arrayName", arrayName)
       expresion = new RegExp("myGrass."+arrayName, "g");
     
       // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
       methodCorrect = expresion.test(inputUser);
-      console.log("methodCorrect:",methodCorrect);
+      console.log("🚀 ~ file: field.js ~ line 379 ~ checkLevelCorrect ~ methodCorrect", methodCorrect)
 
       // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
-      arrayAreEqual=_.isEqual(myGrassSolution,eval(variableToCheck));
-      console.log("arrayEqual:",arrayAreEqual);
-      console.log("solutionmygrass",myGrassSolution);
-      console.log("evalInputUser ",evalInputUser);
+      valuesAreEqual=_.isEqual(myGrassSolution,eval(variableToCheck));
+      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheck", eval(variableToCheck))
+      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
+      console.log("🚀 ~ file: field.js ~ line 383 ~ checkLevelCorrect ~ valuesAreEqual", valuesAreEqual)
 
       // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
-      // isCorrect=methodCorrect && arrayAreEqual;
-      isCorrect=arrayAreEqual && methodCorrect;
+      // isCorrect=methodCorrect && valuesAreEqual;
+      isCorrect=valuesAreEqual && methodCorrect;
  
   
 
