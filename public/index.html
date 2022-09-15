@@ -16,6 +16,7 @@
 
   <script src="/js/translations.js"></script>
   <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
   <script src="/js/levels.js" type="text/javascript" charset="utf-8"></script>
@@ -235,7 +236,7 @@ myArray[1]; // returns 2
                 </div>
                 <div class="file-window">
                     <div class="lore"> </div>
-                    <h3 class="order"></h3>
+                    <h3 id="instructions" class="order"></h3>
                     <div class="markup"></div>
                 </div>
             </div>
@@ -291,10 +292,10 @@ myArray[1]; // returns 2
 
   const flask = new CodeFlask('#input-solution', {
     language: 'js',
-    lineNumbers: true
+    lineNumbers: true,
   });
 
-  flask.updateCode('myGrass;');
+  flask.updateCode(levels[currentLevel].myGrass);
 
 
 </script>

@@ -1,8 +1,9 @@
 var selectedLang;
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
-var levelTimeout = 1000; // Delay between levels after completing
+var levelTimeout = 2000; // Delay between levels after completing
 var finished = false; // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
+
 
 var blankProgress = {
   totalCorrect: 0,
@@ -11,6 +12,7 @@ var blankProgress = {
   progress: "",
   guessHistory: {},
 };
+
 
 // Get progress from localStorage, or start from scratch if we don't have any
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
@@ -280,16 +282,10 @@ function handleInput(text) {
 }
 
 function fireArray(text) {
-  
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
-  let aEvaluar;
-  try {
-    aEvaluar = eval(text);
-  } catch (e) {
-    console.log("Error: " + e); // mostramos el error en la consola
-  }
-
+ 
+  
   //SWITCH
 
   const isCorrect = checkLevelCorrect(currentLevel, text);
@@ -313,7 +309,7 @@ function fireArray(text) {
     setTimeout(function () {
       currentLevel++;
       loadLevel();
-      flask.updateCode("myGrass;");
+      flask.updateCode(levels[currentLevel].myGrass);
     }, 2000);
 
     return;
@@ -328,154 +324,64 @@ function fireArray(text) {
 }
 
 function checkLevelCorrect(currentLevel, inputUser) {
-  // a partir del nivel 7, case 6, no pasa al siguiente nivel!
-  // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+// a partir del nivel 7, case 6, no pasa al siguiente nivel!
+// seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+  
+  let isCorrect = false
+  var expresion
+  
+  //let myGrass = levels[currentLevel].myGrass;
+  let myGrassSolution=levels[currentLevel].myGrassSolution;
 
-  let isCorrect = false;
-  var expresion, expresion2;
-  var method, element;
-  let myGrass = levels[currentLevel].myGrass;
 
-  switch (currentLevel) {
-    case 0:
-      //OPCION 1
-      expresion = /^myGrass.push\('ladybug'\)(;)?$/g;
-      expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g;
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-      //OPCION 2
-      //isCorrect= inputUser.includes("myGrass.push('ladybug')")||inputUser.includes('myGrass.push("ladybug")')
-      /*  if(inputUser.includes(levelMethod)){
-         console.log("has usado el metodo push")
-       } */
+  let evalInputUser;
+  let {variableToCheck} =  levels[currentLevel];
+  console.log("🚀 ~ file: field.js ~ line 351 ~ checkLevelCorrect ~ variableToCheck", variableToCheck)
 
-      break;
+  let methodCorrect;
+  let valuesAreEqual;
 
-    case 1:
-      expresion = /^myGrass.pop\(\)(;)?$/g;
-      //let expresion2 = /^myGrass.push\("ladybug"\)(;)?$/g
-      isCorrect = expresion.test(inputUser);
 
-      //isCorrect= inputUser.includes("myGrass.pop()")
-      //console.log("has resuelto el ejercicio 2")
-      break;
-
-    case 2:
-      expresion = /^myGrass.shift\(\)(;)?$/g;
-      isCorrect = expresion.test(inputUser);
-      //console.log("has resuelto el ejercicio 3")
-      break;
-
-    case 3:
-      expresion = /^myGrass.unshift\('antQueen'\)(;)?$/g;
-      expresion2 = /^myGrass.unshift\("antQueen"\)(;)?$/g;
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-
-      //isCorrect= inputUser.includes("myGrass.unshift('antQueen')")||inputUser.////includes('myGrass.unshift("antQueen")')
-      break;
-
-    case 4:
-      expresion = /^myGrass.slice\(1,4\)(;)?$/g;
-      isCorrect = expresion.test(inputUser);
-
-      //isCorrect= inputUser.includes("myGrass.slice(1,4)")||inputUser.includes('myGrass.unshift(1,4)')
-      break;
-
-    case 5:
-      expresion = /^myGrass.splice\(2,2,'dragonFly','spider'\)(;)?$/g;
-      expresion2 = /^myGrass.splice\(2,2,"dragonFly","spider"\)(;)?$/g;
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-
-      //isCorrect= inputUser.includes("myGrass.splice(2,2,'dragonFly','spider')")||inputUser.includes('myGrass.splice(2,2,"dragonFly","spider")')
-      break;
-
-    case 6:
-      //isCorrect= inputUser.includes("myGrass.reverse()")
-      expresion = /^myGrass.reverse\(\)(;)?$/g;
-      isCorrect = expresion.test(inputUser);
-      break;
-
-    case 7:
-      //isCorrect= inputUser.includes("myGrass.includes('bee')")||inputUser.includes('myGrass.includes("bee")')
-
-      expresion = /^myGrass.includes\('bee'\)(;)?$/g;
-      expresion2 = /^myGrass.includes\("bee"\)(;)?$/g;
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-
-      break;
-
-    case 8:
-      //necesitariamos asignarle un nombre al array 2 del ejercicio.
-      /*  isCorrect= inputUser.includes("myGrass.concat(myGrassTwo)")||inputUser.includes('myGrass.concat(myGrassTwo)') */
-
-      // IMPORTANTE: indicar en la vista que el usuario tiene que utilizar el nombre myGrassBaby para el segundo array
-
-      expresion = /^myGrass.concat\(myGrassBaby\)(;)?$/g;
-      isCorrect = expresion.test(inputUser);
-
-      break;
-
-    case 9:
-      //fill con butterfly
-      //isCorrect= inputUser.includes("myGrass.fill('butterfly')")||inputUser.includes('myGrass.fill("butterfly")')
-
-      expresion = /^myGrass.fill\('butterfly'\)(;)?$/g;
-      expresion2 = /^myGrass.fill\("butterfly"\)(;)?$/g;
-      isCorrect = expresion.test(inputUser) || expresion2.test(inputUser);
-      break;
-
-    case 10:
-      // find "ant"
-      method = "find";
-
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        // aqui comparamos los evals
-        isCorrect = eval(inputUser) == "0";
-      }
-
-      break;
-    case 11:
-      method = "findIndex";
-
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        // aqui comparamos los evals
-        isCorrect = eval(inputUser) == 3;
-      }
-
-      break;
-    case 12:
-      method = "some";
-      element = "poisonous";
-
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        if (
-          inputUser.includes('"poisonous"') ||
-          inputUser.includes("'poisonous'")
-        ) {
-          // aqui comparamos los evals
-          isCorrect = eval(inputUser) == true;
-        }
-      }
-
-      break;
-    case 13:
-      method = "every";
-      element = "fly";
-
-      //primero busco si inputUser contiene el metodo find
-      if (inputUser.includes(method)) {
-        if (inputUser.includes(element)) {
-          // aqui comparamos los evals
-          isCorrect = eval(inputUser) == true;
-        }
-      }
-
-      break;
+  try {
+    // Al hacer eval lo que hacemos es DECLARAR tantas variables como haya en el editor JavaScript
+    evalInputUser=eval(inputUser);  
+  
+  } catch (error) {
+    console.error(error);
   }
 
-  return isCorrect; //load next level
+  
+
+  // if (levels[currentLevel].solutionIsArray) {
+
+  //   // obtenemos un string de levels.js, que transformamos en array mediante el método split
+  //   myGrassSolution = myGrassSolution.split(',');
+  //   console.log("🚀 ~ file: field.js ~ line 368 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
+  // }
+
+      //AQUI EMPEZAMOS NOSOTROS
+      let regExpExercise = levels[currentLevel].regExp;
+
+      expresion = new RegExp(regExpExercise, "g");
+    
+      // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
+      methodCorrect = expresion.test(inputUser);
+      console.log("🚀 ~ file: field.js ~ line 379 ~ checkLevelCorrect ~ methodCorrect", methodCorrect)
+
+      // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
+      // TODO : try catch
+      valuesAreEqual=_.isEqual(myGrassSolution,eval(variableToCheck));
+      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheck", eval(variableToCheck))
+      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
+      console.log("🚀 ~ file: field.js ~ line 383 ~ checkLevelCorrect ~ valuesAreEqual", valuesAreEqual)
+
+      // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
+      // isCorrect=methodCorrect && valuesAreEqual;
+      isCorrect=valuesAreEqual && methodCorrect;
+ 
+  
+
+  return isCorrect //load next level
 }
 
 //la comparación del array con el array de solución funciona ok
@@ -822,9 +728,7 @@ function loadLevel() {
   if (local.guessHistory[currentLevel]) {
     flask.updateCode(`${local.guessHistory[currentLevel].userCode}`);
   } else {
-    flask.updateCode(`let myGrass = ["${levels[currentLevel].myGrass.join('","').toString()}"]; 
-    \n // Start coding here!
-    \n // Press the "Run" button to validate your code!`);
+    flask.updateCode(levels[currentLevel].myGrass);
   }
 
   //hemos agregado una variable "completed" para saber si el nivel ya esta completado, de manera que si esta completado, no se puede volver a hacer el nivel, eliminamos el botón y deshabilitamos el input. Además cambiamos de color el tilde de la sección de la derecha para indicar que ese nivel ya esta completado.
@@ -896,6 +800,8 @@ function Translate(language, user)
     lng: lang
   });
 
+  $('#instructions').attr('data-i18n', `level_${currentLevel+1}.methodTitle`);
+  $('#instructions').attr('data-i18n', `level_${currentLevel+1}.instructions`);
   $('#instructions').attr('data-i18n', `level_${currentLevel+1}.methodTitle`);
 
   $(".level-header .level-text").html(i18n.t('level') + " " + (currentLevel + 1) + " " +  i18n.t('of')  + " " + levels.length);
