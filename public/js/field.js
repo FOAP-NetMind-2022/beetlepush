@@ -20,10 +20,10 @@ localStorage.setItem("progress", JSON.stringify(progress));
 
 $(document).ready(function () {
   // Custom scrollbar plugin
-  $(".left-col, .level-menu").mCustomScrollbar({
-    scrollInertia: 0,
-    autoHideScrollbar: true,
-  });
+  // $(".left-col, .level-menu").mCustomScrollbar({
+  //   scrollInertia: 0,
+  //   autoHideScrollbar: true,
+  // });
 
   $(".note-toggle").on("click", function () {
     $(this).hide();
