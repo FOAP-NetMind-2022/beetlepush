@@ -197,7 +197,7 @@ var levels = [
     doThis: "Add the 'antQueen' at the beginning of the array",
     selector: ".dance",
     syntax: "unshift();",
-    regExp: "myGrass\.unshift\(",
+    regExp: "myGrass\.unshift",
     help: ' The unshift() method adds a new element at the beginning of an array . ',
     examples: [
       '<strong>1</strong> const names = ["Maria", "Jesus", "Frank"]; <br><strong>2</strong> names.unshift("Laura");<br> <strong>3</strong> console.log(names);',
