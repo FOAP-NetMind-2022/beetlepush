@@ -113,8 +113,8 @@ var resources = {
       {
         'methodTitle': `Replace the repeated bugs with the new ones`,
         'methodHelp': `Modifies the content of an array, adding new elements and / or removing old elements`,
-        'methodName': `Splice() method`,
-        'desc': `The splice() method adds/removes items to/from an array, and returns the removed item(s). <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice>More help</a>`,
+        'methodName': `Slice() method`,
+        'desc': `The slice() method adds/removes items to/from an array, and returns the removed item(s). <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice>More help</a>`,
         'instructions': `<div>Replace the repeated bugs with <strong>'dragonFly'</strong> and <strong>'spider'</strong>. Use <strong>splice()</strong>  <i>method</i> correctly. This time, overwrite the variable <strong>myGrass</strong> with the result of the method.</div>`,
         'context': `<div>Bugs are known for their great diversity. In addition to its wide distribution throughout the planet and its thousands of thousands of species. There are so many that more than half of the world's animal species are bugs. </div>`
       },
@@ -122,7 +122,7 @@ var resources = {
       {
         'methodTitle': 'Replace the repeated bugs with the new ones',
         'methodHelp': 'Modifies the content of an array, adding new elements and / or removing old elements',
-        'methodName': "Splice method",
+        'methodName': "Splice() method",
         'desc1': 'The splice() method adds/removes items to/from an array, and returns the removed item(s).',
         'desc2': ' More help',
         'lore': ''
@@ -198,6 +198,15 @@ var resources = {
         'desc1': `The every() method checks if all elements in an array pass a test (provided as a function).Method return true/false if the function returns true/false for all array elements`,
         'desc2': ' More help',
         'lore': ''
+      },
+      'level_16':
+      {
+        'methodTitle': `Doubles the weight of the bugs`, // levels.js -> doThis
+        'methodHelp': `Map the bugs`, // levels.js -> helpTitle
+        'methodName': `Map method`, // levels.js -> selectorName
+        'desc': `The map() calls a function once for each element in an array.<a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> More help. </a>`, // levels.js -> help
+        'instructions': `<div style='font-size:20px'>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong></div>`, // levels.js -> instructions
+        'context': `` // levels.js -> contextInstructions
       },
     }
   },
@@ -396,7 +405,25 @@ var resources = {
         'desc1': `El método every() comprueba si todos los elementos de un array pasan una prueba (proporcionado como una función). Este método devuelve un booleano si la función devuelve true/false para todos los elementos del array`,
         'desc2': ' Más ayuda',
         'lore': ''
+      },'level_5':
+      {
+        'methodTitle': `Sustituye los insectos repetidos por los nuevos`,
+        'methodHelp': `Modifica el contenido de un array, añadiendo nuevos elementos y/o eliminando los antiguos`,
+        'methodName': `Método Splice()`,
+        'desc': `El método splice() añade/elimina elementos a/de un array, y devuelve el/los elementos eliminados. <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice>Más ayuda</a>`,
+        'instructions': `<div>Sustituye los insectos repetidos por <strong>'dragonFly'</strong> (libélula) y <strong>'spider'</strong> (araña). Usa el <i>método</i> <strong>splice()</strong> corretcamente. Esta vez, sobrescribe la variable <strong>myGrass</strong> con el resultado del método.</div>`,
+        'context': `<div>Los insectos son conocidos por su gran diversidad. Además de su amplia distribución por todo el planeta y sus miles de miles de especies. Son tantos que más de la mitad de las especies animales del mundo son bichos.</div>`
       },
+      'level_16':
+      {
+        'methodTitle': `Duplica el peso de los insectos`, // levels.js -> doThis
+        'methodHelp': `Transforma los insectos`, // levels.js -> helpTitle
+        'methodName': `Método Map()`, // levels.js -> selectorName
+        'desc': `El map() llama una función una vez por cada elemento del array. <a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> Más ayuda. </a>`, // levels.js -> help
+        'instructions': `<div style='font-size:20px'>Nuestros insectos están hambrientos, usa el <i>método</i> <strong>map()</strong> para duplicar su peso. Debes asignar el nuevo array en la variable <strong>feededBugs</strong></div>`, // levels.js -> instructions
+        'context': `` // levels.js -> contextInstructions
+      },
+
     }
   },
 }
