@@ -360,7 +360,7 @@ bento:before {
 .editor * {
   font-family: menlo, monospace;
   size: 25%;
-  line-height: 180%;
+  /* line-height: 180%; */
   padding: 0;
   margin: 0;
 }
