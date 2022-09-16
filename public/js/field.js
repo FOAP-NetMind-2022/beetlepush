@@ -370,8 +370,16 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
       // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
       // TODO : try catch
-      valuesAreEqual=_.isEqual(myGrassSolution,eval(variableToCheck));
-      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheck", eval(variableToCheck))
+      let variableToCheckEvaluated= "";
+      
+      try {
+        variableToCheckEvaluated = eval(variableToCheck);
+      } catch (error) {
+         console.log("🚀 ~ file: field.js ~ line 378 ~ checkLevelCorrect ~ error", error)
+      }
+
+      valuesAreEqual=_.isEqual(myGrassSolution,variableToCheckEvaluated);
+      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheckEvaluated",variableToCheckEvaluated)
       console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
       console.log("🚀 ~ file: field.js ~ line 383 ~ checkLevelCorrect ~ valuesAreEqual", valuesAreEqual)
 
