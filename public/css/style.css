@@ -365,6 +365,10 @@ bento:before {
   margin: 0;
 }
 
+.editor textarea::selection {
+    background: rgba(33, 31, 95, .2);
+}
+
 .editor .input-header {
   text-align: left;
   padding: 10px 15px;
