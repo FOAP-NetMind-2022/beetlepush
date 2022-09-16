@@ -297,6 +297,13 @@ grass {
   background: rgba(33, 31, 95, .3);
 }
 
+.grassNewMargin {
+  border: 3px solid #2a231d;
+  border-radius: 4px;
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/146/575/large/ulrick-wery-tileableset2-soil.jpg');
+  background-size: 125%;
+  margin-right: 50px;
+}
 
 
 
@@ -353,9 +360,13 @@ bento:before {
 .editor * {
   font-family: menlo, monospace;
   size: 25%;
-  line-height: 180%;
+  /* line-height: 180%; */
   padding: 0;
   margin: 0;
+}
+
+.editor textarea::selection {
+    background: rgba(33, 31, 95, .2);
 }
 
 .editor .input-header {
@@ -521,6 +532,14 @@ antQueen {
   width: 100px;
   height: 100px;
 }
+antString {
+  background-image: url("/images/insects/antString2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  width: 100px;
+  height: 100px;
+}
 /* no se
 ladybug,
 butterfly,
@@ -554,13 +573,14 @@ ant,
 antQueen,
 caterpillar,
 cocoon,
-spider {
+spider,
+antString {
   height: 60px;
   width: 60px;
   position: relative;
   margin: 20px 10px;
 }
-/* no se
+
 ladybug.small,
 butterfly.small,
 bee.small,
@@ -571,7 +591,8 @@ ant.small,
 antQueen.small,
 caterpillar.small,
 cocoon.small,
-spider.small   {
+spider.small,
+antString.small   {
   height: 30px;
   width: 30px;
   border-width: 2px 4px 8px 4px;
@@ -579,7 +600,20 @@ spider.small   {
 }
 
  
+grass .small,
+bento .small {
+  left: calc(50% - 15px);
+  margin-left: 0;
+  margin-right: 0;
+}
 
+grass>.small:only-child,
+bento>.small:only-child {
+  position: absolute;
+  top: calc(50% - 15px);
+  margin: 0;
+}
+/*
 ladybug:before,
 bee:before,
 worm:before,
@@ -612,6 +646,7 @@ bento antQueen,
 bento caterpillar,
 bento cocoon,
 bento spider,
+bento antString,
 grass ladybug,
 grass bee,
 grass worm,
@@ -621,7 +656,8 @@ grass ant,
 grass antQueen,
 grass caterpillar,
 grass cocoon,
-grass spider  {
+grass spider,
+grass antString  {
   left: calc(50% - 30px);
   margin: 0;
   position: absolute;
@@ -629,6 +665,7 @@ grass spider  {
 
 grass>apple:last-child,
 grass>ladybug:last-child,
+grass>antString:last-child,
 grass>butterfly:last-child,
 grass>bee:last-child,
 grass>worm:last-child,
@@ -1557,6 +1594,7 @@ queda limpiar lo que estaba hecho previamente
 
 .jsLevelNav {
   /* padding-left: 250px; */
+  user-select: none;
 }
 
 .jsLevelNav .level-nav {
