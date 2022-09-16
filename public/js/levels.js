@@ -811,7 +811,7 @@ var levels = [
         </grass>
       </bracket>
     `,
-    instructions: "<div style='font-size:20px'>Hello again ! <br><br>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common. You should assign the result to <strong>canWeAllFly</strong></div>" 
+    instructions: "<div style='font-size:20px'>In this level we have an array of objects. For example: {name: 'worm', fly: false, poisonous: false} taking in to account these propierties, use the every() method to find out what do they have in common. You should assign the result to <strong>canWeAllFly</strong></div>" 
   
   },
 
