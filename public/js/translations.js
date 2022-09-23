@@ -32,6 +32,7 @@ var resources = {
           'viewer':
           {
             'name': 'Instructions',
+            'expected': 'Expected results: '
           },
           'editor':
           {
@@ -205,7 +206,7 @@ var resources = {
         'methodHelp': `Map the bugs`, // levels.js -> helpTitle
         'methodName': `Map method`, // levels.js -> selectorName
         'desc': `The map() calls a function once for each element in an array.<a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> More help. </a>`, // levels.js -> help
-        'instructions': `<div style='font-size:20px'>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong></div>`, // levels.js -> instructions
+        'instructions': `<div>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong></div>`, // levels.js -> instructions
         'context': `` // levels.js -> contextInstructions
       },
     }
@@ -242,6 +243,7 @@ var resources = {
           'viewer':
           {
             'name': 'Instrucciones',
+            'expected': 'Resultado esperado: '
           },
           'editor':
           {
@@ -420,7 +422,7 @@ var resources = {
         'methodHelp': `Transforma los insectos`, // levels.js -> helpTitle
         'methodName': `Método Map()`, // levels.js -> selectorName
         'desc': `El map() llama una función una vez por cada elemento del array. <a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> Más ayuda. </a>`, // levels.js -> help
-        'instructions': `<div style='font-size:20px'>Nuestros insectos están hambrientos, usa el <i>método</i> <strong>map()</strong> para duplicar su peso. Debes asignar el nuevo array en la variable <strong>feededBugs</strong></div>`, // levels.js -> instructions
+        'instructions': `<div>Nuestros insectos están hambrientos, usa el <i>método</i> <strong>map()</strong> para duplicar su peso. Debes asignar el nuevo array en la variable <strong>feededBugs</strong></div>`, // levels.js -> instructions
         'context': `` // levels.js -> contextInstructions
       },
 
