@@ -229,8 +229,9 @@ function showTooltip(el) {
 
   var elType = el.get(0).tagName;
   elType = elType.toLowerCase();
-  helpertext = "<" + elType;
+  helpertext = "'" + elType + "'";
 
+  
   var elClass = el.attr("class");
 
   if (elClass) {
@@ -238,23 +239,12 @@ function showTooltip(el) {
       elClass = elClass.replace("strobe", "");
     }
   }
-
-  if (elClass) {
-    helpertext = helpertext + ' class="' + elClass + '"';
+  if(elType=="bracket" || elType=="grass"){
+    //con esta función no rodea el bracket
+    hideTooltip();
+    helpertext.hide();
   }
-
-  var elFor = el.attr("for");
-
-  if (elFor) {
-    helpertext = helpertext + ' for="' + elFor + '"';
-  }
-
-  var id = el.attr("id");
-  if (id) {
-    helpertext = helpertext + ' id="' + id + '"';
-  }
-
-  helpertext = helpertext + "></" + elType + ">";
+  // helpertext = helpertext + "'";
   helper.show();
   helper.text(helpertext);
 }
