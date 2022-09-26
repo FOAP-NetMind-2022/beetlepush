@@ -15,7 +15,6 @@ var levels = [
         '<strong>1</strong>const fruits = ["Banana", "Orange", "Apple"]; <br> <strong>2</strong> fruits.push("Kiwi"); <br> <strong>3</strong> console.log(fruits);',
         '<strong>TERMINAL</strong><br>  <div class="console-wrapper"> ["Banana", "Orange", "Apple", "Kiwi"] </div>',
       ],
-      solutionIsArray: true, // indicar si la solución es un array
       variableToCheck: "myGrass", // la variable que vamos a evaluar y que debe llenar el usuario para saber si el ejercicio es correcto
       myGrass :"var myGrass = ['ladybug','ladybug','ladybug','ladybug'];\n\nmyGrass.push();",
       myGrassSolution : ['ladybug','ladybug','ladybug','ladybug','ladybug'], // si es un array, colocal sus elementos separados por comas
@@ -59,7 +58,7 @@ var levels = [
             <ladybug class="dance">
           </grass>
         </bracket>
-    `,
+  //   `,
     instructions: "<div>To pass this level you need to use <strong>push()</strong> <i>method</i> to add a new <strong>'ladybug'</strong>at the end of the <i>array</i> <strong>'myGrass'</strong>.<br><br><i>Example:</i>&nbsp<strong>myGrass.push('ladybug');</strong></div>"
     ,
     contextInstructions: "<div>Welcome to BeetlePush, a game where you learn how to code array methods in Javascript!</div>"
@@ -1069,7 +1068,7 @@ var levels = [
           </grass>
         </bracket>
     `,
-    instructions: "<div style='font-size:20px'>Hello again!<br><br>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong> <br><br>Each bug has 2 properties: name and weight.<br>--> [{name:'ladybug', weight: '10'}]</div>" 
+    instructions: "<div>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong> <br><br>Each bug has 2 properties: name and weight.<br>--> [{name:'ladybug', weight: '10'}]</div>" 
     },
     
   
