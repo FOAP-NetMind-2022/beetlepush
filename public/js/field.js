@@ -670,6 +670,7 @@ function loadBoard() {
   $(".table *").addClass("pop");
   $(".markup").html(level.instructions);
   $(".contextInstructions").html(level.contextInstructions);
+  $("#expected-results  span").html(`${level.variableToCheck} = ${JSON.stringify(level.myGrassSolution)}`);
 }
 
 // Adds nametags to the items on the table
