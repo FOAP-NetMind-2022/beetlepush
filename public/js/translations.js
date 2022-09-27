@@ -305,21 +305,111 @@ var resources = {
       },
       'level_4':
       {
-        'methodTitle': `Añade la 'antQueen' al principio del array`,
-        'methodHelp': `Añade un elemento al principio de un array`,
+        'methodTitle': `Añade la "antQueen" al principio del array`,
+        'methodHelp': `Añadir un elemento al principio de un array`,
         'methodName': `Método Unshift()`,
-        'desc': `El método unshift() añade un nuevo elemento al principio de un array. <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift>Más ayuda</a>`,
-        'instructions': `<div>Crea un nuevo <i>array</i>, usando el <i>método</i> <strong>slice()</strong>. Asignar el resultado del método a la variable <i>wingedBugs</i></div>`,
-        'context': `<div>Some bugs are known for their social nature, they form colonies in which each one has a role or responsibility. Ants are insects that live and form large colonies and always need the presence of a queen ant. </div>`
+        'desc': `El método unshift() añade un nuevo elemento al principio de un array. <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift> Más ayuda</a>`,
+        'instructions': `<div>Añade la <strong>'antQueen'</strong> dentro del <i>array</i>. Usa el <i>método</i> <strong>unshift()</strong></b></div>`,
+        'context': `<div>Algunos insectos son conocidos por su naturaleza social, forman colonias en las que cada uno tiene una función o responsabilidad. Las hormigas son insectos que viven y forman grandes colonias, y siempre necesitan la presencia de una hormiga reina. </div>`
       },
       'level_5':
+      {
+        'methodTitle': `Crea un nuevo array sólo con bichos alados`,
+        'methodHelp': `Crea un nuevo array a partir de los elementos seleccionados`,
+        'methodName': `Método Slice()`,
+        'desc': `El método slice() crea un nuevo array a partir de los elementos seleccionados. No modifica el array original. Este método selecciona tiene dos parámetros: "start" y "end" (no inclusivos). <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice> Más ayuda</a>`,
+        'instructions': `<div>Crea un nuevo <i>array</i>, usando el <i>método</i> <strong>slice()</strong>. Asigna el resultado del método a la variable <i>wingedBugs</i></div>`,
+        'context': `<div>La forma de desplazarse es otra característica que diferencia a los grupos de insectos. Algunos son terrestres, otros acuáticos y otros tienen la capacidad de volar. Las alas pueden ser muy diferentes en su tamaño, color y número. </div>`
+      },
+      'level_6':
       {
         'methodTitle': `Sustituye los insectos repetidos por los nuevos`,
         'methodHelp': `Modifica el contenido de un array, añadiendo nuevos elementos y/o eliminando los antiguos`,
         'methodName': `Método Splice()`,
-        'desc': `El método splice() añade/elimina elementos a/de un array, y devuelve el/los elementos eliminados. <a target="_blank" href=https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice>Más ayuda</a>`,
-        'instructions': `<div>Sustituye los insectos repetidos por <strong>'dragonFly'</strong> (libélula) y <strong>'spider'</strong> (araña). Usa el <i>método</i> <strong>splice()</strong> corretcamente. Esta vez, sobrescribe la variable <strong>myGrass</strong> con el resultado del método.</div>`,
-        'context': `<div>Los insectos son conocidos por su gran diversidad. Además de su amplia distribución por todo el planeta y sus miles de miles de especies. Son tantos que más de la mitad de las especies animales del mundo son bichos.</div>`
+        'desc': `El método splice() añade/elimina elementos a/de un array, y devuelve el/los elementos eliminados.`,
+        'instructions': `<div>Reemplaza los insectos repetidos con <strong>'dragonFly'</strong> y <strong>'spider'</strong>. Usa el <i>método</i> <strong>splice()</strong> correctamente. Esta vez, sobrescribe la variable <strong>myGrass</strong> con el resultado del método.</div>`,
+        'context': `<div>Los insectos son conocidos por su gran diversidad. Además de su amplia distribución por todo el planeta y sus cientos y miles de especies. Son tantos que más de la mitad de las especies animales del mundo son insectos.</div>`
+      },
+      'level_7':
+      {
+        'methodTitle': `Invierte los elementos del array para restablecer el orden natural del ciclo vital de la mariposa`,
+        'methodHelp': `Invertir el orden de los elementos del array`,
+        'methodName': `Método Reverse()`,
+        'desc': `El método reverse() invierte el orden de los elementos en un array. Este método sobrescribe el array original.`,
+        'instructions': `<div>La ruta correcta sigue este orden: <strong>'caterpillar'</strong>, <strong>'cocoon'</strong> , <strong>'butterfly'</strong>. Usa el <i>método</i> <strong>reverse()</strong>.</div>`,
+        'context': `<div>El ciclo vital de algunos insectos puede ser muy interesante. Algunos simplemente crecen en tamaño, otros pasan de la vida terrestre a la acuática, y otros son capaces de cambiar completamente su apariencia, como las mariposas.</div>`
+      },
+      'level_8':
+      {
+        'methodTitle': `Comprueba si el array contiene el insecto 'bee'`,
+        'methodHelp': `Devuelve un booleano si un array contiene un valor especificado`,
+        'methodName': `Método Includes()`,
+        'desc': `El método includes() determina si un array incluye un determinado valor entre sus entradas, devolviendo true o false según corresponda.`,
+        'instructions': `<div>Usa el <i>método</i> <strong>includes()</strong> para saber si hay una <strong>'bee'</strong> en el <i>array</i> <strong>'myGrass'</strong>. Asignar el valor en <strong>beeIsPresent</strong></div>`,
+        'context': `<div>Probablemente las abejas son uno de los insectos más importantes para nuestros ecosistemas y nuestro planeta. Polinizan las flores y producen una dulce miel. Por eso es importante conocerlas y protegerlas.</div>`
+      },
+      'level_9':
+      {
+        'methodTitle': `Concatenar el array con pequeñas "mariquitas" después del primer array`,
+        'methodHelp': `Concatena dos o más arrays`,
+        'methodName': `MétodoConcat()`,
+        'desc': `El método concat() concatena (une) dos o más arrays. Este método devuelve un nuevo array que contiene los arrays unidos.`,
+        'instructions': `<div>Usa el <i>método</i> <strong>concat()</strong> para unir dos <i>arrays</i> . Usa <strong>'myGrass'</strong> y <strong>'myGrassBaby'</strong> para que las pequeñas <strong>'ladybugs'</strong> estén en el mismo <i>array</i> que sus padres.<br><br> Asignar el resultado del método a una nueva <i>variable</i> llamada <strong>'fullFamily'</strong></div>`,
+        'context': `<div>Desde que nacemos, nuestra familia nos cuida y protege. En algunos insectos ocurre lo mismo: los padres vigilan, alimentan y protegen a sus hijos hasta que crecen lo suficiente. <br> Como dato curioso, ¿sabías que un grupo de mariquitas fue al espacio en 1999?</div>`
+      },
+      'level_10':
+      {
+        'methodTitle': `Provocar la metamorfosis en todos los 'cocoon'`,
+        'methodHelp': `Llena un array con un valor`,
+        'methodName': `Método Fill()`,
+        'desc': `El método fill() rellena todos los elementos de un array con un valor. El método Fill sobrescribe el array original.`,
+        'instructions': `<div>Usa el <i>método</i> <strong>fill()</strong> para transformar el <i>array</i> <strong>'cocoon'</strong> en un <strong>'butterfly'</strong> <i>array</i>, y observa el poder de la metamorfosis.</b></div>`,
+        'context': `<div>Como ya sabes, algunos insectos cambian completamente su forma cuando se convierten en adultos. Algunos insectos hacen lo que se conoce como metamorfosis. Este proceso es diferente dependiendo del insectos, en el caso de las mariposas su transformación es total, primero es una oruga, luego un capullo y finalmente una hermosa mariposa.</div>`
+      },
+      'level_11':
+      {
+        'methodTitle': `Busca el índice del 'dragonfly' turquesa`,
+        'methodHelp': `Devuelve el índice del primer elemento de un array que supera una prueba`,
+        'methodName': `Método FindIndex()`,
+        'desc': `El método findIndex() devuelve el índice del primer elemento de un array que pasa una prueba (proporcionada como una función). El método findIndex devuelve -1 si no se encuentra ningún elemento.`,
+        'instructions': `<div>Encuentra la posición del insecto turquesa en el <i>array</i> usando el <i>méthodo</i> <strong>findIndex()</strong>  Asigna esa posición a la <i>variable</i><strong>indexTurquoise</strong></div>`,
+        'context': `<div>Los colores son otra característica diferencial en los insectos. Algunos de los patrones son utilizados y copiados por los humanos. Los colores pueden advertirnos de su peligro, servir para el éxito reproductivo o para el camuflaje. También hay algunos insectos incoloros.</div>`
+      },
+      'level_12':
+      {
+        'methodTitle': `¿Qué tienen en común?`,
+        'methodHelp': `Cada método comprueba si todos los elementos de un array pasan una prueba (proporcionada como una función)`,
+        'methodName': `Método Every()`,
+        'desc': `El método every() comprueba si todos los elementos de un array pasan una prueba (proporcionada como una función).El método devuelve true/false si la función devuelve true/false para todos los elementos del array`,
+        'instructions': `<div>En este nivel tenemos un array de objetos. Por ejemplo: {name: 'worm', fly: false, poisonous: false} Teniendo en cuenta estas propiedades, utiliza el método every() para averiguar qué tienen en común. Debes asignar el resultado a <strong>canWeAllFly</strong></div>`,
+        'context': `` // levels.js -> contextInstructions
+      },
+      'level_13':
+      {
+        'methodTitle': `Clasifica los insectos por evolución`,
+        'methodHelp': `Ordena los insectos por evolución`,
+        'methodName': `Método Sort()`,
+        'desc': `El método sort() ordena los elementos de un array.`,
+        'instructions': `<div>En este nivel debes ordenar los insectos por el orden de su evolución.<br>Debes saber que cada insecto tiene 2 propiedades, su nombre y su etapa de evolución ('eStage'):<br>-->[{name:'butterfly', eStage: '2'}]</b></div>`,
+        'context': `` // levels.js -> contextInstructions
+      },
+      'level_14':
+      {
+        'methodTitle': `Convierte a las hormigas en reinas`,
+        'methodHelp': `Reduce las hormigas`,
+        'methodName': `Reduce method`,
+        'desc': `El método reduce() devuelve un único valor: el resultado acumulado de la función.`,
+        'instructions': `<div>Hola de nuevo!<br><br>En este ejercicio tenemos un array de hormigas, si sumamos cada hormiga, obtendremos 4 hormigas (un número). Asigna el valor del método en<strong>total</strong></div>`,
+        'context': `` // levels.js -> contextInstructions
+      },
+      'level_15':
+      {
+        'methodTitle': `Une las hormigas con una cadena`,
+        'methodHelp': `Une las hormigas`,
+        'methodName': `Método Join`,
+        'desc': `El método join() devuelve un array como una cadena.`,
+        'instructions': `<div>Hola de nuevo! <br><br>en este ejercicio tienes que transformar este pequeño grupo de hormigas en un hormiguero.<br><br>Necesitamos que las unas con un guión bajo para que se unan con una cadena. Asigna el resultado en <strong>strLinked</strong></div>`,
+        'context': `` // levels.js -> contextInstructions
       },
 
       'level_16':
@@ -330,7 +420,6 @@ var resources = {
         'instructions': `<div>Nuestros insectos están hambrientos, usa el <i>método</i> <strong>map()</strong> para duplicar su peso. Debes asignar el nuevo array en la variable <strong>feededBugs</strong></div>`,
         'context': `` // levels.js -> contextInstructions
       },
-
     }
   },
 }
