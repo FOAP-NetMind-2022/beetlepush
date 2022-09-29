@@ -289,17 +289,31 @@ function handleInput(text) {
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
-function setFeedbackMessage(type, msg) {
+function setFeedbackMessage(type, evalCode) {
   console.log("🚀 ~ file: field.js ~ line 293 ~ setFeedbackMessage ~ type", type)
 
   $('#exercise-feedback').removeClass('d-none alert-success alert-warning alert-danger');
   $('#exercise-feedback').addClass(FEEDBACK_MESSAGE_CLASSES[type]);
-  $('#exercise-feedback').html(msg);
+
+  if (type == "correct") {
+    $('#feedback-success').removeClass('d-none');
+
+  }
+
+  else {
+    $('#feedback-error').removeClass('d-none');
+    $('#exercise-feedback #evaluated-code').html(evalCode);
+
+  }
 }
 
 function clearFeedbackMessage() {
+  
   $('#exercise-feedback').addClass('d-none');
-  $('#exercise-feedback').html('');
+  $('#feedback-error').addClass('d-none');
+  $('#feedback-success').addClass('d-none');
+
+  $('#exercise-feedback #evaluated-code').html('');
 }
 
 function fireArray(text) {
@@ -345,9 +359,10 @@ function fireArray(text) {
     trackProgress(currentLevel, "incorrect");
     console.log("🚀 ~ file: field.js ~ line 346 ~ fireArray ~ currentLevel", currentLevel)
     let { variableToCheck } = levels[currentLevel];
+
     console.log("🚀 ~ file: field.js ~ line 348 ~ fireArray ~ variableToCheck", variableToCheck)
     let evaluatedVariable = getVariableEval(text, variableToCheck);
-    setFeedbackMessage('notCorrect', `Your code is not correct. <b>${variableToCheck} = ${evaluatedVariable}</b>`)
+    setFeedbackMessage('notCorrect', `<b>${variableToCheck} = ${evaluatedVariable}</b>`)
     shakeEditor();
   }
 }
@@ -550,6 +565,8 @@ function fireRule(rule) {
     } else {
       setTimeout(function () {
         loadLevel();
+        clearFeedbackMessage();
+
       }, levelTimeout);
     }
   } else {
@@ -751,7 +768,6 @@ function loadLevel() {
   }
 
   hideTooltip();
-  clearFeedbackMessage();
 
   level = levels[currentLevel];
 
