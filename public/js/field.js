@@ -290,7 +290,7 @@ function handleInput(text) {
 }
 
 function setFeedbackMessage(type, msg) {
-console.log("🚀 ~ file: field.js ~ line 293 ~ setFeedbackMessage ~ type", type)
+  console.log("🚀 ~ file: field.js ~ line 293 ~ setFeedbackMessage ~ type", type)
 
   $('#exercise-feedback').removeClass('d-none alert-success alert-warning alert-danger');
   $('#exercise-feedback').addClass(FEEDBACK_MESSAGE_CLASSES[type]);
@@ -306,14 +306,14 @@ function fireArray(text) {
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
 
-  let isCorrect; 
+  let isCorrect;
   try {
-     isCorrect = checkLevelCorrect(currentLevel, text);
+    isCorrect = checkLevelCorrect(currentLevel, text);
   }
 
-  catch(error) {
+  catch (error) {
     setFeedbackMessage('error', error.message);
- 
+    shakeEditor();
     return;
   }
 
@@ -343,13 +343,35 @@ function fireArray(text) {
     return;
   } else {
     trackProgress(currentLevel, "incorrect");
-    setFeedbackMessage('notCorrect', 'Your code is not correct, pelase check it out.')
-
-    $(".editor").addClass("shake");
-    setTimeout(function () {
-      $(".editor").removeClass("shake");
-    }, 1000);
+    console.log("🚀 ~ file: field.js ~ line 346 ~ fireArray ~ currentLevel", currentLevel)
+    let { variableToCheck } = levels[currentLevel];
+    console.log("🚀 ~ file: field.js ~ line 348 ~ fireArray ~ variableToCheck", variableToCheck)
+    let evaluatedVariable = getVariableEval(text, variableToCheck);
+    setFeedbackMessage('notCorrect', `Your code is not correct. <b>${variableToCheck} = ${evaluatedVariable}</b>`)
+    shakeEditor();
   }
+}
+
+function shakeEditor() {
+
+  $(".editor").addClass("shake");
+  setTimeout(function () {
+    $(".editor").removeClass("shake");
+  }, 1000);
+}
+
+function getVariableEval(inputCode, variableToCheck) {
+
+  let evaluatedVariable;
+  try {
+    eval(inputCode); // we need to eval all user code to declare variable
+    evaluatedVariable = eval(variableToCheck);
+  } catch (error) {
+    evaluatedVariable = error.message;
+  }
+
+  return JSON.stringify(evaluatedVariable);
+
 }
 
 function checkLevelCorrect(currentLevel, inputUser) {
@@ -729,6 +751,7 @@ function loadLevel() {
   }
 
   hideTooltip();
+  clearFeedbackMessage();
 
   level = levels[currentLevel];
 
