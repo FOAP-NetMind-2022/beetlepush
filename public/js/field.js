@@ -319,7 +319,7 @@ function clearFeedbackMessage() {
 function fireArray(text) {
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
-
+clearFeedbackMessage();
   let isCorrect;
   try {
     isCorrect = checkLevelCorrect(currentLevel, text);
