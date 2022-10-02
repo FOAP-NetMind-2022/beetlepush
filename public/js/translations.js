@@ -46,6 +46,12 @@ var resources = {
               'input': 'Type in an Array method',
               'enter': 'enter'
             },
+          },
+          'feedback': 
+          {
+            'errorMessage': `You code is not correct. Remember that you MUST use the array method correctly.`,
+            'congratsMessage': `You code is corret. Well done!`
+
           }
         }
       },
@@ -264,6 +270,11 @@ var resources = {
               'input': 'Escribe un método de Array',
               'enter': 'enter'
             },
+            'feedback': 
+            {
+              'errorMessage': `Tu código no es correcto. Recuerda que debes usar el método de array adecuadamente.`,
+              'congratsMessage': `Tu código es correcto. ¡Buen trabajo!`
+            }
           }
         }
       },

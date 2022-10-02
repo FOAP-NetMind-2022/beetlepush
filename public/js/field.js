@@ -1,8 +1,16 @@
 var selectedLang;
 var level; // Holds current level info
 var currentLevel = parseInt(localStorage.currentLevel, 10) || 0; // Keeps track of the current level Number (0 is level 1)
-var levelTimeout = 2000; // Delay between levels after completing
+var levelTimeout = 3000; // Delay between levels after completing
 var finished = false; // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
+
+// https://api.jquery.com/addclass/ Array of classes to be added depending if the exercise is
+// correct, there is an execution error or the exercise is not correct
+const FEEDBACK_MESSAGE_CLASSES = {
+  correct: 'alert-success',
+  notCorrect: 'alert-warning',
+  error: 'alert-danger'
+}
 
 
 var blankProgress = {
@@ -168,9 +176,9 @@ function buildLevelmenu() {
     var item = document.createElement("a");
     $(item).html(
       "<span class='checkmark'></span><span class='level-number'>" +
-        (i + 1) +
-        "</span>" +
-        level.syntax
+      (i + 1) +
+      "</span>" +
+      level.syntax
     );
     $(".level-menu .levels").append(item);
 
@@ -281,26 +289,59 @@ function handleInput(text) {
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
+function setFeedbackMessage(type, evalCode) {
+  console.log("🚀 ~ file: field.js ~ line 293 ~ setFeedbackMessage ~ type", type)
+
+  $('#exercise-feedback').removeClass('d-none alert-success alert-warning alert-danger');
+  $('#exercise-feedback').addClass(FEEDBACK_MESSAGE_CLASSES[type]);
+
+  if (type == "correct") {
+    $('#feedback-success').removeClass('d-none');
+
+  }
+
+  else {
+    $('#feedback-error').removeClass('d-none');
+    $('#exercise-feedback #evaluated-code').html(evalCode);
+
+  }
+}
+
+function clearFeedbackMessage() {
+  
+  $('#exercise-feedback').addClass('d-none');
+  $('#feedback-error').addClass('d-none');
+  $('#feedback-success').addClass('d-none');
+
+  $('#exercise-feedback #evaluated-code').html('');
+}
+
 function fireArray(text) {
 
   // evaluamos cualquier error que pueda existir en el array. Esto no lo utilizamos para validar el resultado del usuario, sino para detectar errores de sintaxis de JavaScript.
- 
-  
-  //SWITCH
+clearFeedbackMessage();
+  let isCorrect;
+  try {
+    isCorrect = checkLevelCorrect(currentLevel, text);
+  }
 
-  const isCorrect = checkLevelCorrect(currentLevel, text);
+  catch (error) {
+    setFeedbackMessage('error', error.message);
+    shakeEditor();
+    return;
+  }
+
+
 
   if (isCorrect) {
-    /*  let newboardMarkup = '';
-     myGrass.forEach(function (element) {
-     newboardMarkup += `<grass><${element}/></grass>`;
-     }); */
 
-    /* level.boardMarkup = `${newboardMarkup}`; */
+    setFeedbackMessage('correct', 'You code is correct! Well done! ');
+
+
+
     level.boardMarkup = level.boardMarkupSolution;
     level.completed = true;
     level.userSolution = text;
-    //console.log(level.completed);
 
     trackProgress(currentLevel, "correct");
 
@@ -310,32 +351,57 @@ function fireArray(text) {
       currentLevel++;
       loadLevel();
       flask.updateCode(levels[currentLevel].myGrass);
-    }, 2000);
+      clearFeedbackMessage();
+    }, levelTimeout);
 
     return;
   } else {
     trackProgress(currentLevel, "incorrect");
+    console.log("🚀 ~ file: field.js ~ line 346 ~ fireArray ~ currentLevel", currentLevel)
+    let { variableToCheck } = levels[currentLevel];
 
-    $(".editor").addClass("shake");
-    setTimeout(function () {
-      $(".editor").removeClass("shake");
-    }, 1000);
+    console.log("🚀 ~ file: field.js ~ line 348 ~ fireArray ~ variableToCheck", variableToCheck)
+    let evaluatedVariable = getVariableEval(text, variableToCheck);
+    setFeedbackMessage('notCorrect', `<b>${variableToCheck} = ${evaluatedVariable}</b>`)
+    shakeEditor();
   }
 }
 
+function shakeEditor() {
+
+  $(".editor").addClass("shake");
+  setTimeout(function () {
+    $(".editor").removeClass("shake");
+  }, 1000);
+}
+
+function getVariableEval(inputCode, variableToCheck) {
+
+  let evaluatedVariable;
+  try {
+    eval(inputCode); // we need to eval all user code to declare variable
+    evaluatedVariable = eval(variableToCheck);
+  } catch (error) {
+    evaluatedVariable = error.message;
+  }
+
+  return JSON.stringify(evaluatedVariable);
+
+}
+
 function checkLevelCorrect(currentLevel, inputUser) {
-// a partir del nivel 7, case 6, no pasa al siguiente nivel!
-// seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
-  
+  // a partir del nivel 7, case 6, no pasa al siguiente nivel!
+  // seria interesante que aparezcan los nombres de los nuevos arrays? o de los varios arrays como en el concat
+
   let isCorrect = false
   var expresion
-  
+
   //let myGrass = levels[currentLevel].myGrass;
-  let myGrassSolution=levels[currentLevel].myGrassSolution;
+  let myGrassSolution = levels[currentLevel].myGrassSolution;
 
 
   let evalInputUser;
-  let {variableToCheck} =  levels[currentLevel];
+  let { variableToCheck } = levels[currentLevel];
   console.log("🚀 ~ file: field.js ~ line 351 ~ checkLevelCorrect ~ variableToCheck", variableToCheck)
 
   let methodCorrect;
@@ -344,13 +410,13 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
   try {
     // Al hacer eval lo que hacemos es DECLARAR tantas variables como haya en el editor JavaScript
-    evalInputUser=eval(inputUser);  
-  
+    evalInputUser = eval(inputUser);
+
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 
-  
+
 
   // if (levels[currentLevel].solutionIsArray) {
 
@@ -359,35 +425,35 @@ function checkLevelCorrect(currentLevel, inputUser) {
   //   console.log("🚀 ~ file: field.js ~ line 368 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
   // }
 
-      //AQUI EMPEZAMOS NOSOTROS
-      let regExpExercise = levels[currentLevel].regExp;
+  //AQUI EMPEZAMOS NOSOTROS
+  let regExpExercise = levels[currentLevel].regExp;
 
-      expresion = new RegExp(regExpExercise, "g");
-    
-      // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
-      methodCorrect = expresion.test(inputUser);
-      console.log("🚀 ~ file: field.js ~ line 379 ~ checkLevelCorrect ~ methodCorrect", methodCorrect)
+  expresion = new RegExp(regExpExercise, "g");
 
-      // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
-      // TODO : try catch
-      let variableToCheckEvaluated= "";
-      
-      try {
-        variableToCheckEvaluated = eval(variableToCheck);
-      } catch (error) {
-         console.log("🚀 ~ file: field.js ~ line 378 ~ checkLevelCorrect ~ error", error)
-      }
+  // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
+  methodCorrect = expresion.test(inputUser);
+  console.log("🚀 ~ file: field.js ~ line 379 ~ checkLevelCorrect ~ methodCorrect", methodCorrect)
 
-      valuesAreEqual=_.isEqual(myGrassSolution,variableToCheckEvaluated);
-      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheckEvaluated",variableToCheckEvaluated)
-      console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
-      console.log("🚀 ~ file: field.js ~ line 383 ~ checkLevelCorrect ~ valuesAreEqual", valuesAreEqual)
+  // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
+  // TODO : try catch
+  let variableToCheckEvaluated = "";
 
-      // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
-      // isCorrect=methodCorrect && valuesAreEqual;
-      isCorrect=valuesAreEqual && methodCorrect;
- 
-  
+  try {
+    variableToCheckEvaluated = eval(variableToCheck);
+  } catch (error) {
+    console.log("🚀 ~ file: field.js ~ line 378 ~ checkLevelCorrect ~ error", error)
+  }
+
+  valuesAreEqual = _.isEqual(myGrassSolution, variableToCheckEvaluated);
+  console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheckEvaluated", variableToCheckEvaluated)
+  console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
+  console.log("🚀 ~ file: field.js ~ line 383 ~ checkLevelCorrect ~ valuesAreEqual", valuesAreEqual)
+
+  // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
+  // isCorrect=methodCorrect && valuesAreEqual;
+  isCorrect = valuesAreEqual && methodCorrect;
+
+
 
   return isCorrect //load next level
 }
@@ -423,11 +489,11 @@ function showHelp() {
 
 
 
-   for (var i = 0; i < examples.length; i++) {
+  for (var i = 0; i < examples.length; i++) {
     var example = $("<div class='example'>" + examples[i] + "</div>");
     $(".display-help .examples").append(example);
     $(".display-help .examples-title").show(); // Show it if there are examples
-  } 
+  }
 
   $(".display-help .hint").html(help);
   $(".display-help .selector").text(selector);
@@ -499,6 +565,8 @@ function fireRule(rule) {
     } else {
       setTimeout(function () {
         loadLevel();
+        clearFeedbackMessage();
+
       }, levelTimeout);
     }
   } else {
@@ -610,7 +678,7 @@ function sendEvent(category, action, label, wrongCount) {
       console.log(result);
     }
   );
-  
+
 }
 
 function winGame() {
@@ -788,17 +856,15 @@ function PopupCenter(url, title, w, h) {
 }
 
 
-function Translate(language, user)
-{
-  
+function Translate(language, user) {
+
   $('.order').html('');
   $('.markup').removeAttr('data-i18n');
   $('.contextInstructions').removeAttr('data-i18n');
 
   var lang;
 
-  if (user)
-  {
+  if (user) {
     lang = language;
     localStorage.setItem('language', language);
   } else {
@@ -810,16 +876,16 @@ function Translate(language, user)
     lng: lang
   });
 
-  $('.order').html(i18n.t(`level_${currentLevel+1}.methodTitle`));
-  $('.markup').html(i18n.t(`level_${currentLevel+1}.instructions`));
-  $('.contextInstructions').html(i18n.t(`level_${currentLevel+1}.context`));
+  $('.order').html(i18n.t(`level_${currentLevel + 1}.methodTitle`));
+  $('.markup').html(i18n.t(`level_${currentLevel + 1}.instructions`));
+  $('.contextInstructions').html(i18n.t(`level_${currentLevel + 1}.context`));
 
-  $('.display-help .selector-name').html(i18n.t(`level_${currentLevel+1}.methodName`));
-  $('.title').html(i18n.t(`level_${currentLevel+1}.methodHelp`));
-  $('.hint').html(i18n.t(`level_${currentLevel+1}.desc`));
+  $('.display-help .selector-name').html(i18n.t(`level_${currentLevel + 1}.methodName`));
+  $('.title').html(i18n.t(`level_${currentLevel + 1}.methodHelp`));
+  $('.hint').html(i18n.t(`level_${currentLevel + 1}.desc`));
 
 
-  $(".level-header .level-text").html(i18n.t('level') + " " + (currentLevel + 1) + " " +  i18n.t('of')  + " " + levels.length);
+  $(".level-header .level-text").html(i18n.t('level') + " " + (currentLevel + 1) + " " + i18n.t('of') + " " + levels.length);
 
   $(document).i18n();
 }
