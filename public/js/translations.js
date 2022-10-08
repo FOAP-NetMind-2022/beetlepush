@@ -197,11 +197,11 @@ var resources = {
       },
       'level_14':
       {
-        'methodTitle': `Turn ants into queen`,
-        'methodHelp': `Reduce the ants`,
+        'methodTitle': `Sum all the ants`,
+        'methodHelp': `Reduce the array of ants`,
         'methodName': `Reduce method`,
         'desc': `The reduce() method returns a single value: the function's accumulated result.`,
-        'instructions': `<div>Hello again! <br><br>In this exercise we have an array of ants, if we add each ant, we will get 4 ants (a number). Assign the value of the method into <strong>total</strong></div>`,
+        'instructions': `<div>In this exercise we have an array of ants, if we sum every ant, we will get 4 ants (a number). Assign the value of the method into <strong>total</strong></div>`,
         'context': `` // levels.js -> contextInstructions
       },
       'level_15':
@@ -406,11 +406,11 @@ var resources = {
       },
       'level_14':
       {
-        'methodTitle': `Convierte a las hormigas en reinas`,
-        'methodHelp': `Reduce las hormigas`,
-        'methodName': `Reduce method`,
+        'methodTitle': `Suma todas las hormigas`,
+        'methodHelp': `Suma las hormigas`,
+        'methodName': `Método reduce()`,
         'desc': `El método reduce() devuelve un único valor: el resultado acumulado de la función.`,
-        'instructions': `<div>Hola de nuevo!<br><br>En este ejercicio tenemos un array de hormigas, si sumamos cada hormiga, obtendremos 4 hormigas (un número). Asigna el valor del método en<strong>total</strong></div>`,
+        'instructions': `<div>En este ejercicio tenemos un array de hormigas, si sumamos cada hormiga, obtendremos 4 hormigas (un número). Asigna el valor del método en<strong>total</strong></div>`,
         'context': `` // levels.js -> contextInstructions
       },
       'level_15':

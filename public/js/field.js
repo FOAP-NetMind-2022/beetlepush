@@ -47,6 +47,7 @@ $(document).ready(function () {
   });
 
   $(".level-nav").on("click", "a", function () {
+    clearFeedbackMessage();
     var direction;
     if ($(this).hasClass("next")) {
       direction = "next";
