@@ -40,7 +40,12 @@ This is a basic HTML/JS app, but it is server through a NodeJS server. We use No
 
 ## Authors
 
+[Fabian Taranto](https://github.com/fataranto)
 [Oscar Miras](https://github.com/omiras)
+[Sara Rodríguez](https://github.com/SaraaLee)
+[Stefano Gallone](https://github.com/Ste2812)
+[Victoria Lavega](https://github.com/SaraaLee)
+
 
 
 ## 🤝 Support
