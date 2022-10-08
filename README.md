@@ -31,6 +31,8 @@ This is a basic HTML/JS app, but it is server through a NodeJS server. We use No
 
 ![stack](https://user-images.githubusercontent.com/105077371/192238440-29a02959-0654-49d7-af18-5bf5ed884a97.jpg)
 
+[Detailed info](https://github.com/FOAP-NetMind-2022/beetlepush/wiki/Technologies-used-in-BeetlePush) about all the libraries and technologies used in this project.
+
 ## Future Updates
 
 - [ ] More levels !
