@@ -23,7 +23,7 @@
 In the project directory, you can run:
 
 
-### `"npm run dev"
+### `"npm run dev"`
 
 This is a basic HTML/JS app, but it is server through a NodeJS server. We use NodeJS as a backend to store game statistics in a MongoDB database.
 
