@@ -29,23 +29,7 @@ This is a basic HTML/JS app, but it is server through a NodeJS server. We use No
 
 ## Built With
 
-**DATABASE:** 
-- MongoDB 
-
-**BACK END / SERVER SIDE**
-- Mongoose
-- NPM
-- NODE JS
-- EXPRESS
-- NODEMON
-
-**FRONT END / CLIENT SIDE**
-- BOOTSTRAP
-- EJS
-- CSS
-- HTML 5
-- JS
-- PLOTLY
+![stack](https://user-images.githubusercontent.com/105077371/192238440-29a02959-0654-49d7-af18-5bf5ed884a97.jpg)
 
 ## Future Updates
 
