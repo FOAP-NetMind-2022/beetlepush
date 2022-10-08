@@ -1,6 +1,6 @@
 <h1 align="center">BeetlePush</h1>
 
-<p align="center">Have fun while learning Javascript array methods!</p>
+<p align="center">Have fun while learning Javascript array methods! This project was made as a part of <a target="_blank"  href="https://www.bit.es/desarrollo-de-aplicaciones-web/">this</a> Web development course</p>
 
 ## Links
 
@@ -47,24 +47,32 @@ For running the server file on you can use this command.
 
 ## Built With
 
-- JavaScript
-- Node
+**DATABASE:** 
+- MongoDB 
+
+**BACK END / SERVER SIDE**
+- Mongoose
 - NPM
-- Webpack
-- HTML
+- NODE JS
+- EXPRESS
+- NODEMON
+
+**FRONT END / CLIENT SIDE**
+- BOOTSTRAP
+- EJS
 - CSS
+- HTML 5
+- JS
+- PLOTLY
 
 ## Future Updates
 
-- [ ] Reliable Storage
+- [ ] More levels !
 
-## Author
+## Authors
 
-**Rohit Jain**
+[Oscar Miras](https://github.com/omiras)
 
-- [Profile](https://github.com/rohit19060 "Rohit jain")
-- [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
-- [Website](https://kingtechnologies.in "Welcome")
 
 ## 🤝 Support
 
