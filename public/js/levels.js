@@ -922,7 +922,7 @@ var levels = [
     {
       helpTitle: "Reduce the ants ",
       selectorName: "Reduce method",
-      doThis: "Turn ants into queen",
+      doThis: "Sum all the ants",
       regExp: "myGrass\.reduce", 
       selector: ".dance",
       syntax: "reduce();",
@@ -954,15 +954,14 @@ var levels = [
         </bracket>
       `,
       boardMarkupSolution: ` 
-      <!--mirar de quitar el braket-->
       <grass style="height:130px">
-      <ant class="small dance" style="top:0">
-      <ant class="small dance" style="top:0">
-      <ant class="small dance" style="top:0">
-      <ant class="small dance" style="top:0">
+      <ant class="small" style="top:0">
+      <ant class="small" style="top:0">
+      <ant class="small" style="top:0">
+      <ant class="small" style="top:0">
       </grass>
       `,
-      instructions: "<div style='font-size:20px'>Hello again! <br><br>In this exercise we have an array of ants, if we add each ant, we will get 4 ants (a number). Assign the value of the method into <strong>total</strong></div>" 
+      instructions: "<div>In this exercise we have an array of ants, if we sum every ant, we will get 4 ants (a number). Assign the value of the method into <strong>total</strong></div>" 
     },
     {
       helpTitle: "Join the ants ",
