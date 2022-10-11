@@ -307,7 +307,7 @@ grass {
 .grassNewMargin {
   border: 3px solid #2a231d;
   border-radius: 4px;
-  background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/146/575/large/ulrick-wery-tileableset2-soil.jpg');
+  background: rgba(33, 31, 95, .3);
   background-size: 125%;
   margin-right: 50px;
 }

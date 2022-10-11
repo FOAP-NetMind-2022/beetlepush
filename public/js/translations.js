@@ -210,7 +210,7 @@ var resources = {
         'methodHelp': `Join the ants`,
         'methodName': `Join method`,
         'desc': `The join() method returns an array as a string.`,
-        'instructions': `<div>Hello again! <br><br>in this exercise you have to transform this small group of ants into an anthill.<br><br>We need you to join them with a underscore so that they are joined with a string. Assign the result into <strong>strLinked</strong></div>`,
+        'instructions': `<div>In this exercise you have link this small group of ants using the <em>underscore</em> character.<br><br>We need you to use <strong>join</strong> method so they are joined and converted to a string. Assign the result into <strong>strLinked</strong></div>`,
         'context': `` // levels.js -> contextInstructions
       },
       'level_16':
@@ -419,7 +419,7 @@ var resources = {
         'methodHelp': `Une las hormigas`,
         'methodName': `Método Join`,
         'desc': `El método join() devuelve un array como una cadena.`,
-        'instructions': `<div>Hola de nuevo! <br><br>en este ejercicio tienes que transformar este pequeño grupo de hormigas en un hormiguero.<br><br>Necesitamos que las unas con un guión bajo para que se unan con una cadena. Asigna el resultado en <strong>strLinked</strong></div>`,
+        'instructions': `En este ejercicio tienes que unir este pequeño grupo de hormigas con el signo de puntuación <em>guión bajo</em>. Necesitamos que usas el método <strong>join</strong> para transformar el array de hormigas en un string. Asigna el resultado en <strong>strLinked</strong></div>`,
         'context': `` // levels.js -> contextInstructions
       },
 

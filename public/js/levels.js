@@ -964,7 +964,7 @@ var levels = [
       instructions: "<div>In this exercise we have an array of ants, if we sum every ant, we will get 4 ants (a number). Assign the value of the method into <strong>total</strong></div>" 
     },
     {
-      helpTitle: "Join the ants ",
+      helpTitle: "Join the ants",
       selectorName: "Join method",
       doThis: "Join the ants with a chain",
       regExp: "myGrass\.join.*_", 
@@ -990,7 +990,7 @@ var levels = [
           <grass class="grassNewMargin">
             <ant>
           </grass>
-          <grass>
+          <grass class="grassNewMargin" style="margin-right:0">
             <ant>
           </grass>
   
@@ -1012,7 +1012,7 @@ var levels = [
             <ant class= "dance">
           </grass>
     `,
-    instructions: "<div style='font-size:20px'>Hello again! <br><br>in this exercise you have to transform this small group of ants into an anthill.<br><br>We need you to join them with a underscore so that they are joined with a string. Assign the result into <strong>strLinked</strong></div>" 
+    instructions: "<div>In this exercise you have to transform this small group of ants into an anthill.<br><br>We need you to join them with a underscore so that they are joined with a string. Assign the result into <strong>strLinked</strong></div>" 
     },
     {
       helpTitle: "Map the bugs",
