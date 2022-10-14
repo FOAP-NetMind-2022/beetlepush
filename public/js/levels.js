@@ -1069,6 +1069,58 @@ var levels = [
     `,
     instructions: "<div>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong> <br><br>Each bug has 2 properties: name and weight.<br>--> [{name:'ladybug', weight: '10'}]</div>" 
     },
+    // level 17 : FILTER
+    {
+      helpTitle: "Creates a copy of a portion of the original array",
+      selectorName: "Filter() method",
+      doThis: "Crate a new array with the bugs which name has more than 5 letters",
+      selector: ".dance",
+      syntax: "filter();",
+      regExp: "myGrass\.filter\(\);?",
+      help: 'The filter() method create a new array with the elements that pass the test implemented by the provided function.',
+      examples: [
+        `<strong>1</strong>const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+        <br><strong>2</strong>const result = words.filter(word => word.startsWith("e"));
+        ;<br> <strong>3</strong> console.log(result);        `,
+        '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["elite", "exuberant"]</div>',
+      ],
+      myGrass : "var myGrass = ['worm','butterfly','bee','dragonFly','spider'];\n\nvar largeNames;",
+      variableToCheck: "myGrass",
+      myGrassSolution : ['butterfly','dragonFly'],
+      completed: false,
+      userSolution: "",
+      boardMarkup: `
+      <bracket>
+        <grass>
+          <worm>
+        </grass>
+        <grass>
+          <butterfly class="dance">
+        </grass>
+        <grass>
+          <bee>
+        </grass>
+        <grass>
+          <dragonFly class="dance">
+        </grass>
+        <grass>
+          <spider>
+        </grass>
+      </bracket>
+    `,
+    boardMarkupSolution: `
+      <bracket>
+        <grass>
+          <butterfly class="dance">
+        </grass>
+        <grass>
+          <dragonFly class="dance">
+        </grass>
+      </bracket>
+    `,
+      contextInstructions: "" ,
+      instructions: ""
+    },
     
   
   ];
