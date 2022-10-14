@@ -40,7 +40,7 @@ This is a basic HTML/JS app, but it is server through a NodeJS server. We use No
 
 ## Authors
 
-[Carolina Lisa](https://github.com/Ste2812)
+[Carolina Lisa](https://github.com/lisis)
 
 [Fabian Taranto](https://github.com/fataranto)
 
@@ -54,8 +54,9 @@ This is a basic HTML/JS app, but it is server through a NodeJS server. We use No
 
 [Stefano Gallone](https://github.com/Ste2812)
 
-[Victoria Lavega](https://github.com/SaraaLee)
+[Victoria Lavega](https://github.com/victoriageeks)
 
+[Andreu González](https://github.com/Andreu-G)
 
 
 ## 🤝 Support
