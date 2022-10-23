@@ -1084,7 +1084,7 @@ var levels = [
         ;<br> <strong>3</strong> console.log(result);        `,
         '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["elite", "exuberant"]</div>',
       ],
-      myGrass : "var myGrass = ['worm','butterfly','bee','dragonFly','spider'];\n\nvar largeNames;",
+      myGrass : "var myGrass = ['worm','butterfly','bee','dragonFly','spider'];\n\nvar longNames;",
       variableToCheck: "myGrass",
       myGrassSolution : ['butterfly','dragonFly'],
       completed: false,
