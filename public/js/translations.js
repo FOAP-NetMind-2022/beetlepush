@@ -222,6 +222,15 @@ var resources = {
         'instructions': `<div>Our bugs are starving, use the <strong>map()</strong> methods to double their weight. You must assign the new array into <strong>feededBugs</strong> <br><br>Each bug has 2 properties: name and weight.<br>--> [{name:'ladybug', weight: '10'}]</div>`,
         'context': `` // levels.js -> contextInstructions
       },
+      'level_17':
+      {
+        'methodTitle': `Crate a new array with the bugs which name has more than 5 letters`,
+        'methodHelp': `Filter the bugs`,
+        'methodName': `Filter method`,
+        'desc': `The filter() method creates a new array with the elements that pass the test implemented by the provided function.`,
+        'instructions': `<div>We like large bugs names, so in this exercise, use the <strong>filter</strong> method to achieve it</div>`,
+        'context': `` // levels.js -> contextInstructions
+      },
     }
   },
   'es-ES':
@@ -429,6 +438,15 @@ var resources = {
         'methodHelp': `Transforma los insectos`,
         'desc': `El map() llama una función una vez por cada elemento del array. <a href= 'https://www.w3schools.com/jsref/jsref_map.asp'> Más ayuda. </a>`,
         'instructions': `<div>Nuestros insectos están hambrientos, usa el <i>método</i> <strong>map()</strong> para duplicar su peso. Debes asignar el nuevo array en la variable <strong>feededBugs</strong></div>`,
+        'context': `` // levels.js -> contextInstructions
+      },
+      'level_17':
+      {
+        'methodTitle': `Crea un nuevo array con el nombre de los bichos que tienen más de 5 letras`,
+        'methodHelp': `Filtra los bichos`,
+        'methodName': `Método <em>filter</em>`,
+        'desc': `El método filter crea un nuevo array con todos elementos que pasan la función de test.`,
+        'instructions': `<div>Nos gustan los animales con nombres largos. Usa el método <strong>filter</strong> para pasar este ejercicio.</div>`,
         'context': `` // levels.js -> contextInstructions
       },
     }
