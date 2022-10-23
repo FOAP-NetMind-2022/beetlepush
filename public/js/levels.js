@@ -1085,7 +1085,7 @@ var levels = [
         '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["elite", "exuberant"]</div>',
       ],
       myGrass : "var myGrass = ['worm','butterfly','bee','dragonFly','spider'];\n\nvar longNames;",
-      variableToCheck: "myGrass",
+      variableToCheck: "longNames",
       myGrassSolution : ['butterfly','dragonFly'],
       completed: false,
       userSolution: "",
