@@ -12,10 +12,12 @@
 
 - [TikTok Promo](https://www.tiktok.com/@victoriageeks/video/7156273915180944645?_r=1&_t=8WeyzaPCIWE&is_from_webapp=v1&item_id=7156273915180944645)
 
-<video width="320" height="240" controls>
-  <source src="/public/video/gameplay" type="video/mp4">
-Your browser does not support MP4 format.
-</video>
+## Gameplay
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Skpd7mO6gtg
+" target="_blank"><img src="http://img.youtube.com/vi/Skpd7mO6gtg/0.jpg" 
+alt="Gameplay" width="240" height="180" border="10" /></a>
+
 ## Screenshots
 
 ![Home Page](/screenshots/screen1.png)
