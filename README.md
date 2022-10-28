@@ -12,7 +12,7 @@
 
 - [TikTok Promo](https://www.tiktok.com/@victoriageeks/video/7156273915180944645?_r=1&_t=8WeyzaPCIWE&is_from_webapp=v1&item_id=7156273915180944645)
 
-- [Gameplay]()
+- [Gameplay](/public/video/gameplay.mp4)
 
 ## Screenshots
 
