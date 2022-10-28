@@ -10,6 +10,10 @@
 
 - [Requests/Bugs](https://github.com/FOAP-NetMind-2022/beetlepush/issues)
 
+- [TikTok Promo](https://www.tiktok.com/@victoriageeks/video/7156273915180944645?_r=1&_t=8WeyzaPCIWE&is_from_webapp=v1&item_id=7156273915180944645)
+
+- [Gameplay]()
+
 ## Screenshots
 
 ![Home Page](/screenshots/screen1.png)
