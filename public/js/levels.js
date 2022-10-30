@@ -1121,6 +1121,53 @@ var levels = [
       contextInstructions: "" ,
       instructions: ""
     },
+       // level 18 : FILTER with Objects
+       {
+        helpTitle: "Creates a copy of a portion of the original array",
+        selectorName: "Filter() method",
+        doThis: "Create a new array with the bugs which weight is greater than 20  (grams)",
+        selector: ".dance",
+        syntax: "filter() - 2;",
+        regExp: "myGrass\.filter\(\);?",
+        help: 'The filter() method create a new array with the elements that pass the test implemented by the provided function.',
+        examples: [
+          `<strong>1</strong>const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+          <br><strong>2</strong>const result = words.filter(word => word.startsWith("e"));
+          ;<br> <strong>3</strong> console.log(result);        `,
+          '<strong>TERMINAL</strong> <br> <div class="console-wrapper"> ["elite", "exuberant"]</div>',
+        ],
+        myGrass : `var myGrass = [{name:'worm', weight: 21}, {name:'ladybug', weight: 20},
+               {name:'spider', weight: 22}];\n\nvar hugeBugs;`,
+        variableToCheck: "hugeBugs",
+        myGrassSolution : [{name:'worm', weight: 21}, {name:'spider', weight: 22}],
+        completed: false,
+        userSolution: "",
+        boardMarkup: `
+        <bracket>
+          <grass>
+            <worm class="dance">
+          </grass>
+          <grass>
+            <ladybug>
+          </grass>
+          <grass>
+            <spider class="dance">
+          </grass>
+        </bracket>
+      `,
+      boardMarkupSolution:`
+      <bracket>
+      <grass>
+        <worm class="dance">
+      </grass>
+      <grass>
+        <spider class="dance">
+      </grass>
+      </bracket>
+    `,
+        contextInstructions: "" ,
+        instructions: ""
+      },
     
   
   ];
