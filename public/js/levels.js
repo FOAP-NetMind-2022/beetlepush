@@ -1127,7 +1127,7 @@ var levels = [
         selectorName: "Filter() method",
         doThis: "Create a new array with the bugs which weight is greater than 20  (grams)",
         selector: ".dance",
-        syntax: "filter() - 2;",
+        syntax: "filter(); // 2;",
         regExp: "myGrass\.filter\(\);?",
         help: 'The filter() method create a new array with the elements that pass the test implemented by the provided function.',
         examples: [
