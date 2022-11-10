@@ -224,12 +224,21 @@ var resources = {
       },
       'level_17':
       {
-        'methodTitle': `Crate a new array with the bugs which name has more than 5 letters`,
+        'methodTitle': `Create a new array with the bugs which name has more than 5 letters`,
         'methodHelp': `Filter the bugs`,
         'methodName': `Filter method`,
         'desc': `The filter() method creates a new array with the elements that pass the test implemented by the provided function.`,
         'instructions': `<div>We like large bugs names, so in this exercise, use the <strong>filter</strong> method to achieve it</div>`,
         'context': `` // levels.js -> contextInstructions
+      },
+      'level_18':
+      {
+        'methodTitle': `Create a new array with the bugs which weight is greater than 20  (grams)`,
+        'methodHelp': `Filter the bugs`,
+        'methodName': `Filter method`,
+        'desc': `The filter() method creates a new array with the elements that pass the test implemented by the provided function.`,
+        'instructions': `<div>We want to keep only bugs thar are heavier than 20 grams.  Use the <strong>filter</strong> method to achieve it, and assign the result to the variable <em>hugeBugs</em></div>`,
+        'context': `Did you know that the spider <a href="https://en.wikipedia.org/wiki/Goliath_birdeater">Goliath birdeater</a> is the largest spider in the world by mass (175 g (6.2 oz)) and body length (up to 13 cm (5.1 in))?` // levels.js -> contextInstructions
       },
     }
   },
@@ -446,8 +455,17 @@ var resources = {
         'methodHelp': `Filtra los bichos`,
         'methodName': `Método <em>filter</em>`,
         'desc': `El método filter crea un nuevo array con todos elementos que pasan la función de test.`,
-        'instructions': `<div>Nos gustan los animales con nombres largos. Usa el método <strong>filter</strong> para pasar este ejercicio.</div>`,
+        'instructions': `<div>Nos gustan los animales con nombres largos. Usa el método <strong>filter</strong> para pasar este ejercicio. Asigna el resultado a la variable <em>longNames</em></div>`,
         'context': `` // levels.js -> contextInstructions
+      },
+      'level_18':
+      {
+        'methodTitle': `Crea un nuevo array con aquellos bichos que pesan más de 20 (gramos)`,
+        'methodHelp': `Filtra los bichos`,
+        'methodName': `Método <em>filter</em>`,
+        'desc': `El método filter crea un nuevo array con todos elementos que pasan la función de test.`,
+        'instructions': `<div>Queremos crear un array nuevo con los bichos que pesan más de 20 (gramos).Usa el método <strong>filter</strong> y asigna el valor resultante a la variable <em>hugeBugs</em></div>`,
+        'context': `¿Sabías que <a href="https://en.wikipedia.org/wiki/Goliath_birdeater">Goliath birdeater</a> es la araña más grande del mundo? Puede pesar hasta 175 gramos y medir 13 cm de largo.` // levels.js -> contextInstructions
       },
     }
   },
