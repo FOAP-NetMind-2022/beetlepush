@@ -26,8 +26,6 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" type="text/css" media="screen" title="no title"
-        charset="utf-8">
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 
@@ -278,9 +276,8 @@ myArray[1]; // returns 2
             <p id="evaluated-code"></p>
         </div>
 
-        <div class="helper">
-            <!-- This is the popup that floats over table elements -->
-        </div>
+        <!-- <div class="helper">
+        </div> -->
 
     </div>
 
@@ -310,7 +307,6 @@ myArray[1]; // returns 2
     const selectedLang = $(e.target).data('language');
     Translate(selectedLang, true);
     $('#navbarDropdownMenuLink').text(e.target.textContent);
-    //console.log(e.target.dataset.language);
   });
 </script>
 
