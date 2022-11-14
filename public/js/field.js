@@ -27,25 +27,6 @@ var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 localStorage.setItem("progress", JSON.stringify(progress));
 
 $(document).ready(function () {
-  // Custom scrollbar plugin
-  // $(".left-col, .level-menu").mCustomScrollbar({
-  //   scrollInertia: 0,
-  //   autoHideScrollbar: true,
-  // });
-
-  $(".note-toggle").on("click", function () {
-    $(this).hide();
-    $(".note").slideToggle();
-  });
-
-  $(".level-menu-toggle-wrapper").on("click", function () {
-    if ($(".menu-open").length == 0) {
-      openMenu();
-    } else {
-      closeMenu();
-    }
-  });
-
   $(".level-nav").on("click", "a", function () {
     clearFeedbackMessage();
     var direction;
@@ -90,17 +71,20 @@ $(document).ready(function () {
   //muestra los tags <bee></bee>
   $(".table").on("mouseover", "*", function (e) {
     e.stopPropagation();
-    showTooltip($(this));
+    // https://github.com/FOAP-NetMind-2022/beetlepush/issues/48
+    // Lo volvemos a activar cuando muestre realmente la informción correcta, es decir, que elemento del array estamos visualizando. Ahora hace cosas demasiado random
+    // showTooltip($(this));
   });
 
-  //Shows the tooltip on the table
-  $(".markup").on("mouseover", "div *", function (e) {
-    el = $(this);
-    var markupElements = $(".markup *");
-    var index = markupElements.index(el) - 1;
-    showTooltip($(".table *").eq(index));
-    e.stopPropagation();
-  });
+  //Shows the tooltip on the table. Esto lo dejo comentado porque es interesante el cómo mostrar información cuando hovereamos por encima de un elemento 
+
+  // $(".markup").on("mouseover", "div *", function (e) {
+  //   el = $(this);
+  //   var markupElements = $(".markup *");
+  //   var index = markupElements.index(el) - 1;
+  //   showTooltip($(".table *").eq(index));
+  //   e.stopPropagation();
+  // });
 
   // Shows the tooltip on the table
   $(".markup").on("mouseout", "*", function (e) {
@@ -151,7 +135,6 @@ function resetProgress() {
   $(".completed").removeClass("completed");
   loadLevel();
   closeMenu();
-  $("#mCSB_2_container").css("top", 0); // Strange element to reset scroll due to scroll plugin
 }
 
 //Checks if the level is completed
@@ -280,19 +263,15 @@ function enterHit() {
 
 //Parses text from the input field
 function handleInput(text) {
-  console.log("text", parseInt(text, 10));
   if (parseInt(text, 10) > 0 && parseInt(text, 10) < levels.length + 1) {
     currentLevel = parseInt(text, 10) - 1;
 
-    console.log("currentLevel", currentLevel);
   }
   // fireRule(text);
   fireArray(text); //hemos cambiado el nombre de la función que evalúa la respuesta del usuario
 }
 
 function setFeedbackMessage(type, evalCode) {
-  console.log("🚀 ~ file: field.js ~ line 293 ~ setFeedbackMessage ~ type", type)
-
   $('#exercise-feedback').removeClass('d-none alert-success alert-warning alert-danger');
   $('#exercise-feedback').addClass(FEEDBACK_MESSAGE_CLASSES[type]);
 
@@ -358,10 +337,8 @@ clearFeedbackMessage();
     return;
   } else {
     trackProgress(currentLevel, "incorrect");
-    console.log("🚀 ~ file: field.js ~ line 346 ~ fireArray ~ currentLevel", currentLevel)
     let { variableToCheck } = levels[currentLevel];
 
-    console.log("🚀 ~ file: field.js ~ line 348 ~ fireArray ~ variableToCheck", variableToCheck)
     let evaluatedVariable = getVariableEval(text, variableToCheck);
     setFeedbackMessage('notCorrect', `<b>${variableToCheck} = ${evaluatedVariable}</b>`)
     shakeEditor();
@@ -403,7 +380,6 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
   let evalInputUser;
   let { variableToCheck } = levels[currentLevel];
-  console.log("🚀 ~ file: field.js ~ line 351 ~ checkLevelCorrect ~ variableToCheck", variableToCheck)
 
   let methodCorrect;
   let valuesAreEqual;
@@ -417,15 +393,6 @@ function checkLevelCorrect(currentLevel, inputUser) {
     throw new Error(error);
   }
 
-
-
-  // if (levels[currentLevel].solutionIsArray) {
-
-  //   // obtenemos un string de levels.js, que transformamos en array mediante el método split
-  //   myGrassSolution = myGrassSolution.split(',');
-  //   console.log("🚀 ~ file: field.js ~ line 368 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
-  // }
-
   //AQUI EMPEZAMOS NOSOTROS
   let regExpExercise = levels[currentLevel].regExp;
 
@@ -433,7 +400,6 @@ function checkLevelCorrect(currentLevel, inputUser) {
 
   // test devuelve true si lo que ha puesto en el usuario en el editor al menos contiene la cadena de texto "myGrass.filter"
   methodCorrect = expresion.test(inputUser);
-  console.log("🚀 ~ file: field.js ~ line 379 ~ checkLevelCorrect ~ methodCorrect", methodCorrect)
 
   // arrayEquals devuelve true si los dos arrays son iguales, el de la solución y el que queda tras ejecutar el código del usuario. 
   // TODO : try catch
@@ -446,9 +412,6 @@ function checkLevelCorrect(currentLevel, inputUser) {
   }
 
   valuesAreEqual = _.isEqual(myGrassSolution, variableToCheckEvaluated);
-  console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ eval de variableToCheckEvaluated", variableToCheckEvaluated)
-  console.log("🚀 ~ file: field.js ~ line 382 ~ checkLevelCorrect ~ myGrassSolution", myGrassSolution)
-  console.log("🚀 ~ file: field.js ~ line 383 ~ checkLevelCorrect ~ valuesAreEqual", valuesAreEqual)
 
   // isCorrect es lo que devuelve esta función y podemos decir que el ejercicio es correcto si se cumple la expresión regular y el aray resultante tras aplicar el método de array es igual al array de la solución
   // isCorrect=methodCorrect && valuesAreEqual;
@@ -467,10 +430,8 @@ function arrayEquals(a, b) {
     a.length === b.length &&
     a.every((val, index) => val === b[index])
   );
-
-  //
 }
-//console.log(myGrass, currentLevel);
+
 // Loads up the help text & examples for each level
 function showHelp() {
   var helpTitle = level.helpTitle || "";
@@ -538,9 +499,6 @@ function fireRule(rule) {
 
   var ruleSelected = $(".table").find(rule).not(baseTable); // What the correct rule finds
   var levelSelected = $(".table").find(level.selector).not(baseTable); // What the person finds
-
-  console.log(ruleSelected);
-  console.log(levelSelected);
 
   var win = false;
 
@@ -659,15 +617,6 @@ function getIncorrectCount(level) {
 // Sends event to Google Analytics
 // Doesn't send events if we're on localhost, as the ga variable is set to false
 function sendEvent(category, action, label, wrongCount) {
-
-  console.log(
-    "parametros funcion sendEvent",
-    category,
-    action,
-    label,
-    wrongCount
-  );
-
   $.post(
     "/statistics",
     {
@@ -676,7 +625,6 @@ function sendEvent(category, action, label, wrongCount) {
       wrongCount,
     },
     function (result) {
-      console.log(result);
     }
   );
 
@@ -692,7 +640,6 @@ function winGame() {
 }
 
 function checkResults(ruleSelected, levelSelected, rule) {
-  console.log(rule);
   var ruleTable = $(".table").clone();
   ruleTable.find(".strobe").removeClass("strobe");
   ruleTable.find(rule).addClass("strobe");
@@ -771,13 +718,6 @@ function loadLevel() {
   hideTooltip();
 
   level = levels[currentLevel];
-
-  // Show the help link only for the first three levels
-  if (currentLevel < 3) {
-    $(".note-toggle").show();
-  } else {
-    $(".note-toggle").hide();
-  }
 
   $(".level-menu .current").removeClass("current");
   $(".level-menu div a").eq(currentLevel).addClass("current");

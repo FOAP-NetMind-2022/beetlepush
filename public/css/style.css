@@ -1245,21 +1245,6 @@ queda limpiar lo que estaba hecho previamente
   display: inline-block;
 }
 
-.level-menu-toggle-wrapper {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 30px;
-  padding: 4px 2px;
-  opacity: .25;
-  transition: linear all .05s;
-  cursor: pointer;
-}
-
-.level-menu-toggle-wrapper:hover {
-  opacity: .4;
-}
-
 .level-menu-toggle {
   height: 2px;
   width: 27px;
@@ -1325,25 +1310,6 @@ queda limpiar lo que estaba hecho previamente
   color: #1b6f9b;
   background: rgba(27, 111, 155, .1);
   font-weight: bold;
-}
-
-.note .note-toggle:hover {
-  color: #1b6f9b;
-  background: rgba(27, 111, 155, .15);
-}
-
-.note-toggle {
-  background: rgba(0, 0, 0, 0.75);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 8px 15px 10px 15px;
-  -webkit-border-radius: 20px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.note-toggle:hover {
-  text-decoration: underline;
-  color: rgba(255, 255, 255, .4);
 }
 
 .note pre {

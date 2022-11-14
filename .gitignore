@@ -104,6 +104,9 @@ dist
 # TernJS port file
 .tern-port
 
+# configuration files
+.vscode
 
+# ?
 notas issue-14.txt
 
