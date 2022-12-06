@@ -6,7 +6,7 @@
 
 - [Repo](https://github.com/FOAP-NetMind-2022/beetlepush)
 
-- [Play](https://beetlepush.herokuapp.com/)
+- [Play](https://beetlepush.vercel.app/)
 
 - [Requests/Bugs](https://github.com/FOAP-NetMind-2022/beetlepush/issues)
 
